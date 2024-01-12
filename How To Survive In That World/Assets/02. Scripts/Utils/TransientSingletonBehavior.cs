@@ -1,9 +1,9 @@
 
 using UnityEngine;
 
-public class SingletonBehavior<T> : SingletonBase where T : MonoBehaviour
+public class TransientSingletonBehavior<T> : SingletonBase where T : MonoBehaviour
 {
-    // Field Members
+    // Field Member
     private static T _instance;
 
 
@@ -16,7 +16,7 @@ public class SingletonBehavior<T> : SingletonBase where T : MonoBehaviour
         {
             if (_isDisabled)
             {
-                DebugLogger.LogError("[Singleton] Instance '" + typeof(T) + "' already destroyed. Returning Null Instance");
+                DebugLogger.LogError("[TransientSingleton] Instance '" + typeof(T) + "' already destroyed. Returning Null Instance");
                 return null;
             }
 
@@ -28,44 +28,40 @@ public class SingletonBehavior<T> : SingletonBase where T : MonoBehaviour
     }
 
     #endregion
-    
-    
-    
+
+
+
     #region Properties Util Methods
 
     private static T GetInstance()
     {
         if (_instance != null) return _instance;
-        
+
         _instance = (T)FindFirstObjectByType(typeof(T));
 
         if (_instance == null)
         {
             var singletonObject = new GameObject { name = "[Singleton] " + typeof(T) };
-                
+
             _instance = singletonObject.AddComponent<T>();
-
-            DontDestroyOnLoad(singletonObject);
-
-            DebugLogger.Log("[Singleton] An instance of '" + typeof(T) + "' created with DontDestroyOnLoad");
+            
+            DebugLogger.Log("[TransientSingleton] An instance of '" + typeof(T) + "' created");
         }
         else
         {
-            DontDestroyOnLoad(_instance);
-                
-            DebugLogger.Log("[Singleton] Using instance already created. '" + typeof(T) + "' so Update DontDestroyOnLoad");
+            DebugLogger.Log("[TransientSingleton] Using instance already created: '" + typeof(T) + "'");
         }
 
         return _instance;
     }
 
     #endregion
-    
-    
-    
+
+
+
     #region Disabled Singleton
 
-    protected virtual void OnDisable()
+    protected void OnDisable()
     {
         if (_instance == this)
         {
