@@ -11,16 +11,21 @@
 public class Managers : SingletonBehavior<Managers>
 {
     #region Managers Field
-
+    
     private readonly Manager_Game _GameManager = new();
-
+    
     #endregion
 
 
 
     #region Getter Properties
 
+    /* No Standalone */
     public static Manager_Game Game => Instance._GameManager;
+    
+    
+    /* Standalone */
+    public static CoroutineManager Coroutine => CoroutineManager.Instance;
 
     #endregion
 }
