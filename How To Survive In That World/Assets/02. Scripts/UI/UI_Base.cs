@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UI_Base : MonoBehaviour
 {
-    //DictionaryÀÚ½Ä¿¡ ÀÖ´Â Type°ú Å¸ÀÔ¿¡ ÇØ´çÇÏ´Â ¿ÀºêÁ§Æ®¸¦ °ü¸®ÇÕ´Ï´Ù.
+    //Dictionaryìì‹ì— ìˆëŠ” Typeê³¼ íƒ€ì…ì— í•´ë‹¹í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ê´€ë¦¬í•©ë‹ˆë‹¤.
     private Dictionary<Type, UnityEngine.Object[]> _objects = new();
 
     private bool _initialized = false;
@@ -18,8 +18,8 @@ public class UI_Base : MonoBehaviour
         Initialize();
     }
 
-    //ÃÊ±âÈ­¸¦ Çß´ÂÁö ¾ÈÇß´ÂÁö Ã¼Å©ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù.
-    //¿©±â¼­ Protected°¡ ¾Æ´Ñ publicÀ¸·Î ÇÏ´Â ÀÌÀ¯´Â ÃÊ±âÈ­¸¦ ´Ù¸¥ Å¬·¡½º¿¡¼­µµ ÇÏ±â À§ÇÔÀÔ´Ï´Ù.
+    //ì´ˆê¸°í™”ë¥¼ í–ˆëŠ”ì§€ ì•ˆí–ˆëŠ”ì§€ ì²´í¬í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤.
+    //ì—¬ê¸°ì„œ Protectedê°€ ì•„ë‹Œ publicìœ¼ë¡œ í•˜ëŠ” ì´ìœ ëŠ” ì´ˆê¸°í™”ë¥¼ ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œë„ í•˜ê¸° ìœ„í•¨ì…ë‹ˆë‹¤.
     public virtual bool Initialize()
     {
         if (_initialized == true)
@@ -31,8 +31,8 @@ public class UI_Base : MonoBehaviour
 
     private void Bind<T>(Type type) where T : UnityEngine.Object  
     {
-        string[] names = Enum.GetNames(type); //typeÀÇ °ªµéÀ» ´Ù °¡Á®¿Í¼­ »ç¿ëÇÔ
-        UnityEngine.Object[] objects = new UnityEngine.Object[names.Length]; //typeÀÇ °ªµéÀÇ Å©±â¸¸Å­ ¹è¿­Å©±â ÁöÁ¤
+        string[] names = Enum.GetNames(type); //typeì˜ ê°’ë“¤ì„ ë‹¤ ê°€ì ¸ì™€ì„œ ì‚¬ìš©í•¨
+        UnityEngine.Object[] objects = new UnityEngine.Object[names.Length]; //typeì˜ ê°’ë“¤ì˜ í¬ê¸°ë§Œí¼ ë°°ì—´í¬ê¸° ì§€ì •
 
         for (int i = 0; i < objects.Length; i++)
         {
@@ -41,7 +41,7 @@ public class UI_Base : MonoBehaviour
         _objects.Add(typeof(T), objects);
     }
 
-    //Bind¸¦ ÀÌ¿ëÇØ¼­ dictionary¿¡ °ªµéÀ» ¹­¾î¼­ ÀúÀåÇÕ´Ï´Ù.
+    //Bindë¥¼ ì´ìš©í•´ì„œ dictionaryì— ê°’ë“¤ì„ ë¬¶ì–´ì„œ ì €ì¥í•©ë‹ˆë‹¤.
     protected void BindObject(Type type) => Bind<GameObject>(type);
     protected void BindText(Type type) => Bind<TextMeshProUGUI>(type);
     protected void BindButton(Type type) => Bind<Button>(type);

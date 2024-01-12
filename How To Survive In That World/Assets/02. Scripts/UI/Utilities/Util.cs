@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class Util
 {
-    //Á¦³×¸¯À¸·Î °ªÀ» ¹Ş¾Æ¼­ ³»°¡ ¿øÇÏ´Â ÄÄÆÛ³ÍÆ®¸¦ Ã£Àº ÈÄ ¸®ÅÏÇÑ´Ù.
+    //ì œë„¤ë¦­ìœ¼ë¡œ ê°’ì„ ë°›ì•„ì„œ ë‚´ê°€ ì›í•˜ëŠ” ì»´í¼ë„ŒíŠ¸ë¥¼ ì°¾ì€ í›„ ë¦¬í„´í•œë‹¤.
     public static T FindChild<T>(GameObject go, string name = null) where T : UnityEngine.Object
     {   
         if (go == null)
             return null;
-        //¿ÀºêÁ§Æ®ÀÇ ºñÈ°¼ºÈ­µÈ ÀÚ½Äµé±îÁö °Ë»çÇÏ¿© T¿¡ ÇØ´çÇÏ´Â ¿ÀºêÁ§Æ®¸¦ °¡Á®¿È
+        //ì˜¤ë¸Œì íŠ¸ì˜ ë¹„í™œì„±í™”ëœ ìì‹ë“¤ê¹Œì§€ ê²€ì‚¬í•˜ì—¬ Tì— í•´ë‹¹í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ê°€ì ¸ì˜´
         T[] components = go.GetComponentsInChildren<T>(true);
-        if (string.IsNullOrEmpty(name)) //ÀÌ¸§ÀÌ null°ªÀÌ¸é ±×³É Ã¹¹øÂ°ÀÇ °ªÀ» °¡Á®¿À°í
+        if (string.IsNullOrEmpty(name)) //ì´ë¦„ì´ nullê°’ì´ë©´ ê·¸ëƒ¥ ì²«ë²ˆì§¸ì˜ ê°’ì„ ê°€ì ¸ì˜¤ê³ 
             return components[0];
         else
-            return components.Where(x => x.name == name).FirstOrDefault(); //components¿¡ µé¾îÀÖ´Â ÀÌ¸§°ú name ¸ÂÀ¸¸é °ªÀ» °¡Á®¿À°Å³ª ¾øÀ¸¸é null
+            return components.Where(x => x.name == name).FirstOrDefault(); //componentsì— ë“¤ì–´ìˆëŠ” ì´ë¦„ê³¼ name ë§ìœ¼ë©´ ê°’ì„ ê°€ì ¸ì˜¤ê±°ë‚˜ ì—†ìœ¼ë©´ null
     }
 
-    //GameObject´Â ÄÄÆÛ³ÍÆ®·Î Ã£À» ¼ö ¾ø±â ¶§¹®¿¡ TransformÀ¸·Î º¯È¯ ÈÄ °Ë»çÇÏ¿© Àü´ŞÇÑ´Ù.
+    //GameObjectëŠ” ì»´í¼ë„ŒíŠ¸ë¡œ ì°¾ì„ ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— Transformìœ¼ë¡œ ë³€í™˜ í›„ ê²€ì‚¬í•˜ì—¬ ì „ë‹¬í•œë‹¤.
     public static GameObject FindChild(GameObject go, string name = null) 
     {
         Transform transform = FindChild<Transform>(go, name);
