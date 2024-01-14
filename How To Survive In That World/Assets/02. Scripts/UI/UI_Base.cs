@@ -29,6 +29,11 @@ public class UI_Base : MonoBehaviour
         return true;
     }
 
+    protected virtual void SetOrder() //여기에서 sortingOrder의 값을 초기화 해줍니다
+    {
+
+    }
+
     private void Bind<T>(Type type) where T : UnityEngine.Object  
     {
         string[] names = Enum.GetNames(type); //type의 값들을 다 가져와서 사용함
