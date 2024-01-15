@@ -1,3 +1,6 @@
+/// <summary>
+/// 현재 상태에 대한 관리, 상태 변경 등에 대한 처리입니다.
+/// </summary>
 public class StateMachine<T> where T : class
 {
     # region Field
@@ -20,7 +23,7 @@ public class StateMachine<T> where T : class
         ChangeState(entryState);
     }
     
-    // 에이전트의 행동을 매 프레임 업데이트 하기 위해서, 에이전트 클래스에서 호출합니다.
+    // 에이전트의 행동을 매 프레임 업데이트 하기 위해서, 에이전트의 Updated에서 호출합니다.
     public void Execute()
     {
         if(_globalState != null)
