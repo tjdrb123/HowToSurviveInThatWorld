@@ -16,7 +16,7 @@ public static class Literals
 {
     #region Floating Value
 
-    public const float ZeroF = 0f;
+    public const float ZERO_F = 0f;
 
     #endregion
 }
