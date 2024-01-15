@@ -7,7 +7,7 @@ public abstract class BaseGameEntity : MonoBehaviour
     #region Field
 
     // 정적 변수
-    private static int m_iNextValidID = 0;
+    private static int m_iNextValidID;
     private string _entityName; // 에이전트 이름
     
     // BaseGameEntity를 상속받는 모든 게임오브젝트는 ID 번호를 부여받고,
@@ -18,9 +18,9 @@ public abstract class BaseGameEntity : MonoBehaviour
 
     #region Properties
 
-    public int ID
+    protected int ID
     {
-        set
+        private set
         {
             _id = value;
             m_iNextValidID++;

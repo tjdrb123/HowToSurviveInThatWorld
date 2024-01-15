@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 // Player가 가질 수 있는 상태를 정의하는 클래스 입니다.
-// 현재 아래 상태는 예시입니다.
+// 현재, 아래 상태는 예시입니다.
 namespace  PlayerOwnedStates
 {
     public class RestAndSleep : State<Player>
     {
         public override void Enter(Player entity)
         {
-            // 현재 위치를 마을로 설정,
-            entity.CurrentLocation = Locations.Viliage;
+            // 마을에서 실행되는 상태
+            entity.CurrentLocation = Locations.Village;
             
             // 뭐 체력이 10으로 되는 예시이고, 전투모드라는 bool 값이 있다면 그것을 false로 해줘도 된다.
             entity.Health = 10;
@@ -46,6 +42,25 @@ namespace  PlayerOwnedStates
             // 전투 끝, 다시 파밍상태로 변경
         }
     }
+
+    public class StateGlobal : State<Player>
+    {
+        // 플레이어의 현재 상태와 별개로, 모든 상태에서 지속적으로 업데이트 되어야 하는 상태입니다. ex) 스태미너 감소
+        // 따라서 Enter() 와 Exit()는 없습니다.
+        public override void Enter(Player entity)
+        {
+        }
+
+        public override void Execute(Player entity)
+        {
+            //
+        }
+
+        public override void Exit(Player entity)
+        {
+        }
+    }
+
     
     // 다른 상태 추가
 }

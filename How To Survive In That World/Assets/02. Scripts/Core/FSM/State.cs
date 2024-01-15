@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
 // 모든 상태가 상속받는 기반 클래스
 public abstract class State<T> where T : class
 {
