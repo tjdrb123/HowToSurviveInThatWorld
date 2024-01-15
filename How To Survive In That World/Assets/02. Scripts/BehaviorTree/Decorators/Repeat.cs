@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 자식 노드의 상태에 상관없이 지정된 횟수만큼 반복하고 완료 후 Success를 반환.
-// 추후 적용 후 리팩토링 진행예정.
+// 추후 적용과 실험 후 리팩토링 진행예정.
 public sealed class Repeat : INode
 {
     private readonly INode _children;
@@ -22,6 +22,7 @@ public sealed class Repeat : INode
         // 지정된 횟수만큼 반복
         if (_currentCount < _repeatCount)
         {
+            _children.Evaluate();
             _currentCount++;
 
             return INode.E_NodeState.ENS_Running;
