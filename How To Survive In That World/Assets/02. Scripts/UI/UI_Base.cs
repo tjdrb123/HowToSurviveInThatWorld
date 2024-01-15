@@ -11,9 +11,9 @@ public class UI_Base : MonoBehaviour
     //Dictionary자식에 있는 Type과 타입에 해당하는 오브젝트를 관리합니다.
     private Dictionary<Type, UnityEngine.Object[]> _objects = new();
 
-    private bool _initialized = false;
+    private bool _initialized = false; //초기화가 되었는지 판단
 
-    protected virtual void OnEnable()
+    protected virtual void OnEnable() //함수가 활성화 되때마다 초기화가 되었는지 판단
     {
         Initialize();
     }
@@ -27,6 +27,11 @@ public class UI_Base : MonoBehaviour
 
         _initialized = true;
         return true;
+    }
+
+    protected virtual void SetOrder() //여기에서 sortingOrder의 값을 초기화 해줍니다
+    {
+
     }
 
     private void Bind<T>(Type type) where T : UnityEngine.Object  

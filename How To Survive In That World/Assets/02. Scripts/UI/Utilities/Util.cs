@@ -26,4 +26,11 @@ public class Util
             return null;
         return transform.gameObject;
     }
+
+    public static T GetOrAddComponent<T>(GameObject obj) where T : Component //이 함수를 통해 오브젝트의 컴퍼넌트를 불러올수 있고 없으면 새로 만들어서 리턴합니다
+    { 
+        if (!obj.TryGetComponent<T>(out T component))
+            component = obj.AddComponent<T>();
+        return component;
+    }
 }
