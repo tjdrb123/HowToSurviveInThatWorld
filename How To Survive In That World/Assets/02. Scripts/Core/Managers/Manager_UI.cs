@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class Manager_UI 
 {
-    private static readonly int InitialPopupOrder = 10; //Pop_UP UIÀÇ sortingOrder ±âº» °ªÀÔ´Ï´Ù.
+    private static readonly int InitialPopupOrder = 10; //Pop_UP UIì˜ sortingOrder ê¸°ë³¸ ê°’ì…ë‹ˆë‹¤.
 
     private List<UI_Popup> _popups = new();
 
-    public GameObject Root //UIÀÇ ºÎ¸ğ¸¦ ¸¸µé¾î¼­ ÀÌ¾È¿¡¼­ °ü¸®¸¦ ÇÕ´Ï´Ù.
+    public GameObject Root //UIì˜ ë¶€ëª¨ë¥¼ ë§Œë“¤ì–´ì„œ ì´ì•ˆì—ì„œ ê´€ë¦¬ë¥¼ í•©ë‹ˆë‹¤.
     {
         get
         {
@@ -20,9 +20,9 @@ public class Manager_UI
             return root;
         }
     }
-    public void SetCanvas(GameObject obj) //CanvasÀÇ ±âº» Á¤º¸¸¦ ÃÖ½ÅÈ­½ÃÅµ´Ï´Ù.
+    public void SetCanvas(GameObject obj) //Canvasì˜ ê¸°ë³¸ ì •ë³´ë¥¼ ìµœì‹ í™”ì‹œí‚µë‹ˆë‹¤.
     { 
-        Canvas canvas = obj.GetOrAddComponent<Canvas>(); //UIÀÇ ÃÖ»óÀ§ ¿ÀºêÁ§Æ®ÀÇ Canvas¸¦ °¡Á®¿È Ex)UI_CursorSlot, UI_GameScene
+        Canvas canvas = obj.GetOrAddComponent<Canvas>(); //UIì˜ ìµœìƒìœ„ ì˜¤ë¸Œì íŠ¸ì˜ Canvasë¥¼ ê°€ì ¸ì˜´ Ex)UI_CursorSlot, UI_GameScene
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.overrideSorting = true;
         CanvasScaler scaler = obj.GetOrAddComponent<CanvasScaler>();
@@ -30,18 +30,18 @@ public class Manager_UI
         scaler.referenceResolution = new(2560, 1440);
     }
 
-    public T ShowPopupUI<T>(string name = null) where T : UI_Popup //ÀÌ ÇÔ¼ö¸¦ ÅëÇØ Pop_UpÀ» ½ÇÇà½ÃÅ³ ¼ö ÀÖ½À´Ï´Ù.
+    public T ShowPopupUI<T>(string name = null) where T : UI_Popup //ì´ í•¨ìˆ˜ë¥¼ í†µí•´ Pop_Upì„ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
     {
         if (string.IsNullOrEmpty(name)) name = typeof(T).Name;
 
-        GameObject obj = new GameObject(name); //new GameObject°¡ ¾Æ´Ñ PrefabÀ» ³Ö¾îÁÖ¸é µË´Ï´Ù.
+        GameObject obj = new GameObject(name); //new GameObjectê°€ ì•„ë‹Œ Prefabì„ ë„£ì–´ì£¼ë©´ ë©ë‹ˆë‹¤.
         obj.transform.SetParent(Root.transform);
         T popup = obj.GetOrAddComponent<T>();
         _popups.Add(popup);
 
         return popup;
     }
-    //public void ClosePopup(UI_Popup popup) //ÀÌ ÇÔ¼ö¸¦ ÅëÇØ Pop_UpÀ» Á¾·á½ÃÅ³ ¼ö ÀÖ½À´Ï´Ù.
+    //public void ClosePopup(UI_Popup popup) //ì´ í•¨ìˆ˜ë¥¼ í†µí•´ Pop_Upì„ ì¢…ë£Œì‹œí‚¬ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
     //{
     //    if (_popups.Count == 0) return;
 

@@ -10,13 +10,13 @@ public class UI_Popup : UI_Base
     {
         if (!base.Initialize()) return false;
 
-        //this.SetCanvas();//Äµ¹ö½º ÃÊ±â¼ÂÆÃ
+        //this.SetCanvas();//ìº”ë²„ìŠ¤ ì´ˆê¸°ì…‹íŒ…
         _canvas = this.GetComponent<Canvas>();
 
         return true;
     }
     protected override void SetOrder() => _canvas.sortingOrder = 10;
 
-    //Close½Ã ÀÛµ¿ ÇÒ ·ÎÁ÷ Ãß°¡ÇØ¾ßÇÔ
-    //Pop_UpÃ¢À» ¾î¶²½ÄÀ¸·Î ÇÒÁö ³íÀÇ ÇÊ¿ä
+    //Closeì‹œ ì‘ë™ í•  ë¡œì§ ì¶”ê°€í•´ì•¼í•¨
+    //Pop_Upì°½ì„ ì–´ë–¤ì‹ìœ¼ë¡œ í• ì§€ ë…¼ì˜ í•„ìš”
 }
