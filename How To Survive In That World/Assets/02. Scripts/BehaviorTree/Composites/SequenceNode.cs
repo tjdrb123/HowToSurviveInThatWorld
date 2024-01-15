@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-// 자식의 노드가 Failure 상태를 반활할 때 까지 진행하는 노드. (AND, &&)
-// 여러 행동중 순서대로 진행할 때 용이.
+// 자식의 노드가 Failure 싱테가 아니면 반환하는 노드. (OR, ||)
+// 여러 행동중 하나만 실행할 때 용이.
 public sealed class SequenceNode : INode
 {
     private readonly List<INode> _children;
@@ -32,6 +32,6 @@ public sealed class SequenceNode : INode
             }
         }
         
-        return INode.E_NodeState.ENS_Failure;
+        return INode.E_NodeState.ENS_Success;
     }
 }
