@@ -2,7 +2,7 @@ using UnityEngine;
 
 // 자식 노드가 실패를 반환할 때까지 계속해서 재검사 하는 데코레이터 노드.
 // 실패를 반환하면 성공을 반환한다.
-public class UntilFail : MonoBehaviour
+public sealed class UntilFail : INode
 {
     private readonly INode _children;
 
