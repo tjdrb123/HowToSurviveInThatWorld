@@ -51,6 +51,7 @@ public class UI_Base : MonoBehaviour
     protected void BindText(Type type) => Bind<TextMeshProUGUI>(type);
     protected void BindButton(Type type) => Bind<Button>(type);
     protected void BindImage(Type type) => Bind<Image>(type);
+    protected void BindAudio(Type type) => Bind<AudioSource>(type);
 
 
     private T Get<T>(int index) where T : UnityEngine.Object
@@ -66,5 +67,5 @@ public class UI_Base : MonoBehaviour
     protected TextMeshProUGUI GetText(int index) => Get<TextMeshProUGUI>(index);
     protected Button GetButton(int index) => Get<Button>(index);
     protected Image GetImage(int index) => Get<Image>(index);
-
+    protected AudioSource GetAudio(int index) => Get<AudioSource>(index);
 }

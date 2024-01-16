@@ -8,13 +8,13 @@ public class UI_Scene : UI_Base
     {
         if (!base.Initialize()) return false;
 
-        //this.SetCanvas(); GameManager°¡ ¸¸µé¾îÁö¸é »ç¿ëÇÏ¿© ÃÊ±âÈ­
+        //this.SetCanvas(); GameManagerê°€ ë§Œë“¤ì–´ì§€ë©´ ì‚¬ìš©í•˜ì—¬ ì´ˆê¸°í™”
         SetOrder();
 
         return true;
     }
 
-    protected override void SetOrder() //½Å¿¡ ±âº»À¸·Î ±ò¸®´Â UI±â ¶§¹®¿¡ PopUp º¸´Ù ³·°Ô 0À¸·Î ÁöÁ¤ÇØÁØ´Ù.
+    protected override void SetOrder() //ì‹ ì— ê¸°ë³¸ìœ¼ë¡œ ê¹”ë¦¬ëŠ” UIê¸° ë•Œë¬¸ì— PopUp ë³´ë‹¤ ë‚®ê²Œ 0ìœ¼ë¡œ ì§€ì •í•´ì¤€ë‹¤.
     {
         this.GetComponent<Canvas>().sortingOrder = 0;
     }
