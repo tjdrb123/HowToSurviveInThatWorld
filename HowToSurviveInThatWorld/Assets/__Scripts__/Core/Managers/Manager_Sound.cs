@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Sound
+public enum E_Sound
 {
     Bgm,    //반복재생
     Effect, //짧게 1번만 재생
