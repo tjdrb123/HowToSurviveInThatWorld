@@ -66,5 +66,4 @@ public class UI_Base : MonoBehaviour
     protected TextMeshProUGUI GetText(int index) => Get<TextMeshProUGUI>(index);
     protected Button GetButton(int index) => Get<Button>(index);
     protected Image GetImage(int index) => Get<Image>(index);
-
 }
