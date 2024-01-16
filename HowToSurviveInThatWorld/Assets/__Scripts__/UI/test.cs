@@ -7,11 +7,8 @@ public class test : UI_Base
 {
     enum Buttons
     {
-        Button,
-    }
-    enum Sounds
-    {
-        testAudio,
+        playButton,
+        clearButton
     }
     public override bool Initialize()
     {
@@ -19,15 +16,18 @@ public class test : UI_Base
               return false;
 
         BindButton(typeof(Buttons));
-        BindAudio(typeof(Sounds));
-
-        GetButton((int)Buttons.Button).onClick.AddListener(SoundPlay);
-        Manager_Sound.instance.AddClip("testSound");
+        GetButton((int)Buttons.playButton).onClick.AddListener(SoundPlay);
+        GetButton((int)Buttons.clearButton).onClick.AddListener(Clear);
+        Manager_Sound.instance.AddClip("sound");
         return true;
     }
 
     private void SoundPlay()
     {
-        Manager_Sound.instance.PlaySFX(GetAudio((int)Sounds.testAudio), "testSound");
+        Manager_Sound.instance.PlayBGM("sound");
+    }
+    private void Clear()
+    {
+        Manager_Sound.instance.AudioClear();
     }
 }

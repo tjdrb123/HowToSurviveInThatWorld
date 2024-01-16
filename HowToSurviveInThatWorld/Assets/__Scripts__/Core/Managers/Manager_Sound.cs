@@ -25,16 +25,19 @@ public class Manager_Sound : MonoBehaviour
         AudioClip clip = Resources.Load($"{clipName}") as AudioClip;
         _audioClips.Add(clipName, clip);
     }
-    public AudioSource PlayBGM(string bgmName, bool loop = true)
+    public void PlayBGM(string bgmName, bool loop = true)
     {
-        if (!_audioSource.TryGetValue(bgmName, out AudioSource source))
+        if (!_audioSource.TryGetValue(bgmName, out AudioSource source)) //초기 설정
         {
-            source = gameObject.AddComponent<AudioSource>();
-            source.clip = _audioClips[bgmName];
+            if (!gameObject.TryGetComponent(out source))
+            {
+                source = gameObject.AddComponent<AudioSource>();
+            }
             source.loop = loop;
             _audioSource[bgmName] = source;
         }
-        return _audioSource[bgmName];
+        source.clip = _audioClips[bgmName];
+        _audioSource[bgmName].Play();
     }
     public void PlaySFX(AudioSource audioSource, string sfxName) //게임오브젝트의 AudioSource에 접근해서 값 전달하기, 게임오브젝트의 AudiloSource생성하게 하기
     {
@@ -43,12 +46,14 @@ public class Manager_Sound : MonoBehaviour
             audioSource.clip = source;
             audioSource.loop = false;
         }
-        Debug.Log(audioSource.name);
         audioSource.Play();
     }
     
-    public void AudioClear() //신전환시 클리어하게 하기
+    public void AudioClear() //좀더 보안해야함, 현재 clip의 값만 초기화를 시켜주는거임
     {
-        
+        foreach (var item in _audioSource.Values)
+        {
+            item.clip = null;
+        }
     }
 }
