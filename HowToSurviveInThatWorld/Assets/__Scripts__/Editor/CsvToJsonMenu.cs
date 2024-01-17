@@ -1,32 +1,18 @@
-using Newtonsoft.Json;
+using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
 
-public class DataManager
+public class CsvToJsonMenu
 {
-    // memory -> json
-    public void SaveData<T>(T obj, string fileName, string path = Literals.JSON_PATH)
+    [MenuItem("Data Tools/CsvToJson")]
+    static void ConvertCsvToJson()
     {
-        string jsonSting = JsonConvert.SerializeObject(obj, Formatting.Indented);
-        File.WriteAllText($"{path}{fileName}.json", jsonSting);
+        CsvToJson("TestData");
     }
-
-    // json -> memory
-    public T LoadData<T>(string fileName, string path = Literals.JSON_PATH)
-    {
-        string fullPath = $"{path}{fileName}.json";
-
-        if (!FindFile(fullPath))
-            return default(T);
-
-        string jsonData = File.ReadAllText($"{path}{fileName}.json");
-        T loadData = JsonConvert.DeserializeObject<T>(jsonData);
-        return loadData;
-    }
-
-    //csv -> json
-    public void CsvToJson(string fileName, string path = Literals.CSV_PATH)
+    
+    static void CsvToJson(string fileName, string path = Literals.CSV_PATH)
     {
         string fullPath = $"{path}{fileName}.csv";
 
@@ -53,8 +39,8 @@ public class DataManager
         string jsonSting = JsonConvert.SerializeObject(dataList, Formatting.Indented);
         File.WriteAllText($"{Literals.JSON_PATH}{fileName}.json", jsonSting);
     }
-
-    private bool FindFile(string path)
+    
+    private static bool FindFile(string path)
     {
         if (File.Exists(path))
             return true;
