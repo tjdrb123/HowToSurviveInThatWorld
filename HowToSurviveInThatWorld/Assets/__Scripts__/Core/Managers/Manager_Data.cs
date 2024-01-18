@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Manager_Data
 {
-    public TestData Test = new();
+    //public TestData Test = new();
     
     public void Initialize()
     {
-        Test = LoadData<TestData>("TestData"); // 씬에서 데이터 로드가 필요할 때 Initialize 사용
+        //Test = LoadData<PlayerData>("PlayerData"); // 씬에서 데이터 로드가 필요할 때 Initialize 사용
     }
     
     // memory -> json
