@@ -25,7 +25,7 @@ public class Tets : MonoBehaviour
             var oper2 = await Managers.Addressable.LoadLocationAsync("Common");
             if (oper2.IsSucceeded)
             {
-                var oper3 = await Managers.Addressable.LoadAllAssetAsync<GameObject>("Common");
+                var oper3 = await Managers.Addressable.LoadAllAssetAsync<UnityEngine.Object>("Common");
             }
         }
     }

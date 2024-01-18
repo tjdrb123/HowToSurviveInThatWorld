@@ -9,7 +9,10 @@ using Object = UnityEngine.Object;
 
 /// <summary>
 /// # UniTask Methods
-///   - 유니티 비동기를 최대한 이용하기 위한 Operation 메서드
+///   - 유니티 비동기를 최대한 이용하기 위한 메서드들
+///   - InitializeAddressable
+///   - LoadLocations
+///   - LoadAsset(s)
 /// </summary>
 public partial class Manager_Addressable
 {
@@ -76,7 +79,7 @@ public partial class Manager_Addressable
             await operation;
             
             // 리소스 위치 로드 완료 콜백 메서드
-            OnLoadLocationCompleted(operation, key, OnSucceededByLocation);
+            OnLoadLocationCompleted(operation, key);
             
             return new OperationResult<IList<IResourceLocation>>(key, operation);
         }
@@ -108,9 +111,9 @@ public partial class Manager_Addressable
         }
 
         // 해당 딕셔너리에 키가 존재한다면 그대로 반환
-        if (_assets.ContainsKey(key))
+        if (_assets.TryGetValue(key, out var outAsset))
         {
-            if (_assets[key] is T asset)
+            if (outAsset is T asset)
             {
                 return new OperationResult<T>(true, key, asset);
             }
@@ -118,6 +121,8 @@ public partial class Manager_Addressable
             return new OperationResult<T>(false, key, default);
         }
 
+        // 초기화 리소스 로케이션에 해당 정보가 있는지 검증
+        // 리소스 로케이션(레이블)에 존재하지 않는다면 해당하는 에셋이 아님.
         if (!IsInvalidLocation(key))
         {
             DebugLogger.LogWarning(AddressableException.LocationNotFound(key));
@@ -156,9 +161,9 @@ public partial class Manager_Addressable
         }
         
         // 해당 딕셔너리에 키가 존재한다면 그대로 반환
-        if (_assets.ContainsKey(key))
+        if (_assets.TryGetValue(key, value: out var outAsset))
         {
-            if (_assets[key] is T asset)
+            if (outAsset is T asset)
             {
                 return new OperationResult<T>(true, reference, asset);
             }
@@ -166,6 +171,8 @@ public partial class Manager_Addressable
             return new OperationResult<T>(false, reference, default);
         }
         
+        // 초기화 리소스 로케이션에 해당 정보가 있는지 검증
+        // 리소스 로케이션(레이블)에 존재하지 않는다면 해당하는 에셋이 아님.
         if (!IsInvalidLocation(key))
         {
             DebugLogger.LogWarning(AddressableException.LocationNotFound(key));
@@ -213,16 +220,21 @@ public partial class Manager_Addressable
 
         try
         {
-            var operation = Addressables.LoadAssetsAsync<T>(_locations[label],
-                obj => { DebugLogger.Log(obj.name); });
-            await operation;
+            // var operation = Addressables.LoadAssetsAsync<T>(_locations[label], null);
+            //     // obj => { DebugLogger.Log(obj.name); });
+            // await operation;
+            
+            foreach (var location in _locations[label])
+            {
+                var operation = LoadAssetAsync<T>(location.PrimaryKey);
+                await operation;
+            }
 
-            // 완료 콜백 메서드
-            // OnLoadAssetsCompleted(operation);
             return new OperationResult<T>(true, label, default);
         }
         catch (Exception exception)
         {
+            DebugLogger.LogError(exception.Message);
             return new OperationResult<T>(false, label, default);
         }
     }

@@ -14,21 +14,7 @@ public partial class Manager_Addressable
         DebugLogger.Log("Addressable Manager Initialize complete.");
     }
     
-    /// <summary>
-    /// # IResourceLocation
-    ///   - 리소스 로케이션 로드 성공, 콜백 메서드
-    /// </summary>
-    /// <param name="key">Addressable Label</param>
-    private void OnSucceededByLocation(object key)
-    {
-        _isLoadLocation = true;
-        DebugLogger.Log($"Addressable : Location loaded complete. {key}");
-    }
-
-    private void OnSucceededByAssets<T>(string label, IList<T> list)
-    {
-        
-    }
+    // 추 후 필요로 하면 작성
 
     #endregion
 
@@ -36,7 +22,7 @@ public partial class Manager_Addressable
 
     #region Failed Callback
 
-    
+    // 추 후 필요로 하면 작성
 
     #endregion
 }

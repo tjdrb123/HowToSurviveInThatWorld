@@ -132,31 +132,9 @@ public partial class Manager_Addressable
         {
             // 위 예외에서 하나도 걸리지 않았다면 _assets에 캐싱 (메모리 적재)
             _assets.Add(key, handle.Result);
+            DebugLogger.Log($"Asset key : {key} , Asset Name : {handle.Result.name}");
         }
 
         onSucceeded?.Invoke(key, handle.Result);
-    }
-
-    private void OnLoadAssetsCompleted<T>(
-        AsyncOperationHandle<IList<T>> handle,
-        string label,
-        Action<string, List<T>> onSucceeded = null,
-        Action<string> onFailed = null)
-        where T : Object
-    {
-        if (handle.Status != AsyncOperationStatus.Succeeded)
-        {
-            onFailed?.Invoke(label);
-            return;
-        }
-
-        var results = handle.Result;
-        if (results == null || results.Count != _locations[label].Count)
-        {
-            DebugLogger.LogError(AddressableException.CannotLoadAssetsLabel<T>(label));
-
-            onFailed?.Invoke(label);
-            return;
-        }
     }
 }

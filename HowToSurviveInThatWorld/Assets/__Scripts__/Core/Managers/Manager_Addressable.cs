@@ -17,11 +17,9 @@ public partial class Manager_Addressable
     /* Addressable Primary Keys */
     private readonly List<object> _keys;
     
-    /* Init Addressable Flag */
+    /* Init Addressable Init Flag */
+    // Default = false
     private bool _isInitialize;
-    private bool _isLoadLocation;
-    private bool _isLoadAssets;
-    
 
     #endregion
 
@@ -33,8 +31,6 @@ public partial class Manager_Addressable
     public IReadOnlyList<object> Keys => _keys;
 
     public bool IsInitialize => _isInitialize;
-    public bool IsLoadLocation => _isLoadLocation;
-    public bool IsLoadAssets => _isLoadAssets;
 
     #endregion
 
