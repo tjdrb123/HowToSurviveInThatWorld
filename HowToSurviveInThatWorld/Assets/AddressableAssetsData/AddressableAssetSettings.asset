@@ -48,10 +48,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c0b879d6c950254ab0921936e743006, type: 2}
   - {fileID: 11400000, guid: ad40d62f685f7504396d78f4047521a9, type: 2}
   - {fileID: 11400000, guid: 1de2b238b6f6def43a7da2a533dac47e, type: 2}
-  - {fileID: 11400000, guid: 0b0ee4258559156428135b8139f520ed, type: 2}
   - {fileID: 11400000, guid: 77919f40aef01be41b0726f2dfbfafc6, type: 2}
   - {fileID: 11400000, guid: 5b09856d89817c34fab655cd24c98f8f, type: 2}
-  - {fileID: 11400000, guid: 8d3d69d729182c34495ffa9c11af8634, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -92,7 +90,11 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
+    - Common
+    - Scene
+    - Prefab
+    - Mesh
+    - Material
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 98ddac2aad7fcaf4f9094e814d0fa0e6, type: 2}

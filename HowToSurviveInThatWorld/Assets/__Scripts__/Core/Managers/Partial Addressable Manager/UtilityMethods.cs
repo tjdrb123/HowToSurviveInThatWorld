@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using Object = UnityEngine.Object;
@@ -135,6 +136,63 @@ public partial class Manager_Addressable
         }
         
         return default;
+    }
+
+    #endregion
+
+
+
+    #region Release
+
+    public void ReleaseAsset(string key)
+    {
+        if (!IsInvertValidKey(key, out key))
+        {
+            DebugLogger.LogError(new InvalidKeyException(key).Message);
+
+            return;
+        }
+
+        if (!_assets.TryGetValue(key, out var asset))
+            return;
+
+        _assets.Remove(key);
+        Addressables.Release(asset);
+    }
+
+    public void ReleaseAsset(AssetReference reference)
+    {
+        if (!IsInvertValidKey(reference, out var key))
+        {
+            DebugLogger.LogError(new InvalidKeyException(key).Message);
+
+            return;
+        }
+
+        if (!_assets.ContainsKey(key))
+            return;
+
+        _assets.Remove(key);
+        reference.ReleaseAsset();
+    }
+
+    #endregion
+
+
+
+    #region Utils
+
+    /// <summary>
+    /// # 해당 로케이션(어드레서블 네임)이 존재하는지 검증 하는 메서드
+    /// </summary>
+    /// <param name="locationKey">어드레서블 네임</param>
+    /// <returns>존재하면 True / 존재하지 않으면 False</returns>
+    private bool IsInvalidLocation(string locationKey)
+    {
+        bool locationExist = _locations.Values.Any
+            (locationList => locationList.Exists(location => location.PrimaryKey == locationKey));
+
+        return locationExist;
     }
 
     #endregion

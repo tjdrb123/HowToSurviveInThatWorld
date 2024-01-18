@@ -7,6 +7,7 @@ public partial class Manager_Addressable
     #region Fields
 
     /* Location */
+    // Key : Label , Value : Addressable Names
     private readonly Dictionary<string, List<IResourceLocation>> _locations;
     private readonly List<IResourceLocation> _noLocation = new(); // _location이 없을 때 반환될 기본 값
     
@@ -15,6 +16,12 @@ public partial class Manager_Addressable
     
     /* Addressable Primary Keys */
     private readonly List<object> _keys;
+    
+    /* Init Addressable Flag */
+    private bool _isInitialize;
+    private bool _isLoadLocation;
+    private bool _isLoadAssets;
+    
 
     #endregion
 
@@ -25,11 +32,15 @@ public partial class Manager_Addressable
     // Addressable Primary Keys Getter
     public IReadOnlyList<object> Keys => _keys;
 
+    public bool IsInitialize => _isInitialize;
+    public bool IsLoadLocation => _isLoadLocation;
+    public bool IsLoadAssets => _isLoadAssets;
+
     #endregion
 
 
 
-    #region Constructor & Collection Utils
+    #region Constructor
 
     public Manager_Addressable()
     {
@@ -40,8 +51,6 @@ public partial class Manager_Addressable
 
         _keys = new List<object>();
     }
-
-    
 
     #endregion
 }
