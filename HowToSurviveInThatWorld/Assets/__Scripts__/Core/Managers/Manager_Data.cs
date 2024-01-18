@@ -8,7 +8,7 @@ public class Manager_Data
     
     public void Initialize()
     {
-        Test = LoadData<TestData>("TestData"); // 특정 씬에서 해당 데이터 로드가 필요할 때 Initialize 사용
+        Test = LoadData<TestData>("TestData"); // 씬에서 데이터 로드가 필요할 때 Initialize 사용
     }
     
     // memory -> json
