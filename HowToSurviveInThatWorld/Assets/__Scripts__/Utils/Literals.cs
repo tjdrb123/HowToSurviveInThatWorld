@@ -19,4 +19,11 @@ public static class Literals
     public const float ZERO_F = 0f;
 
     #endregion
+
+    #region DataFile Path
+
+    public const string CSV_PATH = "Assets/@Data/CSV/";
+    public const string JSON_PATH = "Assets/@Data/JSON/";
+
+    #endregion
 }
