@@ -16,7 +16,939 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 1766ec67617546e418148c486769511f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 54f45239c24bd714a968c6bc86b3f5a4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/air_A.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af0585ae12d88754ebbafbc9c93bfea8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/air_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e3f11e56a13f3c4fa0d2df4447bc848
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/airDuct01_cap.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08139e9fbde52cb49a4d47c6a0829179
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/airDuct01_elbow_H.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 025444b80b03e1247a9cd4662f02261d
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/airDuct01_elbow_V.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f377e27f04da3b841b431af99abf6176
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/airDuct01_mid.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 817a2d335a10db04da1c4d57270c7451
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3fb4c1af6cc60f4ca33222d86bb6ffe
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de41f8f463f806844a2cbfa259daccd9
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna03.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c12f785788727074faeca9415adf7a14
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna04.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0cb966c0c3dd2c48b49a63f9cb57e01
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna05.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cec3969951ff62f4c9da9c604e56cf64
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna06.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37990b2bbb805884f85966f406fe40e7
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/antenna07.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02a73bbb7587b1f4ca0e1db133a16f39
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b75a7acf75dd074d8341be0a711dcc6
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning01_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f53ef73b17f12174090e4a65eccd8b12
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning01_corner.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4b1544d930d34846b995e381755737f
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fae19b71513c5014f84fc33a5dc83325
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning02_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a133c0eecbea7340a878e9f0adcdd38
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning02_corner.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c4511bd37d45dd4b997a45923a0bc73
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning03.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c4c257af0e53984bb11fe495b177364
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning03_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7b869462545242458d5c9f066c85b74
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning03_corner.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86d08f42570a2f241b26825204ad62a8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning04.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4459fc337eb78614b8785067e262b470
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning04_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61522fa3f1b53184399ea4ca8e57851b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/awning04_corner.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fda8b6f1dee52884383d8a4c95fc3fd5
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/billboard01.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eb3dc44c8a387c44887f55b22c95338
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/billboard02.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7979e3bda3a4ff4409e773d1f6894dc2
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_bottom.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f57e7cb3a6752cc4981c15de8e587abd
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_bottom_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd4ee5121cd0c394181433eb5fc6339b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_middle.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e153a70884b79a459ad98ea2beade02
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd75dbbda15138745843e6507a06bf97
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1994107ae5f77e045b547893aac9c690
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof03.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15f283928f0f77548864a86cdc5ac9fb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof04.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e187e2e8c2487954e960b68fbaee6b46
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof05.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99f408efa1543ef4f8c3295b30d62ce6
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof06.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64a2a2315d606224ca1e1e22721926f4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof07.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e380d201d87c9ea4f8c9ad2a3558c522
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof08.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f39059eaa63e434c862272aecbdeae5
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof09.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90598f776201db54eaebb43d64ad9308
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_roof10.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 034404cc59716574497639e8422ddfd6
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/chimney_top.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97002b8a31f6ee945bdd14d1f51afc2a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/fireEscape_bottom.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a7ca67f2d89bf2448fc85b3ea241a31
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/fireEscape_middle.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 115c956b1a3e0d74d9c6479f8f4b8c67
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/fireEscape_top.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36547b7c93474dc4c95d5ff5947ddb76
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/fireEscape_top02.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48c7b15dcb29c8249beaeb9e35f5e563
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/ladder01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a116effb2a8076a4d807256e5c0ab7eb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/ladder01_end.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 150454bc3da233c438720172f0b1b1a7
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/porch_railing_A.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b842ed03c7560d4c8f1c49883d6fd39
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/porch_railing_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2158501b5a433bc4cac04bb6e1cb4274
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railing_1.5m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b80ac78188ddac42b8c0ff354697809
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railing_1m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9ea606d47bfe244090bebfd09a567d7
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railing_3m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6219073c4c6482488ce7a67e8dd8f97
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railingEdge_1.5m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 607b15eb91652704281bd955bd45abd4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railingEdge_1m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e1c108338f8444ba1a9c079df8ae9c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railingEdge_3m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 732917ad3a2bfff4fb72740887c2d7ba
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/railingPole.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aadc40a2eef09d64899500479f569bf8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/rainwaterPipe_3m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6285d1baadc4cb439b5e9e808c99c8b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/rainwaterPipe_bottom.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fde3fad41530eb4bba9568b38495c6e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/rainwaterPipe_middle.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4156d8358784be3429e795b030120d31
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/rainwaterPipe_middle_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a14ccbe8683401b448b9923fb285549c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/rainwaterPipe_top.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1799b6832f14e4d489c73e902db5f94e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage01_6m.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e01fec38b178da0478c79619fd6da448
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage01_H.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 948e037f0c16065428fa94fe0e6185c8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage01_V.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee6d285034cafea478c43a761044e891
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage01_V_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e98cedf06cd04744b8367607acbe4b70
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75e5400eb05acbd4086a3332a00cd8b7
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/signage02_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65562f1e7e13f5942a21323fcd8613d8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/skylight01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7517b0ee77f309489f9e7e2a3fe89ca
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/skylight02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc1685552e6762843ae665d38adfc02c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs02_A.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0a1441bf92f59a4b906706afd687678
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs02_B.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5525e8528037d9146bd0255ae5e51e1c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs02_C.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e575bbb8a02a864fbab63b9e61e663e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs02_D.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d255a92b602c0fd4fb6139cc49fc4c0b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_A.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4487f99d98e2bac44a99bd96a6f6f1bb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_B.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c572da899e5376a409cbda1b184e75b6
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_C.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5a6f630eb8352041bd2d2ab1eca966b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_D_left.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 044d0e29207ef584fa67069a30815b4f
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_D_right.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e0b171a3a78ba5409d3ebec430c3a95
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs03_E.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a199f2d5f561f804aa0287b28d420b7f
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_A.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8075b89e67da89647b581f4aa8d6d62c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b35e51d0245b0549a75449c4eb470bd
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_C.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7106d9f3921b0ee4e9b41b7c1ee708b8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_D.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34fbecd6c652e6e46bd885a5e383cc26
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_E.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7547da61f235d6640b4555bf4f35a9a5
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stairs_F.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e4c1bf24a3c9af4090e066761cd0161
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stove02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e66037e8a08b6a4b8534cabfb64196a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stove02_pipe.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d9fd2716b39735479dbfde151b3580e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stove02_pipe_corner.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07eba2017f355f04790e337736956eeb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/stove02_pipe_short.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aeab263d33b4a8447bf52ed48fa10b60
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/waterTank01_A.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2e8d19336ee5bd42bf2a022394cf9f3
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/waterTank01_B.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ec7c3cd3d79ad44a96fa0d57a312d7b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/waterTank01_C.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ad3a0aae04932e459fd4750b69527ff
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/Models/waterTank01_D.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30fbb4642654d2d47809f8f55c921a2d
+    m_Address: air_A
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    - TestScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b053a417f412fb4cb575539b9b5b4e8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/air_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ecb393107306a74abd8aa0f8ae50144
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/airDuct01_cap.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53ba49d2eeb54f246a79ed218f002512
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/airDuct01_elbow_H.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc9e007cf8889bb4a97c9f952e98652d
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/airDuct01_elbow_V.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32637de2eaf34f844a0eb677d65ce207
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/airDuct01_mid.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8db9ea63a0ecfa43aebe81cd23cc4ff
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87c61f5c2124a0c428b73ba94ae63afb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6feb9788e17e8b74690534e21d33d4f3
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c10487de74613e42a8fa2279e1a53a1
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52c549b577947e2468eab1830f0f9c1b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna05.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5240b7d198425454fa6de112da409827
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna06.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3fbce4e5884efa43a2fd4b78be72e9a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/antenna07.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12eab6b78b74a844dba86bb0f71cd711
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ca92abb998f30845be4908794af73cf
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning01_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd3a5c2618a41854f88db86005575d28
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning01_corner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2563f92035a4ed549b60df4ea6deb268
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2ec80d127014f345b2fda4fe8c2fecf
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning02_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ea5dd704a17e104cbb7d0d8e26fcafa
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning02_corner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6791ace5fd6552442b92f1bed7617fc3
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdffc48f5516efd43abe9c01458aef5d
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning03_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aec2ed48646f7eb4581bd3c490dd293c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning03_corner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e5bdd8e4e2abab4487b08faa0086459
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bc9b08722a5ec64889ab59d0983c2ae
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning04_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f479ff8b576f971468380ef68c1b6ed4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/awning04_corner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c897ac2de09e6c3488bbb14296d0115d
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/billboard01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9296b63b00ea5b147bdc7145851b86cf
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/billboard02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 566c122dea17cef4a95474198936c1ff
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_bottom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14fe71968ff297943994985771c715a0
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_bottom_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bf75533ef96a8e458463483901bbd1c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_middle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cce656bca77ffc444b17d88b28688f49
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71fe5dae1a81f274c9dc72b216e53363
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d9108df2c2767440a422661c4e6aaf5
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7420e3ffb4935e14a86ae9b09003f192
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a61346e796a5b7a4885d860909e3f101
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof05.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fd9b7b2bf592b94dab1d54205006880
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof06.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e2a661a56adebf409665806ef213391
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof07.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0202ea40efa72b54e884b9408d7baf7c
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof08.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09a6a277d1ceee47b143074ffa621fb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof09.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 526e9cbbd3b1e3e4f9d8d427263f736a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_roof10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce3da09a66ff1264f9f770fed520b291
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/chimney_top.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5c7784eebe138946830027afdb509c8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/fireEscape_bottom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08f63f880d1a9484aa2a6c9b10bfc704
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/fireEscape_middle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0398f8d2905fee45936483932cbb24e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/fireEscape_top.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a9f4154baa173645b216295688f35b8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/fireEscape_top02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd3f2744d143210428a21747e98378db
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/ladder01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbce2a4993a32bc4c9d1f965dac16504
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/ladder01_end.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b406ae55ad0af934e965ccc702a4df41
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/porch_railing_A.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7adf647a9d2be1d47bffb64324d113d2
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/porch_railing_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39129046e25f7034b96b3ee6e5b0885e
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railing_1.5m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc5286401cced546b83a4878f11cfc1
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railing_1m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d468b4c5cd3dbf49857397640d6e4b7
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railing_3m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fa781950ec4f0d449ef99251ed5731a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railingEdge_1.5m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 241e944ee9283bd41a17b4ae09900895
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railingEdge_1m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f9f36af1d13d949afc444c2894be1b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railingEdge_3m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 182eeba1084da01499c976513c66c0be
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/railingPole.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 762b1ab7ff7a83a409692c3aeb0c45a3
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/rainwaterPipe_3m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b53d1cbfeaa8904690e46a4c0dde831
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/rainwaterPipe_bottom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d09bd9f05fb81d4eb645e3f9910d446
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/rainwaterPipe_middle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cebc814ceffe5a4380ead31177b7d27
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/rainwaterPipe_middle_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b592477f90e39b449049735f45046a2
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/rainwaterPipe_top.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06402b1ffedd4b24e83d044c038d0934
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage01_6m.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ffd19a9e8d3eca429bdd622b83232bf
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage01_H.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d144148d43c16a4c99624f8e79d20e9
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage01_V.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50c7e690fca51f9478b42b98b12d4a99
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage01_V_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8da704f0365b3084ab55834bb2e88595
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9acd2ffeb2c7dd745a1264e8054ca33a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/signage02_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba8a8a7a50cdac04faf3d786a6661265
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/skylight01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7150af82541f084ab4496b6ffcb848a
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/skylight02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebececca4927b654482024034bd0c3d9
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs02_A.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 406d4ea766f87944eb1ba451d5f90608
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs02_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcf342ecefd3a7c419dae4a43f8acefb
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs02_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ee1415986c6584696c9e2a3a252d58
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs02_D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca144728c8006884eabb5c71e95678b3
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_A.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ca09bf7d1b8f0849a399222a68b5b57
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5dd4946d3e4bdd4ebe84c05941112c1
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2f63acf36ea8934d9126f50239a11e8
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_D_left.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 942bfdc7c6add5e42b41f057e1647087
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_D_right.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9e737e10bce8644fadc28019b80c238
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs03_E.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 740d82e02d3017440981e842c20a9393
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_A.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2093e38f705465742840f50cf128d9c4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7fe6387339c48f48b8d06c60f79bff2
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b3706e081463b740b029b28e75cca0b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a84c71f1e17f53b47b922b9970368fd6
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_E.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bd258c613313c3469869f703c6cbca4
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stairs_F.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74e81de55e2088743a8e9f5ec6454d89
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stove02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f08b0b2ef8f64304f9e8bbb0262ce223
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stove02_pipe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26cb17904eee1184f8e88d86420b557b
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stove02_pipe_corner.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07f992924cc24fe4e80e1797325cd554
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/stove02_pipe_short.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3de0efc84ada994183386f8297a9c81
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/waterTank01_A.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 330e678057ef0464dac11b13bd91d5a1
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/waterTank01_B.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c984162ea2590c4eaaf124c7a5cb4e9
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/waterTank01_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7267a4a1e4615f4d99d55f8721eb9b1
+    m_Address: Assets/=== TEMP ORIGIN RESOURCES ===/SurrounDead/Models/Addons/waterTank01_D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: aaab238a0c086b64bb19fe15815f60e7, type: 2}
   m_SchemaSet:

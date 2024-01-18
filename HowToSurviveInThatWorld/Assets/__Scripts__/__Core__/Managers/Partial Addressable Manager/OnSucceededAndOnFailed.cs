@@ -1,6 +1,4 @@
 
-using System.Collections.Generic;
-
 public partial class Manager_Addressable
 {
     #region Succeeded Callback
