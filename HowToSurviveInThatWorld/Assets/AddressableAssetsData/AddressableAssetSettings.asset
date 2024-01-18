@@ -95,6 +95,7 @@ MonoBehaviour:
     - Prefab
     - Mesh
     - Material
+    - TestScene
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 98ddac2aad7fcaf4f9094e814d0fa0e6, type: 2}

@@ -24,6 +24,18 @@ MonoBehaviour:
     - Prefab
     - Common
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e93d29677ec859419e3c0dedf211c9a
+    m_Address: Directional Light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefab
+    - TestScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d677a15ef01633f43aa01a7e32f66973
+    m_Address: Main Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: aaab238a0c086b64bb19fe15815f60e7, type: 2}
   m_SchemaSet:
