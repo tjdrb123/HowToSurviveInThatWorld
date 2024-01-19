@@ -40,6 +40,7 @@ public class Bio : Entity
     /// <summary>
     /// CreatSetupComponent 메소드에 자신의 gameObject를 넣어서 Component들 할당.
     /// override하여 더 필요한 Component들을 추가가능.
+    /// 추가를 고려하여 생성자로 만들진 않았습니다.
     /// </summary>
     protected virtual bool CreatSetupComponent(GameObject gameObject)
     {
