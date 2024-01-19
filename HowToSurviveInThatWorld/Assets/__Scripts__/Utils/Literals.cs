@@ -41,4 +41,31 @@ public static class Literals
     
 
     #endregion
+
+
+
+    #region Base Status
+
+    public const float HP_MIN = 0f;
+    public const float HP_MAX = 999999f;
+
+    public const float EXP_MIN = 0f;
+    public const float EXP_MAX = 999999999f;
+
+    #endregion
+    
+    
+    
+    #region Base Single Attribute
+    
+    // Damage
+    public const float DMG_MIN = 0f;
+    public const float DMG_MAX = 999999f;
+
+    // Defense 
+    public const float DEF_MIN = 0f;
+    public const float DEF_MAX = 999999f;
+    
+
+    #endregion
 }

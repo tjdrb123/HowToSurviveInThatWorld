@@ -7,9 +7,11 @@ public abstract class BaseSingleAttribute : ISingleAttribute
     #region Fields
 
     [SerializeField] protected float _value;
+    [SerializeField] protected string _stringValue;
     
     // Property
     public float Value => _value;
+    public string StringValue => _stringValue;
     
     // Event
     // public event Action<float> OnValueChanged;
@@ -23,6 +25,11 @@ public abstract class BaseSingleAttribute : ISingleAttribute
     protected BaseSingleAttribute(float setValue)
     {
         _value = setValue;
+    }
+
+    protected BaseSingleAttribute(string setValue)
+    {
+        _stringValue = setValue;
     }
 
     #endregion
@@ -94,6 +101,12 @@ public abstract class BaseSingleAttribute : ISingleAttribute
 
         _value = newValue;
         // OnValueChanged?.Invoke(_value);
+    }
+
+    protected void StringValueChangedHandle(string newValue)
+    {
+        _stringValue = newValue;
+        // OnValueChanged?.Invoke(_stringValue);
     }
 
     #endregion
