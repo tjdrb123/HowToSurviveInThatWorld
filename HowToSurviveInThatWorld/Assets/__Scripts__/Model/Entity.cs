@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-public class EntityBase : MonoBehaviour
+public class Entity : MonoBehaviour
 {
     #region Fields
 

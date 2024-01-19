@@ -1,0 +1,31 @@
+{
+  "Hp": {
+    "CurValue": "100",
+    "MaxValue": "100"
+  },
+  "Exp": {
+    "CurValue": "0",
+    "MaxValue": "100"
+  },
+  "Hunger": {
+    "Value": "100"
+  },
+  "Thirst": {
+    "Value": "100"
+  },
+  "Damage": {
+    "Value": "10"
+  },
+  "Defense": {
+    "Value": "10"
+  },
+  "MoveSpeed": {
+    "Value": "5"
+  },
+  "Level": {
+    "Value": "1"
+  },
+  "UserName": {
+    "Value": "temp"
+  }
+}

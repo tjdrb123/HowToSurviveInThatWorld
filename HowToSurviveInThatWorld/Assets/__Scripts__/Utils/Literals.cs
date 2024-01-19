@@ -19,4 +19,26 @@ public static class Literals
     public const float ZERO_F = 0f;
 
     #endregion
+
+    
+    
+    #region DataFile Path
+
+    public const string CSV_PATH = "Assets/@Data/CSV/";
+    public const string JSON_PATH = "Assets/@Data/JSON/";
+
+    #endregion
+
+
+
+    #region Labels
+
+    public const string LABEL_EMPTY = "";
+    public const string LABEL_COMMON = "Common";
+    
+    // Scene Groups
+    public const string LABEL_SCENE_SELECTOR = "SelectorScene";
+    
+
+    #endregion
 }
