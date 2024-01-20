@@ -12,8 +12,9 @@ public class CsvToJsonMenu
     static void ConvertCsvToJson()
     {
         CsvToJson("PlayerData");
+        CsvToJson("WeaponData");
     }
-    
+
     /*
     일반적으로 쓰는 csv파일 형식은
     첫 번째 헤더라인에,
@@ -33,13 +34,13 @@ public class CsvToJsonMenu
         string[] csvLines = File.ReadAllLines(fullPath);
 
         string[] headers = csvLines[0].Split(',');
-        
+
         // 중첩된 데이터를 가지고 있는지 체크
         bool isNested = headers.Contains("SubKey");
 
         // 일반적인 JSON 객체를 생성하기 위한 데이터 구조
         List<Dictionary<string, object>> dataList = new List<Dictionary<string, object>>();
-        
+
         // 중첩된 JSON 객체를 생성하기 위한 데이터 구조
         Dictionary<string, Dictionary<string, object>> dataDict = new Dictionary<string, Dictionary<string, object>>();
 
@@ -51,7 +52,7 @@ public class CsvToJsonMenu
             {
                 string key = values[0];
                 string subKey = values[1];
-                object value = values[2];
+                object value = ConvertValue(values[2]);
 
                 if (!dataDict.ContainsKey(key))
                 {
@@ -65,7 +66,7 @@ public class CsvToJsonMenu
                 Dictionary<string, object> dataEntry = new Dictionary<string, object>();
                 for (int j = 0; j < headers.Length && j < values.Length; j++)
                 {
-                    dataEntry[headers[j]] = values[j];
+                    dataEntry[headers[j]] = ConvertValue(values[j]);
                 }
                 dataList.Add(dataEntry);
             }
@@ -74,7 +75,18 @@ public class CsvToJsonMenu
         string jsonSting = isNested ? JsonConvert.SerializeObject(dataDict, Formatting.Indented) : JsonConvert.SerializeObject(dataList, Formatting.Indented);
         File.WriteAllText($"{Literals.JSON_PATH}{fileName}.json", jsonSting);
     }
-    
+
+    private static object ConvertValue(string value)
+    {
+        if (int.TryParse(value, out int intValue))
+            return intValue;
+
+        if (float.TryParse(value, out float floatValue))
+            return floatValue;
+
+        return value;
+    }
+
     private static bool FindFile(string path)
     {
         if (File.Exists(path))

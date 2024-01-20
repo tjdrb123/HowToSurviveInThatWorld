@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class WeaponData : Equipable
 {
-    public int WeaponDamage; //¹«±âÀÇ µ¥¹ÌÁö
-    public float WeaponDelayTime; //¹«±â µô·¹ÀÌÅ¸ÀÓ
+    public int WeaponDamage; //ë¬´ê¸°ì˜ ë°ë¯¸ì§€
+    public float WeaponDelayTime; //ë¬´ê¸° ë”œë ˆì´íƒ€ì„
 }
