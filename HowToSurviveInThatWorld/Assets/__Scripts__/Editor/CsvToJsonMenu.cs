@@ -12,7 +12,7 @@ public class CsvToJsonMenu
     static void ConvertCsvToJson()
     {
         CsvToJson("PlayerData");
-        CsvToJson("WeaponData");
+        CsvToJson("ItemData");
     }
 
     /*
@@ -80,10 +80,8 @@ public class CsvToJsonMenu
     {
         if (int.TryParse(value, out int intValue))
             return intValue;
-
         if (float.TryParse(value, out float floatValue))
             return floatValue;
-
         return value;
     }
 
