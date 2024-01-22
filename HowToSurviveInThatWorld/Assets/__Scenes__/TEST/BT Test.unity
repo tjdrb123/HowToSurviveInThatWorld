@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: a85811b2d11144f42be2f29cb49af807, type: 2}
     - target: {fileID: 95951821895139162, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -294,7 +294,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1186817041063684, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1491001758}
+      addedObject: {fileID: 1491001761}
     - targetCorrespondingSourceObject: {fileID: 1186817041063684, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491001757}
@@ -634,7 +634,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1491001758
+--- !u!114 &1491001761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,11 +652,12 @@ MonoBehaviour:
   _correctPos: {x: 0, y: 0, z: 0}
   _patrolRandomPosCheck: 1
   _idleDurationTime: 0
-  _agentSpeed: 3
+  _agentSpeed: 0.5
   _agentStoppingDistance: 1e-45
   _agentUpdateRotation: 1
   _agentacceleartion: 50
   _agentCorrectionDistance: 1
+  _angularSpeed: 400
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
