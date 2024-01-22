@@ -93,7 +93,8 @@ public class EnemyBasicBT : MonoBehaviour
                             (
                                 new List<INode>()
                                 {
-                                    new ActionNode(CorrectPositionCheck), // 올바른 목적지가 있는가?
+                                    new ActionNode(RandomPositionAssignment), // 랜덤 목적지 부여 여부
+                                    new ActionNode(CorrectPathCheck), // 목적지 까지의 경로가 유효한가?
                                     new SequenceNode
                                     (
                                         new List<INode>()
@@ -161,8 +162,8 @@ public class EnemyBasicBT : MonoBehaviour
 
     #region Correct Destination Check & Patrol/Idle Node
 
-    // 올바른 목적지 체크 (랜덤 목적지 부여)
-    private INode.E_NodeState CorrectPositionCheck()
+    // 목적지가 있는가? (_correctPos의 좌표에 랜덤값 할당)
+    private INode.E_NodeState RandomPositionAssignment()
     {
         // 랜덤 목적지 배정
         // ##이전 랜덤 포지션에서 너무 가까운 거리는 다시 찍지 못하도록 리팩토링 필요.##
@@ -172,10 +173,14 @@ public class EnemyBasicBT : MonoBehaviour
             _correctPos.z = Random.Range(_patrolMinPos.y, _patrolMaxPos.y);
 
             _patrolRandomPosCheck = false;
-            return INode.E_NodeState.ENS_Success;
         }
         
-        /* ####노드를 따로 분리할지 고민중.#### */
+        return INode.E_NodeState.ENS_Failure;
+    }
+    
+    // 목적지 까지의 경로가 유효한가?
+    private INode.E_NodeState CorrectPathCheck()
+    {
         // 경로가 유요하지 않거나 초기화되지 않은지 체크
         if (_agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
