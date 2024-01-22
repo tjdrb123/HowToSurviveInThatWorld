@@ -1,16 +1,44 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBasicBT : MonoBehaviour
 {
     #region Global Variable
     
+    private Transform _detectedPlayer;
+    private NavMeshAgent _agent;
+    
     private DataContext _enemyData;
     private BehaviorTreeRunner _btRunner;
 
+    [Header("Distance")] 
+    [SerializeField] 
+    private float _detectDistance = 10f;
+    
+    [Header("PatrolPosition")]
+    [SerializeField]
+    private Vector2 _patrolMinPos = Vector2.one * -20;
+    [SerializeField]
+    private Vector2 _patrolMaxPos = Vector2.one * 20;
+    [SerializeField] 
+    private Vector3 _correctPos;
+    [SerializeField] 
+    private bool _patrolRandomPosCheck = true;
+
+    [Header("NavMeshAgent")]
+    [SerializeField]
+    private float _agentSpeed = 5f;
+    [SerializeField]
+    private float _agentStoppingDistance = Mathf.Epsilon; // 이동 중지 거리
+    [SerializeField]
+    private bool _agentUpdateRotation = true; // 자동 방향전환 여부
+    [SerializeField]
+    private float _agentacceleartion = 50f; // 가속도
+    [SerializeField]
+    private float _agentCorrectionDistance = 1f; // 보정 거리 (버그 방지) 
+    // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
+    
     #endregion
     
     
@@ -20,11 +48,13 @@ public class EnemyBasicBT : MonoBehaviour
     private void Awake()
     {
         InitializeData();
+        InitializeAgent();
+
     }
 
     private void Update()
     {
-        throw new NotImplementedException();
+        _btRunner.Operate(); // BT 순회
     }
 
     #endregion
@@ -68,6 +98,7 @@ public class EnemyBasicBT : MonoBehaviour
                         }
                     )
                 ),
+                /* 순찰&대기 실험을 위해 잠시 주석처리.
                 new SequenceNode    // ## 공격실행 판정 분기 노드
                 (
                     new List<INode>()
@@ -78,6 +109,7 @@ public class EnemyBasicBT : MonoBehaviour
                     }
                 ),
                 new ActionNode(Test1) // 추적
+                */
             }
         );
     }
@@ -87,6 +119,97 @@ public class EnemyBasicBT : MonoBehaviour
     
 
     # region Action(Leaf) Nodes
+
+    #region Detect Player Node
+
+    // 범위안에 적이 있는가? 
+    // 범위 거리 체크할 Distance,범위 안에 있다면 플레이어의 위치 정보를 가져올 Transform
+    // 이 쪽에서 플레이어가 존재시에 Transform에 플레이어 정보를 저장한다.
+    // 만약 Transform != null 이라면 할당하지 않고, null 일때에만 할당한다.
+    // 플레이어가 감지 범위 밖으로 나간다면 Transform을 null으로 만들어준다.
+    // 이런식으로 최대한 Physics2D.OverlapSphere 를 적게 사용해야 불필요한 연산을 줄일 수 있다.
+    private INode.E_NodeState CheckDetectPlayer()
+    {
+        var overlapColliders =
+            Physics.OverlapSphere(transform.position, _detectDistance, LayerMask.GetMask("Player"));
+        
+        // 추후 범위 안에 있으면 한번만 할당하게 변경
+        if (overlapColliders != null & overlapColliders.Length> 0)
+        {
+            _detectedPlayer = overlapColliders[0].transform;
+
+            return INode.E_NodeState.ENS_Success;
+        }
+        
+        // 추후 범위 밖으로 나가면 한번만 비우게 변경
+        _detectedPlayer = null;
+
+        return INode.E_NodeState.ENS_Failure;
+    }
+
+    #endregion
+
+    #region Correct Destination Check & Patrol/Idle Node
+
+    // 올바른 목적지 체크 (랜덤 목적지 부여)
+    private INode.E_NodeState CorrectPositionCheck()
+    {
+        // 랜덤 목적지 배정
+        if (_detectedPlayer == null & _patrolRandomPosCheck == true)
+        {
+            _correctPos.x = Random.Range(_patrolMinPos.x, _patrolMaxPos.x);
+            _correctPos.z = Random.Range(_patrolMinPos.y, _patrolMaxPos.y);
+            
+            _patrolRandomPosCheck = false;
+            return INode.E_NodeState.ENS_Success;
+        }
+        
+        /* ####노드를 따로 분리할지 고민중.#### */
+        // 경로가 유요하지 않거나 초기화되지 않은지 체크
+        if (_agent.pathStatus == NavMeshPathStatus.PathInvalid)
+        {
+            DebugLogger.LogError("Agent Path is Invalid");
+            
+            _patrolRandomPosCheck = true;
+            return INode.E_NodeState.ENS_Running;
+        }
+        
+        return INode.E_NodeState.ENS_Success;
+    }
+    
+    // 목적지 도착했는가? ( 남은거리 체크 -> agent.remainingDistance < _agentCorrectionDistance)
+    // 대기시간이 남아있는가? ( 대기시간 체크 -> Coroutine or Time.time ) Running , End -> _patrolRandomPosCheck = true;
+    // 이동로직 (agent에게 목적지 할당. -> _agent.destination = _correctPos;) Running
+
+    #endregion
+
+    #region Attack Check/Excute Node
+    
+    // 공격중인가?
+    // 공격범위 안에 적이 있는가?
+    // 공격 실행
+
+    #endregion
+
+    #region Tracking Node
+    
+    // 적 발견시 Agent의 목적지를 Player로 할당.    
+    // 추적 로직
+
+    #endregion
+
+
+    # endregion
+
+
+
+    #region Action Logics
+
+    private void TemporaryMethod()
+    {
+        
+    }
+    
     private INode.E_NodeState Test1()
     {
         return INode.E_NodeState.ENS_Running;
@@ -101,16 +224,6 @@ public class EnemyBasicBT : MonoBehaviour
     {
         return INode.E_NodeState.ENS_Running;
     }
-    #endregion
-
-
-
-    #region Action Logics
-
-    private void TemporaryMethod()
-    {
-        
-    }
 
     #endregion
     
@@ -122,6 +235,15 @@ public class EnemyBasicBT : MonoBehaviour
     {
         _enemyData = DataContext.CreatDataContext(this.gameObject);
         _btRunner = new BehaviorTreeRunner(SettingBT());
+    }
+
+    private void InitializeAgent()
+    {
+        _agent.stoppingDistance = _agentStoppingDistance;   // 정지 거리
+        _agent.speed = _agentSpeed; // 이동 속도
+        _agent.destination = _correctPos; // 목적지
+        _agent.updateRotation = _agentUpdateRotation; // 회전 유무
+        _agent.acceleration = _agentacceleartion; // 가속도
     }
 
     #endregion
