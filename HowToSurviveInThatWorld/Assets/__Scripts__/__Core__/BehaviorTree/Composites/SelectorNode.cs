@@ -24,9 +24,9 @@ public sealed class SelectorNode : INode
                 case INode.E_NodeState.ENS_Running:
                     return INode.E_NodeState.ENS_Running;
                 case INode.E_NodeState.ENS_Success:
-                    continue;
+                    return INode.E_NodeState.ENS_Success;
                 case INode.E_NodeState.ENS_Failure:
-                    return INode.E_NodeState.ENS_Failure;
+                    continue;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

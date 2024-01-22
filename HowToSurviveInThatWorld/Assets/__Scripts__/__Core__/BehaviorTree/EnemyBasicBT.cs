@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyBasicBT : MonoBehaviour
 {
@@ -26,9 +28,15 @@ public class EnemyBasicBT : MonoBehaviour
     [SerializeField] 
     private bool _patrolRandomPosCheck = true;
 
+    [Header("IdleTime")]
+    [SerializeField]
+    private float _idleDurationTime;
+    private float _idleStartTime;
+    private bool _idleWaitCheck;
+
     [Header("NavMeshAgent")]
     [SerializeField]
-    private float _agentSpeed = 5f;
+    private float _agentSpeed = 3f;
     [SerializeField]
     private float _agentStoppingDistance = Mathf.Epsilon; // 이동 중지 거리
     [SerializeField]
@@ -75,24 +83,21 @@ public class EnemyBasicBT : MonoBehaviour
                     (
                         new List<INode>()
                         {
-                            new ActionNode(Test1), // 범위 안에 적이 있는가?
+                            new ActionNode(CheckDetectPlayer), // 범위 안에 적이 있는가?
                             new SelectorNode    // ## 순찰 판정 분기 노드
                             (
                                 new List<INode>()
                                 {
-                                    new UntilFail
-                                    (
-                                        new ActionNode(Test1) // 올바른 목적지가 있는가?
-                                    ),
+                                    new ActionNode(CorrectPositionCheck), // 올바른 목적지가 있는가?
                                     new SequenceNode
                                     (
                                         new List<INode>()
                                         {
-                                            new ActionNode(Test1), // 목적지에 도착헸는가?
-                                            new ActionNode(Test2) // 목적지에 도착했는가?
+                                            new ActionNode(CheckArrivalAtDestination), // 목적지에 도착헸는가?
+                                            new ActionNode(IdleWaitTimeCheck) // 목적지에 도착했는가?
                                         }
                                     ),
-                                    new ActionNode(Test1) // 이동
+                                    new ActionNode(MoveToPosition) // 이동
                                 }
                             )
                         }
@@ -143,7 +148,7 @@ public class EnemyBasicBT : MonoBehaviour
         
         // 추후 범위 밖으로 나가면 한번만 비우게 변경
         _detectedPlayer = null;
-
+        
         return INode.E_NodeState.ENS_Failure;
     }
 
@@ -159,7 +164,7 @@ public class EnemyBasicBT : MonoBehaviour
         {
             _correctPos.x = Random.Range(_patrolMinPos.x, _patrolMaxPos.x);
             _correctPos.z = Random.Range(_patrolMinPos.y, _patrolMaxPos.y);
-            
+
             _patrolRandomPosCheck = false;
             return INode.E_NodeState.ENS_Success;
         }
@@ -174,12 +179,51 @@ public class EnemyBasicBT : MonoBehaviour
             return INode.E_NodeState.ENS_Running;
         }
         
-        return INode.E_NodeState.ENS_Success;
+        return INode.E_NodeState.ENS_Failure;
     }
     
     // 목적지 도착했는가? ( 남은거리 체크 -> agent.remainingDistance < _agentCorrectionDistance)
+    private INode.E_NodeState CheckArrivalAtDestination()
+    {
+        if (_agent.pathPending)
+        {
+            return INode.E_NodeState.ENS_Running;
+        }
+        
+        if (_agent.remainingDistance < Mathf.Epsilon)
+        {
+            return INode.E_NodeState.ENS_Success;
+        }
+        
+        return INode.E_NodeState.ENS_Failure;
+    }
     // 대기시간이 남아있는가? ( 대기시간 체크 -> Coroutine or Time.time ) Running , End -> _patrolRandomPosCheck = true;
+    private INode.E_NodeState IdleWaitTimeCheck()
+    {
+        // 최초 한번 시간 할당.
+        if (_idleWaitCheck == true)
+        {
+            _idleDurationTime = Random.Range(0f, 3f);
+            _idleStartTime = Time.time;
+            _idleWaitCheck = false;
+        }
+
+        if (Time.time - _idleStartTime > _idleDurationTime)
+        {
+            _patrolRandomPosCheck = true;
+            _idleWaitCheck = true;
+            return INode.E_NodeState.ENS_Failure;
+        }
+
+        return INode.E_NodeState.ENS_Running;
+    }
     // 이동로직 (agent에게 목적지 할당. -> _agent.destination = _correctPos;) Running
+    private INode.E_NodeState MoveToPosition()
+    {
+        _agent.SetDestination(_correctPos);
+        
+        return INode.E_NodeState.ENS_Running;
+    }
 
     #endregion
 
@@ -233,8 +277,11 @@ public class EnemyBasicBT : MonoBehaviour
 
     private void InitializeData()
     {
-        _enemyData = DataContext.CreatDataContext(this.gameObject);
+        //_enemyData = DataContext.CreatDataContext(this.gameObject);
         _btRunner = new BehaviorTreeRunner(SettingBT());
+        _agent = GetComponent<NavMeshAgent>();
+        _idleDurationTime = Random.Range(1f, 3f);
+        _idleWaitCheck = true;
     }
 
     private void InitializeAgent()
@@ -247,4 +294,10 @@ public class EnemyBasicBT : MonoBehaviour
     }
 
     #endregion
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, _detectDistance);
+    }
 }
