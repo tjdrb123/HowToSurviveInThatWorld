@@ -4,7 +4,6 @@ using UnityEngine;
 public class ExperiencePoint : BaseStatus
 {
     #region Constructor
-
     public ExperiencePoint(float setValue) : base(setValue) { }
 
     public ExperiencePoint(float curValue, float maxValue) : base(curValue, maxValue) { }
