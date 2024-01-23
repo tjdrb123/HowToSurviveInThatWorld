@@ -24,9 +24,9 @@ public sealed class SequenceNode : INode
                 case INode.E_NodeState.ENS_Running:
                     return INode.E_NodeState.ENS_Running;
                 case INode.E_NodeState.ENS_Success:
-                    return INode.E_NodeState.ENS_Success;
-                case INode.E_NodeState.ENS_Failure:
                     continue;
+                case INode.E_NodeState.ENS_Failure:
+                    return INode.E_NodeState.ENS_Failure;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
