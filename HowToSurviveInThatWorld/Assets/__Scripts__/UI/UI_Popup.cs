@@ -16,6 +16,5 @@ public class UI_Popup : UI_Base
         return true;
     }
     protected override void SetOrder() => _canvas.sortingOrder = 10;
-
-    //public virtual void ClosePopup() => Main.UI.ClosePopup(this);
+    public virtual void ClosePopup() => Managers.UI.ClosePopup(this);
 }
