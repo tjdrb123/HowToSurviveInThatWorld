@@ -21,3 +21,15 @@ public enum E_CoroutineKey
 }
 
 #endregion
+
+
+
+#region Joystick Type
+
+public enum E_JoystickType
+{
+    Fixed,
+    Floating
+}
+
+#endregion
