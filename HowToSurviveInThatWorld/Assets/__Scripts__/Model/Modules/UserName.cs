@@ -1,25 +1,16 @@
 using UnityEngine;
 
-public class UserName : BaseSingleAttribute
+public class UserName
 {
-    // Constructor
-    public UserName(string setValue) : base(setValue) { }
-    
-    
-    
-    #region Abstract Methods
+    public string Value { get; private set; }
 
-    protected override void PerformSetting(float amount)
+    public UserName(string setValue)
     {
+        Value = setValue;
     }
-
-    protected override void PerformAddition(float amount)
+    
+    public void StringValueChangedHandle(string newValue)
     {
+        Value = newValue;
     }
-
-    protected override void PerformSubtraction(float amount)
-    {
-    }
-
-    #endregion
 }

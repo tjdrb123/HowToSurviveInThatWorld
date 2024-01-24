@@ -6,8 +6,8 @@ public abstract class BaseStatus : IStatus
 {
     #region Fields
 
-    [SerializeField] protected float _curValue;
-    [SerializeField] protected float _maxValue;
+    protected float _curValue;
+    protected float _maxValue;
     
     // Properties
     public float CurValue => _curValue;
