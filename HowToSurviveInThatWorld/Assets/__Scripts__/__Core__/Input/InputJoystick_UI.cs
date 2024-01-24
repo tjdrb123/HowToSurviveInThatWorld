@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-[AddComponentMenu("Input/Joystick UI")]
+[AddComponentMenu("Input/Input Joystick UI")]
 public class InputJoystick_UI : InputJoystickBase
 {
     #region Fields

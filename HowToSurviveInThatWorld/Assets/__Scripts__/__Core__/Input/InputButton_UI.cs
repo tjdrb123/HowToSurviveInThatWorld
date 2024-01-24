@@ -1,18 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.Layouts;
+using UnityEngine.InputSystem.OnScreen;
 
-public class InputButton_UI : MonoBehaviour
+[AddComponentMenu("Input/Input Button UI")]
+public class InputButton_UI : OnScreenControl, IPointerDownHandler, IPointerUpHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Fields (OnScreenControl)
+
+    [InputControl(layout = "Button")] [SerializeField] private string _ControlPath;
+    
+    /* Property */
+    // - ControlPath를 재정의하는 프로퍼티 메서드
+    // - 입력을 오버라이딩 할 인풋 액션을 지정
+    protected override string controlPathInternal
     {
-        
+        get => _ControlPath;
+        set => _ControlPath = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+
+
+    #region Interface Implements Methods
+
+    /// <summary>
+    /// # 버튼을 눌렀을 때 Input으로 값을 전달하는 메서드
+    /// </summary>
+    public void OnPointerDown(PointerEventData eventData)
     {
-        
+        SendValueToControl(Literals.ONE_F);
     }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        SendValueToControl(Literals.ZERO_F);
+    }
+
+    #endregion
+    
 }
