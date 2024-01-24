@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieMale02_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1186817041063684, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4872262435421554, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -281,9 +285,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95951821895139162, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 15d56021f412d2b4eaadc7f02d79bd22, type: 3}
+    - target: {fileID: 95951821895139162, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a85811b2d11144f42be2f29cb49af807, type: 2}
+    - target: {fileID: 95951821895139162, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'index_03_l'\n\tTransform 'lowerarm_l'\n\tTransform
+        'pinky_03_l'\n\tTransform 'neck_01'\n\tTransform 'pinky_03_r'\n\tTransform
+        'ring_02_l'\n\tTransform 'ball_l'\n\tTransform 'hand_l'\n\tTransform 'index_03_r'\n\tTransform
+        'spine_02'\n\tand more ...\n\tFrom animation clip 'Idle'\n\tFrom animation
+        clip 'Walk'"
+      objectReference: {fileID: 0}
     - target: {fileID: 95951821895139162, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -651,8 +669,10 @@ MonoBehaviour:
   _patrolMaxPos: {x: 20, y: 20}
   _correctPos: {x: 0, y: 0, z: 0}
   _patrolRandomPosCheck: 1
-  _idleDurationTime: 0
-  _agentSpeed: 0.5
+  _idleDurationTime: 5
+  _idleStartTime: 0
+  _idleWaitCheck: 0
+  _agentSpeed: 5
   _agentStoppingDistance: 1e-45
   _agentUpdateRotation: 1
   _agentacceleartion: 50

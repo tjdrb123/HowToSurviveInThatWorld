@@ -32,7 +32,9 @@ public class EnemyBasicBT : MonoBehaviour
     [Header("IdleTime")]
     [SerializeField]
     private float _idleDurationTime;
+    [SerializeField]
     private float _idleStartTime;
+    [SerializeField]
     private bool _idleWaitCheck;
 
     [Header("Animations")]
@@ -40,7 +42,7 @@ public class EnemyBasicBT : MonoBehaviour
 
     [Header("NavMeshAgent")]
     [SerializeField]
-    private float _agentSpeed = 0.5f;
+    private float _agentSpeed = 5f;
     [SerializeField]
     private float _agentStoppingDistance = Mathf.Epsilon; // 이동 중지 거리
     [SerializeField]
@@ -102,8 +104,7 @@ public class EnemyBasicBT : MonoBehaviour
                                             new ActionNode(CheckArrivalAtDestination), // 목적지에 도착헸는가?
                                             new ActionNode(IdleWaitTimeCheck) // 목적지에 도착했는가?
                                         }
-                                    ),
-                                    new ActionNode(MoveToPosition) // 이동
+                                    )
                                 }
                             )
                         }
@@ -162,7 +163,7 @@ public class EnemyBasicBT : MonoBehaviour
 
     #region Correct Destination Check & Patrol/Idle Node
 
-    // 목적지가 있는가? (_correctPos의 좌표에 랜덤값 할당)
+    // 목적지가 있는가? (_correctPos의 좌표에 랜덤값 할당 & 목적지 셋팅)
     private INode.E_NodeState RandomPositionAssignment()
     {
         // 랜덤 목적지 배정
@@ -171,10 +172,13 @@ public class EnemyBasicBT : MonoBehaviour
         {
             _correctPos.x = Random.Range(_patrolMinPos.x, _patrolMaxPos.x);
             _correctPos.z = Random.Range(_patrolMinPos.y, _patrolMaxPos.y);
+            
+            AnimationWalkCheck();
+            _agent.SetDestination(_correctPos);
 
             _patrolRandomPosCheck = false;
         }
-        
+   
         return INode.E_NodeState.ENS_Failure;
     }
     
@@ -206,7 +210,6 @@ public class EnemyBasicBT : MonoBehaviour
             return INode.E_NodeState.ENS_Success;
         }
         
-        // ##Failure하여 이동로직으로 이동하여 불필요하게 SetDesstiation을 계속 찍어준다. 리팩토링 필요.##
         return INode.E_NodeState.ENS_Failure;
     }
     
@@ -217,7 +220,7 @@ public class EnemyBasicBT : MonoBehaviour
         if (_idleWaitCheck == true)
         {
             AnimationIdleCheck();
-            _idleDurationTime = Random.Range(0f, 3f);
+            _idleDurationTime = Random.Range(3f, 5f);
             _idleStartTime = Time.time;
             _idleWaitCheck = false;
         }
@@ -226,21 +229,13 @@ public class EnemyBasicBT : MonoBehaviour
         {
             _patrolRandomPosCheck = true;
             _idleWaitCheck = true;
-            // ##Failure하여 이동로직으로 이동하여 불필요하게 SetDesstiation을 계속 찍어준다. 리팩토링 필요.##
+
             return INode.E_NodeState.ENS_Failure;
         }
 
         return INode.E_NodeState.ENS_Running;
     }
     
-    // 이동로직 (agent에게 목적지 할당. -> _agent.destination = _correctPos;) Running
-    private INode.E_NodeState MoveToPosition()
-    {
-        AnimationWalkCheck();
-        _agent.SetDestination(_correctPos);
-        
-        return INode.E_NodeState.ENS_Running;
-    }
 
     #endregion
 
@@ -265,26 +260,8 @@ public class EnemyBasicBT : MonoBehaviour
 
 
     #region Action Logics
-
-    private void TemporaryMethod()
-    {
-        
-    }
     
-    private INode.E_NodeState Test1()
-    {
-        return INode.E_NodeState.ENS_Running;
-    }
     
-    private INode.E_NodeState Test2()
-    {
-        return INode.E_NodeState.ENS_Running;
-    }
-    
-    private INode.E_NodeState Test3()
-    {
-        return INode.E_NodeState.ENS_Running;
-    }
 
     #endregion
     
