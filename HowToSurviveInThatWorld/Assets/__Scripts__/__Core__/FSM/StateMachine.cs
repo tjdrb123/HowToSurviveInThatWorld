@@ -23,14 +23,22 @@ public class StateMachine<T> where T : class
         ChangeState(entryState);
     }
     
-    // 에이전트의 행동을 매 프레임 업데이트 하기 위해서, 에이전트의 Updated에서 호출합니다.
-    public void Execute()
+    public void ExecuteUpdate()
     {
-        if(_globalState != null)
-            _globalState.Execute(_ownerEntity);
-        
+        if (_globalState != null)
+            _globalState.ExecuteUpdate(_ownerEntity);
+
         if (_currentState != null)
-            _currentState.Execute(_ownerEntity);
+            _currentState.ExecuteUpdate(_ownerEntity);
+    }
+    
+    public void ExecuteFixedUpdate()
+    {
+        if (_globalState != null)
+            _globalState.ExecuteFixedUpdate(_ownerEntity);
+
+        if (_currentState != null)
+            _currentState.ExecuteFixedUpdate(_ownerEntity);
     }
 
     public void ChangeState(State<T> newState)
