@@ -52,7 +52,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         _dragSlot = GameObject.Find("DragSlot");
         _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
         _slotType = itemType;
-        if (itemData.Name == null)
+        if (itemData.name == null)
         {
             _quantityText.text = string.Empty;
             _itemImage.sprite = null;
