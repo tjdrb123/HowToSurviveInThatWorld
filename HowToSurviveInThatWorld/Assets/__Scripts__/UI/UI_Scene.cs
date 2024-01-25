@@ -8,7 +8,7 @@ public class UI_Scene : UI_Base
     {
         if (!base.Initialize()) return false;
 
-        //this.SetCanvas(); GameManager가 만들어지면 사용하여 초기화
+        this.SetCanvas();
         SetOrder();
 
         return true;

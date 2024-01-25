@@ -14,7 +14,7 @@ public class CsvToJsonMenu
         CsvToJson("PlayerData");
         CsvToJson("ItemData");
     }
-    
+
     /*
     일반적으로 쓰는 csv파일 형식은
     첫 번째 헤더라인에,
@@ -34,13 +34,13 @@ public class CsvToJsonMenu
         string[] csvLines = File.ReadAllLines(fullPath);
 
         string[] headers = csvLines[0].Split(',');
-        
+
         // 중첩된 데이터를 가지고 있는지 체크
         bool isNested = headers.Contains("SubKey");
 
         // 일반적인 JSON 객체를 생성하기 위한 데이터 구조
         List<Dictionary<string, object>> dataList = new List<Dictionary<string, object>>();
-        
+
         // 중첩된 JSON 객체를 생성하기 위한 데이터 구조
         Dictionary<string, Dictionary<string, object>> dataDict = new Dictionary<string, Dictionary<string, object>>();
 
@@ -80,10 +80,8 @@ public class CsvToJsonMenu
     {
         if (int.TryParse(value, out int intValue))
             return intValue;
-        
         if (float.TryParse(value, out float floatValue))
             return floatValue;
-        
         return value;
     }
 

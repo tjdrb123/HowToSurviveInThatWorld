@@ -17,9 +17,10 @@ public class Managers : SingletonBehavior<Managers>
     
     private readonly Manager_Addressable _AddressableManager = new();
     private readonly Manager_Game _GameManager = new();
+    private readonly Manager_UI _UIManager = new();
     private readonly Manager_Data _DataManager = new();
     //private readonly Manager_Resource _ResourceManager = new();
-    
+
     #endregion
 
 
@@ -29,10 +30,11 @@ public class Managers : SingletonBehavior<Managers>
     /* No Standalone */
     public static Manager_Addressable Addressable => Instance._AddressableManager;
     public static Manager_Game Game => Instance._GameManager;
+    public static Manager_UI UI => Instance._UIManager;
     public static Manager_Data Data => Instance._DataManager;
     //public static Manager_Resource Resource => Instance._ResourceManager;
-    
-    
+
+
     /* Standalone */
     public static CoroutineManager Coroutine => CoroutineManager.Instance;
 

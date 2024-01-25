@@ -8,8 +8,6 @@ public class Manager_UI : MonoBehaviour
 {
     private static readonly int InitialPopupOrder = 10; //Pop_UP UI의 sortingOrder 기본 값입니다.
 
-    private List<UI_Popup> _popups = new();
-
     public GameObject Root //UI의 부모를 만들어서 이안에서 관리를 합니다.
     {
         get
@@ -57,17 +55,11 @@ public class Manager_UI : MonoBehaviour
         Instantiate(obj);
         obj.transform.SetParent(Root.transform);
         T popup = obj.GetOrAddComponent<T>();
-        _popups.Add(popup);
 
         return popup;
     }
     public void ClosePopup(UI_Popup popup) //이 함수를 통해 Pop_Up을 종료시킬 수 있습니다.
     {
-        if (_popups.Count == 0) return;
-
-        bool isLatest = _popups[_popups.Count - 1] == popup;
-
-        _popups.Remove(popup);
         UnityEngine.Object.Destroy(popup.gameObject);
     }
 
