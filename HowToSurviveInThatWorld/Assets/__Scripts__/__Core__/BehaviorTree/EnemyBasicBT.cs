@@ -14,10 +14,15 @@ public class EnemyBasicBT : MonoBehaviour
     
     private DataContext _enemyData;
     private BehaviorTreeRunner _btRunner;
-
+    
+    /// <summary>
+    /// 테스트를 위해 SerializeField 사용. 추후 각 데이터 컨택스트로 옮기고 클래스별로 분류 예정.
+    /// </summary>
     [Header("Distance")] 
     [SerializeField] 
     private float _detectDistance = 10f;
+    [SerializeField]
+    private float _attackDistance = 1f;
     
     [Header("PatrolPosition")]
     [SerializeField]
@@ -39,12 +44,17 @@ public class EnemyBasicBT : MonoBehaviour
 
     [Header("Animations")]
     private const string _WALK_ANIM_BOOL_NAME = "IsWalk";
+    private const string _RUN_ANIM_BOOL_NAME = "IsRun";
+    private const string _ATTACK_ANIM_BOOL_NAME = "IsAttack";
+    private const string _ATTACK_ANIM_STATE_NAME = "Attack";
 
     [Header("NavMeshAgent")]
     [SerializeField]
     private float _agentSpeed = 0.1f;
+    [SerializeField] 
+    private float _agentTrkingSpeed = 3f;
     [SerializeField]
-    private float _agentStoppingDistance = 0.1f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
+    private float _agentStoppingDistance = 0.5f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
     [SerializeField]
     private bool _agentUpdateRotation = true; // 자동 방향전환 여부
     [SerializeField]
@@ -110,18 +120,17 @@ public class EnemyBasicBT : MonoBehaviour
                         }
                     )
                 ),
-                /* 순찰&대기 실험을 위해 잠시 주석처리.
                 new SequenceNode    // ## 공격실행 판정 분기 노드
                 (
                     new List<INode>()
                     {
-                        new ActionNode(Test1),
-                        new ActionNode(Test2),
-                        new ActionNode(Test3)
+                        new ActionNode(CheckAttacking), // 공격중인가?
+                        new ActionNode(CheckPlayerWithineAttackDistance), // 공격범위 안에 플레이어가 있는가?
+                        new ActionNode(DoAttack) // 공격
                     }
                 ),
-                new ActionNode(Test1) // 추적
-                */
+                new ActionNode(DoTracking) // 추적
+                
             }
         );
     }
@@ -149,6 +158,10 @@ public class EnemyBasicBT : MonoBehaviour
         if (overlapColliders != null & overlapColliders.Length> 0)
         {
             _detectedPlayer = overlapColliders[0].transform;
+            
+            // 순찰 노드 최초확인 bool값 초기화.
+            _patrolRandomPosCheck = true;
+            _idleWaitCheck = true;
 
             return INode.E_NodeState.ENS_Success;
         }
@@ -162,6 +175,8 @@ public class EnemyBasicBT : MonoBehaviour
     #endregion
 
     #region Correct Destination Check & Patrol/Idle Node
+    
+    /*================================================================================================*/
 
     // 목적지가 있는가? (_correctPos의 좌표에 랜덤값 할당 & 목적지 셋팅)
     private INode.E_NodeState RandomPositionAssignment()
@@ -172,15 +187,14 @@ public class EnemyBasicBT : MonoBehaviour
         {
             _correctPos.x = Random.Range(_patrolMinPos.x, _patrolMaxPos.x);
             _correctPos.z = Random.Range(_patrolMinPos.y, _patrolMaxPos.y);
-            
-            AnimationWalkCheck();
-            _agent.SetDestination(_correctPos);
 
-            _patrolRandomPosCheck = false;
+            NavMeshAgentPatrolSetting();
         }
    
         return INode.E_NodeState.ENS_Failure;
     }
+    
+    /*================================================================================================*/
     
     // 목적지 까지의 경로가 유효한가?
     private INode.E_NodeState CorrectPathCheck()
@@ -197,6 +211,8 @@ public class EnemyBasicBT : MonoBehaviour
         return INode.E_NodeState.ENS_Failure;
     }
     
+    /*================================================================================================*/
+    
     // 목적지 도착했는가? ( 남은거리 체크 -> agent.remainingDistance < _agentCorrectionDistance)
     private INode.E_NodeState CheckArrivalAtDestination()
     {
@@ -207,12 +223,13 @@ public class EnemyBasicBT : MonoBehaviour
         
         if (_agent.remainingDistance < _agent.stoppingDistance)
         {
-            //_agent.destination = transform.position;
             return INode.E_NodeState.ENS_Success;
         }
         
         return INode.E_NodeState.ENS_Failure;
     }
+    
+    /*================================================================================================*/
     
     // 대기시간이 남아있는가? ( 대기시간 체크 -> Coroutine or Time.time ) Running , End -> _patrolRandomPosCheck = true;
     private INode.E_NodeState IdleWaitTimeCheck()
@@ -220,7 +237,7 @@ public class EnemyBasicBT : MonoBehaviour
         // 최초 한번 시간 할당.
         if (_idleWaitCheck == true)
         {
-            AnimationIdleCheck();
+            IsAnimationIdleCheck();
             _idleDurationTime = Random.Range(3f, 5f);
             _idleStartTime = Time.time;
             _idleWaitCheck = false;
@@ -237,21 +254,80 @@ public class EnemyBasicBT : MonoBehaviour
         return INode.E_NodeState.ENS_Running;
     }
     
+    /*================================================================================================*/
 
     #endregion
 
     #region Attack Check/Excute Node
     
+    /*================================================================================================*/
+    
     // 공격중인가?
+    private INode.E_NodeState CheckAttacking()
+    {
+        if (IsAnimationRunning(_ATTACK_ANIM_STATE_NAME))
+        {
+            _agent.speed = 0;
+            return INode.E_NodeState.ENS_Running;
+        }
+
+        return INode.E_NodeState.ENS_Success;
+    }
+    
+    /*================================================================================================*/
+    
     // 공격범위 안에 적이 있는가?
+    private INode.E_NodeState CheckPlayerWithineAttackDistance()
+    {
+        if (_detectedPlayer != null)
+        {
+            if (Vector3.SqrMagnitude(_detectedPlayer.position - transform.position) <
+                (_attackDistance * _attackDistance))
+            {
+                NavMeshAgentAttackSetting();
+                return INode.E_NodeState.ENS_Success;
+            }
+        }
+        
+        return INode.E_NodeState.ENS_Failure;
+    }
+    
+    /*================================================================================================*/
+    
     // 공격 실행
+    private INode.E_NodeState DoAttack()
+    {
+        if (_detectedPlayer != null)
+        {
+            IsAnimationAttackCheck();
+            return INode.E_NodeState.ENS_Success;
+        }
+
+        return INode.E_NodeState.ENS_Failure;
+    }
+    
+    /*================================================================================================*/
 
     #endregion
 
     #region Tracking Node
     
+    /*================================================================================================*/
+    
     // 적 발견시 Agent의 목적지를 Player로 할당.    
     // 추적 로직
+    private INode.E_NodeState DoTracking()
+    {
+        if (_detectedPlayer != null)
+        {
+            NavMeshAgentTrackingSetting();
+            _agent.SetDestination(_detectedPlayer.position);
+        }
+
+        return INode.E_NodeState.ENS_Failure;
+    }
+    
+    /*================================================================================================*/
 
     #endregion
 
@@ -260,9 +336,103 @@ public class EnemyBasicBT : MonoBehaviour
 
 
 
-    #region Action Logics
+    #region Action Inside Logics
+
+    # region Animations Logic
+
+    private bool IsAnimationRunning(string animationName)
+    {
+        if (_animator != null)
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName((animationName)))
+            {
+                var normalizedTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+                return normalizedTime != 0 && normalizedTime < 1f;
+            }
+        }
+        
+        return false;
+    }
     
-    
+    private void IsAnimationWalkCheck()
+    {
+        if (!_animator.GetBool(_WALK_ANIM_BOOL_NAME) || _animator.GetBool(_RUN_ANIM_BOOL_NAME))
+        {
+            _animator.SetBool(_RUN_ANIM_BOOL_NAME, false);
+            _animator.SetBool(_WALK_ANIM_BOOL_NAME, true);
+        }
+    }
+
+    private void IsAnimationIdleCheck()
+    {
+        if (_animator.GetBool(_WALK_ANIM_BOOL_NAME) || _animator.GetBool(_RUN_ANIM_BOOL_NAME))
+        {
+            _animator.SetBool(_RUN_ANIM_BOOL_NAME, false);
+            _animator.SetBool(_WALK_ANIM_BOOL_NAME, false);
+        }
+    }
+
+    private void IsAnimationRunCheck()
+    {
+        if (!_animator.GetBool(_RUN_ANIM_BOOL_NAME))
+        {
+            _animator.SetBool(_RUN_ANIM_BOOL_NAME, true);
+        }
+
+        if (_animator.GetBool(_ATTACK_ANIM_BOOL_NAME))
+        {
+            _animator.SetBool(_ATTACK_ANIM_BOOL_NAME, false);
+        }
+    }
+
+    private void IsAnimationAttackCheck()
+    {
+        if (!_animator.GetBool(_ATTACK_ANIM_BOOL_NAME))
+        {
+            _animator.SetBool(_ATTACK_ANIM_BOOL_NAME, true);
+        }
+    }
+
+    # endregion
+
+    # region NavMeshAgent Setting
+
+    private void NavMeshAgentAttackSetting()
+    {
+        IsAnimationAttackCheck();
+        
+        _animator.applyRootMotion = false;
+        _agent.isStopped = true;
+        _agent.updatePosition = false;
+        _agent.updateRotation = false;
+        _agent.velocity = Vector3.zero;
+    }
+
+    private void NavMeshAgentTrackingSetting()
+    {
+        IsAnimationRunCheck();
+
+        _animator.applyRootMotion = false;
+        _agent.speed = _agentTrkingSpeed;
+        _agent.isStopped = false;
+        _agent.updatePosition = true;
+        _agent.updateRotation = true;
+    }
+
+    private void NavMeshAgentPatrolSetting()
+    {
+        IsAnimationWalkCheck();
+        
+        _animator.applyRootMotion = true;
+        _agent.speed = _agentSpeed;
+        _agent.SetDestination(_correctPos);
+        _patrolRandomPosCheck = false;
+    }
+
+    # endregion
+
+
 
     #endregion
     
@@ -291,26 +461,14 @@ public class EnemyBasicBT : MonoBehaviour
     }
 
     #endregion
-
-    private void AnimationWalkCheck()
-    {
-        if (!_animator.GetBool(_WALK_ANIM_BOOL_NAME))
-        {
-            _animator.SetBool(_WALK_ANIM_BOOL_NAME, true);
-        }
-    }
-
-    private void AnimationIdleCheck()
-    {
-        if (_animator.GetBool(_WALK_ANIM_BOOL_NAME))
-        {
-            _animator.SetBool(_WALK_ANIM_BOOL_NAME, false);
-        }
-    }
+    
+    
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, _detectDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, _attackDistance);
     }
 }
