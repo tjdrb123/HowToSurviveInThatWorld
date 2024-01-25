@@ -42,9 +42,9 @@ public class EnemyBasicBT : MonoBehaviour
 
     [Header("NavMeshAgent")]
     [SerializeField]
-    private float _agentSpeed = 5f;
+    private float _agentSpeed = 0.1f;
     [SerializeField]
-    private float _agentStoppingDistance = Mathf.Epsilon; // 이동 중지 거리
+    private float _agentStoppingDistance = 0.1f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
     [SerializeField]
     private bool _agentUpdateRotation = true; // 자동 방향전환 여부
     [SerializeField]
@@ -205,8 +205,9 @@ public class EnemyBasicBT : MonoBehaviour
             return INode.E_NodeState.ENS_Running;
         }
         
-        if (_agent.remainingDistance < Mathf.Epsilon)
+        if (_agent.remainingDistance < _agent.stoppingDistance)
         {
+            //_agent.destination = transform.position;
             return INode.E_NodeState.ENS_Success;
         }
         
