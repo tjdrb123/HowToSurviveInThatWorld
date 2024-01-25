@@ -80,7 +80,7 @@ public class Inventory : UI_Popup
     }
     public E_ItemType TypeCheck(ItemSlot slot)
     {
-        return (E_ItemType)slot.ItemData.ItmeBaseType;
+        return (E_ItemType)slot.ItemData.itemBaseType;
     }
 
     private void BtnClose()
