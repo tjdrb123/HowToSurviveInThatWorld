@@ -14,21 +14,21 @@ public class DragSlot : UI_Popup
     {
         ItemQuantity,
     }
-    public int slotIndex;
+    public ItemSlot slot;
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
-
+        SetOrder();
         BindImage(typeof(E_Images));
         BindText(typeof(E_QuantityText));
 
         return true;
     }
 
-    public void SetSlot(Image slotSprite, TextMeshProUGUI quantityText, int index)
+    public void SetSlot(Image slotSprite, TextMeshProUGUI quantityText, ItemSlot slot)
     {
         GetImage((int)E_Images.ItemImage).sprite = slotSprite.sprite;
         GetText((int)E_QuantityText.ItemQuantity).text = quantityText.text;
-        slotIndex = index;
+        this.slot = slot;
     }
 }

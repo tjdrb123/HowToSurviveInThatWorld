@@ -6,6 +6,18 @@ public interface IKeyHolder
     string GetKey();
 }
 
+public enum E_ItemType
+{
+    None = -1,
+    Helmet,
+    Shirt,
+    Trousers,
+    Boots,
+    BackPack,
+    Weapon,
+    Sub_Weapon,
+    Quick
+}
 [Serializable]
 public class ItemData : IKeyHolder
 {
