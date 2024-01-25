@@ -17,6 +17,9 @@ public static class Literals
     #region Floating Value
 
     public const float ZERO_F = 0f;
+    public const float HALF_F = 0.5f;
+    public const float ONE_F = 1f;
+    public const float TWO_F = 2f;
 
     #endregion
 
