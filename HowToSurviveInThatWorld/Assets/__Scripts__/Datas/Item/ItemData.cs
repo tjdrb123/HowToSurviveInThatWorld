@@ -21,13 +21,13 @@ public enum E_ItemType
 [Serializable]
 public class ItemData : IKeyHolder
 {
-    public int KeyNumber;
-    public string Name;
-    public string Description;
-    public int ItmeBaseType;
+    public int keyNumber;
+    public string name;
+    public string description;
+    public int itemBaseType;
     
     public string GetKey()
     {
-        return Name;
+        return name;
     }
 }

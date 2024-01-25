@@ -4,15 +4,36 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 
-public class Manager_Data
+public class Manager_Data : MonoBehaviour
 {
-    public PlayerData PlayerData = new();
-    public Dictionary<string, ItemData> ItemData = new();
+    public PlayerDataDto PlayerDataDto= new();
+    public PlayerData Playerdata;
+    //public Dictionary<string, ItemData> ItemData = new();
 
+    // 씬에서 데이터 로드가 필요할 때 Initialize 사용
     public void Initialize()
     {
-        PlayerData = LoadData<PlayerData>("PlayerData"); // 씬에서 데이터 로드가 필요할 때 Initialize 사용
-        ItemData = LoadDataToDictionary<ItemData>("ItemData");
+        PlayerDataDto = LoadData<PlayerDataDto>("PlayerData");
+        Playerdata = new PlayerData(PlayerDataDto);
+        //ItemData = LoadDataToDictionary<ItemData>("ItemData");
+    }
+
+    public void SavePlayerData(PlayerData playerData)
+    {
+        PlayerDataDto playerDataDto = new PlayerDataDto
+        {
+            hp = new PlayerDataDto.StatusData { curValue = playerData.Hp.CurValue, maxValue = playerData.Hp.MaxValue },
+            exp = new PlayerDataDto.StatusData { curValue = playerData.Exp.CurValue, maxValue = playerData.Exp.MaxValue },
+            hunger = new PlayerDataDto.SingleValueData { value = playerData.Hunger.Value },
+            thirst = new PlayerDataDto.SingleValueData { value = playerData.Thirst.Value },
+            damage = new PlayerDataDto.SingleValueData { value = playerData.Damage.Value },
+            defense = new PlayerDataDto.SingleValueData { value = playerData.Defense.Value },
+            moveSpeed = new PlayerDataDto.SingleValueData { value = playerData.MoveSpeed.Value },
+            level = new PlayerDataDto.SingleValueData { value = playerData.Level.Value },
+            userName = new PlayerDataDto.SingleStringValueData { value = playerData.UserName.Value },
+        };
+        
+        SaveData(playerDataDto, "PlayerData");
     }
     
     // memory -> json

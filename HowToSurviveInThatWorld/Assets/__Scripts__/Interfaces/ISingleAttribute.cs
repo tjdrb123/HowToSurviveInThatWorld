@@ -13,9 +13,8 @@ public interface ISingleAttribute
     #endregion
 
 
-
     #region Methods
-
+    
     void SetValue(float amount);
 
     // amount가 음수 값일 수 없음.

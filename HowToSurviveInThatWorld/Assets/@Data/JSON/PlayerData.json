@@ -1,31 +1,31 @@
 {
-  "Hp": {
-    "CurValue": 100,
-    "MaxValue": 100
+  "hp": {
+    "curValue": 100.0,
+    "maxValue": 100.0
   },
-  "Exp": {
-    "CurValue": 0,
-    "MaxValue": 100
+  "exp": {
+    "curValue": 0.0,
+    "maxValue": 100.0
   },
-  "Hunger": {
-    "Value": 100
+  "hunger": {
+    "value": 100.0
   },
-  "Thirst": {
-    "Value": 100
+  "thirst": {
+    "value": 100.0
   },
-  "Damage": {
-    "Value": 10
+  "damage": {
+    "value": 50.0
   },
-  "Defense": {
-    "Value": 10
+  "defense": {
+    "value": 10.0
   },
-  "MoveSpeed": {
-    "Value": 5
+  "moveSpeed": {
+    "value": 5.0
   },
-  "Level": {
-    "Value": 1
+  "level": {
+    "value": 1.0
   },
-  "UserName": {
-    "Value": "temp"
+  "userName": {
+    "value": "gamehappy"
   }
 }

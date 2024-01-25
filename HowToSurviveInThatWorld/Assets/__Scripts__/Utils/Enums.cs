@@ -10,6 +10,23 @@
  * public enum E_Player_State { types... }
 */
 
+#region PlayerFSM Enum
+
+public enum E_Player_Locations
+{
+    Dungeon = 1,
+    Village,
+};
+
+public enum E_Player_States
+{
+    NormallyState,
+    GlobalState,
+}
+
+#endregion
+
+
 #region Coroutine Key
 
 // * 코루틴 키 관련 타입
