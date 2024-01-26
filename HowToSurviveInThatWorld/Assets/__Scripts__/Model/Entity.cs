@@ -1,34 +1,18 @@
 
-using System;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    #region Fields
-
-    // Identifier
-    protected string _name;
-    protected string _tag;
-
-    // Base Transform Info
-    protected Transform _transform;
-    protected GameObject _gameObject;
-    private Vector3 _lookDirection;
-    
-    // Active Flag
-    private bool _isActive;
-    
-    #endregion
-
-
-
     #region Properties
-
-    /* Getter */
-    // 현재 활성화 상태인지 비활성화 상태인지
-    public bool IsActive => _isActive;
+    
+    // 추가적 프로퍼티 고유 스트링 또는 정수형 값으로 ID가 필요함.
+    // 해당 오브젝트를 식별할 수 있는 고유 아이디 키 값이 있으면 좋을 거 같음.
+    
+    // 모든 엔티티 관리를 위한 고유 인덱스
+    public int UniqueIndex { get; private set; }
+    
     // 바라보고 있는 방향에 대한 각도를 60분법으로 반환
-    public float LookAngle => Mathf.Atan2(_lookDirection.z, _lookDirection.x) * Mathf.Rad2Deg;
+    public float LookAngle => Mathf.Atan2(transform.forward.z, transform.forward.x) * Mathf.Rad2Deg;
 
     #endregion
     
@@ -56,24 +40,37 @@ public class Entity : MonoBehaviour
 
 
 
+    #region Setup
+
+    /// <summary>
+    /// # Setup Unique Index (사용자 정의 인덱스)
+    ///   - 고유 인덱스를 지정해주는 메서드
+    ///   - 위 인덱스는 EntityManager가 관리하게 설계됌.
+    /// </summary>
+    public bool SetUniqueIndex(int index)
+    {
+        if (index is < 0 or > Literals.MAXIMUM_ENTITY_INDEX)
+        {
+            DebugLogger.LogWarning("Index must be between 0 and " + Literals.MAXIMUM_ENTITY_INDEX);
+            return false;
+        }
+
+        UniqueIndex = index;
+        return true;
+    }
+
+    #endregion
+
+
+
     #region Unity Behavior
 
-    private void Awake()
-    {
-        InitializeAwake();
-    }
-
-    private void Start()
-    {
-        InitializeStart();
-    }
-
-    protected void OnEnable()
+    private void OnEnable()
     {
         EntitySubscribeEvents();
     }
 
-    protected virtual void OnDisable()
+    private void OnDisable()
     {
         EntityDisposeEvents();
     }
@@ -82,78 +79,7 @@ public class Entity : MonoBehaviour
 
 
 
-    #region Initializer
-
-    /// <summary>
-    /// # Awake에서 실행 될 초기화 내용
-    ///   - AddComponent와 같은 메서드로 추가 되어 바로 실행될 부분을 작성
-    ///   - 해당 게임 오브젝트가 활성화 되자 마자 필요한 내용들이 초기화 되어야함
-    ///   - ex) 주로 GetComponent, Caching
-    /// </summary>
-    /// <returns>초기화 성공 시 : True / 실패 시 : False</returns>
-    protected virtual bool InitializeAwake()
-    {
-        try
-        {
-            _gameObject = gameObject;
-        
-            /* Setup */
-            // Identifier
-            _name = _gameObject.name;
-            _tag = _gameObject.tag;
-        
-            // Transform
-            _transform = _gameObject.transform;
-
-            if (_transform == null)
-            {
-                DebugLogger.LogError($"Transform component missing {_name}");
-                return false;
-            }
-
-            _lookDirection = _transform.forward;
-        
-            // Active State (Self)
-            _isActive = _gameObject.activeSelf;
-
-            return true;
-        }
-        catch (Exception exception)
-        {
-            DebugLogger.LogError("initializeAwake Failed : " + exception.Message);
-            return false;
-        }
-    }
-
-    /// <summary>
-    /// # Start에서 실행 될 초기화 내용
-    ///   - AddComponent 이 후 한 프레임 이후에 실행 될 초기화 내용
-    ///   - ex) 주로 초기 이동(포지션, 회전) 셋팅, 스케일 등등
-    /// </summary>
-    /// <returns>초기화 성공 시 : True / 실패 시 : False</returns>
-    protected virtual bool InitializeStart()
-    {
-        return true;
-    }
-
-    #endregion
-
-
-
-    #region Active
-
-    protected void SetActive(bool isActive)
-    {
-        _isActive = isActive;
-
-        gameObject.SetActive(_isActive);
-    }
-
-    #endregion
-
-
-
-    #region Rotate Methods
+    #region Basic Rotate Methods
 
     /// <summary>
     /// # 타겟 포지션 방향으로 (rotate Speed)만큼 회전하는 메서드
@@ -162,7 +88,7 @@ public class Entity : MonoBehaviour
     /// </summary>
     protected void RotateSmoothByPosition(Vector3 targetPosition, float rotateSpeed, bool isYAxis = true)
     {
-        Vector3 directionToTarget = (targetPosition - _transform.position).normalized;
+        Vector3 directionToTarget = (targetPosition - transform.position).normalized;
         
         // 높이 차이를 무시하기 위함, 필요 하다면 조정 필요
         if (isYAxis)
@@ -171,7 +97,7 @@ public class Entity : MonoBehaviour
         }
 
         Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-        _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
     }
 
     /// <summary>
@@ -180,7 +106,7 @@ public class Entity : MonoBehaviour
     /// </summary>
     protected void RotateInstantByPosition(Vector3 targetPosition, bool isYAxis = true)
     {
-        Vector3 directionToTarget = (targetPosition - _transform.position).normalized;
+        Vector3 directionToTarget = (targetPosition - transform.position).normalized;
         
         // 높이 차이를 무시하기 위함, 필요 하다면 조정 필요
         if (isYAxis)
@@ -188,7 +114,7 @@ public class Entity : MonoBehaviour
             directionToTarget.y = Literals.ZERO_F;
         }
         
-        _transform.rotation = Quaternion.LookRotation(directionToTarget);
+        transform.rotation = Quaternion.LookRotation(directionToTarget);
     }
 
     #endregion
