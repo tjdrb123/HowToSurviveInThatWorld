@@ -68,7 +68,14 @@ public static class Literals
     // Defense 
     public const float DEF_MIN = 0f;
     public const float DEF_MAX = 999999f;
+
+    #endregion
     
+    
+    
+    #region Entity Management
+
+    public const int MAXIMUM_ENTITY_INDEX = 9999;
 
     #endregion
 }
