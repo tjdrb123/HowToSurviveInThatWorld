@@ -25,6 +25,8 @@ public class ItemData : IKeyHolder
     public string name;
     public string description;
     public int itemBaseType;
+    public int stack;
+    public int maxStack;
     
     public string GetKey()
     {

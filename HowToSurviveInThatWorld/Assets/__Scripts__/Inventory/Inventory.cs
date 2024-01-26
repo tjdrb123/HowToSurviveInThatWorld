@@ -16,7 +16,6 @@ public class Inventory : UI_Popup
         DragSlot,
         RightEquipments,
     }
-
     [SerializeField] private ItemSlot[] _baseSlot;      //기본 슬롯
     [SerializeField] private ItemSlot[] _equipSlot;     //장착 슬롯
 
@@ -40,7 +39,8 @@ public class Inventory : UI_Popup
         BindButton(typeof(E_Button));
         
         GetButton((int)E_Button.Btn_Close).onClick.AddListener(BtnClose);
-
+        //여기에서 플레이어한테 저장된 인벤토리 데이터를 저장함 
+        // 
         _baseSlot = GetObject((int)E_Object.BaseInven).GetComponentsInChildren<ItemSlot>(); //기본 아이템 슬롯
         _equipSlot = GetObject((int)E_Object.RightEquipments).GetComponentsInChildren<ItemSlot>(); //장착 슬롯
         SlotAndDataReset();
@@ -54,28 +54,45 @@ public class Inventory : UI_Popup
         }
         for (int i = 0; i < _equipSlot.Length; i++)
         {
-            _equipSlot[i].SetInfo(new ItemData(), i + 15, (E_ItemType)i);
+            _equipSlot[i].SetInfo(new ItemData(), i + _baseSlot.Length, (E_ItemType)i);
         }
     }
-
+    public void SlotAddItem(ItemData item)
+    {
+        for (int i = 0; i < _baseSlot.Length; i++)
+        {
+            if (_baseSlot[i].ItemData.name == item.name)
+            {
+                
+            }
+        }
+        for (int i = 0; i < _baseSlot.Length; i++)
+        {
+            if (_baseSlot[i].SpriteRenderer.sprite == null)
+            {
+                _baseSlot[i].AddItem(item);
+                break;
+            }
+        }
+    }
     public void SlotSwap(ItemSlot firstslot, ItemSlot secondSlot) //슬롯의 번호와 target번호를 가져와 저장
     { 
         _firstSlot = firstslot;
         _secondSlot = secondSlot;
-        DataChange();
-        ImageSwapping();
+        DataSwap();
+        ImageSwap();
     }
-    private void DataChange() //Data를 교체한다.
+    private void DataSwap() //Data를 교체한다.
     {
         ItemData tempData = _firstSlot.ItemData;
         _firstSlot.ItemData = _secondSlot.ItemData;
         _secondSlot.ItemData = tempData;
     }
-    private void ImageSwapping()  //슬롯의 이미지를 교체한다.
+    private void ImageSwap()  //슬롯의 이미지를 교체한다.
     {
         var secondSlotImage = _secondSlot.SpriteRenderer.sprite;
-        var secondSlotQuantity = _secondSlot.QuantityText.text;
-        _secondSlot.Swap(_firstSlot.SpriteRenderer.sprite, _firstSlot.QuantityText.text);
+        var secondSlotQuantity = _secondSlot.slotStack;
+        _secondSlot.Swap(_firstSlot.SpriteRenderer.sprite, _firstSlot.slotStack);
         _firstSlot.Swap(secondSlotImage, secondSlotQuantity);
     }
     public E_ItemType TypeCheck(ItemSlot slot)

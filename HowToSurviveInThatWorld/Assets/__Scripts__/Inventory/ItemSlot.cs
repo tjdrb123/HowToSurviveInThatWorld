@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
@@ -23,9 +24,9 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     private TextMeshProUGUI _quantityText; //슬롯 
     private E_ItemType _slotType; //슬롯의 타입
 
+    public int slotStack { get; set; }
     public ItemData ItemData { get => _itemData; set { _itemData = value; } }
     public Image SpriteRenderer { get { return _itemImage; }}
-    public TextMeshProUGUI QuantityText { get { return _quantityText; } }
 
     public override bool Initialize()
     {
@@ -38,28 +39,26 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         _quantityText = GetText((int)E_QuantityText.ItemQuantity);
 
         if (_itemImage.sprite == null) //타입이 장착 타입이거나, 이미지가 없으면 문자 X
-        {
             _quantityText.text = string.Empty;
-        }
 
+        AddItem(ItemData);
         return true;
     }
 
-    public void SetInfo(ItemData itemData, int index, E_ItemType itemType = E_ItemType.None) //인벤토리에서 데이터가 변경되면 다시 Setinfo로 해주기
+    public void SetInfo(ItemData itemData, int index, E_ItemType slotType = E_ItemType.None) //인벤토리에서 데이터가 변경되면 다시 Setinfo로 해주기
     {
         Initialize();
         slotIndex = index;
-        _dragSlot = GameObject.Find("DragSlot");
+        _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot");    //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
         _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
-        _slotType = itemType;
+        _slotType = slotType;
         if (itemData.name == null)
         {
             _quantityText.text = string.Empty;
             _itemImage.sprite = null;
         }
         SetAlpha(_itemImage.sprite != null);
-        //_quantityText.text = itemData.quantity; 아이템의 수량을 Data로 관리하기
-        //_spriteRenderer.sprite = 리소스매니저를 통해 itemName;itemName을 이용해서 이미지 가져오기
+
     }
     private void SlotClear()
     {
@@ -72,7 +71,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         color.a = isAlphaColor ? 1 : 0;
         _itemImage.color = color;
     }
-    public void Swap(Sprite sprite, string text)
+    public void Swap(Sprite sprite, int stack) //아이템의 이미지와 Sprite를 변경함
     {
         SetAlpha(sprite != null);
         if (sprite == null)
@@ -81,7 +80,15 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             return;
         }
         _itemImage.sprite = sprite;
-        _quantityText.text = text;
+        _quantityText.text = stack.ToString();
+    }
+    public void AddItem(ItemData item) 
+    {
+        ItemData = item; //아이템 Data에 추가
+        _quantityText.text = item.stack.ToString(); //아이템 Data의 수량에 맞게 Text변경
+        var image = Resources.Load<Sprite>(item.name);  //리소스 매니저로 코드 변경해야함
+        _itemImage.sprite = image;
+        SetAlpha(_itemImage.sprite != null);
     }
     public void OnPointerDown(PointerEventData eventData) //마우스 클릭시
     {
@@ -117,7 +124,6 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         _dragSlot.SetActive(false);
     }
-
     public void OnPointerUp(PointerEventData eventData)
     {
         _dragSlot.SetActive(false);
