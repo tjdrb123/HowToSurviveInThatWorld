@@ -396,6 +396,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &82986529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +711,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &165196332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,6 +858,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &325086384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,6 +1308,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &483949623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1455,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &513617747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,6 +1811,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &703143491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,6 +2033,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &769480311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,6 +2180,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &770243907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2366,6 +2374,7 @@ MonoBehaviour:
     itemBaseType: 0
     stack: 0
     maxStack: 0
+  inventory: {fileID: 8704849450454525113}
 --- !u!4 &784185845
 Transform:
   m_ObjectHideFlags: 0
@@ -3442,6 +3451,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1158690677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4081,6 +4091,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1310736770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4459,6 +4470,7 @@ GameObject:
   - component: {fileID: 1505010693}
   - component: {fileID: 1505010692}
   - component: {fileID: 1505010691}
+  - component: {fileID: 1505010694}
   m_Layer: 5
   m_Name: Base
   m_TagString: Untagged
@@ -4562,6 +4574,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505010689}
   m_CullTransparentMesh: 0
+--- !u!114 &1505010694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505010689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591d9f164650519438d0e7bc1c5746f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseSlot: []
 --- !u!1 &1701623982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4785,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1753313183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5049,6 +5075,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1788670014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5195,6 +5222,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1792652949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5671,6 +5699,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1968286234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5817,6 +5846,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &1989474531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6737,50 +6767,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
---- !u!114 &387334019723034311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757753369954080689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 591d9f164650519438d0e7bc1c5746f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseSlot:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _equipSlot:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _slotType: 0
 --- !u!114 &391599925267391678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7062,6 +7049,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!224 &557831672767070853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7269,6 +7257,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &735342907919857744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8162,6 +8151,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &1305723506548331037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8941,6 +8931,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!224 &2212677207747518365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9276,6 +9267,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &2409575174464974451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10198,6 +10190,7 @@ GameObject:
   - component: {fileID: 8704849450454525112}
   - component: {fileID: 3875508865146565209}
   - component: {fileID: 4891982154305707838}
+  - component: {fileID: 8704849450454525113}
   m_Layer: 5
   m_Name: BaseInven
   m_TagString: Untagged
@@ -10276,6 +10269,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &3244888355054735001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10326,6 +10320,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!224 &3388776426570867668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10824,7 +10819,7 @@ GameObject:
   - component: {fileID: 2150791144787109428}
   - component: {fileID: 842566971183427143}
   - component: {fileID: 3963845194018430822}
-  - component: {fileID: 387334019723034311}
+  - component: {fileID: 3963845194018430823}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -11107,6 +11102,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3963845194018430823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757753369954080689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc536f1b5295a1e43bc669d0dc568038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &3983635243244614092
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11138,6 +11145,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!1 &4018048343265707895
 GameObject:
   m_ObjectHideFlags: 0
@@ -11523,6 +11531,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &4279423102914255871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11751,6 +11760,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &4524620799701735368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12000,6 +12010,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!224 &4937723398062585963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12659,6 +12670,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &5467018214548347000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13179,6 +13191,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!224 &6074924682707712097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14066,6 +14079,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &6779907273958933526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14266,6 +14280,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &6880057024713335768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14556,6 +14571,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &7001594687214013078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14648,13 +14664,27 @@ GameObject:
   - component: {fileID: 802541723865839295}
   - component: {fileID: 516626178189009267}
   - component: {fileID: 5894734643242507810}
+  - component: {fileID: 7112254243409533350}
   m_Layer: 5
-  m_Name: RightEquipments
+  m_Name: Equipments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7112254243409533350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112254243409533349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591d9f164650519438d0e7bc1c5746f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseSlot: []
 --- !u!1 &7121937876861272058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14979,6 +15009,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!1 &7522873571888258436
 GameObject:
   m_ObjectHideFlags: 0
@@ -15137,6 +15168,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &7689055544385937126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15213,6 +15245,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!114 &7729776632609407344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16094,6 +16127,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!222 &8397436262571239274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16647,6 +16681,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3179056401554956912}
   m_CullTransparentMesh: 0
+--- !u!114 &8704849450454525113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179056401554956912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591d9f164650519438d0e7bc1c5746f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseSlot: []
 --- !u!114 &8718893832998159116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16964,6 +17011,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!1 &8850369708021665521
 GameObject:
   m_ObjectHideFlags: 0
@@ -17199,6 +17247,7 @@ MonoBehaviour:
   _itemImage: {fileID: 0}
   _dragSlot: {fileID: 0}
   _dragSlotComponent: {fileID: 0}
+  _slotType: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

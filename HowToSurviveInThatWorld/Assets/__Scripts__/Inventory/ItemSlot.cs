@@ -22,9 +22,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     [SerializeField] private GameObject _dragSlot;
     [SerializeField] private DragSlot _dragSlotComponent;
     private TextMeshProUGUI _quantityText; //슬롯 
-    private E_ItemType _slotType; //슬롯의 타입
-
-    public int slotStack { get; set; }
+    [SerializeField] private E_ItemType _slotType; //슬롯의 타입
     public ItemData ItemData { get => _itemData; set { _itemData = value; } }
     public Image SpriteRenderer { get { return _itemImage; }}
 
@@ -45,13 +43,13 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         return true;
     }
 
-    public void SetInfo(ItemData itemData, int index, E_ItemType slotType = E_ItemType.None) //인벤토리에서 데이터가 변경되면 다시 Setinfo로 해주기
+    public void SetInfo(ItemData itemData, int index, int slotType = -1) //인벤토리에서 데이터가 변경되면 다시 Setinfo로 해주기
     {
         Initialize();
         slotIndex = index;
         _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot");    //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
         _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
-        _slotType = slotType;
+        _slotType = (E_ItemType)slotType;
         if (itemData.name == null)
         {
             _quantityText.text = string.Empty;
@@ -123,15 +121,16 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         //현재의 slot의 번호와 놔두고 싶은 slot의 번호를 가져와 인벤토리의 DataSwitching 함수를 작동시켜 데이터 변경후
         //인벤토리에서는 Setinfo를 다시 작동 ex) itemslot[현재 slotindex].Setinfo(아이템 데이터[현재 slotindex]);
-        if (_dragSlotComponent != null && _dragSlotComponent.slot.SpriteRenderer.sprite != null)
+        Inventory inventory = this.GetComponentInParent<Inventory>();
+        if (_dragSlotComponent != null && _dragSlotComponent.slot.SpriteRenderer.sprite != null && inventory != null)
         {
-            if (this.slotIndex < 15 || this.slotIndex > 23)
+            if (this._slotType == E_ItemType.None) 
             {
-                Inventory.Instance.SlotSwap(this, _dragSlotComponent.slot);
+                inventory.SlotSwap(this, _dragSlotComponent.slot);
             }
-            else if (_slotType == Inventory.Instance.TypeCheck(_dragSlotComponent.slot))
+            else if ((E_ItemType)_dragSlotComponent.slot.ItemData.itemBaseType == this._slotType)
             {
-                Inventory.Instance.SlotSwap(this, _dragSlotComponent.slot);
+                inventory.SlotSwap(this, _dragSlotComponent.slot);
             }
         }
     }

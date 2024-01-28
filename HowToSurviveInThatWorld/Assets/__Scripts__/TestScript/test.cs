@@ -5,18 +5,19 @@ using UnityEngine;
 public class test : MonoBehaviour
 {
     public ItemData item;
+    [SerializeField ] private Inventory inventory;
     private void Awake()
     {
         item.name = "image";
         item.keyNumber = 1;
-        item.stack = 2;
-        item.maxStack = 5;
+        item.stack = 3;
+        item.maxStack = 20;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z)) 
         {
-            Inventory.Instance.CombineSlot(new ItemData(item));
+            inventory.CombineSlot(new ItemData(item));
         }
     }
 }

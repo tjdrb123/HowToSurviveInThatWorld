@@ -4,17 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory : UI_Popup
+public class Inventory : MonoBehaviour
 {
-    enum E_Object
-    {
-        BaseInven,
-        RightEquipments,
-    }
     [SerializeField] private ItemSlot[] _baseSlot;      //기본 슬롯 배열
-    [SerializeField] private ItemSlot[] _equipSlot;     //장착 슬롯 배열
-
-    public static Inventory Instance;
 
     // 슬롯을 교체하기 위한 index
     private ItemSlot _firstSlot; 
@@ -22,30 +14,20 @@ public class Inventory : UI_Popup
 
     private void Awake()  //임시 싱글톤
     {
-        Instance = this;
-    }
-    public override bool Initialize()
-    {
-        if (!base.Initialize()) return false;
-
-        BindObject(typeof(E_Object));
-        
-        //여기에서 플레이어한테 저장된 인벤토리 데이터를 저장함 
-        // 
-        _baseSlot = GetObject((int)E_Object.BaseInven).GetComponentsInChildren<ItemSlot>(); //기본 아이템 슬롯
-        _equipSlot = GetObject((int)E_Object.RightEquipments).GetComponentsInChildren<ItemSlot>(); //장착 슬롯
+        _baseSlot = GetComponentsInChildren<ItemSlot>();
         SlotAndDataReset();
-        return true;
     }
     private void SlotAndDataReset() //슬롯과 아이템 초기화 , itemData는 어떠한 형식으로 받으리 고민해야함 아이템이 들어있으면 저장되어있는 값들을 가져오도록
     {
-        for (int i = 0; i < _baseSlot.Length; i++)
+        if (this.name == "Equipments")
         {
-            _baseSlot[i].SetInfo(new ItemData(), i);
+            for (int i = 0; i < _baseSlot.Length; i++)
+                _baseSlot[i].SetInfo(new ItemData(), i, i);
         }
-        for (int i = 0; i < _equipSlot.Length; i++)
+        else
         {
-            _equipSlot[i].SetInfo(new ItemData(), i + _baseSlot.Length, (E_ItemType)i);
+            for (int i = 0; i < _baseSlot.Length; i++)
+                _baseSlot[i].SetInfo(new ItemData(), i);
         }
     }
     public void CombineSlot(ItemData item)
@@ -56,7 +38,8 @@ public class Inventory : UI_Popup
             {
                 int stack = _baseSlot[i].MaxStackCheck(item.stack);
                 if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
-                {  item.stack = stack;
+                {  
+                    item.stack = stack;
                     continue;
                 }
                 else
@@ -72,15 +55,10 @@ public class Inventory : UI_Popup
         if (_firstSlot.ItemData.name == _secondSlot.ItemData.name && !(_secondSlot.ItemData.stack == _secondSlot.ItemData.maxStack || _firstSlot.ItemData.stack == _firstSlot.ItemData.maxStack))
         {
             int stack = _secondSlot.MaxStackCheck(firstslot.ItemData.stack); //옮길위치에 슬롯의 Data에게 값을 전달하여 숫자를 증가시킴
-            Debug.Log(stack);
             if (stack == 0)
-            {
                 _firstSlot.ItemData = new ItemData();
-            }
             else 
-            {
                 _firstSlot.ItemData.stack = stack;
-            }
         }
         DataSwap();
         ImageSwap();
