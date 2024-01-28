@@ -6,20 +6,13 @@ using UnityEngine;
 
 public class Inventory : UI_Popup
 {
-    enum E_Button
-    {
-        Btn_Close,
-    }
     enum E_Object
     {
         BaseInven,
-        DragSlot,
         RightEquipments,
     }
-    [SerializeField] private ItemSlot[] _baseSlot;      //기본 슬롯
-    [SerializeField] private ItemSlot[] _equipSlot;     //장착 슬롯
-
-    [SerializeField] private int _inventorySlot;
+    [SerializeField] private ItemSlot[] _baseSlot;      //기본 슬롯 배열
+    [SerializeField] private ItemSlot[] _equipSlot;     //장착 슬롯 배열
 
     public static Inventory Instance;
 
@@ -36,9 +29,7 @@ public class Inventory : UI_Popup
         if (!base.Initialize()) return false;
 
         BindObject(typeof(E_Object));
-        BindButton(typeof(E_Button));
         
-        GetButton((int)E_Button.Btn_Close).onClick.AddListener(BtnClose);
         //여기에서 플레이어한테 저장된 인벤토리 데이터를 저장함 
         // 
         _baseSlot = GetObject((int)E_Object.BaseInven).GetComponentsInChildren<ItemSlot>(); //기본 아이템 슬롯
@@ -57,28 +48,40 @@ public class Inventory : UI_Popup
             _equipSlot[i].SetInfo(new ItemData(), i + _baseSlot.Length, (E_ItemType)i);
         }
     }
-    public void SlotAddItem(ItemData item)
+    public void CombineSlot(ItemData item)
     {
         for (int i = 0; i < _baseSlot.Length; i++)
         {
-            if (_baseSlot[i].ItemData.name == item.name)
+            if (_baseSlot[i].ItemData.name == item.name && _baseSlot[i].ItemData.stack != item.maxStack)
             {
-                
+                int stack = _baseSlot[i].MaxStackCheck(item.stack);
+                if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
+                {  item.stack = stack;
+                    continue;
+                }
+                else
+                    return;
             }
         }
-        for (int i = 0; i < _baseSlot.Length; i++)
-        {
-            if (_baseSlot[i].SpriteRenderer.sprite == null)
-            {
-                _baseSlot[i].AddItem(item);
-                break;
-            }
-        }
+        AddItem(item);
     }
     public void SlotSwap(ItemSlot firstslot, ItemSlot secondSlot) //슬롯의 번호와 target번호를 가져와 저장
     { 
-        _firstSlot = firstslot;
-        _secondSlot = secondSlot;
+        _firstSlot = firstslot; //현재 슬롯
+        _secondSlot = secondSlot; //옛날 슬롯
+        if (_firstSlot.ItemData.name == _secondSlot.ItemData.name && !(_secondSlot.ItemData.stack == _secondSlot.ItemData.maxStack || _firstSlot.ItemData.stack == _firstSlot.ItemData.maxStack))
+        {
+            int stack = _secondSlot.MaxStackCheck(firstslot.ItemData.stack); //옮길위치에 슬롯의 Data에게 값을 전달하여 숫자를 증가시킴
+            Debug.Log(stack);
+            if (stack == 0)
+            {
+                _firstSlot.ItemData = new ItemData();
+            }
+            else 
+            {
+                _firstSlot.ItemData.stack = stack;
+            }
+        }
         DataSwap();
         ImageSwap();
     }
@@ -91,17 +94,22 @@ public class Inventory : UI_Popup
     private void ImageSwap()  //슬롯의 이미지를 교체한다.
     {
         var secondSlotImage = _secondSlot.SpriteRenderer.sprite;
-        var secondSlotQuantity = _secondSlot.slotStack;
-        _secondSlot.Swap(_firstSlot.SpriteRenderer.sprite, _firstSlot.slotStack);
-        _firstSlot.Swap(secondSlotImage, secondSlotQuantity);
+        _secondSlot.Swap(_firstSlot.SpriteRenderer.sprite);
+        _firstSlot.Swap(secondSlotImage);
+    }
+    private void AddItem(ItemData item)
+    {
+        for (int i = 0; i < _baseSlot.Length; i++)
+        {
+            if (_baseSlot[i].SpriteRenderer.sprite == null)
+            {
+                _baseSlot[i].AddItem(new ItemData(item));
+                break;
+            }
+        }
     }
     public E_ItemType TypeCheck(ItemSlot slot)
     {
         return (E_ItemType)slot.ItemData.itemBaseType;
-    }
-
-    private void BtnClose()
-    {
-        ClosePopup();
     }
 }

@@ -27,7 +27,20 @@ public class ItemData : IKeyHolder
     public int itemBaseType;
     public int stack;
     public int maxStack;
-    
+    public ItemData() 
+    {
+
+    }
+    public ItemData(ItemData source)
+    {
+        keyNumber = source.keyNumber;
+        name = source.name;
+        description = source.description;
+        itemBaseType = source.itemBaseType;
+        stack = source.stack;
+        maxStack = source.maxStack;
+    }
+
     public string GetKey()
     {
         return name;

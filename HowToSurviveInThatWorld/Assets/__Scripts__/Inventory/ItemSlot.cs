@@ -58,7 +58,6 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             _itemImage.sprite = null;
         }
         SetAlpha(_itemImage.sprite != null);
-
     }
     private void SlotClear()
     {
@@ -71,16 +70,16 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         color.a = isAlphaColor ? 1 : 0;
         _itemImage.color = color;
     }
-    public void Swap(Sprite sprite, int stack) //아이템의 이미지와 Sprite를 변경함
+    public void Swap(Sprite sprite) //아이템의 이미지와 Sprite를 변경함 1. Data로 이미지를 불러올 거기 때문에 매개변수를 뺼 준비하기
     {
-        SetAlpha(sprite != null);
-        if (sprite == null)
+        SetAlpha(ItemData.keyNumber != 0);
+        if (ItemData.keyNumber == 0)
         {
             SlotClear();
             return;
         }
         _itemImage.sprite = sprite;
-        _quantityText.text = stack.ToString();
+        _quantityText.text = ItemData.stack.ToString();
     }
     public void AddItem(ItemData item) 
     {
@@ -89,6 +88,22 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         var image = Resources.Load<Sprite>(item.name);  //리소스 매니저로 코드 변경해야함
         _itemImage.sprite = image;
         SetAlpha(_itemImage.sprite != null);
+    }
+    public int MaxStackCheck(int stack)
+    {
+        ItemData.stack += stack;
+        if (ItemData.stack > ItemData.maxStack)
+        {
+            int returnValue = ItemData.stack - ItemData.maxStack;
+            ItemData.stack = ItemData.maxStack;
+            _quantityText.text = ItemData.stack.ToString();
+            return returnValue;
+        }
+        else
+        {
+            _quantityText.text = ItemData.stack.ToString();
+            return 0;
+        }
     }
     public void OnPointerDown(PointerEventData eventData) //마우스 클릭시
     {
@@ -108,7 +123,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         //현재의 slot의 번호와 놔두고 싶은 slot의 번호를 가져와 인벤토리의 DataSwitching 함수를 작동시켜 데이터 변경후
         //인벤토리에서는 Setinfo를 다시 작동 ex) itemslot[현재 slotindex].Setinfo(아이템 데이터[현재 slotindex]);
-        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.SpriteRenderer.sprite != null)
+        if (_dragSlotComponent != null && _dragSlotComponent.slot.SpriteRenderer.sprite != null)
         {
             if (this.slotIndex < 15 || this.slotIndex > 23)
             {
