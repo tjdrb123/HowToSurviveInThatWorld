@@ -2,7 +2,7 @@
 /// <summary>
 /// # 실질적인 오브젝트에 행동(액션)을 나타는 클래스
 /// </summary>
-public abstract class FiniteStateAction : IFiniteState
+public abstract class FiniteStateAction : IFiniteStateComponent, IFiniteStateUpdater, IFiniteStateInitializer
 {
     #region Fields
 
@@ -12,18 +12,18 @@ public abstract class FiniteStateAction : IFiniteState
 
 
 
-    #region Virtual & Abstract (Interfaces)
+    #region Only Use Override
 
-    public virtual void StateEnter() { }
-    public virtual void StateExit() { }
-    public virtual void StateFixedUpdate() { }
-    public abstract void StateUpdate();
+    public virtual void FiniteStateEnter() { }
+    public virtual void FiniteStateExit() { }
+    public virtual void FiniteStateFixedUpdate() { }
+    public abstract void FiniteStateUpdate();
 
     #endregion
 
 
 
-    #region Initialize
+    #region Initialize (Interface)
 
     /// <summary>
     /// # Initialize

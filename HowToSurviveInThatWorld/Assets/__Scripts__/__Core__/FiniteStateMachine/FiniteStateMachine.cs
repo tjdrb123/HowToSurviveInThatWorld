@@ -10,7 +10,11 @@ public class FiniteStateMachine : MonoBehaviour
 {
     #region Fields
 
+    [Tooltip("초기 상태를 '유한상태머신'에 셋팅")] [SerializeField]
+    private TransitionTableSO _transitionTable;
+    
     private readonly Dictionary<Type, Component> _cachedComponents = new();
+    private FiniteState _currentState;
 
     #endregion
 
@@ -25,17 +29,35 @@ public class FiniteStateMachine : MonoBehaviour
 
     private void Start()
     {
-        
+        _currentState.FiniteStateEnter();
     }
 
     private void Update()
     {
+        if (_currentState.TryGetTransition(out var transitionState))
+        {
+            Transition(transitionState);
+        }
         
+        _currentState.FiniteStateUpdate();
     }
 
     private void FixedUpdate()
     {
-        
+        _currentState.FiniteStateFixedUpdate();
+    }
+
+    #endregion
+
+
+
+    #region Transition
+
+    private void Transition(FiniteState transitionState)
+    {
+        _currentState.FiniteStateExit();
+        _currentState = transitionState;
+        _currentState.FiniteStateEnter();
     }
 
     #endregion
