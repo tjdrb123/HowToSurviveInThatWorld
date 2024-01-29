@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -10,6 +11,22 @@ public class Unit : Entity
     // RequireComponents
     protected Animator _animator;
     protected Collider _collider;
+
+    #endregion
+
+
+
+    #region Unity Behavior With Override
+
+    protected virtual void Awake()
+    {
+        
+    }
+
+    protected virtual void Start()
+    {
+        
+    }
 
     #endregion
 }
