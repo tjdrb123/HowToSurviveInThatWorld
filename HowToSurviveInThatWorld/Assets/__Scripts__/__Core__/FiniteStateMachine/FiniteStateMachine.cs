@@ -11,10 +11,16 @@ public class FiniteStateMachine : MonoBehaviour
     #region Fields
 
     [Tooltip("초기 상태를 '유한상태머신'에 셋팅")] [SerializeField]
-    private TransitionTableSO _transitionTable;
+    private TransitionTableSO _transitionTableSO;
     
     private readonly Dictionary<Type, Component> _cachedComponents = new();
-    private FiniteState _currentState;
+    [NonSerialized] public FiniteState _currentState;
+    
+#if UNITY_EDITOR
+    [Space]
+    [SerializeField]
+    public FiniteStateMachineDebugger Debugger;
+#endif
 
     #endregion
 
@@ -24,13 +30,34 @@ public class FiniteStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        
+        _currentState = _transitionTableSO.GetInitialState(this);
+#if UNITY_EDITOR
+        Debugger.Awake(this);
+#endif
     }
 
     private void Start()
     {
         _currentState.FiniteStateEnter();
     }
+    
+#if UNITY_EDITOR
+    private void OnEnable()
+    {
+        UnityEditor.AssemblyReloadEvents.afterAssemblyReload += OnAfterAssemblyReload;
+    }
+
+    private void OnAfterAssemblyReload()
+    {
+        _currentState = _transitionTableSO.GetInitialState(this);
+        Debugger.Awake(this);
+    }
+
+    private void OnDisable()
+    {
+        UnityEditor.AssemblyReloadEvents.afterAssemblyReload -= OnAfterAssemblyReload;
+    }
+#endif
 
     private void Update()
     {

@@ -1,0 +1,53 @@
+
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "#RUNTIMENAME#", menuName = "State Machine/Actions/#RUNTIMENAME_WITH_SPACES#")]
+public class #SCRIPTNAME# : FiniteStateActionSO
+{
+    #region Property (Override)
+    
+    protected override FiniteStateAction CreateAction() => new #RUNTIMENAME#();
+    
+    #endregion
+}
+
+public class #RUNTIMENAME# : FiniteStateAction
+{
+    #region Fields
+
+    // Property (Origin SO)
+    private new #SCRIPTNAME# OriginSO => base.OriginSO as #SCRIPTNAME#;
+
+    #endregion
+
+
+
+    #region Override
+
+    public override void Initialize(FiniteStateMachine finiteStateMachine)
+    {
+        
+    }
+    
+    public override void FiniteStateEnter()
+    {
+        
+    }
+
+    public override void FiniteStateExit()
+    {
+        
+    }
+    
+    public override void FiniteStateUpdate() 
+    { 
+        
+    }
+    
+    public override void FiniteStateFixedUpdate()
+    {
+        
+    }
+
+    #endregion
+}

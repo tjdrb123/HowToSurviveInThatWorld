@@ -86,16 +86,13 @@ public class Entity : MonoBehaviour
     ///   - 스피드만큼 즉시가아닌 부드러운 회전을 원할 때 사용
     ///   - [필수] => 반드시 FixedUpdate()에서 실행할 것
     /// </summary>
-    protected void RotateSmoothByPosition(Vector3 targetPosition, float rotateSpeed, bool isYAxis = true)
+    public void RotateSmoothByPosition(Vector3 targetPosition, float rotateSpeed, bool isYAxis = true)
     {
         Vector3 directionToTarget = (targetPosition - transform.position).normalized;
         
         // 높이 차이를 무시하기 위함, 필요 하다면 조정 필요
-        if (isYAxis)
-        {
-            directionToTarget.y = Literals.ZERO_F;
-        }
-
+        if (isYAxis) directionToTarget.y = Literals.ZERO_F;
+        
         Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
     }
@@ -104,17 +101,39 @@ public class Entity : MonoBehaviour
     /// # 타겟 포지션 방향으로 즉시 회전하는 메서드
     ///   - 점진적으로 증가하지 않기 때문에 즉각적일 때 사용
     /// </summary>
-    protected void RotateInstantByPosition(Vector3 targetPosition, bool isYAxis = true)
+    public void RotateInstantByPosition(Vector3 targetPosition, bool isYAxis = true)
     {
         Vector3 directionToTarget = (targetPosition - transform.position).normalized;
         
         // 높이 차이를 무시하기 위함, 필요 하다면 조정 필요
-        if (isYAxis)
-        {
-            directionToTarget.y = Literals.ZERO_F;
-        }
+        if (isYAxis) directionToTarget.y = Literals.ZERO_F;
         
         transform.rotation = Quaternion.LookRotation(directionToTarget);
+    }
+
+    public void RotateSmoothByMovement(Vector3 movementVector, float turnSmoothTime, ref float turnSmoothSpeed, float rotateThreshold, bool isYAxis = true)
+    {
+        Vector3 horizontalVector = movementVector;
+        if(isYAxis) horizontalVector.y = Literals.ZERO_F;
+
+        // 한계치를 정해 놓음, 쓸 데 없는 회전 연산을 하지 않기 위함.
+        if (!(horizontalVector.sqrMagnitude >= rotateThreshold)) return;
+        
+        float targetRotation = Mathf.Atan2(horizontalVector.x, horizontalVector.z) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(
+            transform.eulerAngles.y, targetRotation, ref turnSmoothSpeed, turnSmoothTime);
+        transform.eulerAngles = Vector3.up * angle;
+    }
+
+    public void RotateInstantByMovement(Vector3 movementVector, float rotateThreshold, bool isYAxis = true)
+    {
+        Vector3 horizontalVector = movementVector;
+        if(isYAxis) horizontalVector.y = Literals.ZERO_F;
+        
+        if (!(horizontalVector.sqrMagnitude >= rotateThreshold)) return;
+
+        float targetRotation = Mathf.Atan2(horizontalVector.x, horizontalVector.z) * Mathf.Rad2Deg;
+        transform.eulerAngles = Vector3.up * targetRotation;
     }
 
     #endregion
