@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using static Unity.VisualScripting.Member;
 
 public interface IKeyHolder
 {
@@ -29,7 +30,12 @@ public class ItemData : IKeyHolder
     public int maxStack;
     public ItemData() 
     {
-
+        keyNumber = 0;
+        name = "";
+        description = "";
+        itemBaseType = -1;
+        stack = -1;
+        maxStack = -1;
     }
     public ItemData(ItemData source)
     {

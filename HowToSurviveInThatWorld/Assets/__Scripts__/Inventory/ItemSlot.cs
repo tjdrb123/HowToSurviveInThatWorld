@@ -23,6 +23,8 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     [SerializeField] private DragSlot _dragSlotComponent;
     private TextMeshProUGUI _quantityText; //슬롯 
     [SerializeField] private E_ItemType _slotType; //슬롯의 타입
+
+    public E_ItemType SlotType { get => _slotType; }
     public ItemData ItemData { get => _itemData; set { _itemData = value; } }
     public Image SpriteRenderer { get { return _itemImage; }}
 
@@ -35,7 +37,8 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         
         _itemImage = GetImage((int)E_Images.ItemImage);
         _quantityText = GetText((int)E_QuantityText.ItemQuantity);
-
+        _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot");    //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
+        _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
         if (_itemImage.sprite == null) //타입이 장착 타입이거나, 이미지가 없으면 문자 X
             _quantityText.text = string.Empty;
 
@@ -47,13 +50,17 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         Initialize();
         slotIndex = index;
-        _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot");    //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
-        _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
         _slotType = (E_ItemType)slotType;
-        if (itemData.name == null)
+        ItemData = itemData;    
+        if (itemData.keyNumber == 0)
         {
             _quantityText.text = string.Empty;
             _itemImage.sprite = null;
+        }
+        else
+        {
+            _quantityText.text = ItemData.stack.ToString();
+            _itemImage.sprite = Resources.Load<Sprite>(ItemData.name);
         }
         SetAlpha(_itemImage.sprite != null);
     }
@@ -115,14 +122,17 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void OnDrag(PointerEventData eventData)
     {
-        _dragSlot.transform.position = eventData.position;
+        if (_dragSlotComponent.slot != null)
+        {
+            _dragSlot.transform.position = eventData.position;
+        }
     }
     public void OnDrop(PointerEventData eventData)
     {
         //현재의 slot의 번호와 놔두고 싶은 slot의 번호를 가져와 인벤토리의 DataSwitching 함수를 작동시켜 데이터 변경후
         //인벤토리에서는 Setinfo를 다시 작동 ex) itemslot[현재 slotindex].Setinfo(아이템 데이터[현재 slotindex]);
         Inventory inventory = this.GetComponentInParent<Inventory>();
-        if (_dragSlotComponent != null && _dragSlotComponent.slot.SpriteRenderer.sprite != null && inventory != null)
+        if (_dragSlotComponent != null && _dragSlotComponent.slot != null && inventory != null)
         {
             if (this._slotType == E_ItemType.None) 
             {
