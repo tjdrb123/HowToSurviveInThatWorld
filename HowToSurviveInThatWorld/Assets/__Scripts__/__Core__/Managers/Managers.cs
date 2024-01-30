@@ -11,7 +11,7 @@
 /// # No Standalone -> SingletonBehavior를 상속 받지 않는 기존 매니저들
 /// # Standalone -> SingletonBehavior를 상속 받는 혼자서도 사용 가능한 싱글톤 매니저들
 /// </summary>
-public class Managers : SingletonBehavior<Managers>
+public class Managers : SingletonPersist<Managers>
 {
     #region Managers Field
     
