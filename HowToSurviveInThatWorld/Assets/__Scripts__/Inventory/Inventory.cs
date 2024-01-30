@@ -19,10 +19,6 @@ public class Inventory : MonoBehaviour
         _baseSlot = GetComponentsInChildren<ItemSlot>(); //자기 자식들중 ItemSlot을 가지고 있는 오브젝트들을 가져옵니다.
         _inventoryAvailableSlots = (this.name == "BackPack") ? -1 : _baseSlot.Length;
     }
-    private void Start()
-    {
-        this.GetComponentInParent<UI_Inventory>().DataReset();
-    }
     public void SlotAndDataReset(ItemData[] items) //슬롯과 아이템 초기화 , itemData는 어떠한 형식으로 받으리 고민해야함 아이템이 들어있으면 저장되어있는 값들을 가져오도록
     {
         if (this.name == "Equipments") //장착할 수 있는 Inventory는 Slot의 타입을 각각 부여합니다.
@@ -72,7 +68,7 @@ public class Inventory : MonoBehaviour
             DataSwap();
             ImageSwap();
         }
-        this.GetComponentInParent<UI_Inventory>().BackPackCheck();
+        Manager_Inventory.Instance.BackPackCheck();
     }
     private void DataSwap() //Data를 교체한다.
     {

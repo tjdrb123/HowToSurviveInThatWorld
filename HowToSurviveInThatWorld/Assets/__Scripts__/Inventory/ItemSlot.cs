@@ -51,7 +51,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         Initialize();
         slotIndex = index;
         _slotType = (E_ItemType)slotType;
-        ItemData = itemData;    
+        ItemData = itemData;
         if (itemData.keyNumber == 0)
         {
             _quantityText.text = string.Empty;
@@ -132,7 +132,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         //현재의 slot의 번호와 놔두고 싶은 slot의 번호를 가져와 인벤토리의 DataSwitching 함수를 작동시켜 데이터 변경후
         //인벤토리에서는 Setinfo를 다시 작동 ex) itemslot[현재 slotindex].Setinfo(아이템 데이터[현재 slotindex]);
         Inventory inventory = this.GetComponentInParent<Inventory>();
-        if (_dragSlotComponent != null && _dragSlotComponent.slot != null && inventory != null)
+        if (_dragSlotComponent != null && _dragSlotComponent.slot != null && inventory != null && this != _dragSlotComponent.slot)
         {
             if (this._slotType == E_ItemType.None) 
             {
