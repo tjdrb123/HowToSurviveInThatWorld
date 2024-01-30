@@ -19,9 +19,9 @@ public class Inventory : MonoBehaviour
         _baseSlot = GetComponentsInChildren<ItemSlot>(); //자기 자식들중 ItemSlot을 가지고 있는 오브젝트들을 가져옵니다.
         _inventoryAvailableSlots = (this.name == "BackPack") ? -1 : _baseSlot.Length;
     }
-    public void SlotAndDataReset(ItemData[] items) //슬롯과 아이템 초기화 , itemData는 어떠한 형식으로 받으리 고민해야함 아이템이 들어있으면 저장되어있는 값들을 가져오도록
+    public void SlotDataSet(ItemData[] items) //슬롯의 값들을 셋팅해주기 위한 함수
     {
-        if (this.name == "Equipments") //장착할 수 있는 Inventory는 Slot의 타입을 각각 부여합니다.
+        if (this.name == "Equipments") // 장착 인벤토리는 슬롯의 타입을 변경하기 위해서 이런식으로 만들었음 어떤식으로 변경할지 생각해야함
         {
             for (int i = 0; i < _baseSlot.Length; i++)
                 _baseSlot[i].SetInfo(items[i], i, i);
@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
                 _baseSlot[i].SetInfo(items[i], i);
         }
     }
-    public void CombineSlot(ItemData item)
+    public void CombineSlot(ItemData item) //아이템이 인벤토리에 추가 되면 아이템을 합치기 위한 함수
     {
         for (int i = 0; i < _baseSlot.Length; i++)
         {
@@ -50,12 +50,11 @@ public class Inventory : MonoBehaviour
         }
         AddItem(item);
     }
-    public void SlotSwap(ItemSlot firstslot, ItemSlot secondSlot) //슬롯의 번호와 target번호를 가져와 저장
+    public void SlotSwap(ItemSlot firstslot, ItemSlot secondSlot) //드래그할 위치, 드래그 슬롯에 저장된 슬롯을 옮기기 위해서
     { 
         _firstSlot = firstslot; //현재 슬롯 (내가 옮기고 싶은 Slot)
         _secondSlot = secondSlot; //옛날 슬롯 (DragSlot에 저장되어 있는 Slot입니다.)
-        
-        if (_firstSlot.slotIndex <= _inventoryAvailableSlots)
+        if (_firstSlot.SlotIndex <= _inventoryAvailableSlots)
         {
             if (_firstSlot.ItemData.name == _secondSlot.ItemData.name && !(_secondSlot.ItemData.stack == _secondSlot.ItemData.maxStack || _firstSlot.ItemData.stack == _firstSlot.ItemData.maxStack))
             {
@@ -68,7 +67,7 @@ public class Inventory : MonoBehaviour
             DataSwap();
             ImageSwap();
         }
-        Manager_Inventory.Instance.BackPackCheck();
+        Manager_Inventory.Instance.BackPackCheck(); //스왑을 했을 때 가방쪽으로 옮겼는지 확인하는 함수
     }
     private void DataSwap() //Data를 교체한다.
     {
@@ -76,24 +75,23 @@ public class Inventory : MonoBehaviour
         _firstSlot.ItemData = _secondSlot.ItemData;
         _secondSlot.ItemData = tempData;
     }
-    private void ImageSwap()  //슬롯의 이미지를 교체한다. 현재는 스프라이트를 전달하지만 itemSlot에 함수를 고쳐 변경하겠습니다.
+    private void ImageSwap()  //슬롯의 이미지를 교체한다.
     {
-        var secondSlotImage = _secondSlot.SpriteRenderer.sprite;
-        _secondSlot.Swap(_firstSlot.SpriteRenderer.sprite);
-        _firstSlot.Swap(secondSlotImage);
+        _secondSlot.Swap();
+        _firstSlot.Swap();
     }
-    private void AddItem(ItemData item) //아이템을 추가하는 함수입니다. Data를 이용해 Slot에 전달합니다. 
+    private void AddItem(ItemData item) //아이템을 추가하는 함수입니다.
     {
         for (int i = 0; i < _baseSlot.Length; i++)
         {
-            if (_baseSlot[i].SpriteRenderer.sprite == null)
+            if (_baseSlot[i].ItemData.keyNumber == 0)
             {
                 _baseSlot[i].AddItem(new ItemData(item));
                 break;
             }
         }
     }
-    public ItemSlot GetSlot(E_ItemType ItemType) 
+    public ItemSlot GetSlot(E_ItemType ItemType) //타입을 매개변수로 받아 타입에 맞게 슬롯을 전달함
     {
         return _baseSlot[(int)ItemType];
     }

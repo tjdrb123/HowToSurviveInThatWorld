@@ -8,7 +8,6 @@ public class Manager_Inventory : MonoBehaviour
     public ItemData[] BackPackSlotDatas { get; set; }
     public ItemData[] EquipMentSlotDatas { get; set; }
     public ItemData[] ChestItemDatas { get; set; }
-
     public Inventory BackPackInventory { get; set; }
     public Inventory EquipInventory { get; set; }
     public static Manager_Inventory Instance;
@@ -17,7 +16,6 @@ public class Manager_Inventory : MonoBehaviour
     {
         Instance = this;
         DataSetting();
-
     }
     private void DataSetting()
     {

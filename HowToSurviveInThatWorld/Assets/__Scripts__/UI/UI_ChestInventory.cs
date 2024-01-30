@@ -30,9 +30,9 @@ public class UI_ChestInventory : UI_Popup
     }
     public void DataReset()
     {
-        GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().SlotAndDataReset(Manager_Inventory.Instance.BaseSlotDatas);
-        GetObject((int)E_Object.BackPack).GetComponent<Inventory>().SlotAndDataReset(Manager_Inventory.Instance.BackPackSlotDatas);
-        GetObject((int)E_Object.ChestInven).GetComponent<Inventory>().SlotAndDataReset(Manager_Inventory.Instance.ChestItemDatas);
+        GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BaseSlotDatas);
+        GetObject((int)E_Object.BackPack).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BackPackSlotDatas);
+        GetObject((int)E_Object.ChestInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.ChestItemDatas);
     }
     private void BtnClose()
     {
