@@ -1,15 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class EnemyBasicBT : MonoBehaviour
 {
     #region Global Variable
 
     private Animator _animator;
-    private Transform _detectedPlayer;
+    public Transform _detectedPlayer;
     private NavMeshAgent _agent;
     
     private DataContext _enemyData;
@@ -20,7 +26,9 @@ public class EnemyBasicBT : MonoBehaviour
     /// </summary>
     [Header("Distance")] 
     [SerializeField] 
-    private float _detectDistance = 10f;
+    public float _detectDistance = 10f;
+    [SerializeField] 
+    private float _detectViewAngle = 45;
     [SerializeField]
     private float _attackDistance = 1f;
     
@@ -48,11 +56,15 @@ public class EnemyBasicBT : MonoBehaviour
     private const string _ATTACK_ANIM_BOOL_NAME = "IsAttack";
     private const string _ATTACK_ANIM_STATE_NAME = "Attack";
 
+    [Header("LayerMask")] 
+    private readonly LayerMask _PLAYER_LAYER_MASK = 1 << 6;
+    private readonly LayerMask _ENEMY_LAYER_MASK = 1 << 7;
+
     [Header("NavMeshAgent")]
     [SerializeField]
     private float _agentSpeed = 0.1f;
     [SerializeField] 
-    private float _agentTrkingSpeed = 3f;
+    private float _agentTrackingSpeed = 3f;
     [SerializeField]
     private float _agentStoppingDistance = 0.5f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
     [SerializeField]
@@ -62,7 +74,7 @@ public class EnemyBasicBT : MonoBehaviour
     [SerializeField]
     private float _agentCorrectionDistance = 1f; // 보정 거리 (버그 방지) 
     [SerializeField] 
-    private float _angularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
+    private float _agentAngularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
     
     #endregion
     
@@ -142,30 +154,54 @@ public class EnemyBasicBT : MonoBehaviour
     # region Action(Leaf) Nodes
 
     #region Detect Player Node
+    
+    /// <summary>
+    /// 범위 거리 체크할 Distance,범위 안에 있다면 플레이어의 위치 정보를 가져올 Transform
+    /// 이 쪽에서 플레이어가 존재시에 Transform에 플레이어 정보를 저장한다.
+    /// 만약 Transform != null 이라면 할당하지 않고, null 일때에만 할당한다.
+    /// 플레이어가 감지 범위 밖으로 나간다면 Transform을 null으로 만들어준다.
+    /// 이런식으로 최대한 Physics2D.OverlapSphere 를 적게 사용해야 불필요한 연산을 줄일 수 있다.
+    /// </summary>
 
     // 범위안에 적이 있는가? 
-    // 범위 거리 체크할 Distance,범위 안에 있다면 플레이어의 위치 정보를 가져올 Transform
-    // 이 쪽에서 플레이어가 존재시에 Transform에 플레이어 정보를 저장한다.
-    // 만약 Transform != null 이라면 할당하지 않고, null 일때에만 할당한다.
-    // 플레이어가 감지 범위 밖으로 나간다면 Transform을 null으로 만들어준다.
-    // 이런식으로 최대한 Physics2D.OverlapSphere 를 적게 사용해야 불필요한 연산을 줄일 수 있다.
     private INode.E_NodeState CheckDetectPlayer()
     {
         var overlapColliders =
-            Physics.OverlapSphere(transform.position, _detectDistance, LayerMask.GetMask("Player"));
+            Physics.OverlapSphere(transform.position, _detectDistance, _PLAYER_LAYER_MASK);
         
         // 추후 범위 안에 있으면 한번만 할당하게 변경
         if (overlapColliders != null & overlapColliders.Length> 0)
         {
-            _detectedPlayer = overlapColliders[0].transform;
+            // FOV (Field Of View)
+            // 범위 안에 플레이어가 있다면, 그 플레이어가 FOV 범위 안에 있는지 확인한다.
+            // FOV 범위 안에 있다면, 플레이어한테 Ray를 쏜다.
+            // 레이 사이에 장애물이 감지되지 않고 플레이어가 맞는다면, 추적을 한다.
+            // FOV 범위 밖에 있다면, 감지가 되지 않는다.
+
+            Transform undefinedPlayer = overlapColliders[0].transform;
+            Vector3 directionToPlayer = (undefinedPlayer.position - transform.position).normalized;
             
-            // 순찰 노드 최초확인 bool값 초기화.
-            _patrolRandomPosCheck = true;
-            _idleWaitCheck = true;
+            /*===========================================================================================*/
+            
+            if (Vector3.Dot(transform.forward, directionToPlayer) > 0.9f)
+            {
+                float distanceToTarget = Vector3.Distance(undefinedPlayer.position ,transform.position);
+
+                if (!Physics.Raycast(transform.position, directionToPlayer, distanceToTarget, _ENEMY_LAYER_MASK))
+                {
+                    // 순찰 노드 최초확인 bool값 초기화.
+                    _patrolRandomPosCheck = true;
+                    _idleWaitCheck = true;
+                    
+                    _detectedPlayer = undefinedPlayer;
+                }
+            }
+            
+            /*===========================================================================================*/
 
             return INode.E_NodeState.ENS_Success;
         }
-        
+
         // 추후 범위 밖으로 나가면 한번만 비우게 변경
         _detectedPlayer = null;
         
@@ -359,6 +395,7 @@ public class EnemyBasicBT : MonoBehaviour
     {
         if (!_animator.GetBool(_WALK_ANIM_BOOL_NAME) || _animator.GetBool(_RUN_ANIM_BOOL_NAME))
         {
+            _animator.SetBool(_ATTACK_ANIM_BOOL_NAME, false);
             _animator.SetBool(_RUN_ANIM_BOOL_NAME, false);
             _animator.SetBool(_WALK_ANIM_BOOL_NAME, true);
         }
@@ -414,7 +451,7 @@ public class EnemyBasicBT : MonoBehaviour
         IsAnimationRunCheck();
 
         _animator.applyRootMotion = false;
-        _agent.speed = _agentTrkingSpeed;
+        _agent.speed = _agentTrackingSpeed;
         _agent.isStopped = false;
         _agent.updatePosition = true;
         _agent.updateRotation = true;
@@ -428,6 +465,10 @@ public class EnemyBasicBT : MonoBehaviour
         _agent.speed = _agentSpeed;
         _agent.SetDestination(_correctPos);
         _patrolRandomPosCheck = false;
+        
+        _agent.isStopped = false;
+        _agent.updatePosition = true;
+        _agent.updateRotation = true;
     }
 
     # endregion
@@ -457,18 +498,42 @@ public class EnemyBasicBT : MonoBehaviour
         _agent.destination = _correctPos; // 목적지
         _agent.updateRotation = _agentUpdateRotation; // 회전 유무
         _agent.acceleration = _agentacceleartion; // 가속도
-        _agent.angularSpeed = _angularSpeed; // 회전 속도
+        _agent.angularSpeed = _agentAngularSpeed; // 회전 속도
     }
 
     #endregion
     
-    
-
+/*
     private void OnDrawGizmos()
     {
+        private Vector3 leftViewAngle;
+        private Vector3 rightViewAngle;
+
+        private float myVecMag;
+        private float youVecMag;
+    
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, _detectDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, _attackDistance);
+
+        Gizmos.color = Color.blue;
+        leftViewAngle = new Vector3
+            (Mathf.Sin(-_detectViewAngle * 0.5f * Mathf.Deg2Rad), 0, Mathf.Cos(-_detectViewAngle * 0.5f * Mathf.Deg2Rad));
+        rightViewAngle = new Vector3
+            (Mathf.Sin(_detectViewAngle * 0.5f * Mathf.Deg2Rad), 0, Mathf.Cos(_detectViewAngle * 0.5f * Mathf.Deg2Rad));
+        Gizmos.DrawLine(transform.position, transform.position + leftViewAngle * 10f);
+        Gizmos.DrawLine(transform.position, transform.position + rightViewAngle * 10f);
+        
+        Gizmos.color = Color.black;
+        float vie = Mathf.Acos(0.9f);
+        Vector3 leftView = new Vector3
+            (Mathf.Cos(-vie * 0.5f), 0, Mathf.Sin(-vie * 0.5f));
+        Vector3 rightView = new Vector3
+            (Mathf.Cos(vie * 0.5f), 0, Mathf.Sin(vie * 0.5f));
+        Gizmos.DrawLine(transform.position, transform.position + leftView * 10f);
+        Gizmos.DrawLine(transform.position, transform.position + rightView * 10f);
+
     }
+    */
 }
