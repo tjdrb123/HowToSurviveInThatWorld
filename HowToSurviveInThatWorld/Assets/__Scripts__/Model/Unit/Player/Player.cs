@@ -75,6 +75,7 @@ public sealed class Player : Unit
     private void Movement(Vector2 movementInput)
     {
         _inputVector = movementInput;
+        MovementInput = new Vector3(_inputVector.x, 0f, _inputVector.y);
     }
 
     #endregion

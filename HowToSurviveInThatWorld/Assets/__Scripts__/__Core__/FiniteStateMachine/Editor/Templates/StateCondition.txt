@@ -1,0 +1,48 @@
+
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "#RUNTIMENAME#", menuName = "State Machine/Conditions/#RUNTIMENAME_WITH_SPACES#")]
+public class #SCRIPTNAME# : FiniteStateConditionSO
+{
+    #region Property (Override)
+    
+    protected override FiniteStateCondition CreateCondition() => new #RUNTIMENAME#();
+    
+    #endregion
+}
+
+public class #RUNTIMENAME# : FiniteStateCondition
+{
+    #region Fields
+
+    // Property (Origin SO)
+    private new #SCRIPTNAME# OriginSO => base.OriginSO as #SCRIPTNAME#;
+
+    #endregion
+
+
+
+    #region Override
+
+    public override void Initialize(FiniteStateMachine finiteStateMachine)
+    {
+        
+    }
+    
+    protected override bool Statement()
+    {
+        return true;
+    }
+    
+    public override void FiniteStateEnter()
+    {
+        
+    }
+
+    public override void FiniteStateExit()
+    {
+        
+    }
+
+    #endregion
+}
