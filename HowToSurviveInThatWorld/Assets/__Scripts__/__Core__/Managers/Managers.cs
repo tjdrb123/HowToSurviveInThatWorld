@@ -11,7 +11,7 @@
 /// # No Standalone -> SingletonBehavior를 상속 받지 않는 기존 매니저들
 /// # Standalone -> SingletonBehavior를 상속 받는 혼자서도 사용 가능한 싱글톤 매니저들
 /// </summary>
-public class Managers : SingletonBehavior<Managers>
+public class Managers : SingletonPersist<Managers>
 {
     #region Managers Field
     
@@ -19,6 +19,7 @@ public class Managers : SingletonBehavior<Managers>
     private readonly Manager_Game _GameManager = new();
     private readonly Manager_UI _UIManager = new();
     private readonly Manager_Data _DataManager = new();
+    private readonly Manager_Inventory _InventoryManager;
     //private readonly Manager_Resource _ResourceManager = new();
 
     #endregion
@@ -32,6 +33,7 @@ public class Managers : SingletonBehavior<Managers>
     public static Manager_Game Game => Instance._GameManager;
     public static Manager_UI UI => Instance._UIManager;
     public static Manager_Data Data => Instance._DataManager;
+    public static Manager_Inventory Inventory => Instance._InventoryManager;
     //public static Manager_Resource Resource => Instance._ResourceManager;
 
 
