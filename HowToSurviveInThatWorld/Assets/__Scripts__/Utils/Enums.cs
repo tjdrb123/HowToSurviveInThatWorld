@@ -43,10 +43,11 @@ public enum E_CoroutineKey
 
 #region Status
 
-public enum E_StatModType
+public enum E_StatModifier_OperationType
 {
-    Flat,
-    Percent
+    Additive,
+    Multiplicative,
+    Override
 }
 
 #endregion
