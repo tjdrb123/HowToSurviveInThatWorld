@@ -13,7 +13,7 @@ using UnityEngine;
 ///   - 이 후 그 키값은 Managers.Coroutine.StartCrt(E_CoroutineKey.LoginGoogleAsync, LoginGoogleAsync)처럼 사용.
 /// </summary>
 
-public class CoroutineManager : SingletonBehavior<CoroutineManager>
+public class CoroutineManager : SingletonPersist<CoroutineManager>
 {
     #region Fields
 

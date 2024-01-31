@@ -25,11 +25,11 @@ public class Bio : Entity
     
     #region Base Initialize
     
-    protected override bool InitializeAwake()
-    {
-        base.InitializeAwake();
-        return CreatSetupComponent(_gameObject);
-    }
+    // protected override bool InitializeAwake()
+    // {
+    //     base.InitializeAwake();
+    //     return CreatSetupComponent(_gameObject);
+    // }
     
     #endregion
 
@@ -42,21 +42,21 @@ public class Bio : Entity
     /// override하여 더 필요한 Component들을 추가가능.
     /// 추가를 고려하여 생성자로 만들진 않았습니다.
     /// </summary>
-    protected virtual bool CreatSetupComponent(GameObject gameObject)
-    {
-        if (gameObject == null)
-        {
-            DebugLogger.LogError($"GameObject missing {_name}");
-            return false;
-        }
-        
-        gameObject = this.gameObject;
-        _animator = gameObject.GetComponent<Animator>();
-        _collider = gameObject.GetComponent<Collider>();
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
-        
-        return true;
-    }
+    // protected virtual bool CreatSetupComponent(GameObject gameObject)
+    // {
+    //     if (gameObject == null)
+    //     {
+    //         DebugLogger.LogError($"GameObject missing {_name}");
+    //         return false;
+    //     }
+    //     
+    //     gameObject = this.gameObject;
+    //     _animator = gameObject.GetComponent<Animator>();
+    //     _collider = gameObject.GetComponent<Collider>();
+    //     _rigidbody = gameObject.GetComponent<Rigidbody>();
+    //     
+    //     return true;
+    // }
     
     #endregion
     

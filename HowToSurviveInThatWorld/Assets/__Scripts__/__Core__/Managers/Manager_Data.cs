@@ -4,17 +4,21 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 
-public class Manager_Data : MonoBehaviour
+public class Manager_Data
 {
-    public PlayerDataDto PlayerDataDto= new();
-    public PlayerData Playerdata;
+    [NonSerialized]
+    public PlayerDataDto _playerDataDto;
+    [NonSerialized]
+    public PlayerAnimationData _playerAnimationData;
+    public PlayerData _playerData;
     //public Dictionary<string, ItemData> ItemData = new();
 
     // 씬에서 데이터 로드가 필요할 때 Initialize 사용
     public void Initialize()
     {
-        PlayerDataDto = LoadData<PlayerDataDto>("PlayerData");
-        Playerdata = new PlayerData(PlayerDataDto);
+        _playerDataDto = LoadData<PlayerDataDto>("PlayerData");
+        _playerData = new PlayerData(_playerDataDto);
+        _playerAnimationData = new PlayerAnimationData();
         //ItemData = LoadDataToDictionary<ItemData>("ItemData");
     }
 
