@@ -20,6 +20,7 @@ public static class Literals
     public const float HALF_F = 0.5f;
     public const float ONE_F = 1f;
     public const float TWO_F = 2f;
+    public const float HUND_F = 100f;
 
     #endregion
 

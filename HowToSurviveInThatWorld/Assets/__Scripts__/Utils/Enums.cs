@@ -38,3 +38,15 @@ public enum E_CoroutineKey
 }
 
 #endregion
+
+
+
+#region Status
+
+public enum E_StatModType
+{
+    Flat,
+    Percent
+}
+
+#endregion
