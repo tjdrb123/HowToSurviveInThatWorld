@@ -52,6 +52,16 @@ public class StatController : MonoBehaviour
         {
             _stats.Add(definition.name, new Stat(definition));
         }
+
+        foreach (var definition in _StatTableSO.Attributes)
+        {
+            _stats.Add(definition.name, new Attribute(definition));
+        }
+        
+        foreach (var definition in _StatTableSO.Primary)
+        {
+            _stats.Add(definition.name, new Primary(definition));
+        }
         
         _isInit = true;
     }
