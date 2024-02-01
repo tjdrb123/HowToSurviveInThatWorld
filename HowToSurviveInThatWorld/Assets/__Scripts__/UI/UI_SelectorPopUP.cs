@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UI_SelectorPopUP : UI_Popup
 {
-    enum E_Button //°¢Á¾ ¹öÆ°µéÀ» °ü¸®ÇÑ´Ù.
+    enum E_Button //ê°ì¢… ë²„íŠ¼ë“¤ì„ ê´€ë¦¬í•œë‹¤.
     {
         PopUpBtn,
         NextSceneBtn,
@@ -33,7 +33,7 @@ public class UI_SelectorPopUP : UI_Popup
 
         GetButton((int)E_Button.PopUpBtn).onClick.AddListener(() => ClosePopup());
         GetButton((int)E_Button.CancelBtn).onClick.AddListener(() => ClosePopup());
-        //¼±ÅÃ¿Ï·á ¹öÆ°Àº Á» ´õ °í¹ÎÇØºÁ¾ßÇÔ
+        //ì„ íƒì™„ë£Œ ë²„íŠ¼ì€ ì¢€ ë” ê³ ë¯¼í•´ë´ì•¼í•¨
         return true;
     }
     private void BtnAtive()

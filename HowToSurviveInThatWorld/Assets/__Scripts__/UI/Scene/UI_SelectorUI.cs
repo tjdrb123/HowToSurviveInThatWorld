@@ -9,7 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class UI_SelectorUI : UI_Scene
 {
-    enum E_Button //°¢Á¾ ¹öÆ°µéÀ» °ü¸®ÇÑ´Ù.
+    enum E_Button //ê°ì¢… ë²„íŠ¼ë“¤ì„ ê´€ë¦¬í•œë‹¤.
     {
         FemaleBtn,
         maleBtn,
@@ -53,34 +53,34 @@ public class UI_SelectorUI : UI_Scene
 
     private void ValidateInput(string arg0)
     {
-        _inputField.text = Regex.Replace(arg0, @"[^a-zA-Z0-9°¡-ÆR]", "");
+        _inputField.text = Regex.Replace(arg0, @"[^a-zA-Z0-9ê°€-í£]", "");
     }
     private void SelectorCharacter()
     {
         /*
-         * Ä³¸¯ÅÍÀÇ ÀÌ¸§°ú ¼ºº°À» ¼±ÅÃÀ» ÇÏ¸é ÀÛµ¿ÇÒ ÇÔ¼ö
-         * Á¶°Ç 1 (ÀÌ¸§ÀÌ 2±ÛÀÚ ¹Ì¸¸ 16±ÛÀÚ ÃÊ°ú ½Ã ÆË¾÷ ¿ÀÇÂ)
-         * Á¶°Ç 3 (ÀÌ¸§ÀÌ Áßº¹µÈ °æ¿ì ÆË¾÷ ¿ÀÇÂ)
-         * Á¶°ÇÀÌ ÃæÁ·µÇ¾úÀ» ¶§ (ÃÖÁ¾¼±ÅÃ ÆË¾÷ ¿ÀÇÂ)
+         * ìºë¦­í„°ì˜ ì´ë¦„ê³¼ ì„±ë³„ì„ ì„ íƒì„ í•˜ë©´ ì‘ë™í•  í•¨ìˆ˜
+         * ì¡°ê±´ 1 (ì´ë¦„ì´ 2ê¸€ì ë¯¸ë§Œ 16ê¸€ì ì´ˆê³¼ ì‹œ íŒì—… ì˜¤í”ˆ)
+         * ì¡°ê±´ 3 (ì´ë¦„ì´ ì¤‘ë³µëœ ê²½ìš° íŒì—… ì˜¤í”ˆ)
+         * ì¡°ê±´ì´ ì¶©ì¡±ë˜ì—ˆì„ ë•Œ (ìµœì¢…ì„ íƒ íŒì—… ì˜¤í”ˆ)
          */
         string nickname = GetText((int)E_Text.PlayerNickName).text;
         GameObject popup = Instantiate(_popUP);
         if (nickname.Length <= 2 || nickname.Length >= 17)
         {
-            popup.GetComponent<UI_SelectorPopUP>().TextChange("·Î±×ÀÎ ¿¡·¯", "±ÛÀÚ ¼ö´Â 2 ~ 16±ÛÀÚ \n »çÀÌ·Î ÇØÁÖ¼¼¿ä.");
+            popup.GetComponent<UI_SelectorPopUP>().TextChange("ë¡œê·¸ì¸ ì—ëŸ¬", "ê¸€ì ìˆ˜ëŠ” 2 ~ 16ê¸€ì \n ì‚¬ì´ë¡œ í•´ì£¼ì„¸ìš”.");
         }
         else
         {
-            popup.GetComponent<UI_SelectorPopUP>().TextChange("´Ğ³×ÀÓ »ı¼º ¿Ï·á", $"ÇØ´ç \"{nickname}\" ÀÌ¸§À¸·Î \n »ı¼ºÇÏ½Ã°Ú½À´Ï±î?", false);
+            popup.GetComponent<UI_SelectorPopUP>().TextChange("ë‹‰ë„¤ì„ ìƒì„± ì™„ë£Œ", $"í•´ë‹¹ \"{nickname}\" ì´ë¦„ìœ¼ë¡œ \n ìƒì„±í•˜ì‹œê² ìŠµë‹ˆê¹Œ?", false);
         }
     }
 
-    private void ChangeGender(int GenderIndex) //¼ºº°À» ¹Ù²Ù´Â ÇÔ¼ö
+    private void ChangeGender(int GenderIndex) //ì„±ë³„ì„ ë°”ê¾¸ëŠ” í•¨ìˆ˜
     {
         _femaleAnimation.SetFloat("sit", GenderIndex == 1 ? 1 : 0);
         _maleAnimation.SetFloat("sit", GenderIndex == 1 ? 0 : 1);
         ColorChange(GenderIndex);
-        // ¼±ÅÃÇÑ Data¸¦ ³Ñ°ÜÁà¾ßÇÔ »ïÇ× ¿¬»êÀÚ¸¦ ÅëÇØ ¾î¶² ¼±ÅÃÀ» Çß´ÂÁö ³Ñ°ÜÁÖ±â 1 == ³²ÀÚ 0 == ¿©ÀÚ
+        // ì„ íƒí•œ Dataë¥¼ ë„˜ê²¨ì¤˜ì•¼í•¨ ì‚¼í•­ ì—°ì‚°ìë¥¼ í†µí•´ ì–´ë–¤ ì„ íƒì„ í–ˆëŠ”ì§€ ë„˜ê²¨ì£¼ê¸° 1 == ë‚¨ì 0 == ì—¬ì
     }
     private void ColorChange(int GenderIndex)
     {
