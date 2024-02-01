@@ -5,22 +5,34 @@ using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+/// <summary>
+/// # 모든 스탯에 기본이 되는 베이스 클래스
+///   - 기본적인 스탯 (예, 데미지/방어력 등)
+/// </summary>
 public class Stat
 {
     #region Fields
     
-    protected StatDefinition _statDefinition;
-    protected int _value;
+    // 베이스가 될 설정 값(SO) => 초기 데이터 모델은 이 것을 사용
+    protected StatDefinitionSO _statDefinition;
     
-    // Modifier
+    protected float _value;
+    
     protected List<StatModifier> _statModifiers = new();
     
     // Event
+    // 값이 변경 되었을 때 호출 될 이벤트
     public event Action OnValueChanged;
-    
+
+    #endregion
+
+
+
+    #region Properties
+
     /* Property (Getter) */
-    public int Value => _value;
-    public virtual int BaseValue => _statDefinition.BaseValue;
+    public float Value => _value;
+    public virtual float BaseValue => _statDefinition.BaseValue;
 
     #endregion
 
@@ -28,9 +40,9 @@ public class Stat
 
     #region Constructor
 
-    public Stat(StatDefinition definition)
+    public Stat(StatDefinitionSO definitionSo)
     {
-        _statDefinition = definition;
+        _statDefinition = definitionSo;
     }
 
     #endregion
@@ -52,7 +64,7 @@ public class Stat
 
     protected void CalculatedValue()
     {
-        int finalValue = BaseValue;
+        float finalValue = BaseValue;
         
         _statModifiers.Sort((x, y) => x.Type.CompareTo(y.Type));
 
@@ -75,7 +87,7 @@ public class Stat
             finalValue = Mathf.Min(finalValue, _statDefinition.Capacity);
         }
 
-        if (_value != finalValue)
+        if (Math.Abs(_value - finalValue) > float.MinValue)
         {
             _value = finalValue;
             OnValueChanged?.Invoke();
