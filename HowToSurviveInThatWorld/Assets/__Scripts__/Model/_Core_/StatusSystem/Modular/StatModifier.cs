@@ -1,6 +1,17 @@
 
 using UnityEngine;
 
+#region Status
+
+public enum E_StatModifier_OperationType
+{
+    Additive,
+    Multiplicative,
+    Override
+}
+
+#endregion
+
 /// <summary>
 /// # 스탯 수정자
 ///   - Stat에 밸류 값이 직접적으로 영향 받을 부분

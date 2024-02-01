@@ -8,7 +8,7 @@ public class StatController : MonoBehaviour
     #region Fields
 
     [SerializeField] private StatTableSO _StatTableSO;
-    protected Dictionary<string, Stat> _stats = new(StringComparer.InvariantCulture);
+    protected readonly Dictionary<string, Stat> _stats = new(StringComparer.InvariantCulture);
 
     private bool _isInit;
     
@@ -30,7 +30,7 @@ public class StatController : MonoBehaviour
 
 
 
-    #region Unity Behavior
+    #region Unity Behavior & Initialize
 
     protected virtual void Awake()
     {
@@ -46,7 +46,7 @@ public class StatController : MonoBehaviour
         OnWillUninitialized?.Invoke();
     }
 
-    private void Initialized()
+    public void Initialized()
     {
         foreach (var definition in _StatTableSO.Stats)
         {

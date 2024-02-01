@@ -41,13 +41,3 @@ public enum E_CoroutineKey
 
 
 
-#region Status
-
-public enum E_StatModifier_OperationType
-{
-    Additive,
-    Multiplicative,
-    Override
-}
-
-#endregion

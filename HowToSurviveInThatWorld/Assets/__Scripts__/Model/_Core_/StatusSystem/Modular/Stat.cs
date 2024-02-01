@@ -43,6 +43,7 @@ public class Stat
     public Stat(StatDefinitionSO definitionSo)
     {
         _statDefinition = definitionSo;
+        CalculatedValue();
     }
 
     #endregion
@@ -54,12 +55,14 @@ public class Stat
     public void AddModifier(StatModifier modifier)
     {
         _statModifiers.Add(modifier);
+        CalculatedValue();
     }
 
     public void RemoveModifierFromSource(Object source)
     {
         _statModifiers = _statModifiers.Where(mod =>
             mod.Source.GetInstanceID() != source.GetInstanceID()).ToList();
+        CalculatedValue();
     }
 
     protected void CalculatedValue()

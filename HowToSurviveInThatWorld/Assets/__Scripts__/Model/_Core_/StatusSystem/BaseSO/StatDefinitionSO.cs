@@ -8,7 +8,7 @@ public class StatDefinitionSO : ScriptableObject
 
     // 실질적으로 SO에서 관리하게 될 Value (값)
     [SerializeField] private float _BaseValue;
-    [SerializeField] private float _Capacity;
+    [SerializeField] private float _Capacity = -1;
     
     /* Property (Getter) */
     // 기본 값 (HP로 가정하면 HpMax)
