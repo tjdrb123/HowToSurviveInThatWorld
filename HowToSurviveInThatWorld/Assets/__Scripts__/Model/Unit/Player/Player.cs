@@ -14,6 +14,7 @@ public sealed class Player : Unit
     // Input Associated.
     [NonSerialized] public bool IsAttack;
     [NonSerialized] public bool IsRunning;
+    [NonSerialized] public bool IsCrouching;
     [NonSerialized] public Vector3 MovementInput;
     [NonSerialized] public Vector3 MovementVector;
 
@@ -29,6 +30,8 @@ public sealed class Player : Unit
         // base.EntitySubscribeEvents();
         
         _inputReader.OnMoveEvent += Movement;
+        _inputReader.OnCrouchEvent += Crouch;
+        _inputReader.OnAttackEvent += Attack;
     }
 
     protected override void EntityDisposeEvents()
@@ -37,6 +40,8 @@ public sealed class Player : Unit
         // base.EntityDisposeEvents();
         
         _inputReader.OnMoveEvent -= Movement;
+        _inputReader.OnCrouchEvent -= Crouch;
+        _inputReader.OnAttackEvent -= Attack;
     }
 
     #endregion
@@ -76,6 +81,17 @@ public sealed class Player : Unit
     {
         _inputVector = movementInput;
         MovementInput = new Vector3(_inputVector.x, 0f, _inputVector.y);
+    }
+
+    private void Crouch()
+    {
+        IsCrouching = !IsCrouching;
+        DebugLogger.Log(IsCrouching.ToString());
+    }
+
+    private void Attack()
+    {
+        
     }
 
     #endregion
