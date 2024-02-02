@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c4549793b803e40953a77aa2618c38, type: 3}
-  m_Name: MovementHorizontalAction
+  m_Script: {fileID: 11500000, guid: f6ae549baba71b3419e3e5ca25025f76, type: 3}
+  m_Name: IsCrouchingCondition
   m_EditorClassIdentifier: 
-  Description: "\uD50C\uB808\uC774\uC5B4 'MovementVector' Plane (X,Z) \uAC12\uC744
-    \uC2A4\uD53C\uB4DC\uC5D0 \uC870\uC815\uD569\uB2C8\uB2E4."
-  MovementSpeed: 3

@@ -1,30 +1,30 @@
 ﻿
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MovementStopAction", menuName = "State Machine/Actions/Movement Stop Action")]
-public class MovementStopActionSO : FiniteStateActionSO
+[CreateAssetMenu(fileName = "CrouchAction", menuName = "State Machine/Actions/Crouch Action")]
+public class MovementCrouchActionSO : FiniteStateActionSO
 {
     #region Property (Override)
     
     [SerializeField] private FiniteStateAction.SpecificMoment _moment;
     
     // Properties
-    public FiniteStateAction.SpecificMoment Moment => _moment;
     
-    protected override FiniteStateAction CreateAction() => new MovementStopAction();
+    public FiniteStateAction.SpecificMoment Moment => _moment;
+    protected override FiniteStateAction CreateAction() => new CrouchAction();
     
     #endregion
 }
 
-public class MovementStopAction : FiniteStateAction
+public class CrouchAction : FiniteStateAction
 {
     #region Fields
-
+    
     private Player _playerScript;
     private Animator _animator;
 
     // Property (Origin SO)
-    private new MovementStopActionSO OriginSO => base.OriginSO as MovementStopActionSO;
+    private new MovementCrouchActionSO OriginSO => base.OriginSO as MovementCrouchActionSO;
 
     #endregion
 
@@ -40,19 +40,19 @@ public class MovementStopAction : FiniteStateAction
     
     public override void FiniteStateEnter()
     {
+        _animator.SetBool("IsCrouching", true);
         if (OriginSO.Moment == SpecificMoment.OnEnter)
         {
-            _playerScript.MovementVector = Vector3.zero;
-            _animator.SetFloat("Horizontal", 0);
-            _animator.SetFloat("Vertical", 0);
+            
         }
     }
 
     public override void FiniteStateExit()
     {
+        _animator.SetBool("IsCrouching", false);
+        _animator.SetBool("IsCrouchingWalk", false);
         if (OriginSO.Moment == SpecificMoment.OnExit)
         {
-            _playerScript.MovementVector = Vector3.zero;
             
         }
     }
@@ -64,11 +64,8 @@ public class MovementStopAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        if (OriginSO.Moment == SpecificMoment.OnFixedUpdate)
-        {
-            _playerScript.MovementVector = Vector3.zero;
-        }
+        _animator.SetBool("IsCrouchingWalk", _playerScript.MovementInput.x != 0 || _playerScript.MovementInput.z != 0);
     }
-    
+
     #endregion
 }
