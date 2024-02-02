@@ -28,20 +28,22 @@ public sealed class Player : Unit
     {
         // 추 후에 이벤트 구독 내용이 변경 될 경우 사용 예정
         // base.EntitySubscribeEvents();
-        
+
         _inputReader.OnMoveEvent += Movement;
         _inputReader.OnCrouchEvent += Crouch;
         _inputReader.OnAttackEvent += Attack;
+        _inputReader.OnAttackCanceledEvent += AttackCanceled;
     }
 
     protected override void EntityDisposeEvents()
     {
         // 추 후에 이벤트 구독 내용이 변경 될 경우 사용 예정
         // base.EntityDisposeEvents();
-        
+
         _inputReader.OnMoveEvent -= Movement;
         _inputReader.OnCrouchEvent -= Crouch;
         _inputReader.OnAttackEvent -= Attack;
+        _inputReader.OnAttackCanceledEvent -= AttackCanceled;
     }
 
     #endregion
@@ -54,12 +56,12 @@ public sealed class Player : Unit
     {
         // Base (Unit) Awake 초기화 진행
         base.Awake();
-        
+
     }
 
     private void FixedUpdate()
     {
-        
+
     }
 
     #endregion
@@ -67,16 +69,17 @@ public sealed class Player : Unit
 
 
     #region Recalculate Movement Input
-    
-    
+
+
 
     #endregion
 
 
 
     #region Input Event Listener
+
     // # 인풋 관련된 이벤트 리스너들이 추가 될 예정.
-    
+
     private void Movement(Vector2 movementInput)
     {
         _inputVector = movementInput;
@@ -93,5 +96,10 @@ public sealed class Player : Unit
         
     }
 
-    #endregion
+    private void AttackCanceled()
+    {
+        
+    }
+
+#endregion
 }

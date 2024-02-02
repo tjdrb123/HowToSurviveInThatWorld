@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db159e4a86056754094515840d24ef2b, type: 3}
-  m_Name: Crouch
+  m_Name: Dead
   m_EditorClassIdentifier: 
   _StateActions:
-  - {fileID: 11400000, guid: b65d209c801b819489a8448d55f870fb, type: 2}
-  - {fileID: 11400000, guid: 5f6c3cc296fb25645b1cca3c94917507, type: 2}
-  - {fileID: 11400000, guid: 0e7c5496a4059c14c8477dd1bef161d6, type: 2}
-  - {fileID: 11400000, guid: 7eac46c8fad837c419f2133784d35310, type: 2}
-  - {fileID: 11400000, guid: 5d8f535bba5e3624baf2aab7a52ebec9, type: 2}
+  - {fileID: 11400000, guid: 5e2f8c43d23f0a0428a02d88b76e308a, type: 2}

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CrouchAction", menuName = "State Machine/Actions/Crouch Action")]
-public class CrouchActionSO : FiniteStateActionSO
+public class MovementCrouchActionSO : FiniteStateActionSO
 {
     #region Property (Override)
     
@@ -24,7 +24,7 @@ public class CrouchAction : FiniteStateAction
     private Animator _animator;
 
     // Property (Origin SO)
-    private new CrouchActionSO OriginSO => base.OriginSO as CrouchActionSO;
+    private new MovementCrouchActionSO OriginSO => base.OriginSO as MovementCrouchActionSO;
 
     #endregion
 

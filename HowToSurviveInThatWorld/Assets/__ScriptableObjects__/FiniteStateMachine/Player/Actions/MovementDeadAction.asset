@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86a81bb1c027594d9e8ef35474408d5, type: 3}
-  m_Name: CrouchAction
+  m_Script: {fileID: 11500000, guid: 9e6a2340fd2be644dae00bb867f8be66, type: 3}
+  m_Name: MovementDeadAction
   m_EditorClassIdentifier: 
-  Description: 
+  Description: "\uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774 0\uC774\uB418\uBA74
+    \uC2E4\uD589\uB418\uB294 \uC561\uC158\uC785\uB2C8\uB2E4."
   _moment: 0
