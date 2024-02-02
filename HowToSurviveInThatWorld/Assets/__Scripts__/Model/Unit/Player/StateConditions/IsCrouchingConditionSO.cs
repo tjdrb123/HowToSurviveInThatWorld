@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "IsCrouchingCondition", menuName = "State Machine/Conditions/Is Crouching Condition")]
-public class IsCrouchingConditionSO : FiniteStateConditionSO<IsCrouchingCondition>
+public class IsCrouchingConditionSO : FiniteStateConditionSO
 {
     #region Property (Override)
     
@@ -15,6 +15,8 @@ public class IsCrouchingCondition : FiniteStateCondition
 {
     #region Fields
 
+    private Player _playerScript;
+
     // Property (Origin SO)
     private new IsCrouchingConditionSO OriginSO => base.OriginSO as IsCrouchingConditionSO;
 
@@ -26,22 +28,12 @@ public class IsCrouchingCondition : FiniteStateCondition
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        
+        _playerScript = finiteStateMachine.GetComponent<Player>();
     }
     
     protected override bool Statement()
     {
-        return true;
-    }
-    
-    public override void FiniteStateEnter()
-    {
-        
-    }
-
-    public override void FiniteStateExit()
-    {
-        
+        return _playerScript.IsCrouching;
     }
 
     #endregion

@@ -86,7 +86,6 @@ public sealed class Player : Unit
     private void Crouch()
     {
         IsCrouching = !IsCrouching;
-        DebugLogger.Log(IsCrouching.ToString());
     }
 
     private void Attack()

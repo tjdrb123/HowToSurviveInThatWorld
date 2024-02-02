@@ -53,6 +53,7 @@ public class MovementStopAction : FiniteStateAction
         if (OriginSO.Moment == SpecificMoment.OnExit)
         {
             _playerScript.MovementVector = Vector3.zero;
+            
         }
     }
     

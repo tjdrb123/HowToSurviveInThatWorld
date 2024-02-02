@@ -40,17 +40,20 @@ public class CrouchAction : FiniteStateAction
     
     public override void FiniteStateEnter()
     {
+        _animator.SetBool("IsCrouching", true);
         if (OriginSO.Moment == SpecificMoment.OnEnter)
         {
-            _animator.SetBool("IsCrouching", true);
+            
         }
     }
 
     public override void FiniteStateExit()
     {
+        _animator.SetBool("IsCrouching", false);
+        _animator.SetBool("IsCrouchingWalk", false);
         if (OriginSO.Moment == SpecificMoment.OnExit)
         {
-            _animator.SetBool("IsCrouching", false);
+            
         }
     }
     
@@ -61,7 +64,7 @@ public class CrouchAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        // None
+        _animator.SetBool("IsCrouchingWalk", _playerScript.MovementInput.x != 0 || _playerScript.MovementInput.z != 0);
     }
 
     #endregion
