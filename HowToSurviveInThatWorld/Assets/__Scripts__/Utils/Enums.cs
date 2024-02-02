@@ -27,6 +27,7 @@ public enum E_Player_States
 #endregion
 
 
+
 #region Coroutine Key
 
 // * 코루틴 키 관련 타입
@@ -41,3 +42,19 @@ public enum E_CoroutineKey
 
 
 
+#region Stat Type
+
+public enum E_StatType
+{
+    None,
+    Health,
+    Exp,
+    MoveSpeed,
+    Damage,
+    Defense,
+    CriticalChance,
+    CriticalDamage,
+    
+}
+
+#endregion

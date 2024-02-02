@@ -62,12 +62,11 @@ public class Attribute : Stat
 
         // Epsilon 부동 소수점 동등(== || !=) 비교
         // 해당 값이 다를 경우 CurrentValue를 newValue로 변경
-        if (!Mathf.Approximately(newValue, _currentValue))
-        {
-            _currentValue = newValue;
-            OnCurrentValueChanged?.Invoke();
-            OnAppliedModifier?.Invoke(modifier);
-        }
+        if (Mathf.Approximately(newValue, _currentValue)) return;
+        
+        _currentValue = newValue;
+        OnCurrentValueChanged?.Invoke();
+        OnAppliedModifier?.Invoke(modifier);
     }
 
     #endregion

@@ -14,13 +14,13 @@ public class Stat
     #region Fields
     
     // 베이스가 될 설정 값(SO) => 초기 데이터 모델은 이 것을 사용
-    protected StatDefinitionSO _statDefinition;
-    
+    private readonly StatDefinitionSO _statDefinition;
+    // Value 값을 수정 하기 위한 '스탯 수정자'
+    private List<StatModifier> _statModifiers = new();
+    // 실질적인 Value (수정자에 모든 수정 값을 받고 최종 수정)
     protected float _value;
     
-    protected List<StatModifier> _statModifiers = new();
-    
-    // Event
+    /* Event */
     // 값이 변경 되었을 때 호출 될 이벤트
     public event Action OnValueChanged;
 
@@ -65,36 +65,37 @@ public class Stat
         CalculatedValue();
     }
 
+    /// <summary>
+    /// # Modifier를 통한 FinalValue( 최종 값 )를 수정
+    /// </summary>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     protected void CalculatedValue()
     {
-        float finalValue = BaseValue;
+        float newValue = BaseValue;
         
         _statModifiers.Sort((x, y) => x.Type.CompareTo(y.Type));
 
-        for (int i = 0; i < _statModifiers.Count; ++i)
+        newValue = _statModifiers.Aggregate(newValue, (current, modifier) => modifier.Type switch
         {
-            var modifier = _statModifiers[i];
+            E_StatModifier_OperationType.Additive => current + modifier.Magnitude,
+            E_StatModifier_OperationType.Multiplicative => current * modifier.Magnitude,
+            E_StatModifier_OperationType.Override => modifier.Magnitude,
+            _ => throw new ArgumentOutOfRangeException()
+        });
 
-            if (modifier.Type == E_StatModifier_OperationType.Additive)
-            {
-                finalValue += modifier.Magnitude;
-            }
-            else if (modifier.Type == E_StatModifier_OperationType.Multiplicative)
-            {
-                finalValue *= modifier.Magnitude;
-            }
+        // Capacity ( 최대 값 ) 설정 값이 0보다 크거나 같을 경우
+        if (_statDefinition.Capacity >= Literals.ZERO_F)
+        {
+            // newValue는 Capacity보다 높아져서는 안된다.
+            newValue = Mathf.Min(newValue, _statDefinition.Capacity);
         }
 
-        if (_statDefinition.Capacity >= 0)
-        {
-            finalValue = Mathf.Min(finalValue, _statDefinition.Capacity);
-        }
-
-        if (Math.Abs(_value - finalValue) > float.MinValue)
-        {
-            _value = finalValue;
-            OnValueChanged?.Invoke();
-        }
+        // Epsilon 부동 소수점 동등(== || !=) 비교
+        // 해당 값이 다를 경우 CurrentValue를 newValue로 변경
+        if (Mathf.Approximately(newValue, _value)) return;
+        
+        _value = newValue;
+        OnValueChanged?.Invoke();
     }
 
     #endregion
