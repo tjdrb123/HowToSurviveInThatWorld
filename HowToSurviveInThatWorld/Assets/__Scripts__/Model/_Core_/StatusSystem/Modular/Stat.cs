@@ -52,12 +52,19 @@ public class Stat
 
     #region Modifier Stat
 
+    /// <summary>
+    /// # Modifier (수정자)를 추가하는 메서드
+    /// </summary>
+    /// <param name="modifier"></param>
     public void AddModifier(StatModifier modifier)
     {
         _statModifiers.Add(modifier);
         CalculatedValue();
     }
 
+    /// <summary>
+    /// # 수정자를 제거하는 메서드
+    /// </summary>
     public void RemoveModifierFromSource(Object source)
     {
         _statModifiers = _statModifiers.Where(mod =>
@@ -68,7 +75,6 @@ public class Stat
     /// <summary>
     /// # Modifier를 통한 FinalValue( 최종 값 )를 수정
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     protected void CalculatedValue()
     {
         float newValue = BaseValue;
@@ -77,9 +83,9 @@ public class Stat
 
         newValue = _statModifiers.Aggregate(newValue, (current, modifier) => modifier.Type switch
         {
-            E_StatModifier_OperationType.Additive => current + modifier.Magnitude,
-            E_StatModifier_OperationType.Multiplicative => current * modifier.Magnitude,
-            E_StatModifier_OperationType.Override => modifier.Magnitude,
+            E_StatModifier_OperatorType.Additive => current + modifier.Magnitude,
+            E_StatModifier_OperatorType.Multiplicative => current * modifier.Magnitude,
+            E_StatModifier_OperatorType.Override => modifier.Magnitude,
             _ => throw new ArgumentOutOfRangeException()
         });
 

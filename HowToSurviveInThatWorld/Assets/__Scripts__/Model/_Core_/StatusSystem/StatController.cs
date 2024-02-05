@@ -99,7 +99,8 @@ public class StatController : MonoBehaviour
             {
                 E_Category.Stat => new Stat(definition),
                 E_Category.Attribute => new Attribute(definition),
-                E_Category.Primary => new Primary(definition)
+                E_Category.Primary => new Primary(definition),
+                _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
             };
             
             _stats.Add(definition.Type, newStat);
@@ -131,7 +132,7 @@ public class StatController : MonoBehaviour
     /// <summary>
     /// # GetStatT - 제네릭 타입
     ///   - Attribute, Primary, Stat등을 직접 제약 조건을 주어 받기 위함.
-    ///   - where 제약 조건을 걸어 Stat과 상속자들로만 <T>를 설정할 수 있음
+    ///   - where 제약 조건을 걸어 Stat과 상속자들로만 T 를 설정할 수 있음
     /// </summary>
     /// <typeparam name="T">Stat, Attribute, Primary</typeparam>
     public T GetStat<T>(E_StatType statType) where T : Stat

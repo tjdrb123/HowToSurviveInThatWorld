@@ -44,16 +44,15 @@ public class Attribute : Stat
     /// <summary>
     /// # CurrentValue 값에 수정자를 적용하는 메서드
     /// </summary>
-    /// <param name="modifier"></param>
     public virtual void ApplyModifier(StatModifier modifier)
     {
         float newValue = _currentValue;
 
         newValue = modifier.Type switch
         {
-            E_StatModifier_OperationType.Additive => newValue + modifier.Magnitude,
-            E_StatModifier_OperationType.Multiplicative => newValue * modifier.Magnitude,
-            E_StatModifier_OperationType.Override => modifier.Magnitude,
+            E_StatModifier_OperatorType.Additive => newValue + modifier.Magnitude,
+            E_StatModifier_OperatorType.Multiplicative => newValue * modifier.Magnitude,
+            E_StatModifier_OperatorType.Override => modifier.Magnitude,
             _ => throw new ArgumentOutOfRangeException()
         };
 

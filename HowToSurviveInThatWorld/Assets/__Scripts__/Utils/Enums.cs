@@ -58,3 +58,16 @@ public enum E_StatType
 }
 
 #endregion
+
+
+
+#region Stat Modeifier Operator Type
+
+public enum E_StatModifier_OperatorType
+{
+    Additive,
+    Multiplicative,
+    Override
+}
+
+#endregion
