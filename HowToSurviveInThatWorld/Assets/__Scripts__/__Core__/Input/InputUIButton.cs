@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.Layouts;
+using UnityEngine.UI;
 
 public class InputUIButton : InputUIBase
 {
@@ -22,7 +23,7 @@ public class InputUIButton : InputUIBase
     {
         
     }
-
+    
     protected override void PointerDownInteraction(PointerEventData eventData)
     {
         

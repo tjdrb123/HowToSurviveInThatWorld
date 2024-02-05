@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e4bb5ace45e8c524997938debc864d61
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -437,17 +437,16 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: <Root Transform>
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'calf_l' : position error = 1.387394
-      mm\n"
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'calf_l'
+      : position error = 1.387287 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Unreal Take' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'pelvis' has translation animation that
-      will be discarded.\n\t'pelvis' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'spine_02' has translation animation that
+      to improve retargeting quality.\n\t'spine_02' has translation animation that
       will be discarded.\n\t'spine_03' has translation animation that will be discarded.\n\t'calf_l'
       has translation animation that will be discarded.\n\t'calf_r' has translation
       animation that will be discarded.\n"
@@ -475,8 +474,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -500,27 +499,35 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -1124,14 +1131,12 @@ ModelImporter:
     - name: lowerarm_twist_01_l
       parentName: lowerarm_l
       position: {x: -0.14000008, y: 0, z: -0.000000076293944}
-      rotation: {x: 0.00000010430815, y: 0.00000005960465, z: -0.000000029802333,
-        w: 1}
+      rotation: {x: 0.00000010430815, y: 0.00000005960465, z: -0.000000029802333, w: 1}
       scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: upperarm_twist_01_l
       parentName: upperarm_l
       position: {x: -0.0049999235, y: -3.5527136e-17, z: 0.000000076293944}
-      rotation: {x: -0.00000018440184, y: 0.00000010430814, z: -0.000000034458917,
-        w: 1}
+      rotation: {x: -0.00000018440184, y: 0.00000010430814, z: -0.000000034458917, w: 1}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: clavicle_r
       parentName: spine_03
@@ -1320,12 +1325,14 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 540008df4eb3a614f80ee57c707e13c9,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 540008df4eb3a614f80ee57c707e13c9, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -16,10 +16,17 @@ public static class Literals
 {
     #region Floating Value
 
+    public const float EPSILON = 1e-6f;
+    public const float MIN_1 = 0.1f;
+    public const float MIN_2 = 0.01f;
+    public const float MIN_3 = 0.001f;
+    public const float MIN_4 = 0.0001f;
+    public const float NONE_F = -1f;
     public const float ZERO_F = 0f;
     public const float HALF_F = 0.5f;
     public const float ONE_F = 1f;
     public const float TWO_F = 2f;
+    public const float HUND_F = 100f;
 
     #endregion
 
