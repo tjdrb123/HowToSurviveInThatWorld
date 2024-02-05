@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/InputReader")]
@@ -18,6 +19,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action<Vector2> OnMoveEvent = delegate { };
     public event Action OnAttackEvent = delegate { };
     public event Action OnAttackCanceledEvent = delegate { };
+    public event Action OnCrouchEvent = delegate { };
     public event Action OnPauseEvent = delegate { };
     
     // UI Associated Inputs
@@ -81,6 +83,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         {
             OnPauseEvent.Invoke();
             SetUIInput();
+        }
+    }
+    
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            OnCrouchEvent.Invoke();
         }
     }
 
