@@ -12,7 +12,7 @@ public sealed class Player : Unit
     private Vector2 _inputVector;
 
     // Input Associated.
-    [NonSerialized] public bool IsAttack;
+    [NonSerialized] public bool IsAttacking;
     [NonSerialized] public bool IsRunning;
     [NonSerialized] public bool IsCrouching;
     [NonSerialized] public Vector3 MovementInput;
@@ -32,7 +32,7 @@ public sealed class Player : Unit
         _inputReader.OnMoveEvent += Movement;
         _inputReader.OnCrouchEvent += Crouch;
         _inputReader.OnAttackEvent += Attack;
-        _inputReader.OnAttackCanceledEvent += AttackCanceled;
+        _inputReader.OnAttackCanceledEvent += CanceledAttack;
     }
 
     protected override void EntityDisposeEvents()
@@ -43,7 +43,8 @@ public sealed class Player : Unit
         _inputReader.OnMoveEvent -= Movement;
         _inputReader.OnCrouchEvent -= Crouch;
         _inputReader.OnAttackEvent -= Attack;
-        _inputReader.OnAttackCanceledEvent -= AttackCanceled;
+        _inputReader.OnAttackCanceledEvent -= CanceledAttack;
+
     }
 
     #endregion
@@ -93,12 +94,12 @@ public sealed class Player : Unit
 
     private void Attack()
     {
-        
+        IsAttacking = true;
     }
 
-    private void AttackCanceled()
+    private void CanceledAttack()
     {
-        
+        IsAttacking = false;
     }
 
 #endregion
