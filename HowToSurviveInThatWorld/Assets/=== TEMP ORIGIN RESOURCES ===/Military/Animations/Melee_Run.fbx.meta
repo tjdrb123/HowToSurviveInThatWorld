@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3145e15463b89aa45ab83ad5753ad8a6
+guid: 53f1e53fd6883e44fb00d27529d981de
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Melee_Idle
+      name: mixamo.com
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 120
+      lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

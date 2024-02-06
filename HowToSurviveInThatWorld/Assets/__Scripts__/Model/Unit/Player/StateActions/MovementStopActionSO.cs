@@ -38,6 +38,7 @@ public class MovementStopAction : FiniteStateAction
     
     public override void FiniteStateEnter()
     {
+        // 애니메이션 WeaponType 파라미터를 플레이어에 맞게 초기화 해야함
         _playerScript.MovementVector = Vector3.zero;
     }
 
