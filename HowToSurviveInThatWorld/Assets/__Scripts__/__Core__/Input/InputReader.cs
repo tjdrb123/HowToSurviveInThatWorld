@@ -11,7 +11,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     /* Input Variables */
     private GameInput _gameInput;
-    
+
     /* Events */
     // 기본 값으로 아무 것도 하지 않는 delegate를 정의해줌으로써,
     // 비용이 큰 Null 연산을 하지 않고 그대로 사용하면 된다.
@@ -21,8 +21,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action OnAttackCanceledEvent = delegate { };
     public event Action OnCrouchEvent = delegate { };
     public event Action OnPauseEvent = delegate { };
-    
-    // UI Associated Inputs
+    public event Action OnInteractEvent = delegate { };
+    public event Action OnInteractCanceledEvent = delegate { };
+
+// UI Associated Inputs
     public event Action OnResumeEvent = delegate { };
     
     #endregion
@@ -91,6 +93,19 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (context.phase == InputActionPhase.Performed)
         {
             OnCrouchEvent.Invoke();
+        }
+    }
+
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Performed:
+                OnInteractEvent.Invoke();
+                break;
+            case InputActionPhase.Canceled:
+                OnInteractCanceledEvent.Invoke();
+                break;
         }
     }
 

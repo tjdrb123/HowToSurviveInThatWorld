@@ -38,9 +38,9 @@ public class IsAttackingCondition : FiniteStateCondition
         _attackAnimations = new Dictionary<int, string>
         {
             {0, "Punch"},
-            {1, "Recoil_Melee"},
-            {2, "Recoil_Pistol"},
-            {3, "Recoil_Rifle"}
+            {1, "Melee_Attack"},
+            {2, "Pistol_Attack"},
+            {3, "Rifle_Attack"}
         };
     }
 

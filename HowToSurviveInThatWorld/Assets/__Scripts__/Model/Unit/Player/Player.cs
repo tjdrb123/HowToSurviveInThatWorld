@@ -15,6 +15,7 @@ public sealed class Player : Unit
     [NonSerialized] public bool IsAttacking;
     [NonSerialized] public bool IsRunning;
     [NonSerialized] public bool IsCrouching;
+    [NonSerialized] public bool Isinteracting;
     [NonSerialized] public Vector3 MovementInput;
     [NonSerialized] public Vector3 MovementVector;
 
@@ -33,6 +34,8 @@ public sealed class Player : Unit
         _inputReader.OnCrouchEvent += Crouch;
         _inputReader.OnAttackEvent += Attack;
         _inputReader.OnAttackCanceledEvent += CanceledAttack;
+        _inputReader.OnInteractEvent += Interaction;
+        _inputReader.OnInteractCanceledEvent += CanceledInterAction;
     }
 
     protected override void EntityDisposeEvents()
@@ -44,6 +47,8 @@ public sealed class Player : Unit
         _inputReader.OnCrouchEvent -= Crouch;
         _inputReader.OnAttackEvent -= Attack;
         _inputReader.OnAttackCanceledEvent -= CanceledAttack;
+        _inputReader.OnInteractEvent -= Interaction;
+        _inputReader.OnInteractCanceledEvent -= CanceledInterAction;
 
     }
 
@@ -100,6 +105,16 @@ public sealed class Player : Unit
     private void CanceledAttack()
     {
         IsAttacking = false;
+    }
+
+    private void Interaction()
+    {
+        DebugLogger.Log("interaction performed");
+    }
+
+    private void CanceledInterAction()
+    {
+        DebugLogger.Log("interaction canceled");
     }
 
 #endregion
