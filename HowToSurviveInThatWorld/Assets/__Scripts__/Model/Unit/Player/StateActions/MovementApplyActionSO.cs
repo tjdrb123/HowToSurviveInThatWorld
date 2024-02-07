@@ -13,6 +13,7 @@ public class MovementApplyAction : FiniteStateAction
     private Player _playerScript;
     private CharacterController _characterController;
     private Animator _animator;
+    private bool _isMoving;
 
     #endregion
 
@@ -35,15 +36,10 @@ public class MovementApplyAction : FiniteStateAction
     {
         _characterController.Move(_playerScript.MovementVector * Time.fixedDeltaTime);
         _playerScript.MovementVector = _characterController.velocity;
+        _isMoving = _playerScript.MovementVector != Vector3.zero;
 
-        //Debug.Log(_playerScript.MovementInput.x); //-> 범위 -1 ~ 1
-        //Debug.Log(_playerScript.MovementInput.z); //-> 범위 -1 ~ 1
-        
-        _animator.SetFloat("Horizontal", _playerScript.MovementInput.x);
-        _animator.SetFloat("Vertical", _playerScript.MovementInput.z);
-
-        // -0.5 에서 0.5 범위에서는 walk애니메이션이 돌아가고,
-        // -1.0 에서 1.0 범위에서는 run 애니메이션이 돌아가게 ..
+        _animator.SetBool("IsWalking", _isMoving);
+        _animator.SetBool("IsRunning", _isMoving && _playerScript.IsRunning);
     }
 
     #endregion

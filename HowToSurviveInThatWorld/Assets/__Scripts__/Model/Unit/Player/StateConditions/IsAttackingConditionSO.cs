@@ -19,9 +19,6 @@ public class IsAttackingCondition : FiniteStateCondition
     private Animator _animator;
     private bool _isAttacking;
     private AnimatorStateInfo _stateInfo;
-    private int _attackType;
-    private Dictionary<int, string> _attackAnimations;
-
 
     // Property (Origin SO)
     private new IsAttackingConditionSO OriginSO => base.OriginSO as IsAttackingConditionSO;
@@ -35,23 +32,13 @@ public class IsAttackingCondition : FiniteStateCondition
     {
         _playerScript = finiteStateMachine.GetComponent<Player>();
         _animator = finiteStateMachine.GetComponent<Animator>();
-        _attackAnimations = new Dictionary<int, string>
-        {
-            {0, "Punch"},
-            {1, "Melee_Attack"},
-            {2, "Pistol_Attack"},
-            {3, "Rifle_Attack"}
-        };
     }
 
     protected override bool Statement()
     {
         _isAttacking = _playerScript.IsAttacking;
         _stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-        _attackType = _animator.GetInteger("AttackType");
-        
-        if(_attackAnimations.ContainsKey(_attackType))
-            CheckAnimationState(_attackAnimations[_attackType]);
+        CheckAnimationState("Attack");
 
         return _isAttacking;
     }
@@ -61,8 +48,7 @@ public class IsAttackingCondition : FiniteStateCondition
         if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime <= 1.0)
         {
             _isAttacking = true;
-            _animator.SetFloat("Horizontal", 0);
-            _animator.SetFloat("Vertical", 0);
+            _playerScript.MovementVector = Vector3.zero;
         }
         else if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime > 1.0)
         {

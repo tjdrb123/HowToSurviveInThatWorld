@@ -95,7 +95,6 @@ public sealed class Player : Unit
 
     private void Run()
     {
-        DebugLogger.Log("isrunning : " + IsRunning);
         IsRunning = !IsRunning;
     }
 
