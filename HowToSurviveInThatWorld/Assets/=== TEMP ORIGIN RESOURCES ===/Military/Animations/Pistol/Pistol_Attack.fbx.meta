@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 45b938f17f8f03647bd82b6c15795828
+guid: dbb14f4fd5f619049a01e2a0fed75c33
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,22 +33,22 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Rifle_Walk
+      name: Pistol_Attack
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 78
+      lastFrame: 70
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -528,59 +528,529 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Unity_SM_Military_4(Clone)
+    - name: SK_Military_All_2(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Cap3
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: 0.06658643, y: -3.1619143, z: -0.076511905}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Head2
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: 0.027884075, y: -0.5909413, z: -0.06710895}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Eyes2
-      parentName: Unity_SM_Military_4(Clone)
+    - name: Backpack2
+      parentName: SK_Military_All_2(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Hands1_in_Glove
-      parentName: Unity_SM_Military_4(Clone)
+    - name: Backpack2_handle
+      parentName: SK_Military_All_2(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Shirt1
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: 0.00006875185, y: 0, z: 0}
+    - name: Backpack3
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Pants3
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: -0.006773817, y: -0.16334067, z: 0.084133826}
+    - name: BackPack3_handle
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Backpack1_Vest
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: 4.2372293, y: -0.025005471, z: -0.06923013}
+    - name: Boots3
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -1.3109196, y: 0.1434092, z: -0.2903023}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Vest6
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: -2.3838809, y: 0, z: 0}
+    - name: Boots4
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Boots2
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: -0.061865907, y: 0.0017492276, z: -0.0027801308}
+    - name: Boots5
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cap4
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cap5
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cap6
+      parentName: SK_Military_All_2(Clone)
+      position: {x: 0.27190694, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cap7
+      parentName: SK_Military_All_2(Clone)
+      position: {x: 0.27190694, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR1_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR1_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR2_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR2_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR3_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR3_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR4_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR4_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR5_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR5_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR6_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR6_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR7_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR7_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR8_Head
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR8_Top
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Balaclava1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Female_Bottom
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Female_Foot
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Female_Gloves
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Female_Hands
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Female_Palm_hands
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Male_Bottom
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Male_Foot
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Male_Gloves
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Male_Hands
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CHR_Male_Palm_hands
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decals
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Arab
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Carabin
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_China
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_FBI
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_FSB
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Gendarm
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_India
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Medic
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Police
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Policia
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Polis
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Polisi
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Polizei
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Polizia
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_PRESS
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Rus
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_Skull
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Decal_UN
+      parentName: Decals
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gasmask2
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Goggles1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: 0.00014731483, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Goggles2_for_helmet
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Goggles2_up
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0.18975966, z: 0.7628483}
+      rotation: {x: -0.21027273, y: 0, z: -0, w: 0.9776428}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Headset1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Headset2
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Headset3
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet1_Fastering
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet1_For_goggles
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet2
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet2_fastening
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet2_For_goggles
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0.004767644, z: 0.124871545}
+      rotation: {x: -0.034258224, y: 0, z: -0, w: 0.999413}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet3
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet3_fastering
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet3_Visor_close
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helmet3_Visor_open
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Holster1_empty
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Holster1_Pistol__for_Pants2_5_
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kneepad1_Left
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kneepad1_Right
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Military
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NVG_disabled
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0.007952916}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NVG_enabled
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0.007952916}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfits
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit1
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit2
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit3
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit4
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit5
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit6
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit7
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit8
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit9
+      parentName: Outfits
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pants1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -9.292098, y: -0.9352709, z: 0.015588778}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pants4
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pants5
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head_Wire
+      parentName: Radio
+      position: {x: 0.26179358, y: 0.27491397, z: 0.028672993}
+      rotation: {x: 0, y: 0, z: 0.060911585, w: 0.9981432}
+      scale: {x: 1, y: 1.4010892, z: 1}
+    - name: Radio1
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio2
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio3
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio4
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio5
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio6
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Radio7
+      parentName: Radio
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: root
-      parentName: Unity_SM_Military_4(Clone)
-      position: {x: -0, y: 0, z: -0.0000000274181}
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: pelvis
@@ -610,17 +1080,17 @@ ModelImporter:
       scale: {x: 1, y: 1.0000001, z: 1}
     - name: upperarm_l
       parentName: clavicle_l
-      position: {x: -0.15784872, y: -0.0000000035763088, z: -1.4210854e-15}
+      position: {x: -0.15784872, y: -0.000000003576309, z: -6.82121e-15}
       rotation: {x: 0.059959434, y: 0.037410628, z: 0.15131612, w: 0.9859558}
       scale: {x: 1, y: 1, z: 1}
     - name: lowerarm_l
       parentName: upperarm_l
-      position: {x: -0.30339926, y: -1.2434498e-16, z: 0.000000076293944}
+      position: {x: -0.30339926, y: -1.7763567e-16, z: 0.000000076293944}
       rotation: {x: -0.061965216, y: 0.029636119, z: 0.027705563, w: 0.9972535}
       scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: hand_l
       parentName: lowerarm_l
-      position: {x: -0.26975143, y: -0.000000019073486, z: 4.2632563e-16}
+      position: {x: -0.26975143, y: -0.000000019073486, z: -8.5265126e-16}
       rotation: {x: -0.6178951, y: -0.019372253, z: -0.010653713, w: 0.78594965}
       scale: {x: 0.9999999, y: 1, z: 0.99999994}
     - name: index_01_l
@@ -630,7 +1100,7 @@ ModelImporter:
       scale: {x: 0.99999994, y: 1.0000001, z: 1}
     - name: index_02_l
       parentName: index_01_l
-      position: {x: -0.04287506, y: 5.684342e-16, z: 3.5527136e-17}
+      position: {x: -0.04287506, y: 4.2632563e-16, z: -3.5527135e-16}
       rotation: {x: 0.012100093, y: 0.0010671349, z: -0.03836313, w: 0.99919003}
       scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: index_03_l
@@ -646,7 +1116,7 @@ ModelImporter:
     - name: middle_02_l
       parentName: middle_01_l
       position: {x: -0.046403732, y: 0.00000015258789, z: -0.000000038146972}
-      rotation: {x: -0.018723777, y: -0.0028365166, z: -0.0381272, w: 0.9990935}
+      rotation: {x: -0.018723879, y: -0.0028364381, z: -0.03812723, w: 0.9990934}
       scale: {x: 1.0000001, y: 1, z: 1}
     - name: middle_03_l
       parentName: middle_02_l
@@ -660,8 +1130,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: pinky_02_l
       parentName: pinky_01_l
-      position: {x: -0.0357098, y: -4.2632563e-16, z: -5.3290704e-17}
-      rotation: {x: 0.0104025975, y: 0.004138087, z: -0.03846268, w: 0.99919736}
+      position: {x: -0.0357098, y: -1.563194e-15, z: -1.4210854e-16}
+      rotation: {x: 0.010402671, y: 0.0041380045, z: -0.038462617, w: 0.99919736}
       scale: {x: 0.99999994, y: 1, z: 1}
     - name: pinky_03_l
       parentName: pinky_02_l
@@ -690,22 +1160,22 @@ ModelImporter:
       scale: {x: 1.0000001, y: 1.0000001, z: 1}
     - name: thumb_02_l
       parentName: thumb_01_l
-      position: {x: -0.038696747, y: 2.842171e-16, z: 0.000000076293944}
+      position: {x: -0.038696747, y: -3.5527135e-16, z: 0.000000076293944}
       rotation: {x: 0.0026357758, y: -0.019813916, z: -0.029709294, w: 0.9993587}
       scale: {x: 1, y: 1.0000001, z: 1}
     - name: thumb_03_l
       parentName: thumb_02_l
-      position: {x: -0.040621642, y: -0.000000019073486, z: 5.684342e-16}
+      position: {x: -0.040621642, y: -0.000000019073486, z: -1.4210854e-16}
       rotation: {x: 0.021399137, y: -0.0018829762, z: 0.10793698, w: 0.99392563}
       scale: {x: 0.99999994, y: 1, z: 1.0000001}
     - name: lowerarm_twist_01_l
       parentName: lowerarm_l
-      position: {x: -0.14000008, y: 0, z: -0.000000076293944}
+      position: {x: -0.14000008, y: -7.105427e-17, z: -0.000000076293944}
       rotation: {x: 0.00000010430815, y: 0.00000005960465, z: -0.000000029802333, w: 1}
       scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: upperarm_twist_01_l
       parentName: upperarm_l
-      position: {x: -0.0049999235, y: -3.5527136e-17, z: 0.000000076293944}
+      position: {x: -0.0049999235, y: -8.8817837e-17, z: 0.000000076293944}
       rotation: {x: -0.00000018440184, y: 0.00000010430814, z: -0.000000034458917, w: 1}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: clavicle_r
@@ -725,7 +1195,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1.0000001}
     - name: hand_r
       parentName: lowerarm_r
-      position: {x: 0.2697525, y: 0.00000020980835, z: -2.842171e-16}
+      position: {x: 0.2697525, y: 0.00000020980835, z: -9.947598e-16}
       rotation: {x: -0.61789525, y: -0.019372376, z: -0.01065372, w: 0.7859495}
       scale: {x: 1, y: 1, z: 0.99999994}
     - name: index_01_r
@@ -751,7 +1221,7 @@ ModelImporter:
     - name: middle_02_r
       parentName: middle_01_r
       position: {x: 0.046405677, y: -0.000001373291, z: 0.0000000667572}
-      rotation: {x: -0.018723458, y: -0.0028383196, z: -0.03814439, w: 0.99909276}
+      rotation: {x: -0.018723523, y: -0.0028382903, z: -0.03814438, w: 0.9990928}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: middle_03_r
       parentName: middle_02_r
@@ -766,7 +1236,7 @@ ModelImporter:
     - name: pinky_02_r
       parentName: pinky_01_r
       position: {x: 0.03571045, y: -0.0000009155273, z: -0.0000000667572}
-      rotation: {x: 0.010403109, y: 0.0041405996, z: -0.038541168, w: 0.9991943}
+      rotation: {x: 0.010403198, y: 0.0041405847, z: -0.038541112, w: 0.9991943}
       scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
     - name: pinky_03_r
       parentName: pinky_02_r
@@ -800,7 +1270,7 @@ ModelImporter:
       scale: {x: 1, y: 0.9999998, z: 1}
     - name: thumb_03_r
       parentName: thumb_02_r
-      position: {x: 0.04062172, y: 0.000000038146972, z: -2.842171e-16}
+      position: {x: 0.04062172, y: 0.000000038146972, z: 4.2632563e-16}
       rotation: {x: 0.02139896, y: -0.0018830388, z: 0.107937, w: 0.99392563}
       scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
     - name: lowerarm_twist_01_r
@@ -811,7 +1281,7 @@ ModelImporter:
     - name: upperarm_twist_01_r
       parentName: upperarm_r
       position: {x: 0.0049999235, y: -0.000000057220458, z: 0.000000076293944}
-      rotation: {x: -0.17323503, y: 0.00000009031392, z: 0.000000002647037, w: 0.98488057}
+      rotation: {x: -0.17323503, y: 0.00000009031392, z: 0.0000000026470368, w: 0.98488057}
       scale: {x: 1, y: 1, z: 0.99999994}
     - name: neck_01
       parentName: spine_03
@@ -827,12 +1297,7 @@ ModelImporter:
       parentName: pelvis
       position: {x: 0.014488144, y: -0.0053142332, z: -0.09005809}
       rotation: {x: 0.073704995, y: 0.062138792, z: 0.0085845515, w: 0.9953053}
-      scale: {x: 1, y: 1.0000001, z: 1}
-    - name: thigh_twist_01_l
-      parentName: thigh_l
-      position: {x: 0.2209423, y: -5.9604643e-10, z: 0.000000019073486}
-      rotation: {x: -0.047443524, y: -0.000021528349, z: 0.0004911038, w: 0.99887383}
-      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: calf_l
       parentName: thigh_l
       position: {x: 0.42572036, y: 0.0000000047683715, z: 0.000000019073486}
@@ -840,37 +1305,37 @@ ModelImporter:
       scale: {x: 1, y: 0.99999994, z: 0.99999994}
     - name: calf_twist_01_l
       parentName: calf_l
-      position: {x: 0.20476784, y: -0.000000009536743, z: 1.7763567e-16}
+      position: {x: 0.20476784, y: -0.000000009536743, z: 3.907985e-16}
       rotation: {x: 0.0028087283, y: 0.0019335662, z: 0.0076126726, w: 0.99996525}
       scale: {x: 0.99999994, y: 1, z: 1}
     - name: foot_l
       parentName: calf_l
       position: {x: 0.40196696, y: -0.000000009536743, z: 7.105427e-17}
       rotation: {x: -0.005886079, y: -0.031991493, z: -0.07035527, w: 0.9969915}
-      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: ball_l
       parentName: foot_l
       position: {x: 0.10453838, y: -0.16577852, z: 0.00080156326}
       rotation: {x: 0.00008000409, y: -0.000029498722, z: 0.7186336, w: 0.6953889}
       scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: thigh_twist_01_l
+      parentName: thigh_l
+      position: {x: 0.2209423, y: -5.9604643e-10, z: 0.000000019073486}
+      rotation: {x: -0.047443524, y: -0.000021528349, z: 0.0004911038, w: 0.99887383}
+      scale: {x: 1, y: 1, z: 1}
     - name: thigh_r
       parentName: pelvis
       position: {x: 0.014486313, y: -0.0053142738, z: 0.090058036}
       rotation: {x: -0.06213885, y: 0.07370497, z: 0.9953053, w: -0.008584721}
-      scale: {x: 1.0000001, y: 1, z: 1}
-    - name: thigh_twist_01_r
-      parentName: thigh_r
-      position: {x: -0.22094253, y: -5.960466e-10, z: -3.5527136e-17}
-      rotation: {x: -0.047445375, y: -0.000021823278, z: 0.0004911694, w: 0.9988737}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: calf_r
       parentName: thigh_r
-      position: {x: -0.4257226, y: -0.0000000166893, z: -7.105427e-17}
+      position: {x: -0.4257226, y: -0.0000000166893, z: 1.2434498e-15}
       rotation: {x: -0.048884183, y: -0.018863777, z: 0.06552247, w: 0.99647444}
       scale: {x: 1, y: 1, z: 1}
     - name: calf_twist_01_r
       parentName: calf_r
-      position: {x: -0.20476907, y: -3.5527136e-17, z: 7.105427e-17}
+      position: {x: -0.20476907, y: -5.3290704e-17, z: -1.0658141e-16}
       rotation: {x: 0.002807035, y: 0.0019334487, z: 0.0076125795, w: 0.99996525}
       scale: {x: 1, y: 1, z: 1}
     - name: foot_r
@@ -882,6 +1347,61 @@ ModelImporter:
       parentName: foot_r
       position: {x: -0.10453817, y: 0.16577797, z: -0.0008016014}
       rotation: {x: 0.00008009496, y: -0.000029498506, z: 0.7186337, w: 0.6953888}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thigh_twist_01_r
+      parentName: thigh_r
+      position: {x: -0.22094253, y: -5.960466e-10, z: -3.5527136e-17}
+      rotation: {x: -0.047445375, y: -0.000021823278, z: 0.0004911694, w: 0.9988737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shirt4
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shirt5
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shirt6
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest1
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest1_Belt
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest2
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest2_Bottom
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest2_collar
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest2_Shoulder_L
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vest2_Shoulder_R
+      parentName: SK_Military_All_2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -895,7 +1415,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b31450bdb1007804b98274fcc04dd5ea, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ef223b135db6872498fe7fa549b32162, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
