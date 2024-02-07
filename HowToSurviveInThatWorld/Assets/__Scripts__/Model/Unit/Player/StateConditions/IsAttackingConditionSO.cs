@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "IsAttackingCondition", menuName = "State Machine/Conditions/Is Attacking Condition")]
 public class IsAttackingConditionSO : FiniteStateConditionSO
@@ -18,6 +19,8 @@ public class IsAttackingCondition : FiniteStateCondition
     private Animator _animator;
     private bool _isAttacking;
     private AnimatorStateInfo _stateInfo;
+    private int _attackType;
+    private Dictionary<int, string> _attackAnimations;
 
 
     // Property (Origin SO)
@@ -32,25 +35,39 @@ public class IsAttackingCondition : FiniteStateCondition
     {
         _playerScript = finiteStateMachine.GetComponent<Player>();
         _animator = finiteStateMachine.GetComponent<Animator>();
+        _attackAnimations = new Dictionary<int, string>
+        {
+            {0, "Punch"},
+            {1, "Recoil_Melee"},
+            {2, "Recoil_Pistol"},
+            {3, "Recoil_Rifle"}
+        };
     }
 
     protected override bool Statement()
     {
         _isAttacking = _playerScript.IsAttacking;
         _stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        _attackType = _animator.GetInteger("AttackType");
+        
+        if(_attackAnimations.ContainsKey(_attackType))
+            CheckAnimationState(_attackAnimations[_attackType]);
 
-        if (_stateInfo.IsName("Punch") && _stateInfo.normalizedTime <= 1.0)
+        return _isAttacking;
+    }
+    
+    private void CheckAnimationState(string animationName)
+    {
+        if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime <= 1.0)
         {
             _isAttacking = true;
             _animator.SetFloat("Horizontal", 0);
             _animator.SetFloat("Vertical", 0);
         }
-        else if (_stateInfo.IsName("Punch") && _stateInfo.normalizedTime > 1.0)
+        else if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime > 1.0)
         {
             _isAttacking = false;
         }
-
-        return _isAttacking;
     }
 
     #endregion

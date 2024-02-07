@@ -1,152 +1,11 @@
 fileFormatVersion: 2
-guid: 742ccad0d7c32b74c94648a20c8308cb
+guid: 4ad0d29e334080748a33be009625c7eb
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: ball_l
-    100004: ball_r
-    100006: calf_l
-    100008: calf_r
-    100010: calf_twist_01_l
-    100012: calf_twist_01_r
-    100014: clavicle_l
-    100016: clavicle_r
-    100018: foot_l
-    100020: foot_r
-    100022: hand_l
-    100024: hand_r
-    100026: head
-    100028: ik_foot_l
-    100030: ik_foot_r
-    100032: ik_foot_root
-    100034: ik_hand_gun
-    100036: ik_hand_l
-    100038: ik_hand_r
-    100040: ik_hand_root
-    100042: index_01_l
-    100044: index_01_r
-    100046: index_02_l
-    100048: index_02_r
-    100050: index_03_l
-    100052: index_03_r
-    100054: lowerarm_l
-    100056: lowerarm_r
-    100058: lowerarm_twist_01_l
-    100060: lowerarm_twist_01_r
-    100062: middle_01_l
-    100064: middle_01_r
-    100066: middle_02_l
-    100068: middle_02_r
-    100070: middle_03_l
-    100072: middle_03_r
-    100074: neck_01
-    100076: pelvis
-    100078: pinky_01_l
-    100080: pinky_01_r
-    100082: pinky_02_l
-    100084: pinky_02_r
-    100086: pinky_03_l
-    100088: pinky_03_r
-    100090: ring_01_l
-    100092: ring_01_r
-    100094: ring_02_l
-    100096: ring_02_r
-    100098: ring_03_l
-    100100: ring_03_r
-    100102: root
-    100104: spine_01
-    100106: spine_02
-    100108: spine_03
-    100110: thigh_l
-    100112: thigh_r
-    100114: thigh_twist_01_l
-    100116: thigh_twist_01_r
-    100118: thumb_01_l
-    100120: thumb_01_r
-    100122: thumb_02_l
-    100124: thumb_02_r
-    100126: thumb_03_l
-    100128: thumb_03_r
-    100130: upperarm_l
-    100132: upperarm_r
-    100134: upperarm_twist_01_l
-    100136: upperarm_twist_01_r
-    400000: //RootNode
-    400002: ball_l
-    400004: ball_r
-    400006: calf_l
-    400008: calf_r
-    400010: calf_twist_01_l
-    400012: calf_twist_01_r
-    400014: clavicle_l
-    400016: clavicle_r
-    400018: foot_l
-    400020: foot_r
-    400022: hand_l
-    400024: hand_r
-    400026: head
-    400028: ik_foot_l
-    400030: ik_foot_r
-    400032: ik_foot_root
-    400034: ik_hand_gun
-    400036: ik_hand_l
-    400038: ik_hand_r
-    400040: ik_hand_root
-    400042: index_01_l
-    400044: index_01_r
-    400046: index_02_l
-    400048: index_02_r
-    400050: index_03_l
-    400052: index_03_r
-    400054: lowerarm_l
-    400056: lowerarm_r
-    400058: lowerarm_twist_01_l
-    400060: lowerarm_twist_01_r
-    400062: middle_01_l
-    400064: middle_01_r
-    400066: middle_02_l
-    400068: middle_02_r
-    400070: middle_03_l
-    400072: middle_03_r
-    400074: neck_01
-    400076: pelvis
-    400078: pinky_01_l
-    400080: pinky_01_r
-    400082: pinky_02_l
-    400084: pinky_02_r
-    400086: pinky_03_l
-    400088: pinky_03_r
-    400090: ring_01_l
-    400092: ring_01_r
-    400094: ring_02_l
-    400096: ring_02_r
-    400098: ring_03_l
-    400100: ring_03_r
-    400102: root
-    400104: spine_01
-    400106: spine_02
-    400108: spine_03
-    400110: thigh_l
-    400112: thigh_r
-    400114: thigh_twist_01_l
-    400116: thigh_twist_01_r
-    400118: thumb_01_l
-    400120: thumb_01_r
-    400122: thumb_02_l
-    400124: thumb_02_r
-    400126: thumb_03_l
-    400128: thumb_03_r
-    400130: upperarm_l
-    400132: upperarm_r
-    400134: upperarm_twist_01_l
-    400136: upperarm_twist_01_r
-    7400000: Reloading
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 22200
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -155,18 +14,12 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    removeConstantScaleCurves: 0
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Unreal Take' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'spine_02' has translation animation that will
-      be discarded.\n\t'clavicle_l' has translation animation that will be discarded.\n\t'upperarm_l'
-      has translation animation that will be discarded.\n\t'clavicle_r' has translation
-      animation that will be discarded.\n\t'neck_01' has translation animation that
-      will be discarded.\n\t'head' has translation animation that will be discarded.\n\t'ball_r'
-      has translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -180,10 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Reloading
-      takeName: Unreal Take
+      name: Melee_Attack
+      takeName: mixamo.com
+      internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 168
+      lastFrame: 76
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -192,12 +46,12 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -214,25 +68,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -241,10 +106,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: pelvis
       humanName: Hips
@@ -836,14 +701,12 @@ ModelImporter:
     - name: lowerarm_twist_01_l
       parentName: lowerarm_l
       position: {x: -0.14000008, y: 0, z: -0.000000076293944}
-      rotation: {x: 0.00000010430815, y: 0.00000005960465, z: -0.000000029802333,
-        w: 1}
+      rotation: {x: 0.00000010430815, y: 0.00000005960465, z: -0.000000029802333, w: 1}
       scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: upperarm_twist_01_l
       parentName: upperarm_l
       position: {x: -0.0049999235, y: -3.5527136e-17, z: 0.000000076293944}
-      rotation: {x: -0.00000018440184, y: 0.00000010430814, z: -0.000000034458917,
-        w: 1}
+      rotation: {x: -0.00000018440184, y: 0.00000010430814, z: -0.000000034458917, w: 1}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: clavicle_r
       parentName: spine_03
@@ -1027,13 +890,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 4a46fef06c9e21d4ead244638c57716f, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
