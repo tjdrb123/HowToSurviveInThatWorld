@@ -23,6 +23,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action OnPauseEvent = delegate { };
     public event Action OnInteractEvent = delegate { };
     public event Action OnInteractCanceledEvent = delegate { };
+    public event Action OnRunEvent = delegate { };
 
 // UI Associated Inputs
     public event Action OnResumeEvent = delegate { };
@@ -106,6 +107,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             case InputActionPhase.Canceled:
                 OnInteractCanceledEvent.Invoke();
                 break;
+        }
+    }
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            OnRunEvent.Invoke();
         }
     }
 

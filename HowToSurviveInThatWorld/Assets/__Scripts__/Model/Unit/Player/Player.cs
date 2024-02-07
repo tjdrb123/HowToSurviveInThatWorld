@@ -36,6 +36,7 @@ public sealed class Player : Unit
         _inputReader.OnAttackCanceledEvent += CanceledAttack;
         _inputReader.OnInteractEvent += Interaction;
         _inputReader.OnInteractCanceledEvent += CanceledInterAction;
+        _inputReader.OnRunEvent += Run;
     }
 
     protected override void EntityDisposeEvents()
@@ -49,7 +50,7 @@ public sealed class Player : Unit
         _inputReader.OnAttackCanceledEvent -= CanceledAttack;
         _inputReader.OnInteractEvent -= Interaction;
         _inputReader.OnInteractCanceledEvent -= CanceledInterAction;
-
+        _inputReader.OnRunEvent -= Run;
     }
 
     #endregion
@@ -90,6 +91,12 @@ public sealed class Player : Unit
     {
         _inputVector = movementInput;
         MovementInput = new Vector3(_inputVector.x, 0f, _inputVector.y);
+    }
+
+    private void Run()
+    {
+        DebugLogger.Log("isrunning : " + IsRunning);
+        IsRunning = !IsRunning;
     }
 
     private void Crouch()
