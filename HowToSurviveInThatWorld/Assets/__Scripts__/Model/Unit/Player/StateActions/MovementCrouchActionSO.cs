@@ -11,12 +11,12 @@ public class MovementCrouchActionSO : FiniteStateActionSO
     // Properties
     
     public FiniteStateAction.SpecificMoment Moment => _moment;
-    protected override FiniteStateAction CreateAction() => new CrouchAction();
+    protected override FiniteStateAction CreateAction() => new MovementCrouchAction();
     
     #endregion
 }
 
-public class CrouchAction : FiniteStateAction
+public class MovementCrouchAction : FiniteStateAction
 {
     #region Fields
     
@@ -40,21 +40,16 @@ public class CrouchAction : FiniteStateAction
     
     public override void FiniteStateEnter()
     {
-        _animator.SetBool("IsCrouching", true);
         if (OriginSO.Moment == SpecificMoment.OnEnter)
         {
-            
+            _animator.SetBool("IsCrouching", true);
         }
     }
 
     public override void FiniteStateExit()
     {
-        _animator.SetBool("IsCrouching", false);
         _animator.SetBool("IsCrouchingWalk", false);
-        if (OriginSO.Moment == SpecificMoment.OnExit)
-        {
-            
-        }
+        _animator.SetBool("IsCrouching", false);
     }
     
     public override void FiniteStateUpdate() 

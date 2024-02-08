@@ -12,9 +12,10 @@ public sealed class Player : Unit
     private Vector2 _inputVector;
 
     // Input Associated.
-    [NonSerialized] public bool IsAttack;
+    [NonSerialized] public bool IsAttacking;
     [NonSerialized] public bool IsRunning;
     [NonSerialized] public bool IsCrouching;
+    [NonSerialized] public bool Isinteracting;
     [NonSerialized] public Vector3 MovementInput;
     [NonSerialized] public Vector3 MovementVector;
 
@@ -32,7 +33,10 @@ public sealed class Player : Unit
         _inputReader.OnMoveEvent += Movement;
         _inputReader.OnCrouchEvent += Crouch;
         _inputReader.OnAttackEvent += Attack;
-        _inputReader.OnAttackCanceledEvent += AttackCanceled;
+        _inputReader.OnAttackCanceledEvent += CanceledAttack;
+        _inputReader.OnInteractEvent += Interaction;
+        _inputReader.OnInteractCanceledEvent += CanceledInterAction;
+        _inputReader.OnRunEvent += Run;
     }
 
     protected override void EntityDisposeEvents()
@@ -43,7 +47,10 @@ public sealed class Player : Unit
         _inputReader.OnMoveEvent -= Movement;
         _inputReader.OnCrouchEvent -= Crouch;
         _inputReader.OnAttackEvent -= Attack;
-        _inputReader.OnAttackCanceledEvent -= AttackCanceled;
+        _inputReader.OnAttackCanceledEvent -= CanceledAttack;
+        _inputReader.OnInteractEvent -= Interaction;
+        _inputReader.OnInteractCanceledEvent -= CanceledInterAction;
+        _inputReader.OnRunEvent -= Run;
     }
 
     #endregion
@@ -86,6 +93,11 @@ public sealed class Player : Unit
         MovementInput = new Vector3(_inputVector.x, 0f, _inputVector.y);
     }
 
+    private void Run()
+    {
+        IsRunning = !IsRunning;
+    }
+
     private void Crouch()
     {
         IsCrouching = !IsCrouching;
@@ -93,12 +105,22 @@ public sealed class Player : Unit
 
     private void Attack()
     {
-        
+        IsAttacking = true;
     }
 
-    private void AttackCanceled()
+    private void CanceledAttack()
     {
-        
+        IsAttacking = false;
+    }
+
+    private void Interaction()
+    {
+        DebugLogger.Log("interaction performed");
+    }
+
+    private void CanceledInterAction()
+    {
+        DebugLogger.Log("interaction canceled");
     }
 
 #endregion

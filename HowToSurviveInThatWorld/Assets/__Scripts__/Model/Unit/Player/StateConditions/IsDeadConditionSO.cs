@@ -26,8 +26,7 @@ public class IsDeadCondition : FiniteStateCondition
     }
     
     protected override bool Statement()
-    {
-        // 일단 플레이어 체력 데이터를 이렇게 받아왔습니다.
+    { 
         //return Managers.Data._playerData.Hp.CurValue < 0;
         return false;
     }

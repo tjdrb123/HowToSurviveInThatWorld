@@ -21,7 +21,6 @@ public class MovementStopAction : FiniteStateAction
     #region Fields
 
     private Player _playerScript;
-    private Animator _animator;
 
     // Property (Origin SO)
     private new MovementStopActionSO OriginSO => base.OriginSO as MovementStopActionSO;
@@ -35,26 +34,17 @@ public class MovementStopAction : FiniteStateAction
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
         _playerScript = finiteStateMachine.GetComponent<Player>();
-        _animator = finiteStateMachine.GetComponent<Animator>();
     }
     
     public override void FiniteStateEnter()
     {
-        if (OriginSO.Moment == SpecificMoment.OnEnter)
-        {
-            _playerScript.MovementVector = Vector3.zero;
-            _animator.SetFloat("Horizontal", 0);
-            _animator.SetFloat("Vertical", 0);
-        }
+        // 애니메이션 WeaponType, AttackType 파라미터를 플레이어에 맞게 초기화 해야함
+        _playerScript.MovementVector = Vector3.zero;
     }
 
     public override void FiniteStateExit()
     {
-        if (OriginSO.Moment == SpecificMoment.OnExit)
-        {
-            _playerScript.MovementVector = Vector3.zero;
-            
-        }
+        _playerScript.MovementVector = Vector3.zero;
     }
     
     public override void FiniteStateUpdate() 
