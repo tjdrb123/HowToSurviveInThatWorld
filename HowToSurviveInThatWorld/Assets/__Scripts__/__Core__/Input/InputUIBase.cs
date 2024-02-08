@@ -36,7 +36,7 @@ public abstract class InputUIBase : OnScreenControl,
     
     /* ======================= Config =======================*/
     public Canvas RootCanvas;
-    public Camera UICamera;
+    public UnityEngine.Camera UICamera;
     
     /* ======================= Parameters ======================= */
     public RectTransform RootRect { get; private set; }
