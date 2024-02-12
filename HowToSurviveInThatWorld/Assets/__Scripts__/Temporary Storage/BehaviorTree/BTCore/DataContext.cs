@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // BT를 이용한 AI를 만들 때, 필요한 Component들의 저장소
-public class DataContext
+public class OldDataContext
 {
     public GameObject GameObject;  // this.GameObject
     public Transform Transform;  // target.Transform
@@ -12,9 +12,9 @@ public class DataContext
     
     // 추후 필요한 데이터 추가
 
-    public static DataContext CreatDataContext(GameObject gameObject)
+    public static OldDataContext CreatDataContext(GameObject gameObject)
     {
-        DataContext dataContext = new DataContext
+        OldDataContext dataContext = new OldDataContext
         {
             GameObject = gameObject,
             Transform = gameObject.transform,

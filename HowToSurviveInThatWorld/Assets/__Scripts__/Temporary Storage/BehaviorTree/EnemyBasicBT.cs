@@ -18,8 +18,8 @@ public class EnemyBasicBT : MonoBehaviour
     public Transform _detectedPlayer;
     private NavMeshAgent _agent;
     
-    private DataContext _enemyData;
-    private BehaviorTreeRunner _btRunner;
+    private OldDataContext _enemyData;
+    private OldBehaviorTreeRunner _btRunner;
     
     /// <summary>
     /// 테스트를 위해 SerializeField 사용. 추후 각 데이터 컨택스트로 옮기고 클래스별로 분류 예정.
@@ -27,8 +27,8 @@ public class EnemyBasicBT : MonoBehaviour
     [Header("Distance")] 
     [SerializeField] 
     public float _detectDistance = 10f;
-    [SerializeField] 
-    private float _detectViewAngle = 45;
+    //[SerializeField] 
+    //private float _detectViewAngle = 45;
     [SerializeField]
     private float _attackDistance = 1f;
     
@@ -71,8 +71,8 @@ public class EnemyBasicBT : MonoBehaviour
     private bool _agentUpdateRotation = true; // 자동 방향전환 여부
     [SerializeField]
     private float _agentacceleartion = 50f; // 가속도
-    [SerializeField]
-    private float _agentCorrectionDistance = 1f; // 보정 거리 (버그 방지) 
+    //[SerializeField]
+    //private float _agentCorrectionDistance = 1f; // 보정 거리 (버그 방지) 
     [SerializeField] 
     private float _agentAngularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
     
@@ -100,31 +100,31 @@ public class EnemyBasicBT : MonoBehaviour
 
     # region Setting BT
     
-    private INode SettingBT()
+    private OldINode SettingBT()
     {
-        return new SelectorNode
+        return new OldSelectorNode
         (
-            new List<INode>()
+            new List<OldINode>()
             {
-                new Inverter
+                new OldInverter
                 (
-                    new SelectorNode    // ## 적 감지 & 순찰 분기 노드
+                    new OldSelectorNode    // ## 적 감지 & 순찰 분기 노드
                     (
-                        new List<INode>()
+                        new List<OldINode>()
                         {
-                            new ActionNode(CheckDetectPlayer), // 범위 안에 적이 있는가?
-                            new SelectorNode    // ## 순찰 판정 분기 노드
+                            new OldActionNode(CheckDetectPlayer), // 범위 안에 적이 있는가?
+                            new OldSelectorNode    // ## 순찰 판정 분기 노드
                             (
-                                new List<INode>()
+                                new List<OldINode>()
                                 {
-                                    new ActionNode(RandomPositionAssignment), // 랜덤 목적지 부여 여부
-                                    new ActionNode(CorrectPathCheck), // 목적지 까지의 경로가 유효한가?
-                                    new SequenceNode
+                                    new OldActionNode(RandomPositionAssignment), // 랜덤 목적지 부여 여부
+                                    new OldActionNode(CorrectPathCheck), // 목적지 까지의 경로가 유효한가?
+                                    new OldSequenceNode
                                     (
-                                        new List<INode>()
+                                        new List<OldINode>()
                                         {
-                                            new ActionNode(CheckArrivalAtDestination), // 목적지에 도착헸는가?
-                                            new ActionNode(IdleWaitTimeCheck) // 목적지에 도착했는가?
+                                            new OldActionNode(CheckArrivalAtDestination), // 목적지에 도착헸는가?
+                                            new OldActionNode(IdleWaitTimeCheck) // 목적지에 도착했는가?
                                         }
                                     )
                                 }
@@ -132,16 +132,16 @@ public class EnemyBasicBT : MonoBehaviour
                         }
                     )
                 ),
-                new SequenceNode    // ## 공격실행 판정 분기 노드
+                new OldSequenceNode    // ## 공격실행 판정 분기 노드
                 (
-                    new List<INode>()
+                    new List<OldINode>()
                     {
-                        new ActionNode(CheckAttacking), // 공격중인가?
-                        new ActionNode(CheckPlayerWithineAttackDistance), // 공격범위 안에 플레이어가 있는가?
-                        new ActionNode(DoAttack) // 공격
+                        new OldActionNode(CheckAttacking), // 공격중인가?
+                        new OldActionNode(CheckPlayerWithineAttackDistance), // 공격범위 안에 플레이어가 있는가?
+                        new OldActionNode(DoAttack) // 공격
                     }
                 ),
-                new ActionNode(DoTracking) // 추적
+                new OldActionNode(DoTracking) // 추적
                 
             }
         );
@@ -164,7 +164,7 @@ public class EnemyBasicBT : MonoBehaviour
     /// </summary>
 
     // 범위안에 적이 있는가? 
-    private INode.E_NodeState CheckDetectPlayer()
+    private OldINode.E_NodeState CheckDetectPlayer()
     {
         var overlapColliders =
             Physics.OverlapSphere(transform.position, _detectDistance, _PLAYER_LAYER_MASK);
@@ -199,13 +199,13 @@ public class EnemyBasicBT : MonoBehaviour
             
             /*===========================================================================================*/
 
-            return INode.E_NodeState.ENS_Success;
+            return OldINode.E_NodeState.ENS_Success;
         }
 
         // 추후 범위 밖으로 나가면 한번만 비우게 변경
         _detectedPlayer = null;
         
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
 
     #endregion
@@ -215,7 +215,7 @@ public class EnemyBasicBT : MonoBehaviour
     /*================================================================================================*/
 
     // 목적지가 있는가? (_correctPos의 좌표에 랜덤값 할당 & 목적지 셋팅)
-    private INode.E_NodeState RandomPositionAssignment()
+    private OldINode.E_NodeState RandomPositionAssignment()
     {
         // 랜덤 목적지 배정
         // ##이전 랜덤 포지션에서 너무 가까운 거리는 다시 찍지 못하도록 리팩토링 필요.##
@@ -227,13 +227,13 @@ public class EnemyBasicBT : MonoBehaviour
             NavMeshAgentPatrolSetting();
         }
    
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
     
     // 목적지 까지의 경로가 유효한가?
-    private INode.E_NodeState CorrectPathCheck()
+    private OldINode.E_NodeState CorrectPathCheck()
     {
         // 경로가 유요하지 않거나 초기화되지 않은지 체크
         if (_agent.pathStatus == NavMeshPathStatus.PathInvalid)
@@ -241,34 +241,34 @@ public class EnemyBasicBT : MonoBehaviour
             DebugLogger.LogError("Agent Path is Invalid");
             
             _patrolRandomPosCheck = true;
-            return INode.E_NodeState.ENS_Running;
+            return OldINode.E_NodeState.ENS_Running;
         }
         
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
     
     // 목적지 도착했는가? ( 남은거리 체크 -> agent.remainingDistance < _agentCorrectionDistance)
-    private INode.E_NodeState CheckArrivalAtDestination()
+    private OldINode.E_NodeState CheckArrivalAtDestination()
     {
         if (_agent.pathPending)
         {
-            return INode.E_NodeState.ENS_Running;
+            return OldINode.E_NodeState.ENS_Running;
         }
         
         if (_agent.remainingDistance < _agent.stoppingDistance)
         {
-            return INode.E_NodeState.ENS_Success;
+            return OldINode.E_NodeState.ENS_Success;
         }
         
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
     
     // 대기시간이 남아있는가? ( 대기시간 체크 -> Coroutine or Time.time ) Running , End -> _patrolRandomPosCheck = true;
-    private INode.E_NodeState IdleWaitTimeCheck()
+    private OldINode.E_NodeState IdleWaitTimeCheck()
     {
         // 최초 한번 시간 할당.
         if (_idleWaitCheck == true)
@@ -284,10 +284,10 @@ public class EnemyBasicBT : MonoBehaviour
             _patrolRandomPosCheck = true;
             _idleWaitCheck = true;
 
-            return INode.E_NodeState.ENS_Failure;
+            return OldINode.E_NodeState.ENS_Failure;
         }
 
-        return INode.E_NodeState.ENS_Running;
+        return OldINode.E_NodeState.ENS_Running;
     }
     
     /*================================================================================================*/
@@ -299,21 +299,21 @@ public class EnemyBasicBT : MonoBehaviour
     /*================================================================================================*/
     
     // 공격중인가?
-    private INode.E_NodeState CheckAttacking()
+    private OldINode.E_NodeState CheckAttacking()
     {
         if (IsAnimationRunning(_ATTACK_ANIM_STATE_NAME))
         {
             _agent.speed = 0;
-            return INode.E_NodeState.ENS_Running;
+            return OldINode.E_NodeState.ENS_Running;
         }
 
-        return INode.E_NodeState.ENS_Success;
+        return OldINode.E_NodeState.ENS_Success;
     }
     
     /*================================================================================================*/
     
     // 공격범위 안에 적이 있는가?
-    private INode.E_NodeState CheckPlayerWithineAttackDistance()
+    private OldINode.E_NodeState CheckPlayerWithineAttackDistance()
     {
         if (_detectedPlayer != null)
         {
@@ -321,25 +321,25 @@ public class EnemyBasicBT : MonoBehaviour
                 (_attackDistance * _attackDistance))
             {
                 NavMeshAgentAttackSetting();
-                return INode.E_NodeState.ENS_Success;
+                return OldINode.E_NodeState.ENS_Success;
             }
         }
         
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
     
     // 공격 실행
-    private INode.E_NodeState DoAttack()
+    private OldINode.E_NodeState DoAttack()
     {
         if (_detectedPlayer != null)
         {
             IsAnimationAttackCheck();
-            return INode.E_NodeState.ENS_Success;
+            return OldINode.E_NodeState.ENS_Success;
         }
 
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
@@ -352,7 +352,7 @@ public class EnemyBasicBT : MonoBehaviour
     
     // 적 발견시 Agent의 목적지를 Player로 할당.    
     // 추적 로직
-    private INode.E_NodeState DoTracking()
+    private OldINode.E_NodeState DoTracking()
     {
         if (_detectedPlayer != null)
         {
@@ -360,7 +360,7 @@ public class EnemyBasicBT : MonoBehaviour
             _agent.SetDestination(_detectedPlayer.position);
         }
 
-        return INode.E_NodeState.ENS_Failure;
+        return OldINode.E_NodeState.ENS_Failure;
     }
     
     /*================================================================================================*/
@@ -484,7 +484,7 @@ public class EnemyBasicBT : MonoBehaviour
     private void InitializeData()
     {
         //_enemyData = DataContext.CreatDataContext(this.gameObject);
-        _btRunner = new BehaviorTreeRunner(SettingBT());
+        _btRunner = new OldBehaviorTreeRunner(SettingBT());
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _idleDurationTime = Random.Range(1f, 3f);
