@@ -816,36 +816,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1677811506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677811504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69cb664d358e415e8fcca067224c280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectedPlayer: {fileID: 0}
-  _detectDistance: 10
-  _detectViewAngle: 60
-  _attackDistance: 1
-  _patrolMinPos: {x: -20, y: -20}
-  _patrolMaxPos: {x: 20, y: 20}
-  _correctPos: {x: 0, y: 0, z: 0}
-  _patrolRandomPosCheck: 1
-  _idleDurationTime: 0
-  _idleStartTime: 0
-  _idleWaitCheck: 0
-  _agentSpeed: 0.1
-  _agentTrackingSpeed: 3
-  _agentStoppingDistance: 0.5
-  _agentUpdateRotation: 1
-  _agentacceleartion: 50
-  _agentCorrectionDistance: 1
-  _agentAngularSpeed: 400
 --- !u!1001 &1909853709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,9 +1204,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1058911314472362, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1677811506}
     - targetCorrespondingSourceObject: {fileID: 1058911314472362, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677811505}
