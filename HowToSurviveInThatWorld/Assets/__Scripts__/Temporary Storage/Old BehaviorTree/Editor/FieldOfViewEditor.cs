@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor (typeof(EnemyBasicBT))]
+[CustomEditor (typeof(OldEnemyBasicBT))]
 public class FieldOfViewEditor : Editor
 {
     private void OnSceneGUI()
     {
         #if DEBUG_MODE
-        EnemyBasicBT enemyFOV = (EnemyBasicBT)target;
+        OldEnemyBasicBT enemyFOV = (OldEnemyBasicBT)target;
         Vector3 enemyForward = enemyFOV.transform.forward;
         
         Handles.color = Color.black;
