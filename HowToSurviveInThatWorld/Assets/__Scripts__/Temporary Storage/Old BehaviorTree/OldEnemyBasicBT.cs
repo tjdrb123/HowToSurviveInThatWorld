@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class EnemyBasicBT : MonoBehaviour
+public class OldEnemyBasicBT : MonoBehaviour
 {
     #region Global Variable
 
