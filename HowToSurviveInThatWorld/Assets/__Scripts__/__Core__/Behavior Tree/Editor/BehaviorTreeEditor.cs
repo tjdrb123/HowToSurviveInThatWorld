@@ -1,9 +1,13 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BehaviorTreeEditor : EditorWindow
 {
+    private BehaviorTreeView _treeView;
+    private InspectorView _inspectorView;
+    
     [MenuItem("BehaviorTree/BehaviorTree Editor")]
     public static void OpenWindow()
     {
@@ -23,5 +27,21 @@ public class BehaviorTreeEditor : EditorWindow
         // Allocate StyleSheet 
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/__Scripts__/__Core__/Behavior Tree/Editor/BehaviorTreeEditor.uss");
         root.styleSheets.Add(styleSheet);
+
+        _treeView = root.Q<BehaviorTreeView>();
+        _inspectorView = root.Q<InspectorView>();
+        
+        OnSelectionChange();
+    }
+
+    // 선택시 변경 이벤트 함수
+    private void OnSelectionChange()
+    {
+        BehaviorTree tree = Selection.activeObject as BehaviorTree;
+
+        if (tree)
+        {
+            _treeView.PopulateView(tree);
+        }
     }
 }

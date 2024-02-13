@@ -13,6 +13,8 @@ public abstract class Node : ScriptableObject
 
     public E_NodeState state = E_NodeState.Running;
     public bool started = false;
+    public string guid;
+    public Vector2 position;
 
     public E_NodeState Update()
     {
