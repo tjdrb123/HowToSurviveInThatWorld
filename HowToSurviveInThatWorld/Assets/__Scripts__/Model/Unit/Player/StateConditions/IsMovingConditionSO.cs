@@ -15,7 +15,7 @@ public class IsMovingCondition : FiniteStateCondition
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
     
     // Property (Origin SO)
     private new IsMovingConditionSO OriginSO => base.OriginSO as IsMovingConditionSO;
@@ -28,12 +28,12 @@ public class IsMovingCondition : FiniteStateCondition
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
     }
     
     protected override bool Statement()
     {
-        Vector3 movementVector = _playerScript.MovementInput;
+        Vector3 movementVector = _playerController.MovementInput;
         movementVector.y = Literals.ZERO_F;
         return movementVector.sqrMagnitude > OriginSO.MovementInputThreshold;
     }

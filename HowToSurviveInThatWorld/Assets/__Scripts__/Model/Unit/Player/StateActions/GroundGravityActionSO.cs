@@ -16,7 +16,7 @@ public class GroundGravityAction : FiniteStateAction
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
 
     // Property (Origin SO)
     private new GroundGravityActionSO OriginSO => base.OriginSO as GroundGravityActionSO;
@@ -29,7 +29,7 @@ public class GroundGravityAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
     }
     
     public override void FiniteStateUpdate() 
@@ -39,7 +39,7 @@ public class GroundGravityAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        _playerScript.MovementVector.y = OriginSO.VerticalPull;
+        _playerController.MovementVector.y = OriginSO.VerticalPull;
     }
 
     #endregion

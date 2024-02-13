@@ -15,7 +15,7 @@ public class IsCrouchingCondition : FiniteStateCondition
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
 
     // Property (Origin SO)
     private new IsCrouchingConditionSO OriginSO => base.OriginSO as IsCrouchingConditionSO;
@@ -28,12 +28,12 @@ public class IsCrouchingCondition : FiniteStateCondition
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
     }
     
     protected override bool Statement()
     {
-        return _playerScript.IsCrouching;
+        return _playerController.IsCrouching;
     }
 
     #endregion
