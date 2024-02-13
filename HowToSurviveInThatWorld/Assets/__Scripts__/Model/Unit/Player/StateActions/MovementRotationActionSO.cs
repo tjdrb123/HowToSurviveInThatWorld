@@ -16,7 +16,8 @@ public class MovementRotationAction : FiniteStateAction
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
+    private Player _player;
 
     private float _turnSmoothSpeed;
     private const float ROTATION_THRESHOLD = .02f;
@@ -32,7 +33,8 @@ public class MovementRotationAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
+        _player = finiteStateMachine.GetComponent<Player>();
     }
     
     public override void FiniteStateUpdate() 
@@ -42,8 +44,8 @@ public class MovementRotationAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        _playerScript.RotateSmoothByMovement(
-            _playerScript.MovementVector,
+        _player.RotateSmoothByMovement(
+            _playerController.MovementVector,
             OriginSO.TurnSmoothTime,
             ref _turnSmoothSpeed,
             ROTATION_THRESHOLD);

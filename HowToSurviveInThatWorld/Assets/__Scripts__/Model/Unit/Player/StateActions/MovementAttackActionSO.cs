@@ -22,7 +22,7 @@ public class MovementAttackAction : FiniteStateAction
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
     private Animator _animator;
     
     // Property (Origin SO)
@@ -36,7 +36,7 @@ public class MovementAttackAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
         _animator = finiteStateMachine.GetComponent<Animator>();
     }
     
