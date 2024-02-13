@@ -20,7 +20,7 @@ public class MovementCrouchAction : FiniteStateAction
 {
     #region Fields
     
-    private Player _playerScript;
+    private PlayerController _playerController;
     private Animator _animator;
 
     // Property (Origin SO)
@@ -34,7 +34,7 @@ public class MovementCrouchAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
         _animator = finiteStateMachine.GetComponent<Animator>();
     }
     
@@ -59,7 +59,7 @@ public class MovementCrouchAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        _animator.SetBool("IsCrouchingWalk", _playerScript.MovementInput.x != 0 || _playerScript.MovementInput.z != 0);
+        _animator.SetBool("IsCrouchingWalk", _playerController.MovementInput.x != 0 || _playerController.MovementInput.z != 0);
     }
 
     #endregion
