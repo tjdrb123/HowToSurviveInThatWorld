@@ -23,8 +23,8 @@ namespace UnityStandardAssets.Water
         public LayerMask refractLayers = -1;
 
 
-        private Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
-        private Dictionary<Camera, Camera> m_RefractionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
+        private Dictionary<UnityEngine.Camera, UnityEngine.Camera> m_ReflectionCameras = new Dictionary<UnityEngine.Camera, UnityEngine.Camera>(); // Camera -> Camera table
+        private Dictionary<UnityEngine.Camera, UnityEngine.Camera> m_RefractionCameras = new Dictionary<UnityEngine.Camera, UnityEngine.Camera>(); // Camera -> Camera table
         private RenderTexture m_ReflectionTexture;
         private RenderTexture m_RefractionTexture;
         private WaterMode m_HardwareWaterSupport = WaterMode.Refractive;
@@ -45,7 +45,7 @@ namespace UnityStandardAssets.Water
                 return;
             }
 
-            Camera cam = Camera.current;
+            UnityEngine.Camera cam = UnityEngine.Camera.current;
             if (!cam)
             {
                 return;
@@ -64,7 +64,7 @@ namespace UnityStandardAssets.Water
             m_HardwareWaterSupport = FindHardwareWaterSupport();
             WaterMode mode = GetWaterMode();
 
-            Camera reflectionCamera, refractionCamera;
+            UnityEngine.Camera reflectionCamera, refractionCamera;
             CreateWaterObjects(cam, out reflectionCamera, out refractionCamera);
 
             // find out the reflection plane: position and normal in world space
@@ -223,7 +223,7 @@ namespace UnityStandardAssets.Water
             mat.SetVector("_WaveScale4", waveScale4);
         }
 
-        void UpdateCameraModes(Camera src, Camera dest)
+        void UpdateCameraModes(UnityEngine.Camera src, UnityEngine.Camera dest)
         {
             if (dest == null)
             {
@@ -259,7 +259,7 @@ namespace UnityStandardAssets.Water
 
 
         // On-demand create any objects we need for water
-        void CreateWaterObjects(Camera currentCamera, out Camera reflectionCamera, out Camera refractionCamera)
+        void CreateWaterObjects(UnityEngine.Camera currentCamera, out UnityEngine.Camera reflectionCamera, out UnityEngine.Camera refractionCamera)
         {
             WaterMode mode = GetWaterMode();
 
@@ -286,8 +286,8 @@ namespace UnityStandardAssets.Water
                 m_ReflectionCameras.TryGetValue(currentCamera, out reflectionCamera);
                 if (!reflectionCamera) // catch both not-in-dictionary and in-dictionary-but-deleted-GO
                 {
-                    GameObject go = new GameObject("Water Refl Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(), typeof(Camera), typeof(Skybox));
-                    reflectionCamera = go.GetComponent<Camera>();
+                    GameObject go = new GameObject("Water Refl Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(), typeof(UnityEngine.Camera), typeof(Skybox));
+                    reflectionCamera = go.GetComponent<UnityEngine.Camera>();
                     reflectionCamera.enabled = false;
                     reflectionCamera.transform.position = transform.position;
                     reflectionCamera.transform.rotation = transform.rotation;
@@ -319,8 +319,8 @@ namespace UnityStandardAssets.Water
                 {
                     GameObject go =
                         new GameObject("Water Refr Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(),
-                            typeof(Camera), typeof(Skybox));
-                    refractionCamera = go.GetComponent<Camera>();
+                            typeof(UnityEngine.Camera), typeof(Skybox));
+                    refractionCamera = go.GetComponent<UnityEngine.Camera>();
                     refractionCamera.enabled = false;
                     refractionCamera.transform.position = transform.position;
                     refractionCamera.transform.rotation = transform.rotation;
@@ -367,7 +367,7 @@ namespace UnityStandardAssets.Water
         }
 
         // Given position/normal of the plane, calculates plane in camera space.
-        Vector4 CameraSpacePlane(Camera cam, Vector3 pos, Vector3 normal, float sideSign)
+        Vector4 CameraSpacePlane(UnityEngine.Camera cam, Vector3 pos, Vector3 normal, float sideSign)
         {
             Vector3 offsetPos = pos + normal * clipPlaneOffset;
             Matrix4x4 m = cam.worldToCameraMatrix;
