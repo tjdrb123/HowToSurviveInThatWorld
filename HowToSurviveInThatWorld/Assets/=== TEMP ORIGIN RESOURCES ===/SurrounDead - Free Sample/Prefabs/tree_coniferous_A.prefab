@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,12 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121058}
+  serializedVersion: 2
   m_LocalRotation: {x: -4.2509946e-33, y: -3.4216238e-25, z: 0.0000000055879354, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 483702}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134416
 GameObject:
@@ -40,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404882}
   - component: {fileID: 13786116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tree_coniferous_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,12 +55,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134416}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.456968e-14, y: -0.0000048828124, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 483702}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &13786116
 SkinnedMeshRenderer:
@@ -72,9 +74,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,6 +91,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -122,7 +128,8 @@ GameObject:
   - component: {fileID: 483702}
   - component: {fileID: 9594094}
   - component: {fileID: 13623050}
-  m_Layer: 0
+  - component: {fileID: 6767843167726483209}
+  m_Layer: 9
   m_Name: tree_coniferous_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,18 +143,19 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187782}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 435834}
   - {fileID: 404882}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9594094
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,10 +168,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &13623050
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,9 +182,39 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187782}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 1.22
   m_Height: 6.58
   m_Direction: 1
   m_Center: {x: 0, y: 3.38, z: 0}
+--- !u!65 &6767843167726483209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187782}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 5.4, z: 3}
+  m_Center: {x: 0, y: 3.66, z: 0}

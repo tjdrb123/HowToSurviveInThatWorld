@@ -7,8 +7,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class Camera : MonoBehaviour
 {
     public Transform player; //카메라가 찾을 플레이어
-    public float transparency = 0.3f; // 장애물 투명도
-    public float fadeTime = 0.5f; // 투명해지는데 걸리는 시간
+    public float transparency = 0.01f; // 장애물 투명도
+    public float fadeTime = 0.8f; // 투명해지는데 걸리는 시간
     private Dictionary<GameObject, Coroutine> fadingObstacles = new Dictionary<GameObject, Coroutine>();// 현재 페이드 중인 장애물과 그에 해당하는 코루틴을 저장하는 딕셔너리
                                                                                                         
     private void Awake()
@@ -70,27 +70,71 @@ public class Camera : MonoBehaviour
     private void SetTransparency(GameObject obj, bool isFadingIn)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>(); // 천장 오브젝트의 모든 Renderer 컴포넌트를 가져옴
-        foreach (Renderer renderer in renderers) // 각 Renderer에 대하여
+        foreach (var item in renderers)
         {
-            Material material = renderer.material;
-            Color color = material.color;
-            color.a = isFadingIn ? transparency : 1f; // 투명도 조절
-            material.color = color;
+            Material[] materials = item.materials; // 오브젝트의 모든 Material을 가져옴
+            foreach (Material material in materials) // 각 Renderer에 대하여
+            {
+                Color color = material.color;
+                color.a = isFadingIn ? transparency : 1f; // 투명도 조절
+                material.color = color;
+            }
         }
     }
     IEnumerator FadeObstacle(GameObject obstacle, bool isFadingIn)
     {
-        Color originalColor = obstacle.GetComponentInChildren<Renderer>().material.color; //원래 색상
-        Color targetColor = originalColor; // 목표 색상
-        targetColor.a = isFadingIn ? transparency : 1f; // 투명하게 만들 경우 목표 알파값은 transparency, 원래 상태로 돌리는 경우 목표 알파값은 1
+        Renderer renderer = obstacle.GetComponentInChildren<Renderer>();
+        ChangeRenderer(renderer.material, false); // 먼저 Material의 Rendering Mode를 변경
+        Material[] materials = renderer.materials; // 오브젝트의 모든 Material을 가져옴
 
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeTime)
+        foreach (Material material in materials) // 각 Material에 대하여
         {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / fadeTime;
-            obstacle.GetComponentInChildren<Renderer>().material.color = Color.Lerp(originalColor, targetColor, t);
-            yield return null;
+            Color originalColor = material.color; // 원래 색상
+            Color targetColor = originalColor; // 목표 색상
+            targetColor.a = isFadingIn ? transparency : 1f; // 투명하게 만들 경우 목표 알파값은 transparency, 원래 상태로 돌리는 경우 목표 알파값은 1
+
+            float elapsedTime = 0f;
+            while (elapsedTime < fadeTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = elapsedTime / fadeTime;
+                material.color = Color.Lerp(originalColor, targetColor, t);
+                if (!isFadingIn && t >= 1.0f) // 알파값이 1로 돌아갔을 때 'Cutout' 모드로 변경
+                {
+                    ChangeRenderer(renderer.material, true);
+                }
+                yield return null;
+            }
+        }
+    }
+    private void ChangeRenderer(Material material,bool isChange) //Renderer Mode를 변경해줍니다
+    {
+        if (isChange)
+        {
+            material.SetFloat("_Mode", 1.0f);
+            material.SetOverrideTag("RenderType", "Opaque");
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+            material.SetInt("_ZWrite", 1);
+            material.EnableKeyword("_ALPHATEST_ON");
+            material.DisableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = 2450;
+            Color originalColor = material.color; //원래 색상
+            originalColor.a = 2f; // 목표 색상
+            material.color = originalColor; // 투명하게 만들 경우 목표 알파값은 transparency, 원래 상태로 돌리는 경우 목표 알파값은 1
+        }
+        else 
+        {
+            material.SetFloat("_Mode", 2.0f);
+            material.SetOverrideTag("RenderType", "Transparent");
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.SetInt("_ZWrite", 0);
+            material.DisableKeyword("_ALPHATEST_ON");
+            material.EnableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = 3000;
         }
     }
 }
