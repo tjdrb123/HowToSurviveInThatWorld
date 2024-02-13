@@ -15,7 +15,7 @@ public class MovementHorizontalAction : FiniteStateAction
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
 
     // Property (Origin SO)
     private new MovementHorizontalActionSO OriginSO => base.OriginSO as MovementHorizontalActionSO;
@@ -28,7 +28,7 @@ public class MovementHorizontalAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
     }
     
     public override void FiniteStateUpdate() 
@@ -38,8 +38,8 @@ public class MovementHorizontalAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        _playerScript.MovementVector.x = _playerScript.MovementInput.x * OriginSO.MovementSpeed;
-        _playerScript.MovementVector.z = _playerScript.MovementInput.z * OriginSO.MovementSpeed;
+        _playerController.MovementVector.x = _playerController.MovementInput.x * OriginSO.MovementSpeed;
+        _playerController.MovementVector.z = _playerController.MovementInput.z * OriginSO.MovementSpeed;
     }
 
     #endregion

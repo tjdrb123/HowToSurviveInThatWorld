@@ -65,9 +65,9 @@ public class StatController : MonoBehaviour
 
     private void Initialize()
     {
-        // InitializeStats(_StatTableSO.Stats, E_Category.Stat);
-        // InitializeStats(_StatTableSO.Attributes, E_Category.Attribute);
-        // InitializeStats(_StatTableSO.Primary, E_Category.Primary);
+        InitializeStats(_StatTableSO.Stats, E_Category.Stat);
+        InitializeStats(_StatTableSO.Attributes, E_Category.Attribute);
+        InitializeStats(_StatTableSO.Primary, E_Category.Primary);
         
         _isInit = true;
         OnInitialized?.Invoke();

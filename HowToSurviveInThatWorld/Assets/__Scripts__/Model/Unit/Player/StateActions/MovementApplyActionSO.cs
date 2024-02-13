@@ -10,7 +10,7 @@ public class MovementApplyAction : FiniteStateAction
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
     private CharacterController _characterController;
     private Animator _animator;
     private bool _isMoving;
@@ -22,7 +22,7 @@ public class MovementApplyAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
         _characterController = finiteStateMachine.GetComponent<CharacterController>();
         _animator = finiteStateMachine.GetComponent<Animator>();
     }
@@ -34,12 +34,12 @@ public class MovementApplyAction : FiniteStateAction
 
     public override void FiniteStateFixedUpdate()
     {
-        _characterController.Move(_playerScript.MovementVector * Time.fixedDeltaTime);
-        _playerScript.MovementVector = _characterController.velocity;
-        _isMoving = _playerScript.MovementVector != Vector3.zero;
+        _characterController.Move(_playerController.MovementVector * Time.fixedDeltaTime);
+        _playerController.MovementVector = _characterController.velocity;
+        _isMoving = _playerController.MovementVector != Vector3.zero;
 
         _animator.SetBool("IsWalking", _isMoving);
-        _animator.SetBool("IsRunning", _isMoving && _playerScript.IsRunning);
+        _animator.SetBool("IsRunning", _isMoving && _playerController.IsRunning);
     }
 
     #endregion

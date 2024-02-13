@@ -15,7 +15,7 @@ public class IsAttackingCondition : FiniteStateCondition
 {
     #region Fields
 
-    private Player _playerScript;
+    private PlayerController _playerController;
     private Animator _animator;
     private bool _isAttacking;
     private AnimatorStateInfo _stateInfo;
@@ -30,13 +30,13 @@ public class IsAttackingCondition : FiniteStateCondition
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
         _animator = finiteStateMachine.GetComponent<Animator>();
     }
 
     protected override bool Statement()
     {
-        _isAttacking = _playerScript.IsAttacking;
+        _isAttacking = _playerController.IsAttacking;
         _stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
         CheckAnimationState("Attack");
 
@@ -48,7 +48,7 @@ public class IsAttackingCondition : FiniteStateCondition
         if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime <= 1.0)
         {
             _isAttacking = true;
-            _playerScript.MovementVector = Vector3.zero;
+            _playerController.MovementVector = Vector3.zero;
         }
         else if (_stateInfo.IsName(animationName) && _stateInfo.normalizedTime > 1.0)
         {
