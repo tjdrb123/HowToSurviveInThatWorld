@@ -43,6 +43,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         {
             inputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
+        else if (node is Root)
+        {
+            
+        }
 
         if (inputPort != null)
         {
@@ -62,6 +66,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
         }
         else if (node is Decorator)
+        {
+            outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+        }
+        else if (node is Root)
         {
             outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
         }

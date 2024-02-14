@@ -47,6 +47,14 @@ public class BehaviorTreeView : GraphView
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);  // 두 개 이상 생성 대비 삭제
         graphViewChanged += OnGraphViewChanged;
+
+        // RootNode 생성, 하나의 RootNode 보장
+        if (tree.rootNode == null)
+        {
+            tree.rootNode = tree.CreateNode(typeof(Root)) as Root; // 생성후 트리의 루트로 설정. (다운캐스팅)(.GetType() : 실제 자신을 반환)
+            EditorUtility.SetDirty(tree);
+            AssetDatabase.SaveAssets();
+        }
         
         // Creates Node View
         _tree.nodes.ForEach(n => CreateNodeView(n)); // 다시 생성

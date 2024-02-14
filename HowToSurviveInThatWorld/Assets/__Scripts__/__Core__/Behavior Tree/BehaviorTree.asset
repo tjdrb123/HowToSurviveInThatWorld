@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2215145651129048931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb32c7dcb9764396b9925d7aecbe3d3, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 98a97f52e494845898efa76634e7fd64
+  position: {x: 0, y: 0}
+  child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8844472093ac24c5990348130ce164f2, type: 3}
   m_Name: BehaviorTree
   m_EditorClassIdentifier: 
-  rootNode: {fileID: 0}
+  rootNode: {fileID: -2215145651129048931}
   treeState: 0
   nodes:
   - {fileID: 5331601278830692103}
@@ -20,6 +37,7 @@ MonoBehaviour:
   - {fileID: 8551263529544513532}
   - {fileID: 301237818715233256}
   - {fileID: 7295240805028740535}
+  - {fileID: -2215145651129048931}
 --- !u!114 &301237818715233256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +53,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c45b8dd7703e14d78b84c6a0af4b6d09
-  position: {x: 410, y: -45}
+  position: {x: 326.24, y: -27}
   duration: 1
 --- !u!114 &439388992565707909
 MonoBehaviour:
@@ -52,7 +70,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c48641584ce5d41fbbb120b84e9cfe5f
-  position: {x: 410, y: 215}
+  position: {x: 168.68, y: 185}
   duration: 1
 --- !u!114 &3256479305914791667
 MonoBehaviour:
@@ -86,7 +104,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 54bf83fe682ed4244a7e738c040cd933
-  position: {x: 410, y: 77}
+  position: {x: 169, y: 77}
   duration: 1
 --- !u!114 &7295240805028740535
 MonoBehaviour:
@@ -103,8 +121,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2e99ba789cf7d41b69b5832024a534f3
-  position: {x: 0, y: 0}
-  child: {fileID: 0}
+  position: {x: 169, y: -27}
+  child: {fileID: 301237818715233256}
 --- !u!114 &8551263529544513532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,8 +138,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 01cd01c80908b49c9a7bdef54e58ccd8
-  position: {x: 43, y: 77}
+  position: {x: -88, y: 77}
   children:
   - {fileID: 5331601278830692103}
   - {fileID: 439388992565707909}
-  - {fileID: 301237818715233256}
+  - {fileID: 7295240805028740535}

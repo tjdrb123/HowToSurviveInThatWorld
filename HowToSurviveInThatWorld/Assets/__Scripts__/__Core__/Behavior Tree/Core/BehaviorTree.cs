@@ -53,6 +53,10 @@ public class BehaviorTree : ScriptableObject
     // 입력 부모 타입에 대한 자식 추가
     public void AddChild(Node parent, Node child)
     {
+        Root root = parent as Root;
+        if (root)
+            root.child = child;
+        
         Decorator decorator = parent as Decorator;
         if (decorator)
             decorator.child = child;
@@ -65,6 +69,10 @@ public class BehaviorTree : ScriptableObject
     // 입력 부모 타입에 대한 자식 제거
     public void RemoveChild(Node parent, Node child)
     {
+        Root root = parent as Root;
+        if (root)
+            root.child = null;
+        
         Decorator decorator = parent as Decorator;
         if (decorator)
             decorator.child = null;
@@ -78,6 +86,10 @@ public class BehaviorTree : ScriptableObject
     public List<Node> GetChildren(Node parent)
     {
         List<Node> children = new List<Node>();
+
+        Root root = parent as Root;
+        if (root && root.child != null)
+            children.Add(root.child);
         
         Decorator decorator = parent as Decorator;
         if (decorator && decorator.child != null)
