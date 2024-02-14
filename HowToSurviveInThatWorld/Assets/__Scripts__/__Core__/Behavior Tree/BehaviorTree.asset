@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3745625237861214100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
+  m_Name: TestDebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 260a4b553a3c846a283b03238ca8352e
+  position: {x: 132.64507, y: -136.00005}
+  Test: One
 --- !u!114 &-2215145651129048931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,8 +32,59 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 98a97f52e494845898efa76634e7fd64
+  position: {x: -212.129, y: 76.99995}
+  child: {fileID: 8551263529544513532}
+--- !u!114 &-1998829043842266360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ccf1920590c1f4f17a7f16184a742b29
+  position: {x: 132.64507, y: -27.000023}
+  duration: 1
+--- !u!114 &-1006115640190716686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33e4f2410ad243ecb57fd1b9fbc981f, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ffc041e318750496daa25e17b9c81b33
   position: {x: 0, y: 0}
   child: {fileID: 0}
+--- !u!114 &-48097687647021212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ff17acb6ea7354d8ba752a140c35cb13
+  position: {x: 132.64507, y: 182.99994}
+  duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,13 +100,16 @@ MonoBehaviour:
   rootNode: {fileID: -2215145651129048931}
   treeState: 0
   nodes:
-  - {fileID: 5331601278830692103}
-  - {fileID: 439388992565707909}
   - {fileID: 8551263529544513532}
-  - {fileID: 301237818715233256}
-  - {fileID: 7295240805028740535}
   - {fileID: -2215145651129048931}
---- !u!114 &301237818715233256
+  - {fileID: -3745625237861214100}
+  - {fileID: -1998829043842266360}
+  - {fileID: 9200344580937265306}
+  - {fileID: -48097687647021212}
+  - {fileID: 2377618623394925985}
+  - {fileID: 863702496012169626}
+  - {fileID: -1006115640190716686}
+--- !u!114 &863702496012169626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,10 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: c45b8dd7703e14d78b84c6a0af4b6d09
-  position: {x: 326.24, y: -27}
+  guid: 7d4917938590a49549857af0bf2193e6
+  position: {x: 133.00006, y: 391.46002}
   duration: 1
---- !u!114 &439388992565707909
+--- !u!114 &2377618623394925985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,14 +135,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
-  m_Name: WaitNode
+  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
+  m_Name: TestDebugLogNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: c48641584ce5d41fbbb120b84e9cfe5f
-  position: {x: 168.68, y: 185}
-  duration: 1
+  guid: 8dd2259c3e77e452aac451a7d6763a6a
+  position: {x: 132.64507, y: 289.9999}
+  Test: Three
 --- !u!114 &3256479305914791667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,40 +160,6 @@ MonoBehaviour:
   guid: 724a1491f55bf4505ba0346d73ad8b59
   position: {x: 341, y: 132}
   child: {fileID: 0}
---- !u!114 &5331601278830692103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 54bf83fe682ed4244a7e738c040cd933
-  position: {x: 169, y: 77}
-  duration: 1
---- !u!114 &7295240805028740535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33e4f2410ad243ecb57fd1b9fbc981f, type: 3}
-  m_Name: RepeatNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 2e99ba789cf7d41b69b5832024a534f3
-  position: {x: 169, y: -27}
-  child: {fileID: 301237818715233256}
 --- !u!114 &8551263529544513532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +177,26 @@ MonoBehaviour:
   guid: 01cd01c80908b49c9a7bdef54e58ccd8
   position: {x: -88, y: 77}
   children:
-  - {fileID: 5331601278830692103}
-  - {fileID: 439388992565707909}
-  - {fileID: 7295240805028740535}
+  - {fileID: -3745625237861214100}
+  - {fileID: -1998829043842266360}
+  - {fileID: 9200344580937265306}
+  - {fileID: -48097687647021212}
+  - {fileID: 2377618623394925985}
+  - {fileID: 863702496012169626}
+--- !u!114 &9200344580937265306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
+  m_Name: TestDebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 31187539a22c34222bcde4f5673d2968
+  position: {x: 132.64507, y: 76.99995}
+  Test: Two

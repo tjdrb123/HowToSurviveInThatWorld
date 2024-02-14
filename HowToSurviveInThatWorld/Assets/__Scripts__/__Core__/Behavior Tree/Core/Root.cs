@@ -22,4 +22,11 @@ public class Root : Node
     {
         return child.Update();
     }
+
+    public override Node Clone()
+    {
+        Root node = Instantiate(this);
+        node.child = child.Clone();
+        return node;
+    }
 }

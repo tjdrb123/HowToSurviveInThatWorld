@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
 
@@ -100,5 +101,12 @@ public class BehaviorTree : ScriptableObject
             return composite.children;
 
         return children;
+    }
+
+    public BehaviorTree Clone()
+    {
+        BehaviorTree tree = Instantiate(this);
+        tree.rootNode = tree.rootNode.Clone();
+        return tree;
     }
 }
