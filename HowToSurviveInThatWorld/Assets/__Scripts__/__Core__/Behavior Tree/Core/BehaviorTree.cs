@@ -45,4 +45,44 @@ public class BehaviorTree : ScriptableObject
         AssetDatabase.RemoveObjectFromAsset(node);
         AssetDatabase.SaveAssets();
     }
+
+    // 입력 부모 타입에 대한 자식 추가
+    public void AddChild(Node parent, Node child)
+    {
+        Decorator decorator = parent as Decorator;
+        if (decorator)
+            decorator.child = child;
+        
+        Composite composite = parent as Composite;
+        if (composite)
+            composite.children.Add(child);
+    }
+
+    // 입력 부모 타입에 대한 자식 제거
+    public void RemoveChild(Node parent, Node child)
+    {
+        Decorator decorator = parent as Decorator;
+        if (decorator)
+            decorator.child = null;
+        
+        Composite composite = parent as Composite;
+        if (composite)
+            composite.children.Remove(child);
+    }
+
+    // 입력 부모에 대한 자식 리스트 반환
+    public List<Node> GetChildren(Node parent)
+    {
+        List<Node> children = new List<Node>();
+        
+        Decorator decorator = parent as Decorator;
+        if (decorator && decorator.child != null)
+            children.Add(decorator.child);
+        
+        Composite composite = parent as Composite;
+        if (composite)
+            return composite.children;
+
+        return children;
+    }
 }
