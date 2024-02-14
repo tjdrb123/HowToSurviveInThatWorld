@@ -7,4 +7,11 @@ using UnityEngine;
 public abstract class Decorator : Node
 {
     public Node child;
+    
+    public override Node Clone()
+    {
+        Decorator node = Instantiate(this);
+        node.child = child.Clone();
+        return node;
+    }
 }
