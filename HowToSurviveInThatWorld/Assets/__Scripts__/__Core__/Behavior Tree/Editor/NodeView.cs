@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,15 @@ using UnityEditor.Experimental.GraphView;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
+    /*===========================================================================================================*/
+
+    public Action<NodeView> OnNodeSelected;
     public Node node;
 
     public Port inputPort;
     public Port outputPort;
+    
+    /*===========================================================================================================*/
 
     public NodeView(Node node)
     {
@@ -73,6 +79,12 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         
         node.position.x = newPos.xMin;
         node.position.y = newPos.yMin;
+    }
+
+    public override void OnSelected()
+    {
+        base.OnSelected();
+        OnNodeSelected?.Invoke(this);
     }
     
     

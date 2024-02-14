@@ -5,8 +5,12 @@ using UnityEngine.UIElements;
 
 public class BehaviorTreeEditor : EditorWindow
 {
+    /*===========================================================================================================*/
+    
     private BehaviorTreeView _treeView;
     private InspectorView _inspectorView;
+    
+    /*===========================================================================================================*/
     
     [MenuItem("BehaviorTree/BehaviorTree Editor")]
     public static void OpenWindow()
@@ -30,6 +34,7 @@ public class BehaviorTreeEditor : EditorWindow
 
         _treeView = root.Q<BehaviorTreeView>();
         _inspectorView = root.Q<InspectorView>();
+        _treeView.OnNodeSelected = OnNodeSelectionChanged;
         
         OnSelectionChange();
     }
@@ -43,5 +48,11 @@ public class BehaviorTreeEditor : EditorWindow
         {
             _treeView.PopulateView(tree);
         }
+    }
+
+    // 노드가 선택될 때 호출, Inspector View를 입력받은 node 정보로 업데이트.
+    private void OnNodeSelectionChanged(NodeView node)
+    {
+        _inspectorView.UpdateSelection(node);
     }
 }

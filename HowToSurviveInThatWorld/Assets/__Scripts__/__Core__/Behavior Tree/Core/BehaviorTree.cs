@@ -6,10 +6,14 @@ using UnityEditor;
 [CreateAssetMenu()]
 public class BehaviorTree : ScriptableObject
 {
+    /*===========================================================================================================*/
+    
     public Node rootNode;
     public Node.E_NodeState treeState = Node.E_NodeState.Running;
     public List<Node> nodes = new List<Node>();
 
+    /*===========================================================================================================*/
+    
     public Node.E_NodeState Update()
     {
         if (rootNode.state == Node.E_NodeState.Running)

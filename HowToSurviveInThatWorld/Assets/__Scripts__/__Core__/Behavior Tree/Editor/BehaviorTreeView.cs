@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -8,9 +9,15 @@ using System.Linq;
 
 public class BehaviorTreeView : GraphView
 {
+    /*===========================================================================================================*/
+    public Action<NodeView> OnNodeSelected;
     private BehaviorTree _tree;
     
+    /*===========================================================================================================*/
+    
     public new class UxmlFactory : UxmlFactory<BehaviorTreeView, GraphView.UxmlTraits> { }
+    
+    /*===========================================================================================================*/
     public BehaviorTreeView()
     {
         Insert(0, new GridBackground()); // 백그라운드 드로우
@@ -23,6 +30,8 @@ public class BehaviorTreeView : GraphView
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/__Scripts__/__Core__/Behavior Tree/Editor/BehaviorTreeEditor.uss");
         styleSheets.Add(styleSheet); // 스타일 시트 직접참조
     }
+    
+    /*===========================================================================================================*/
     
     // GUID(고유 식별자)를 사용하여 파라미터에 해당하는 NodeView 반환.
     NodeView FindNodeView(Node node)
@@ -58,12 +67,16 @@ public class BehaviorTreeView : GraphView
         });
     }
     
+    /*===========================================================================================================*/
+    
     // 노드 입출력 호환 검사
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
         return ports.ToList()
             .Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node).ToList();
     }
+    
+    /*===========================================================================================================*/
     
     // 뷰 체인지 이벤트 함수
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
@@ -99,6 +112,8 @@ public class BehaviorTreeView : GraphView
         return graphViewChange;
     }
     
+    /*===========================================================================================================*/
+    
     // 메뉴 재정의
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
@@ -126,6 +141,8 @@ public class BehaviorTreeView : GraphView
             }
         }
     }
+    
+    /*===========================================================================================================*/
 
     private void CreateNode(System.Type type)
     {
@@ -136,6 +153,9 @@ public class BehaviorTreeView : GraphView
     private void CreateNodeView(Node node)
     {
         NodeView nodeView = new NodeView(node);
+        nodeView.OnNodeSelected = OnNodeSelected;
         AddElement(nodeView);
     }
+    
+    /*===========================================================================================================*/
 }

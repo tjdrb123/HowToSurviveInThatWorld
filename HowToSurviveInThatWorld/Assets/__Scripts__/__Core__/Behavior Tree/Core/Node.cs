@@ -11,10 +11,10 @@ public abstract class Node : ScriptableObject
         Failure
     }
 
-    public E_NodeState state = E_NodeState.Running;
-    public bool started = false;
-    public string guid;
-    public Vector2 position;
+    [HideInInspector]public E_NodeState state = E_NodeState.Running;
+    [HideInInspector]public bool started = false;
+    [HideInInspector]public string guid;
+    [HideInInspector]public Vector2 position;
 
     public E_NodeState Update()
     {
