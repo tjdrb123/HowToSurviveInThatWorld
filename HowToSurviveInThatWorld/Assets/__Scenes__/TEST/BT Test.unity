@@ -800,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13dec04a7ae544dea9530fa9cc943e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: 83a82111f1528469a9af3ccd65da9cc0, type: 2}
 --- !u!1 &1677811504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1058911314472362, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
