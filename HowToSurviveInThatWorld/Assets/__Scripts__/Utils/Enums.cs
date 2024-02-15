@@ -18,7 +18,7 @@
 //   - ex) NetworkLogin 과 같은 타입을 안에 작성하면 됩니다.
 public enum E_CoroutineKey
 {
-    None
+    ChargeFillAmount,
 }
 
 #endregion
@@ -37,7 +37,18 @@ public enum E_StatType
     Defense,
     CriticalChance,
     CriticalDamage,
-    
+}
+
+#endregion
+
+
+
+#region Interaction Type
+
+public enum E_InteractType
+{
+    Routing,
+    SimplePickUp
 }
 
 #endregion

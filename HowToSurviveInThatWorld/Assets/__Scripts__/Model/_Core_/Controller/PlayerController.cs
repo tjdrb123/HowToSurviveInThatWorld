@@ -1,6 +1,8 @@
 
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +10,11 @@ public class PlayerController : MonoBehaviour
 
     // Input Reader
     [SerializeField] private InputReader _inputReader;
+
+    [SerializeField] private LayerMask _interactableLayer;
+    [NonSerialized] public Collider[] _hitColliders;
+    private Transform _transform;
+    public Image _chargingImg;
 
     // ========================================
     // # Input Associated.
@@ -26,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
 
     #region Unity Behavior
+
+    private void Awake()
+    {
+        _transform = transform;
+    }
 
     private void OnEnable()
     {
@@ -102,12 +114,34 @@ public class PlayerController : MonoBehaviour
 
     private void Interaction()
     {
-        DebugLogger.Log("interaction performed");
+        Vector3 boxCenter = _transform.position + Vector3.up * 1f;
+        Vector3 halfExtents = new Vector3(1f, 1f, 1f);
+
+        _hitColliders = Physics.OverlapBox(boxCenter, halfExtents, Quaternion.identity, _interactableLayer);
+        if (_hitColliders.Length > 0)
+        {
+            // 거리에 따라 Collider 배열 정렬
+            _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
+            IsInteracting = true;
+        }
     }
 
     private void CanceledInterAction()
     {
-        DebugLogger.Log("interaction canceled");
+        IsInteracting = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (_transform == null)
+        {
+            _transform = transform;
+        }
+        Vector3 cubeCenter = _transform.position + Vector3.up * 1f;
+        Vector3 cubeSize = new Vector3(2f, 2f, 2f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(cubeCenter, cubeSize);
     }
 
     #endregion

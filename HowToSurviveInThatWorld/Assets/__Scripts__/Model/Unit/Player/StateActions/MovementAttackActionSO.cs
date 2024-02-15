@@ -1,7 +1,5 @@
 ﻿
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "MovementAttackAction", menuName = "State Machine/Actions/Movement Attack Action")]
 public class MovementAttackActionSO : FiniteStateActionSO
