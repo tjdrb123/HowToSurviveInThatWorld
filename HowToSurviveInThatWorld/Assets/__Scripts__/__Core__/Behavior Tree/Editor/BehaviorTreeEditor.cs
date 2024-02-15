@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor.Callbacks;
 
 public class BehaviorTreeEditor : EditorWindow
 {
@@ -18,6 +19,21 @@ public class BehaviorTreeEditor : EditorWindow
         BehaviorTreeEditor wnd = GetWindow<BehaviorTreeEditor>();
         wnd.titleContent = new GUIContent("BehaviorTreeEditor");
     }
+
+    // BT SO 더블클릭, Editor Open
+    [OnOpenAsset]
+    public static bool OnOpenAsset(int instanceId, int line)
+    {
+        if (Selection.activeObject is BehaviorTree)
+        {
+            OpenWindow();
+            
+            return true;
+        }
+
+        return false;
+    }
+    
 
     public void CreateGUI()
     {
