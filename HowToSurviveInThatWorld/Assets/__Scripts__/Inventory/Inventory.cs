@@ -50,6 +50,28 @@ public class Inventory : MonoBehaviour
         }
         AddItem(item);
     }
+    public void CombineSlot(ItemDataSo item) //아이템이 인벤토리에 추가 되면 아이템을 합치기 위한 함수
+    {
+        UseItem itme;
+        if (item.KeyNumber >= 50 && item.KeyNumber < 100)
+        {
+            itme = item as UseItem;
+            for (int i = 0; i < _baseSlot.Length; i++)
+            {
+                if (_baseSlot[i].ItemData.name == item.name && _baseSlot[i].ItemData.stack != itme.MaxStack)
+                {
+                    int stack = _baseSlot[i].MaxStackCheck(itme.CurrentAmont);
+                    if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
+                    {
+                        itme.CurrentAmont = stack;
+                        continue;
+                    }
+                    else
+                        return;
+                }
+            }
+        }
+    }
     public void SlotSwap(ItemSlot firstslot, ItemSlot secondSlot) //드래그할 위치, 드래그 슬롯에 저장된 슬롯을 옮기기 위해서
     { 
         _firstSlot = firstslot; //현재 슬롯 (내가 옮기고 싶은 Slot)

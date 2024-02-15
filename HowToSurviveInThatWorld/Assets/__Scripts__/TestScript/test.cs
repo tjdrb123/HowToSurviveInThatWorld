@@ -12,6 +12,7 @@ public class test : MonoBehaviour
 
     public ItemData[] itemDatas;
     public static test Instans;
+    public ItemDataSo Carrot;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class test : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z)) 
         {
             inventory.CombineSlot(new ItemData(item));
+            inventory.CombineSlot(Carrot);
         }
     }
     public void OpenChest()
