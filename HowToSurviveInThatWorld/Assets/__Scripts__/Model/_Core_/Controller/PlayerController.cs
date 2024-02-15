@@ -23,10 +23,17 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public bool IsRunning;
     [NonSerialized] public bool IsCrouching;
     [NonSerialized] public bool IsInteracting;
+
     [NonSerialized] public Vector3 MovementInput;
     [NonSerialized] public Vector3 MovementVector;
     // Normalized Input Vector
     private Vector2 _inputVector;
+
+    #endregion
+
+    #region Property
+
+
 
     #endregion
 
@@ -85,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
 
     #region Input Event Listening
-    
+
     private void Movement(Vector2 movementInput)
     {
         _inputVector = movementInput;
