@@ -11,7 +11,7 @@ public enum E_UseItemType
 [CreateAssetMenu(fileName = "UseItemData", menuName = "ItemDataSO/UseItem", order = 0)]
 public class UseItem : EtcItem
 {
-    public E_UseItemType UseType; //¾ÆÀÌÅÛÀÌ ¹«¾ùÀ» Ã¤¿öÁÙÁö
+    public E_UseItemType UseType; //ì•„ì´í…œì´ ë¬´ì—‡ì„ ì±„ì›Œì¤„ì§€
 
     public UseItem(UseItem useItem) : base(useItem)
     {

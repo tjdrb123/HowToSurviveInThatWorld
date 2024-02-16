@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EtcItem : ItemDataSo
 {
-    public int MaxStack; //¾ó¸¶Á¤µµ·Î ½×À»°ÍÀÎÁö
+    public int MaxStack; //ì–¼ë§ˆì •ë„ë¡œ ìŒ“ì„ê²ƒì¸ì§€
     public EtcItem(EtcItem etcItem) : base(etcItem)
     {
         MaxStack = etcItem.MaxStack;
