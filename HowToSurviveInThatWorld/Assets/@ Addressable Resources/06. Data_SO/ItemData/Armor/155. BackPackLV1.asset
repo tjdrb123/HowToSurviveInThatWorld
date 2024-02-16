@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf04cf94825d1ed4fb52a1d42ee3eb1e, type: 3}
+  m_Name: 155. BackPackLV1
+  m_EditorClassIdentifier: 
+  KeyNumber: 150
+  Name: "\uAC00\uBC29 LV1"
+  Description: "\uAC00\uBC29\uC744 \uCC29\uC6A9\uD558\uBA74 \uC800\uC7A5 \uACF5\uAC04\uC774
+    \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  PlusValue: 4
+  CurrentAmont: 0
+  ItemImage: {fileID: -1070901256, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  BaseType: 1
+  armorType: 24

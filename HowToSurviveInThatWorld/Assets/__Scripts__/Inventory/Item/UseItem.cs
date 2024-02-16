@@ -9,9 +9,12 @@ public enum E_UseItemType
 }
 
 [CreateAssetMenu(fileName = "UseItemData", menuName = "ItemDataSO/UseItem", order = 0)]
-public class UseItem : ItemDataSo
+public class UseItem : EtcItem
 {
     public E_UseItemType UseType; //아이템이 무엇을 채워줄지
-    public int CurrentAmont; //현재 수량
-    public int MaxStack; //얼마정도로 쌓을것인지
+
+    public UseItem(UseItem useItem) : base(useItem)
+    {
+        UseType = useItem.UseType;
+    }
 }

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ecd69838525c86459ca411488c66a30, type: 3}
-  m_Name: 100. Axe
+  m_Name: 101. Pick
   m_EditorClassIdentifier: 
-  KeyNumber: 100
-  Name: "\uB3C4\uB07C"
-  Description: "\uB098\uBB34\uB97C \uC790\uB97C \uB584 \uC0AC\uC6A9\uD55C\uB2E4."
+  KeyNumber: 101
+  Name: "\uACE1\uAD2D\uC774"
+  Description: "\uB3CC\uC744 \uB354 \uBE68\uB9AC \uCE98 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   PlusValue: 3
-  ItemImage: {fileID: -799643305, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
-  ISStack: 0
-  WeaponType: 1
+  CurrentAmont: 0
+  ItemImage: {fileID: 132728278, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  BaseType: 25
+  WeaponType: 2

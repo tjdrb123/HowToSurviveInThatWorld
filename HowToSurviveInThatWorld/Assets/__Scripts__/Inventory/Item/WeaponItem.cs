@@ -14,4 +14,9 @@ public enum E_WeaponItemType
 public class WeaponItem : ItemDataSo
 {
     public E_WeaponItemType WeaponType;
+
+    public WeaponItem(WeaponItem weaponItem) : base(weaponItem)
+    {
+        WeaponType = weaponItem.WeaponType;
+    }
 }
