@@ -7,4 +7,11 @@ using UnityEngine;
 public abstract class Composite : Node
 {
     public List<Node> children = new List<Node>();
+    
+    public override Node Clone()
+    {
+        Composite node = Instantiate(this);
+        node.children = children.ConvertAll(c => c.Clone());
+        return node;
+    }
 }

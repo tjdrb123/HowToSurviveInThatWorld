@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: ad3248678431e2949870ca63fcc6fdbe
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 8f5965d7f48f4aa3a22fe05107ec8d7e
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1de2b238b6f6def43a7da2a533dac47e, type: 2}
   - {fileID: 11400000, guid: 77919f40aef01be41b0726f2dfbfafc6, type: 2}
   - {fileID: 11400000, guid: 5b09856d89817c34fab655cd24c98f8f, type: 2}
+  - {fileID: 11400000, guid: 170f462cca7e74c408beb0faddbfa5a9, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -96,6 +97,7 @@ MonoBehaviour:
     - Mesh
     - Material
     - TestScene
+    - AssetReference
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 98ddac2aad7fcaf4f9094e814d0fa0e6, type: 2}
