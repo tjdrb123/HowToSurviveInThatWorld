@@ -5,22 +5,18 @@ using UnityEngine.UI;
 
 public class test : MonoBehaviour
 {
-    public ItemData item;
+    public ItemDataSo item;
     [SerializeField] private Button button;
     [SerializeField] private Inventory inventory;
     [SerializeField] GameObject Prefabs;
 
-    public ItemData[] itemDatas;
+    public ItemDataSo[] itemDatas;
     public static test Instans;
+    public ItemDataSo Carrot;
 
     private void Awake()
     {
         Instans = this;
-        item.name = "image";
-        item.keyNumber = 1;
-        item.stack = 1;
-        item.maxStack = 5;
-        item.itemBaseType = 1;
         itemDatas = RandomItem();
         button.onClick.AddListener(OpenChest);
     }
@@ -28,30 +24,36 @@ public class test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z)) 
         {
-            inventory.CombineSlot(new ItemData(item));
+            if (Carrot.BaseType == E_BaseType.UseItem)
+            {
+                UseItem useitem = new UseItem(Carrot as UseItem);
+                inventory.CombineSlot<UseItem>(useitem);
+            }
+            else if (Carrot.BaseType == E_BaseType.WeaponItem)
+            {
+                WeaponItem useitem = new WeaponItem(Carrot as WeaponItem);
+                inventory.CombineSlot<WeaponItem>(useitem);
+            }
+            else if (Carrot.BaseType == E_BaseType.ArmorItem)
+            {
+                Debug.Log("¿€µø");
+                ArmorItem useitem = new ArmorItem(Carrot as ArmorItem);
+                inventory.CombineSlot<ArmorItem>(useitem);
+            }
         }
     }
     public void OpenChest()
     {
         Instantiate(Prefabs);
     }
-    private ItemData[] RandomItem()
+    private ItemDataSo[] RandomItem()
     {
         int randomLength = Random.Range(1, 5);
-        itemDatas = new ItemData[15];
+        itemDatas = new ItemDataSo[15];
         int i = 0;
-        for (; i < randomLength; i++)
-        {
-            itemDatas[i] = new ItemData();
-            itemDatas[i].name = "image";
-            itemDatas[i].keyNumber = 1;
-            itemDatas[i].stack = 1;
-            itemDatas[i].maxStack = 5;
-            itemDatas[i].itemBaseType = 1;
-        }
         for (; i < 15; i++)
         {
-            itemDatas[i] = new ItemData();
+            itemDatas[i] = new ItemDataSo();
         }
         return itemDatas;
     }

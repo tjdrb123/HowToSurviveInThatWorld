@@ -23,6 +23,7 @@ public class UI_SelectorPopUP : UI_Popup
         PopUpBtn
     }
     private bool _isBtnAtive;
+    protected override void SetOrder() => _canvas.sortingOrder = 11;
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
@@ -33,7 +34,6 @@ public class UI_SelectorPopUP : UI_Popup
 
         GetButton((int)E_Button.PopUpBtn).onClick.AddListener(() => ClosePopup());
         GetButton((int)E_Button.CancelBtn).onClick.AddListener(() => ClosePopup());
-        //선택완료 버튼은 좀 더 고민해봐야함
         return true;
     }
     private void BtnAtive()
