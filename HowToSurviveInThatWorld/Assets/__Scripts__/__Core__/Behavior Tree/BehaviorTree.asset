@@ -1,6 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3745625237861214100
+--- !u!114 &-7330040541326203692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f421ba8872e54d84946edd368fa3588, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2abe8d69254a54615aa866c4827fda91
+  position: {x: -217, y: 77}
+  children: []
+--- !u!114 &-3917857518777521446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,9 +31,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 260a4b553a3c846a283b03238ca8352e
-  position: {x: 132.64507, y: -136.00005}
-  Test: One
+  guid: 61ef89cbdab2543e6803a20507269e4a
+  position: {x: 0, y: 0}
+  Test: 
 --- !u!114 &-2215145651129048931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,25 +49,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 98a97f52e494845898efa76634e7fd64
-  position: {x: -212.129, y: 76.99995}
-  child: {fileID: 8551263529544513532}
---- !u!114 &-1998829043842266360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: ccf1920590c1f4f17a7f16184a742b29
-  position: {x: 132.64507, y: -27.000023}
-  duration: 1
+  position: {x: -102.00001, y: -193.25053}
+  child: {fileID: -1006115640190716686}
 --- !u!114 &-1006115640190716686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,9 +66,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ffc041e318750496daa25e17b9c81b33
-  position: {x: 0, y: 0}
-  child: {fileID: 0}
---- !u!114 &-48097687647021212
+  position: {x: -102, y: -111}
+  child: {fileID: 8551263529544513532}
+--- !u!114 &-141928674259461640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,14 +77,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
-  m_Name: WaitNode
+  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
+  m_Name: TestDebugLogNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: ff17acb6ea7354d8ba752a140c35cb13
-  position: {x: 132.64507, y: 182.99994}
-  duration: 1
+  guid: 4f4b49724168f41858b92bab00197a74
+  position: {x: 0, y: 0}
+  Test: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,14 +102,14 @@ MonoBehaviour:
   nodes:
   - {fileID: 8551263529544513532}
   - {fileID: -2215145651129048931}
-  - {fileID: -3745625237861214100}
-  - {fileID: -1998829043842266360}
-  - {fileID: 9200344580937265306}
-  - {fileID: -48097687647021212}
-  - {fileID: 2377618623394925985}
-  - {fileID: 863702496012169626}
   - {fileID: -1006115640190716686}
---- !u!114 &863702496012169626
+  - {fileID: -7330040541326203692}
+  - {fileID: 7906144270318779146}
+  - {fileID: -3917857518777521446}
+  - {fileID: 2912414469997624431}
+  - {fileID: -141928674259461640}
+  - {fileID: 1355126984553825697}
+--- !u!114 &1355126984553825697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 7d4917938590a49549857af0bf2193e6
-  position: {x: 133.00006, y: 391.46002}
+  guid: 0738c25616fbd47a0a908d914ebf09ab
+  position: {x: 0, y: 0}
   duration: 1
---- !u!114 &2377618623394925985
+--- !u!114 &2912414469997624431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,14 +135,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
-  m_Name: TestDebugLogNode
+  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
+  m_Name: WaitNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 8dd2259c3e77e452aac451a7d6763a6a
-  position: {x: 132.64507, y: 289.9999}
-  Test: Three
+  guid: 2fb2092907dfc41ac9a8804469c4e6d5
+  position: {x: 0, y: 0}
+  duration: 1
 --- !u!114 &3256479305914791667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +160,23 @@ MonoBehaviour:
   guid: 724a1491f55bf4505ba0346d73ad8b59
   position: {x: 341, y: 132}
   child: {fileID: 0}
+--- !u!114 &7906144270318779146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f421ba8872e54d84946edd368fa3588, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 75de32344e0344e439181a1e1f6ae656
+  position: {x: 16, y: 77}
+  children: []
 --- !u!114 &8551263529544513532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,28 +192,5 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 01cd01c80908b49c9a7bdef54e58ccd8
-  position: {x: -88, y: 77}
-  children:
-  - {fileID: -3745625237861214100}
-  - {fileID: -1998829043842266360}
-  - {fileID: 9200344580937265306}
-  - {fileID: -48097687647021212}
-  - {fileID: 2377618623394925985}
-  - {fileID: 863702496012169626}
---- !u!114 &9200344580937265306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
-  m_Name: TestDebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 31187539a22c34222bcde4f5673d2968
-  position: {x: 132.64507, y: 76.99995}
-  Test: Two
+  position: {x: -102.00001, y: -20.520859}
+  children: []
