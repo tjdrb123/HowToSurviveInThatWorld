@@ -23,7 +23,7 @@ public class Initializer : MonoBehaviour
 
     private void Start()
     {
-        InitializeAsync();
+        InitializeAsync().Forget();
     }
 
     #endregion

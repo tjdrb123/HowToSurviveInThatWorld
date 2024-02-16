@@ -22,6 +22,7 @@ public class FakeLoading : MonoBehaviour
     private IEnumerator FakeLoadingBar()
     {
         float timer = 0f;
+        yield return new WaitForSeconds(2f);
 
         while (timer < 1.0f)
         {
