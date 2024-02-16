@@ -29,6 +29,15 @@ public class BehaviorTreeView : GraphView
         
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/__Scripts__/__Core__/Behavior Tree/UI Builders/BehaviorTreeEditor.uss");
         styleSheets.Add(styleSheet); // 스타일 시트 직접참조
+
+        Undo.undoRedoPerformed += OnUndoRedo; // 실행 취소가 발생하면 OnUndoRedo 실행 (구독)
+    }
+
+    // 실행 취소시 자동 업데이트를 위해 다시 그리고 저장.
+    private void OnUndoRedo()
+    {
+        PopulateView(_tree);
+        AssetDatabase.SaveAssets();
     }
     
     /*===========================================================================================================*/
@@ -39,7 +48,7 @@ public class BehaviorTreeView : GraphView
         return GetNodeByGuid(node.guid) as NodeView;
     }
 
-    // 파라미터 tree 객체를 사용해 그래프뷰를 채운다.
+    // 파라미터 tree 객체를 사용해 그래프뷰를 채운다(그린다).
     internal void PopulateView(BehaviorTree tree)
     {
         _tree = tree;

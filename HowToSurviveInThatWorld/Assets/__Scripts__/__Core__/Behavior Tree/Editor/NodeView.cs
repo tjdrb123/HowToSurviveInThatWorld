@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
@@ -111,8 +112,12 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     {
         base.SetPosition(newPos);
         
+        Undo.RecordObject(node, "Behavior Tree (Set Position)"); // 노드 위치 변경에 대한 "실행 취소" 작업 기록
+        
         node.position.x = newPos.xMin;
         node.position.y = newPos.yMin;
+        
+        EditorUtility.SetDirty(node); // 노드가 변경됨을 에디터에 전달(저장)
     }
 
     public override void OnSelected()
