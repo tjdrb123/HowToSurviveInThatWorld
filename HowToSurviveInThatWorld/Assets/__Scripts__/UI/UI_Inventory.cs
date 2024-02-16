@@ -7,12 +7,16 @@ public class UI_Inventory : UI_Popup
     enum E_Button
     {
         Btn_Close,
+        SelectBtn,
+        RemoveBtn,
     }
     enum E_Object
     {
         BaseInven,
         BackPack,
-        Equipments
+        Equipments,
+        SelectBtn,
+        RemoveBtn,
     }
     private void Start()
     {
@@ -34,6 +38,24 @@ public class UI_Inventory : UI_Popup
         GetObject((int)E_Object.Equipments).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.EquipMentSlotDatas);
         Manager_Inventory.Instance.BackPackInventory = GetObject((int)E_Object.BackPack).GetComponent<Inventory>();
         Manager_Inventory.Instance.EquipInventory = GetObject((int)E_Object.Equipments).GetComponent<Inventory>();
+    }
+    public void SelectSlot(ItemSlot itemSlot)
+    {
+        if (itemSlot != null)
+        {
+            if (itemSlot.ItemData.BaseType == E_BaseType.UseItem)
+            {
+                GetObject((int)E_Object.SelectBtn).GetComponent<Color>();
+                GetObject((int)E_Object.SelectBtn).GetComponent<Color>();
+            }
+            
+        }
+    }
+    private void SetAlpha(Color color, bool isbool = false) //인벤토리의 아이템이 없으면 이미지의 Color값을 변경함
+    {
+        Color colAlpha = color;
+        colAlpha.a = isbool ? 1f : 0.2f;
+        color = colAlpha;
     }
     private void BtnClose()
     {

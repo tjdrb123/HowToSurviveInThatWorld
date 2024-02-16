@@ -318,8 +318,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 4a9f2227f148c75469c5910d8b2ddb1a, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 4a9f2227f148c75469c5910d8b2ddb1a, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 4a9f2227f148c75469c5910d8b2ddb1a, type: 3}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -344,12 +344,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bd914a248868849b65d14d40c01334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIndex: 0
-  _itemData:
-    keyNumber: 0
-    name: 
-    description: 
-    itemBaseType: 0
-  _itemImage: {fileID: 0}
-  _dragSlot: {fileID: 0}
-  _dragSlotComponent: {fileID: 0}
