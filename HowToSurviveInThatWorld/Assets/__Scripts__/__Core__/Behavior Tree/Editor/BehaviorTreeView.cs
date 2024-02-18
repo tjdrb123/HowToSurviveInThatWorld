@@ -125,6 +125,16 @@ public class BehaviorTreeView : GraphView
                 _tree.AddChild(parentView.node, childView.node);
             });
         }
+
+        // 이동요소가 있다면, view의 자식들을 Sort정렬
+        if (graphViewChange.movedElements != null)
+        {
+            nodes.ForEach((n) =>
+            {
+                NodeView view = n as NodeView;
+                view.SortChildren();
+            });
+        }
         
         return graphViewChange;
     }

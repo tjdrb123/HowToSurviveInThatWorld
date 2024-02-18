@@ -39,7 +39,9 @@ public class BehaviorTree : ScriptableObject
         Undo.RecordObject(this, "Behavior Tree (CreateNode)"); // 변경사항 기록(되돌리기 위해)
         nodes.Add(node);
         
-        AssetDatabase.AddObjectToAsset(node, this);
+        if (!Application.isPlaying)
+            AssetDatabase.AddObjectToAsset(node, this);
+        
         Undo.RegisterCreatedObjectUndo(node, "BBehavior Tree (CreateNode)"); // 새로 생성된 객체에 대한 Undo 작업 등록.
         
         AssetDatabase.SaveAssets();
@@ -135,10 +137,24 @@ public class BehaviorTree : ScriptableObject
         return children;
     }
 
+    public void Traverse(Node node, System.Action<Node> visitor)
+    {
+        if (node)
+        {
+            visitor.Invoke(node);
+            var children = GetChildren(node);
+            children.ForEach((n) => Traverse(n, visitor));
+        }
+    }
+
     public BehaviorTree Clone()
     {
         BehaviorTree tree = Instantiate(this);
         tree.rootNode = tree.rootNode.Clone();
+        tree.nodes = new List<Node>();
+        
+        Traverse(tree.rootNode, (n) => { tree.nodes.Add(n); });
+        
         return tree;
     }
 }

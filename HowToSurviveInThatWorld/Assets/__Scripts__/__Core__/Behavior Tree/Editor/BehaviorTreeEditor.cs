@@ -55,14 +55,64 @@ public class BehaviorTreeEditor : EditorWindow
         OnSelectionChange();
     }
 
+    private void OnEnable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+    }
+    
+    // 플레이 모드 상태가 변경될 때 호출되는 메서드
+    private void OnPlayModeStateChanged(PlayModeStateChange obj)
+    {
+        switch (obj)
+        {
+            case PlayModeStateChange.EnteredEditMode:
+                OnSelectionChange();
+                break;
+            case PlayModeStateChange.ExitingEditMode:
+                break;
+            case PlayModeStateChange.EnteredPlayMode:
+                OnSelectionChange();
+                break;
+            case PlayModeStateChange.ExitingPlayMode:
+                break;
+        }
+    }
+
     // 선택시 변경 이벤트 함수
     private void OnSelectionChange()
     {
         BehaviorTree tree = Selection.activeObject as BehaviorTree;
 
-        if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+        if (_treeView == null)
+            return;
+
+        if (!tree)
         {
-            _treeView.PopulateView(tree);
+            if (Selection.activeGameObject) // 화성화된 게임 오브젝트가 null이 아니라면
+            {
+                BehaviorTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviorTreeRunner>();
+                if (runner)
+                    tree = runner.tree;
+            }
+        }
+
+        if (Application.isPlaying)
+        {
+            if (tree)
+                _treeView.PopulateView(tree);
+        }
+        else
+        {
+            if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
+            {
+                _treeView.PopulateView(tree);
+            }
         }
     }
 

@@ -126,5 +126,18 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         OnNodeSelected?.Invoke(this);
     }
     
+    // 에디터상 수평 위치 순서에 따라 노드 순서 변경 메서드
+    public void SortChildren()
+    {
+        Composite composite = node as Composite;
+        
+        if (composite)
+            composite.children.Sort(SortByHorizontalPosition);
+    }
+
+    private int SortByHorizontalPosition(Node left, Node right)
+    {
+        return left.position.x < right.position.x ? -1 : 1;
+    }
     
 }
