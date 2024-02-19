@@ -101,7 +101,7 @@ public class Inventory : MonoBehaviour
                     UseItem useItem = item as UseItem;
                     _baseSlot[i].AddItem(useItem);
                 }
-                else if (item.BaseType == E_BaseType.WeaponItem)
+                else if (item.BaseType == E_BaseType.WeaponItem || item.BaseType == E_BaseType.SubWeaponItem)
                 {
                     WeaponItem weaponItem = item as WeaponItem;
                     _baseSlot[i].AddItem(weaponItem);
