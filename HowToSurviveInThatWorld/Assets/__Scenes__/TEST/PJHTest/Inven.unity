@@ -662,6 +662,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4187769533539889900, guid: 5d78d7accc9b9a245881cbbe0cc51453, type: 3}
+      propertyPath: m_Name
+      value: SelectBtn
+      objectReference: {fileID: 0}
     - target: {fileID: 4425566888162299119, guid: 5d78d7accc9b9a245881cbbe0cc51453, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1719,7 +1723,7 @@ MonoBehaviour:
   inventory: {fileID: 1208258406}
   Prefabs: {fileID: 6733199199356185634, guid: 4fc041fc2e575c04aaed13db2a60fd45, type: 3}
   itemDatas: []
-  Carrot: {fileID: 11400000, guid: d2c1cd27e105bc04ba73d5d7ce784cb2, type: 2}
+  Carrot: {fileID: 11400000, guid: 091039f7ec1a0e54c994175662048d50, type: 2}
 --- !u!114 &1829455825
 MonoBehaviour:
   m_ObjectHideFlags: 0

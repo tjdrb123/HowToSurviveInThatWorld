@@ -29,14 +29,13 @@ public class test : MonoBehaviour
                 UseItem useitem = new UseItem(Carrot as UseItem);
                 inventory.CombineSlot<UseItem>(useitem);
             }
-            else if (Carrot.BaseType == E_BaseType.WeaponItem)
+            else if (Carrot.BaseType == E_BaseType.WeaponItem || Carrot.BaseType == E_BaseType.SubWeaponItem)
             {
                 WeaponItem useitem = new WeaponItem(Carrot as WeaponItem);
                 inventory.CombineSlot<WeaponItem>(useitem);
             }
             else if (Carrot.BaseType == E_BaseType.ArmorItem)
             {
-                Debug.Log("¿€µø");
                 ArmorItem useitem = new ArmorItem(Carrot as ArmorItem);
                 inventory.CombineSlot<ArmorItem>(useitem);
             }
