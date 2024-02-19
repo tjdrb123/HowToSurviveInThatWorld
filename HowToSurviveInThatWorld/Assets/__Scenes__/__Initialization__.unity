@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ManagerScene: {fileID: 11400000, guid: ba436266a9f8ba04b8b44b03e639fe39, type: 2}
-  _LoadTitleScene: {fileID: 0}
+  _LoadTitleScene: {fileID: 11400000, guid: 39def5e140a20004992a016b8f3c1ff4, type: 2}
   _LoadTitleSceneChannel:
-    m_AssetGUID: 
+    m_AssetGUID: 7b3adc917e5ed3849b7550956b11189c
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
