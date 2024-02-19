@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.AI;
 
 [CreateAssetMenu()]
 public class BehaviorTree : ScriptableObject
@@ -12,6 +13,7 @@ public class BehaviorTree : ScriptableObject
     public Node rootNode;
     public Node.E_NodeState treeState = Node.E_NodeState.Running;
     public List<Node> nodes = new List<Node>();
+    public DataContext dataContext = new DataContext();
 
     /*===========================================================================================================*/
     
@@ -156,5 +158,15 @@ public class BehaviorTree : ScriptableObject
         Traverse(tree.rootNode, (n) => { tree.nodes.Add(n); });
         
         return tree;
+    }
+    
+    // 모든 노드에 정보를 바인딩
+    public void Bind(NavMeshAgent agent)
+    {
+        Traverse(rootNode, node =>
+        {
+            node.agent = agent;
+            node.dataContext = dataContext;
+        });
     }
 }

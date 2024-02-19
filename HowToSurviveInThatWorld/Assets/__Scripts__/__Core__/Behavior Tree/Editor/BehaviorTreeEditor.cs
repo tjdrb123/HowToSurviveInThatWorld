@@ -10,6 +10,11 @@ public class BehaviorTreeEditor : EditorWindow
     
     private BehaviorTreeView _treeView;
     private InspectorView _inspectorView;
+    private IMGUIContainer _dataContextView;
+    
+    // 렌더링 하기 위해 직렬화 가능한 객체 속성
+    private SerializedObject _treeObject;
+    private SerializedProperty _dataContextProperty;
     
     /*===========================================================================================================*/
     
@@ -50,6 +55,17 @@ public class BehaviorTreeEditor : EditorWindow
 
         _treeView = root.Q<BehaviorTreeView>();
         _inspectorView = root.Q<InspectorView>();
+        _dataContextView = root.Q<IMGUIContainer>();
+        _dataContextView.onGUIHandler = () => // 이 컨테이너 내에서, 'treeObject' 와 'dataContextProperty' 를 사용하여 블랙보드의 프로퍼티를 인스펙터에서 편집할 수 있게 한다.
+        {
+            if (_treeObject == null || _treeObject.targetObject == null)
+                return;
+            
+            _treeObject.Update();
+            EditorGUILayout.PropertyField(_dataContextProperty); // 코드에 변경사항이 있을 수 있으므로, UI를 렌더링하기 전에 이를 반영한한다.
+            _treeObject.ApplyModifiedProperties(); // 수정된 속성을 적용하여 UI에서 변경한 내용을 직렬화된 객체에 다시 적용.
+        };
+        
         _treeView.OnNodeSelected = OnNodeSelectionChanged;
         
         OnSelectionChange();
@@ -113,6 +129,13 @@ public class BehaviorTreeEditor : EditorWindow
             {
                 _treeView.PopulateView(tree);
             }
+        }
+
+        // 트리를 선택하여 항목이 변경될 때마다 초기화 하므로 새로운 직렬화 객체 할당.
+        if (tree != null)
+        {
+            _treeObject = new SerializedObject(tree);
+            _dataContextProperty = _treeObject.FindProperty("dataContext");
         }
     }
 
