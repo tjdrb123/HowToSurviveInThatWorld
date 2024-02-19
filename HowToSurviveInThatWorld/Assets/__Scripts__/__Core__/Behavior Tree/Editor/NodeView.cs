@@ -139,5 +139,29 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     {
         return left.position.x < right.position.x ? -1 : 1;
     }
-    
+
+    // 런타임 중 노드 상태별 업데이트
+    public void UpdateState()
+    {
+        RemoveFromClassList("running");
+        RemoveFromClassList("success");
+        RemoveFromClassList("failure");
+
+        if (Application.isPlaying)
+        {
+            switch (node.state)
+            {
+                case Node.E_NodeState.Running:
+                    if (node.started)
+                        AddToClassList("running");
+                    break;
+                case Node.E_NodeState.Success:
+                    AddToClassList("success");
+                    break;
+                case Node.E_NodeState.Failure:
+                    AddToClassList("failure");
+                    break;
+            }
+        }
+    }
 }

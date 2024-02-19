@@ -18,7 +18,24 @@ MonoBehaviour:
   position: {x: -252, y: 96}
   children:
   - {fileID: -141928674259461640}
-  - {fileID: 4671397742966425878}
+  - {fileID: -4841520605848736838}
+--- !u!114 &-4841520605848736838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681077ab0d6594ce1b7b81b24edb0042, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d33ebba29fffe47b3b7667fd1e8c120e
+  position: {x: -177.00003, y: 225.99998}
+  duration: 1
 --- !u!114 &-3917857518777521446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +127,7 @@ MonoBehaviour:
   - {fileID: -3917857518777521446}
   - {fileID: -141928674259461640}
   - {fileID: 1355126984553825697}
-  - {fileID: 4671397742966425878}
+  - {fileID: -4841520605848736838}
 --- !u!114 &1355126984553825697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,23 +162,6 @@ MonoBehaviour:
   guid: 724a1491f55bf4505ba0346d73ad8b59
   position: {x: 341, y: 132}
   child: {fileID: 0}
---- !u!114 &4671397742966425878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff01ee71156344ff8fa11e1844ba24d, type: 3}
-  m_Name: TestDebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 6b6ecc25c87fe4c128cb38ceea6d98ac
-  position: {x: -176.99998, y: 225.99998}
-  Test: 
 --- !u!114 &7906144270318779146
 MonoBehaviour:
   m_ObjectHideFlags: 0

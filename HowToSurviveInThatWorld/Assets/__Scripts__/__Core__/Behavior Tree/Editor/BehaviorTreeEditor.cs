@@ -121,4 +121,10 @@ public class BehaviorTreeEditor : EditorWindow
     {
         _inspectorView.UpdateSelection(node);
     }
+
+    // 에디터 창에서 초당 10번 정도 호출되는 메서드
+    private void OnInspectorUpdate()
+    {
+        _treeView?.UpdateNodeStates();
+    }
 }
