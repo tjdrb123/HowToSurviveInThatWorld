@@ -5,13 +5,6 @@ using UnityEngine.AI;
 
 public abstract class Node : ScriptableObject
 {
-    public enum E_NodeState
-    {
-        Running,
-        Success,
-        Failure
-    }
-
     [HideInInspector] public E_NodeState state = E_NodeState.Running;
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;

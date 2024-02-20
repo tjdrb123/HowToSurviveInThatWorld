@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-410581840800522454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb32c7dcb9764396b9925d7aecbe3d3, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b698daab455444cf688a76dec7aff156
+  position: {x: 0, y: 0}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  agent: {fileID: 0}
+  description: 
+  child: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8844472093ac24c5990348130ce164f2, type: 3}
+  m_Name: BasicZombie
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -410581840800522454}
+  treeState: 0
+  nodes:
+  - {fileID: -410581840800522454}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
