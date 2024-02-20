@@ -122,14 +122,18 @@ public class PlayerController : MonoBehaviour
     private void Interaction()
     {
         Vector3 boxCenter = _transform.position + Vector3.up * 1f;
-        Vector3 halfExtents = new Vector3(1f, 1f, 1f);
+        Vector3 halfExtents = new Vector3(0.5f, 1f, 0.5f);
 
         _hitColliders = Physics.OverlapBox(boxCenter, halfExtents, Quaternion.identity, _interactableLayer);
         if (_hitColliders.Length > 0)
         {
-            // 거리에 따라 Collider 배열 정렬
             _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
             IsInteracting = true;
+            
+            Vector3 directionToLookAt = _hitColliders[0].transform.position - _transform.position;
+            directionToLookAt.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(directionToLookAt);
+            _transform.rotation = rotation;
         }
     }
 
@@ -145,7 +149,7 @@ public class PlayerController : MonoBehaviour
             _transform = transform;
         }
         Vector3 cubeCenter = _transform.position + Vector3.up * 1f;
-        Vector3 cubeSize = new Vector3(2f, 2f, 2f);
+        Vector3 cubeSize = new Vector3(1f, 2f, 1f);
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(cubeCenter, cubeSize);

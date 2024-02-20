@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Routing : MonoBehaviour, IInteractableObject
+public class Looting : MonoBehaviour, IInteractableObject
 {
     public Image _chargingImg;
     public float _interactionTime = 10f;
     public void Interact(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(_chargingImg, _interactionTime, playerController));
-        animator.SetFloat("InteractingType", 1);
+        animator.SetInteger("InteractingType", 1);
         animator.SetBool("IsInteracting", true);
     }
 

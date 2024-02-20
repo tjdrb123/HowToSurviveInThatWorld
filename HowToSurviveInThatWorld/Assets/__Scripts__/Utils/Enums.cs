@@ -42,19 +42,6 @@ public enum E_StatType
 #endregion
 
 
-
-#region Interaction Type
-
-public enum E_InteractType
-{
-    Routing,
-    SimplePickUp
-}
-
-#endregion
-
-
-
 #region Stat Modeifier Operator Type
 
 public enum E_StatModifier_OperatorType

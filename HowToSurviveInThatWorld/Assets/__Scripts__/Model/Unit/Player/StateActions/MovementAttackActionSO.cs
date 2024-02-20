@@ -49,6 +49,7 @@ public class MovementAttackAction : FiniteStateAction
     public override void FiniteStateExit()
     {
         _animator.ResetTrigger("IsAttacking");
+        _playerController.IsCrouching = false;
     }
     
     public override void FiniteStateUpdate() 
