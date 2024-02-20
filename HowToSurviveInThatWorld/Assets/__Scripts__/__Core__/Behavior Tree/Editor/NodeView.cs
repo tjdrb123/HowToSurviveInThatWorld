@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 using UnityEditor;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
@@ -31,6 +32,15 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         CreateInputPort();
         CreateOutputPort();
         SetupClasses();
+        SetupDataBinding();
+    }
+
+    // 노드의 속성(예:설명)을 UI 요소에 바인딩. 노드의 데이터가 UI에 동적으로 반영.
+    private void SetupDataBinding()
+    {
+        Label descriptionLabel = this.Q<Label>("description"); // description 라벨을 찾는다.
+        descriptionLabel.bindingPath = "description";
+        descriptionLabel.Bind(new SerializedObject(node));
     }
 
     // 노드 타입에 따라 CSS클래스 추가. 시각적 스타일을 타입별로 구분 

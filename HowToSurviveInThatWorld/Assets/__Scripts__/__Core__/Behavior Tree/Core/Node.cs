@@ -18,6 +18,7 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public Vector2 position;
     [HideInInspector] public DataContext dataContext;
     [HideInInspector] public NavMeshAgent agent;
+    [TextArea] public string description;
 
     public E_NodeState Update()
     {

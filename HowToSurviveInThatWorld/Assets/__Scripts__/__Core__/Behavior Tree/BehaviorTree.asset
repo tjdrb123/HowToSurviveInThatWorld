@@ -20,6 +20,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   children:
   - {fileID: -141928674259461640}
   - {fileID: -4841520605848736838}
@@ -43,6 +44,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   duration: 1
 --- !u!114 &-3917857518777521446
 MonoBehaviour:
@@ -64,6 +66,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   Test: 
 --- !u!114 &-2215145651129048931
 MonoBehaviour:
@@ -85,6 +88,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   child: {fileID: -1006115640190716686}
 --- !u!114 &-1006115640190716686
 MonoBehaviour:
@@ -106,6 +110,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   child: {fileID: 8551263529544513532}
 --- !u!114 &-141928674259461640
 MonoBehaviour:
@@ -127,6 +132,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   Test: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -175,6 +181,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   duration: 1
 --- !u!114 &3256479305914791667
 MonoBehaviour:
@@ -196,6 +203,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   child: {fileID: 0}
 --- !u!114 &7906144270318779146
 MonoBehaviour:
@@ -217,6 +225,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   children:
   - {fileID: -3917857518777521446}
   - {fileID: 1355126984553825697}
@@ -240,6 +249,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToObject: {fileID: 0}
   agent: {fileID: 0}
+  description: 
   children:
   - {fileID: -7330040541326203692}
   - {fileID: 7906144270318779146}

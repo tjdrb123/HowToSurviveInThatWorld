@@ -78,6 +78,8 @@
 
 #description {
     font-size: 10px;
+    max-width: 150px;
+    white-space: normal;
 }
 
 #divider {
