@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BehaviorTreeRunner : MonoBehaviour
     void Start()
     {
         tree = tree.Clone();
+        tree.Bind(GetComponent<NavMeshAgent>());
     }
     
     void Update()

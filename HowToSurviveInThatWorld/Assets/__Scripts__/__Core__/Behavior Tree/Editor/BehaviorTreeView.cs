@@ -27,8 +27,17 @@ public class BehaviorTreeView : GraphView
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
         
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/__Scripts__/__Core__/Behavior Tree/Editor/BehaviorTreeEditor.uss");
+        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/__Scripts__/__Core__/Behavior Tree/UI Builders/BehaviorTreeEditor.uss");
         styleSheets.Add(styleSheet); // 스타일 시트 직접참조
+
+        Undo.undoRedoPerformed += OnUndoRedo; // 실행 취소가 발생하면 OnUndoRedo 실행 (구독)
+    }
+
+    // 실행 취소시 자동 업데이트를 위해 다시 그리고 저장.
+    private void OnUndoRedo()
+    {
+        PopulateView(_tree);
+        AssetDatabase.SaveAssets();
     }
     
     /*===========================================================================================================*/
@@ -39,7 +48,7 @@ public class BehaviorTreeView : GraphView
         return GetNodeByGuid(node.guid) as NodeView;
     }
 
-    // 파라미터 tree 객체를 사용해 그래프뷰를 채운다.
+    // 파라미터 tree 객체를 사용해 그래프뷰를 채운다(그린다).
     internal void PopulateView(BehaviorTree tree)
     {
         _tree = tree;
@@ -116,6 +125,16 @@ public class BehaviorTreeView : GraphView
                 _tree.AddChild(parentView.node, childView.node);
             });
         }
+
+        // 이동요소가 있다면, view의 자식들을 Sort정렬
+        if (graphViewChange.movedElements != null)
+        {
+            nodes.ForEach((n) =>
+            {
+                NodeView view = n as NodeView;
+                view.SortChildren();
+            });
+        }
         
         return graphViewChange;
     }
@@ -166,4 +185,13 @@ public class BehaviorTreeView : GraphView
     }
     
     /*===========================================================================================================*/
+
+    public void UpdateNodeStates()
+    {
+        nodes.ForEach(n =>
+        {
+            NodeView view = n as NodeView;
+            view.UpdateState();
+        });
+    }
 }
