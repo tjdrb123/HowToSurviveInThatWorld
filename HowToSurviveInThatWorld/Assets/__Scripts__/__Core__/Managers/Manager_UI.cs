@@ -60,7 +60,8 @@ public class Manager_UI : MonoBehaviour
     }
     public void ClosePopup(UI_Popup popup) //이 함수를 통해 Pop_Up을 종료시킬 수 있습니다.
     {
-        UnityEngine.Object.Destroy(popup.gameObject);
+        //UnityEngine.Object.Destroy(popup.gameObject);
+        popup.gameObject.SetActive(false);
     }
 
     #endregion

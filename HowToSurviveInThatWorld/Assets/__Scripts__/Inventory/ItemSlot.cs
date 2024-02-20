@@ -15,17 +15,19 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         ItemQuantity,
     }
     
+    public UI_Inventory _inventory;
     private int _slotIndex; //슬롯의 번호
-    private ItemData _itemData; //아이템의 Data를 슬롯이 관리하게함
+    private ItemDataSo _itemData; //아이템의 Data를 슬롯이 관리하게함
     private Image _itemImage;              
     private GameObject _dragSlot;
     private DragSlot _dragSlotComponent;
     private TextMeshProUGUI _quantityText; //슬롯 
-    private E_ItemType _slotType; //슬롯의 타입
+    private E_SlotType _slotType; //슬롯의 타입
 
     public int SlotIndex { get => _slotIndex; } //해당 슬롯의 번호를 전달
-    public E_ItemType SlotType { get => _slotType; }
-    public ItemData ItemData { get => _itemData; set { _itemData = value; } }
+    public E_SlotType SlotType { get => _slotType; }
+    public ItemDataSo ItemData { get => _itemData; set { _itemData = value; } }
+    public Sprite ItemImage { get => _itemImage.sprite;}
 
     public override bool Initialize()
     {
@@ -37,26 +39,29 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         _quantityText = GetText((int)E_QuantityText.ItemQuantity);
         _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot"); //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
         _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
+        _inventory = this.GetComponentInParent<UI_Inventory>();
         return true;
     }
 
-    public void SetInfo(ItemData itemData, int index, int slotType = -1) //인벤토리가 활성화 되면 Data를 전달받아 Slot 셋팅을 다시함
+    public void SetInfo(ItemDataSo itemData, int index, int slotType = -1) //인벤토리가 활성화 되면 Data를 전달받아 Slot 셋팅을 다시함
     {
         _slotIndex = index;
-        _slotType = (E_ItemType)slotType;
+        _slotType = (E_SlotType)slotType;
         ItemData = itemData;
         Swap();
         SetAlpha(_itemImage.sprite != null);
     }
-    private void SlotClear() //슬롯을 클리어 해주는 함수입니다.
+    public void SlotClear() //슬롯을 클리어 해주는 함수입니다.
     {
         _itemImage.sprite = null;
         _quantityText.text = string.Empty;
+        SetAlpha(_itemImage.sprite != null);
+        ItemData = new ItemDataSo();
     }
     private void SlotSetting() 
     {
-        _itemImage.sprite = Resources.Load<Sprite>(ItemData.name);
-        _quantityText.text = (ItemData.keyNumber != 0) ? ItemData.stack.ToString() : string.Empty; //아이템 Data의 수량에 맞게 Text변경
+        _itemImage.sprite = ItemData.ItemImage;
+        _quantityText.text = (ItemData.CurrentAmont != 0) ? ItemData.CurrentAmont.ToString() : string.Empty; //아이템 Data의 수량에 맞게 Text변경
     }
     private void SetAlpha(bool isAlphaColor) //인벤토리의 아이템이 없으면 이미지의 Color값을 변경함
     {
@@ -66,48 +71,60 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void Swap() //아이템의 이미지와 Sprite를 변경함 1. Data로 이미지를 불러올 거기 때문에 매개변수를 뺼 준비하기
     {
-        SetAlpha(ItemData.keyNumber != 0);
-        if (ItemData.keyNumber == 0)
+        SetAlpha(ItemData.KeyNumber != 0);
+        if (ItemData.KeyNumber == 0)
         {
             SlotClear();
             return;
         }
         SlotSetting();
     }
-    public void AddItem(ItemData item) //아이템을 Slot의 추가하기 위한 함수
+    public void AddItem<T>(T item) where T : ItemDataSo // 아이템을 Slot에 추가하기 위한 함수
     {
-        ItemData = item;
+        ItemData = item; // 제네릭 타입의 아이템을 저장
         SlotSetting();
         SetAlpha(_itemImage.sprite != null);
     }
-    public void UseItem(ItemData item) //우클릭시 아이템을 하나씩 사라지게 만들었음 
+    public void UseItem() //우클릭시 아이템을 하나씩 사라지게 만들었음 
     {
-        ItemData.stack -= 1; // 아이템의 수량을 하나 줄입니다.
-        SlotSetting();
-        if (ItemData.stack <= 0) // 수량이 0 이하라면 아이템을 인벤토리에서 제거합니다.
+        if (ItemData.BaseType == E_BaseType.UseItem)
         {
-            SlotClear();
-            SetAlpha(ItemData.keyNumber != 0);
+            ItemData.CurrentAmont -= 1; // 아이템의 수량을 하나 줄입니다.
+            UseItem item = ItemData as UseItem;
+            if (item.UseType == E_UseItemType.Hunger)
+            {
+                Debug.Log("배고픔 증가");
+            }
+            else if (item.UseType == E_UseItemType.Hp)
+            {
+                Debug.Log("체력 증가");
+            }
+            SlotSetting();
+            if (ItemData.CurrentAmont <= 0) // 수량이 0 이하라면 아이템을 인벤토리에서 제거합니다.
+                SlotClear();
         }
     }
-    public int MaxStackCheck(int stack) //아이템의 수량이 최대 수량보다 높게 합쳐지지 않게하기 위한 함수
+    public int MaxStackCheck(ItemDataSo useItem) //아이템의 수량이 최대 수량보다 높게 합쳐지지 않게하기 위한 함수
     {
-        ItemData.stack += stack;
-        if (ItemData.stack > ItemData.maxStack)
+        if (useItem == null) return 0;
+        var item = useItem.BaseType == E_BaseType.UseItem ? useItem as UseItem : useItem as EtcItem;
+        ItemData.CurrentAmont += item == null ? 0 : item.CurrentAmont;
+        if (item != null && ItemData.CurrentAmont > item.MaxStack)
         {
-            int returnValue = ItemData.stack - ItemData.maxStack;
-            ItemData.stack = ItemData.maxStack;
-            _quantityText.text = ItemData.stack.ToString();
+            int returnValue = ItemData.CurrentAmont - item.MaxStack;
+            ItemData.CurrentAmont = item.MaxStack;
+            _quantityText.text = ItemData.CurrentAmont.ToString();
             return returnValue;
         }
         else
         {
-            _quantityText.text = ItemData.stack.ToString();
+            _quantityText.text = ItemData.CurrentAmont.ToString();
             return 0;
         }
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        _inventory.SelectSlot(this);
         if (_itemImage.sprite != null && _dragSlot != null)
         {
             _dragSlot.SetActive(true);
@@ -117,7 +134,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void OnDrag(PointerEventData eventData)
     {
-        if (_dragSlotComponent.slot != null)
+        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0)
         {
             _dragSlot.transform.position = eventData.position;
         }
@@ -125,15 +142,41 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     public void OnDrop(PointerEventData eventData) //아이템의 스왑이 이뤄지는 공간 
     {
         Inventory inventory = this.GetComponentInParent<Inventory>();
-        if (_dragSlotComponent != null && _dragSlotComponent.slot != null && inventory != null && this != _dragSlotComponent.slot)
+        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && inventory != null && this != _dragSlotComponent.slot)
         {
-            if (this._slotType == E_ItemType.None) 
+            if (this._slotType == E_SlotType.None) 
             {
-                inventory.SlotSwap(this, _dragSlotComponent.slot);
+                if (_dragSlotComponent.slot.ItemData is ArmorItem && _dragSlotComponent.slot.SlotType == E_SlotType.BackPack)
+                {
+                    var itemType = _dragSlotComponent.slot.ItemData as ArmorItem;
+                    if (itemType.armorType == E_ArmorItemType.BackPack)
+                    {
+                        int count = _inventory.GetBackPackSlot();
+                        if (count == 0)
+                            inventory.SlotSwap(this, _dragSlotComponent.slot);
+                    }
+                }
+                else
+                {
+                    inventory.SlotSwap(this, _dragSlotComponent.slot);
+                }
             }
-            else if ((E_ItemType)_dragSlotComponent.slot.ItemData.itemBaseType == this._slotType)
+            else
             {
-                inventory.SlotSwap(this, _dragSlotComponent.slot);
+                if ((E_SlotType)_dragSlotComponent.slot.ItemData.BaseType == this.SlotType)
+                    inventory.SlotSwap(this, _dragSlotComponent.slot);
+                else if (_dragSlotComponent.slot.ItemData is ArmorItem)
+                {
+                    var itemType = _dragSlotComponent.slot.ItemData as ArmorItem;
+                    if (this.SlotType == E_SlotType.BackPack)
+                    {
+                        int count = _inventory.GetBackPackSlot();
+                        if (itemType.PlusValue >= count)
+                            inventory.SlotSwap(this, _dragSlotComponent.slot);
+                    }
+                    else if ((E_SlotType)itemType.armorType == this.SlotType)
+                        inventory.SlotSwap(this, _dragSlotComponent.slot);
+                }
             }
         }
     }
