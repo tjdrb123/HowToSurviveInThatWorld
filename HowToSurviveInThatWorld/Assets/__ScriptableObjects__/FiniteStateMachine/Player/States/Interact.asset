@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c4549793b803e40953a77aa2618c38, type: 3}
-  m_Name: MovementHorizontalAction
+  m_Script: {fileID: 11500000, guid: db159e4a86056754094515840d24ef2b, type: 3}
+  m_Name: Interact
   m_EditorClassIdentifier: 
-  Description: "\uD50C\uB808\uC774\uC5B4 'MovementVector' Plane (X,Z) \uAC12\uC744
-    \uC2A4\uD53C\uB4DC\uC5D0 \uC870\uC815\uD569\uB2C8\uB2E4."
-  MovementSpeed: 4
+  _StateActions:
+  - {fileID: 11400000, guid: 6090fa476c58c324c8933f29fd05d22a, type: 2}
+  - {fileID: 11400000, guid: 6b7bee5ce1a577d4e843f6a12f9778cb, type: 2}
