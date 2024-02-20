@@ -21,7 +21,11 @@ public class InspectorView : VisualElement
 
         UnityEngine.Object.DestroyImmediate(_editor);
         _editor = Editor.CreateEditor(nodeView.node);
-        IMGUIContainer container = new IMGUIContainer(() => { _editor.OnInspectorGUI(); });
+        IMGUIContainer container = new IMGUIContainer(() =>
+        {
+            if (_editor.target) // Undo로 인해 명확한 target Object 없이 렌더링(GUI Update) 시도시 오류가 발생 하기 때문에 조건문으로 체크
+                _editor.OnInspectorGUI(); 
+        });
         Add(container);
     }
 }
