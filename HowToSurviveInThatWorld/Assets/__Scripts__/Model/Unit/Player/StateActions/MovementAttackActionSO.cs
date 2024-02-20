@@ -1,7 +1,5 @@
 ﻿
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "MovementAttackAction", menuName = "State Machine/Actions/Movement Attack Action")]
 public class MovementAttackActionSO : FiniteStateActionSO
@@ -51,6 +49,7 @@ public class MovementAttackAction : FiniteStateAction
     public override void FiniteStateExit()
     {
         _animator.ResetTrigger("IsAttacking");
+        _playerController.IsCrouching = false;
     }
     
     public override void FiniteStateUpdate() 

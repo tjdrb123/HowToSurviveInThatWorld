@@ -21,6 +21,7 @@ public class MovementStopAction : FiniteStateAction
     #region Fields
 
     private PlayerController _playerController;
+    private Animator _animator;
 
     // Property (Origin SO)
     private new MovementStopActionSO OriginSO => base.OriginSO as MovementStopActionSO;
@@ -34,6 +35,7 @@ public class MovementStopAction : FiniteStateAction
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
         _playerController = finiteStateMachine.GetComponent<PlayerController>();
+        _animator = finiteStateMachine.GetComponent<Animator>();
     }
     
     public override void FiniteStateEnter()
@@ -44,7 +46,7 @@ public class MovementStopAction : FiniteStateAction
 
     public override void FiniteStateExit()
     {
-        _playerController.MovementVector = Vector3.zero;
+        _playerController.MovementVector = Vector3.zero;  
     }
     
     public override void FiniteStateUpdate() 
