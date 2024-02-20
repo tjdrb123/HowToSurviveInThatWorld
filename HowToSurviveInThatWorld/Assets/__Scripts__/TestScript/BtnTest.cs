@@ -10,19 +10,24 @@ public class BtnTest : UI_Base
     {
         Button,
     }
+
+    enum E_Object
+    {
+        InventoryCanvas,
+    }
+    
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
 
         BindButton(typeof(E_Button));
-
+        BindObject(typeof(E_Object));
         GetButton((int)E_Button.Button).onClick.AddListener(OpenInven);
         return true;
     }
 
     private void OpenInven()
     {
-        var inven = Resources.Load("InventoryCanvas");
-        Instantiate(inven);
+        GetObject((int)E_Object.InventoryCanvas).gameObject.SetActive(true);
     }
 }
