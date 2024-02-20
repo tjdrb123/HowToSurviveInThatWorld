@@ -19,6 +19,10 @@ public sealed class TestDebugLogNode : LeafAction
     protected override E_NodeState OnUpdate()
     {
         Debug.Log($"OnUpdate{Test}");
+        
+        Debug.Log($"DataContext:{dataContext.moveToPosition}");
+
+        dataContext.moveToPosition.x += 1;
         return E_NodeState.Success;
     }
 }
