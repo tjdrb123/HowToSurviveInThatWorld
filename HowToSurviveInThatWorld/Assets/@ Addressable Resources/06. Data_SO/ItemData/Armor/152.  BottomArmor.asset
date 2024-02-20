@@ -17,6 +17,6 @@ MonoBehaviour:
   Description: "\uBA38\uB9AC\uB97C \uBCF4\uD638\uD574\uC90D\uB2C8\uB2E4."
   PlusValue: 4
   CurrentAmont: 0
-  ItemImage: {fileID: 260778244, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  ItemImage: {fileID: 1608368469, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 1
   armorType: 22

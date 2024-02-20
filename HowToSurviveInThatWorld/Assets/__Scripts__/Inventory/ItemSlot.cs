@@ -22,6 +22,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     private GameObject _dragSlot;
     private DragSlot _dragSlotComponent;
     private TextMeshProUGUI _quantityText; //슬롯 
+    private bool _isLock; //슬롯 잠금
     private E_SlotType _slotType; //슬롯의 타입
 
     public int SlotIndex { get => _slotIndex; } //해당 슬롯의 번호를 전달
@@ -43,11 +44,12 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         return true;
     }
 
-    public void SetInfo(ItemDataSo itemData, int index, int slotType = -1) //인벤토리가 활성화 되면 Data를 전달받아 Slot 셋팅을 다시함
+    public void SetInfo(ItemDataSo itemData, int index, int slotType = -1, bool isLock = true) //인벤토리가 활성화 되면 Data를 전달받아 Slot 셋팅을 다시함
     {
         _slotIndex = index;
         _slotType = (E_SlotType)slotType;
         ItemData = itemData;
+        _isLock = isLock;
         Swap();
         SetAlpha(_itemImage.sprite != null);
     }
@@ -124,17 +126,21 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        _inventory.SelectSlot(this);
-        if (_itemImage.sprite != null && _dragSlot != null)
+        if (_inventory != null) _inventory.SelectSlot(this);
+        if (_itemImage.sprite != null && _dragSlot != null && _isLock)
         {
             _dragSlot.SetActive(true);
             _dragSlot.transform.position = transform.position;
             _dragSlotComponent.SetSlot(_itemImage, _quantityText, this);
         }
+        else if (!_isLock)
+        {
+
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
-        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0)
+        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && _isLock)
         {
             _dragSlot.transform.position = eventData.position;
         }
@@ -142,7 +148,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     public void OnDrop(PointerEventData eventData) //아이템의 스왑이 이뤄지는 공간 
     {
         Inventory inventory = this.GetComponentInParent<Inventory>();
-        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && inventory != null && this != _dragSlotComponent.slot)
+        if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && inventory != null && this != _dragSlotComponent.slot && _isLock)
         {
             if (this._slotType == E_SlotType.None) 
             {
