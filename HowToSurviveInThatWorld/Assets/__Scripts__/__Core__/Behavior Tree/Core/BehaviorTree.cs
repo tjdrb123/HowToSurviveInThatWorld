@@ -11,15 +11,15 @@ public class BehaviorTree : ScriptableObject
     /*===========================================================================================================*/
     
     public Node rootNode;
-    public Node.E_NodeState treeState = Node.E_NodeState.Running;
+    public E_NodeState treeState = E_NodeState.Running;
     public List<Node> nodes = new List<Node>();
     public DataContext dataContext = new DataContext();
 
     /*===========================================================================================================*/
     
-    public Node.E_NodeState Update()
+    public E_NodeState Update()
     {
-        if (rootNode.state == Node.E_NodeState.Running)
+        if (rootNode.state == E_NodeState.Running)
         {
             treeState = rootNode.Update();
         }
@@ -161,11 +161,11 @@ public class BehaviorTree : ScriptableObject
     }
     
     // 모든 노드에 정보를 바인딩
-    public void Bind(NavMeshAgent agent)
+    public void Bind(BasicZombieData zombieData)
     {
         Traverse(rootNode, node =>
         {
-            node.agent = agent;
+            node.zombieData = zombieData;
             node.dataContext = dataContext;
         });
     }

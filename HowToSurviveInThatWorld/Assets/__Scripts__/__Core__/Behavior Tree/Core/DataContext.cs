@@ -6,5 +6,7 @@ using UnityEngine;
 public class DataContext
 {
     public Vector3 moveToPosition;
-    public GameObject moveToObject;
+    public Transform moveToTarget;
+    public Vector2 patrolMinPos;
+    public Vector2 patrolMaxPos;
 }

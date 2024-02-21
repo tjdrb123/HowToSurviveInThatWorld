@@ -161,14 +161,14 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         {
             switch (node.state)
             {
-                case Node.E_NodeState.Running:
+                case E_NodeState.Running:
                     if (node.started)
                         AddToClassList("running");
                     break;
-                case Node.E_NodeState.Success:
+                case E_NodeState.Success:
                     AddToClassList("success");
                     break;
-                case Node.E_NodeState.Failure:
+                case E_NodeState.Failure:
                     AddToClassList("failure");
                     break;
             }
