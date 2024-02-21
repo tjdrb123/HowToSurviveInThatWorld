@@ -29,7 +29,6 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     public E_SlotType SlotType { get => _slotType; }
     public ItemDataSo ItemData { get => _itemData; set { _itemData = value; } }
     public Sprite ItemImage { get => _itemImage.sprite;}
-
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
@@ -41,9 +40,9 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         _dragSlot = GameObject.Find("DragCanvas").FindChild("DragSlot"); //Find말고 어떤식으로 DragSlot을 찾을지 생각하기
         _dragSlotComponent = _dragSlot.GetComponent<DragSlot>();
         _inventory = this.GetComponentInParent<UI_Inventory>();
+        SlotClear();
         return true;
     }
-
     public void SetInfo(ItemDataSo itemData, int index, int slotType = -1, bool isLock = true) //인벤토리가 활성화 되면 Data를 전달받아 Slot 셋팅을 다시함
     {
         _slotIndex = index;
@@ -71,7 +70,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         color.a = isAlphaColor ? 1 : 0;
         _itemImage.color = color;
     }
-    public void Swap() //아이템의 이미지와 Sprite를 변경함 1. Data로 이미지를 불러올 거기 때문에 매개변수를 뺼 준비하기
+    public void Swap() //아이템의 이미지와 Sprite를 변경함
     {
         SetAlpha(ItemData.KeyNumber != 0);
         if (ItemData.KeyNumber == 0)
@@ -135,7 +134,14 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         }
         else if (!_isLock)
         {
-
+            CraftingInventory crafting = this.GetComponentInParent<CraftingInventory>();
+            if (crafting != null)
+            {
+                crafting.NewItemSlot.SlotClear();
+                crafting.NewItemSlot.SetInfo(ItemData,0,-1,false);
+                crafting.CraftingSlot._itemData = ItemData;
+                crafting.CraftingSlot.SlotDataSet();
+            }
         }
     }
     public void OnDrag(PointerEventData eventData)

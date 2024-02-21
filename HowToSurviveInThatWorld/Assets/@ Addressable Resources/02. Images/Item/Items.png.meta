@@ -5042,7 +5042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_233
+      name: cotton
       rect:
         serializedVersion: 2
         x: 160
@@ -5105,7 +5105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_236
+      name: Leather
       rect:
         serializedVersion: 2
         x: 256
@@ -6274,10 +6274,8 @@ TextureImporter:
       Items_230: -1953899629
       Items_231: -299988482
       Items_232: 1072418672
-      Items_233: 1824609586
       Items_234: -1870643202
       Items_235: -942035336
-      Items_236: -2078120654
       Items_237: 1917184871
       Items_238: 563258477
       Items_239: -476538136
@@ -6391,6 +6389,7 @@ TextureImporter:
       Items_96: -1598445014
       Items_98: -431380808
       Items_99: -2132210123
+      Leather: -2078120654
       Meat: 1335211751
       Pants: 1608368469
       Pants_black: 958663101
@@ -6407,6 +6406,7 @@ TextureImporter:
       TopArmor3: 915295602
       TopArmorWood: 1603995861
       Wood: -1205052147
+      cotton: 1824609586
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

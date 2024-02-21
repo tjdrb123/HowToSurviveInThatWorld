@@ -6,6 +6,7 @@ public class Looting : MonoBehaviour, IInteractableObject
 {
     public Image _chargingImg;
     public float _interactionTime = 10f;
+    [SerializeField] GameObject Prefabs;
     public void Interact(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(_chargingImg, _interactionTime, playerController));
@@ -30,5 +31,6 @@ public class Looting : MonoBehaviour, IInteractableObject
             yield return null;
         }
         playerController.IsInteracting = false;
+        Instantiate(Prefabs);
     }
 }

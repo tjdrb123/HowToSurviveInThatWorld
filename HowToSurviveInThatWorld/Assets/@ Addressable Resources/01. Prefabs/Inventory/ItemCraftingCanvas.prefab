@@ -2812,7 +2812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e94186e82a9a64f92fc8aaaf6e6f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseSlot: []
   _itemDataSo:
   - {fileID: 11400000, guid: 091039f7ec1a0e54c994175662048d50, type: 2}
   - {fileID: 11400000, guid: b52e4fc310457094d8e63ffc1f1a12ce, type: 2}
@@ -2822,6 +2821,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2deee48660b25d4daca6c328ecccf03, type: 2}
   - {fileID: 11400000, guid: c0901acefcde17a429d783a35d59c374, type: 2}
   - {fileID: 11400000, guid: 51aad30ba8f51734d90e46d5377b71c1, type: 2}
+  _baseSlot: []
+  _craftingSlot: {fileID: 3056311655303866095}
 --- !u!1 &1038202640631100842
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,6 +6921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6599034428734773671}
   - component: {fileID: 3918728246975071587}
+  - component: {fileID: 8137025881136647705}
   m_Layer: 5
   m_Name: ItemsPanel
   m_TagString: Untagged
@@ -6976,6 +6978,21 @@ MonoBehaviour:
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &8137025881136647705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056311655303866095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cd9c4086c17844395d4392442e4710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemDataSo: []
+  _baseSlot: []
+  _craftingSlot: {fileID: 0}
 --- !u!1 &3067287707214354657
 GameObject:
   m_ObjectHideFlags: 0

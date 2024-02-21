@@ -21,6 +21,12 @@ public enum E_BaseType
     WeaponItem,
     UseItem,
 }
+[Serializable]
+public class CraftingItems
+{
+    public ItemDataSo item;
+    public int itemValue;
+}
 
 [CreateAssetMenu(fileName = "ItemBaseData", menuName = "ItemDataSO/ItemBase", order = 0)]
 public class ItemDataSo : ScriptableObject
@@ -32,6 +38,7 @@ public class ItemDataSo : ScriptableObject
     public int CurrentAmont; //현재 수량
     public Sprite ItemImage; //아이템이 쌓이는지 안쌓이는지 확인
     public E_BaseType BaseType;
+    public CraftingItems[] CraftingItems;
 
     public ItemDataSo() { }
 
@@ -44,5 +51,6 @@ public class ItemDataSo : ScriptableObject
         CurrentAmont = item.CurrentAmont;
         ItemImage = item.ItemImage;
         BaseType = item.BaseType;
+        CraftingItems = item.CraftingItems;
     }
 }
