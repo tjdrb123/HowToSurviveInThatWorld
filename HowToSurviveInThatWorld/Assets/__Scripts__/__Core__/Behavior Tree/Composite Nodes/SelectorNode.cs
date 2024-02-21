@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectorNode : MonoBehaviour
+public class SelectorNode : Composite
 {
-    // Start is called before the first frame update
-    void Start()
+    private int index;
+    
+    protected override void OnStart()
+    {
+        index = 0;
+    }
+
+    protected override void OnStop()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override E_NodeState OnUpdate()
     {
-        
+        for (int i = index; i < children.Count; ++i) {
+            index = i;
+            var child = children[index];
+
+            switch (child.Update()) {
+                case E_NodeState.Running:
+                    return E_NodeState.Running;
+                case E_NodeState.Success:
+                    return E_NodeState.Success;
+                case E_NodeState.Failure:
+                    continue;
+            }
+        }
+
+        return E_NodeState.Failure;
     }
 }

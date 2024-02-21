@@ -795,7 +795,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604306563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13dec04a7ae544dea9530fa9cc943e5d, type: 3}
   m_Name: 
@@ -828,6 +828,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1677811508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677811504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dec04a7ae544dea9530fa9cc943e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: 65475d520023c472f838ecc65cfe834a, type: 2}
 --- !u!1001 &1909853709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1197,6 +1210,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95789966540600072, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95789966540600072, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0ffa23819016e574588fcfa8f01e1303, type: 2}
@@ -1216,6 +1233,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1058911314472362, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677811508}
     - targetCorrespondingSourceObject: {fileID: 1058911314472362, guid: 510b92cfed56470489aa2a2a5009a327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677811505}

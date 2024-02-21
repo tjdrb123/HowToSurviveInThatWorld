@@ -24,6 +24,17 @@ public enum E_CoroutineKey
 #endregion
 
 
+#region Node State
+
+public enum E_NodeState
+{
+    Running,
+    Success,
+    Failure
+}
+
+#endregion
+
 
 #region Stat Type
 

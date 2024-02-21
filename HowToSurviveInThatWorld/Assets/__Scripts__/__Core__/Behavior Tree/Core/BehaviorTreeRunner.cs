@@ -8,17 +8,25 @@ public class BehaviorTreeRunner : MonoBehaviour
     /*===========================================================================================================*/
     
     public BehaviorTree tree;
+
+    private BasicZombieData _basicZombieData;
     
     /*===========================================================================================================*/
     
     void Start()
     {
+        _basicZombieData = createBehaviorTreeZombieData();
         tree = tree.Clone();
-        tree.Bind(GetComponent<NavMeshAgent>());
+        tree.Bind(_basicZombieData);
     }
     
     void Update()
     {
         tree.Update();
+    }
+
+    BasicZombieData createBehaviorTreeZombieData()
+    {
+        return BasicZombieData.CreateBasicZombieData(gameObject);
     }
 }
