@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InverterNode : Decorator
+public class DoAttack : LeafAction
 {
     protected override void OnStart()
     {
@@ -16,14 +16,10 @@ public class InverterNode : Decorator
 
     protected override E_NodeState OnUpdate()
     {
-        switch (child.Update())
+        if (zombieData.detectedPlayer != null)
         {
-            case E_NodeState.Running:
-                return E_NodeState.Running;
-            case E_NodeState.Success:
-                return E_NodeState.Failure;
-            case E_NodeState.Failure:
-                return E_NodeState.Success;
+            zombieData.IsAnimationAttackCheck();
+            return E_NodeState.Success;
         }
 
         return E_NodeState.Failure;

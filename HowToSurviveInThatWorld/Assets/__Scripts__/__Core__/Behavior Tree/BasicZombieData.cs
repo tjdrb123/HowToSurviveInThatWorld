@@ -1,0 +1,158 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class BasicZombieData
+{
+    public Animator animator;
+    public GameObject gameObject;
+    public Transform transform;
+    public Transform detectedPlayer;
+    public NavMeshAgent agent;
+    
+    [Header("Distance")] 
+    public float detectDistance = 10f;
+    public float attackDistance = 1f;
+    
+    [Header("PatrolPosition")]
+    public Vector2 patrolMinPos = Vector2.one * -20;
+    public Vector2 patrolMaxPos = Vector2.one * 20;
+    public Vector3 correctPos;
+    public bool patrolRandomPosCheck = true;
+
+    [Header("IdleTime")]
+    public float idleDurationTime;
+    public float idleStartTime;
+    public bool idleWaitCheck;
+
+    [Header("Animations")]
+    public const string WALK_ANIM_BOOL_NAME = "IsWalk";
+    public const string RUN_ANIM_BOOL_NAME = "IsRun";
+    public const string ATTACK_ANIM_BOOL_NAME = "IsAttack";
+    public const string ATTACK_ANIM_STATE_NAME = "Attack";
+
+    [Header("LayerMask")] 
+    public readonly LayerMask PLAYER_LAYER_MASK = 1 << 6;
+    public readonly LayerMask ENEMY_LAYER_MASK = 1 << 7;
+
+    [Header("NavMeshAgent")]
+    public float agentSpeed = 0.1f;
+    public float agentTrackingSpeed = 3f;
+    public float agentStoppingDistance = 0.5f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
+    public bool agentUpdateRotation = true; // 자동 방향전환 여부
+    public float agentacceleration = 50f; // 가속도
+    public float agentAngularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
+
+    public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
+    {
+        BasicZombieData basicZombieData = new BasicZombieData();
+        basicZombieData.gameObject = gameObject;
+        basicZombieData.transform = gameObject.transform;
+        basicZombieData.animator = gameObject.GetComponent<Animator>();
+        basicZombieData.agent = gameObject.GetComponent<NavMeshAgent>();
+        
+        return basicZombieData;
+    }
+
+    #region Animation
+    
+    public bool IsAnimationRunning(string animationName)
+    {
+        if (animator != null)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName((animationName)))
+            {
+                var normalizedTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+                return normalizedTime != 0 && normalizedTime < 1f;
+            }
+        }
+        
+        return false;
+    }
+
+    private void IsAnimationWalkCheck()
+    {
+        if (!animator.GetBool(WALK_ANIM_BOOL_NAME) || animator.GetBool(RUN_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+            animator.SetBool(RUN_ANIM_BOOL_NAME, false);
+            animator.SetBool(WALK_ANIM_BOOL_NAME, true);
+        }
+    }
+    
+    public void IsAnimationIdleCheck()
+    {
+        if (animator.GetBool(WALK_ANIM_BOOL_NAME) || animator.GetBool(RUN_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(RUN_ANIM_BOOL_NAME, false);
+            animator.SetBool(WALK_ANIM_BOOL_NAME, false);
+        }
+    }
+    
+    public void IsAnimationRunCheck()
+    {
+        if (!animator.GetBool(RUN_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(RUN_ANIM_BOOL_NAME, true);
+        }
+
+        if (animator.GetBool(ATTACK_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+        }
+    }
+
+    public void IsAnimationAttackCheck()
+    {
+        if (!animator.GetBool(ATTACK_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(ATTACK_ANIM_BOOL_NAME, true);
+        }
+    }
+    
+    #endregion
+
+
+    #region NavMeshSetting
+
+    public void NavMeshAgentPatrolSetting()
+    {
+        IsAnimationWalkCheck();
+        
+        animator.applyRootMotion = true;
+        agent.speed = agentSpeed;
+        agent.SetDestination(correctPos);
+        patrolRandomPosCheck = false;
+        
+        agent.isStopped = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+    }
+    
+    public void NavMeshAgentAttackSetting()
+    {
+        IsAnimationAttackCheck();
+        
+        animator.applyRootMotion = false;
+        agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.velocity = Vector3.zero;
+    }
+    
+    public void NavMeshAgentTrackingSetting()
+    {
+        IsAnimationRunCheck();
+
+        animator.applyRootMotion = false;
+        agent.speed = agentTrackingSpeed;
+        agent.isStopped = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+    }
+
+    #endregion
+    
+}
