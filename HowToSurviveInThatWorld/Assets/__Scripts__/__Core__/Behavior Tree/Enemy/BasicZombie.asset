@@ -21,7 +21,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &-8221056337593287692
 MonoBehaviour:
@@ -44,7 +43,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   children:
   - {fileID: 8589194665179551575}
@@ -71,7 +69,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &-7072453857577340791
 MonoBehaviour:
@@ -94,7 +91,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   children:
   - {fileID: 1477353830283427173}
@@ -115,13 +111,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 63a2d511d6e48488a8010cf146240167
-  position: {x: -0.000013828278, y: 107.30001}
+  position: {x: 0, y: 101}
   dataContext:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   child: {fileID: -8221056337593287692}
 --- !u!114 &-4306604687214208898
@@ -145,7 +140,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   children:
   - {fileID: 1033255165626535057}
@@ -171,7 +165,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &-2468233131542709725
 MonoBehaviour:
@@ -194,7 +187,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   children:
   - {fileID: -3225983735596749919}
@@ -220,7 +212,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &-1477989384707575478
 MonoBehaviour:
@@ -243,7 +234,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &-410581840800522454
 MonoBehaviour:
@@ -260,13 +250,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b698daab455444cf688a76dec7aff156
-  position: {x: -0.0001197815, y: -2.8499982}
+  position: {x: 0, y: -4}
   dataContext:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   child: {fileID: -5652991603656940799}
 --- !u!114 &11400000
@@ -327,7 +316,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &1477353830283427173
 MonoBehaviour:
@@ -350,7 +338,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &1916479620258908821
 MonoBehaviour:
@@ -373,7 +360,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &3187873613838283423
 MonoBehaviour:
@@ -396,7 +382,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   children:
   - {fileID: 1916479620258908821}
@@ -423,7 +408,6 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
 --- !u!114 &8589194665179551575
 MonoBehaviour:
@@ -446,6 +430,5 @@ MonoBehaviour:
     moveToTarget: {fileID: 0}
     patrolMinPos: {x: 0, y: 0}
     patrolMaxPos: {x: 0, y: 0}
-  agent: {fileID: 0}
   description: 
   child: {fileID: -2468233131542709725}

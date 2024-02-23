@@ -44,6 +44,8 @@ public class BasicZombieData
     public float agentacceleration = 50f; // 가속도
     public float agentAngularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
 
+    public Enemy enemy;
+
     public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
     {
         BasicZombieData basicZombieData = new BasicZombieData();
@@ -51,21 +53,34 @@ public class BasicZombieData
         basicZombieData.transform = gameObject.transform;
         basicZombieData.animator = gameObject.GetComponent<Animator>();
         basicZombieData.agent = gameObject.GetComponent<NavMeshAgent>();
+        basicZombieData.InitializeAgent();
+
+        basicZombieData.enemy = gameObject.GetComponent<Enemy>();
         
         return basicZombieData;
+    }
+    
+    private void InitializeAgent()
+    {
+        agent.stoppingDistance = agentStoppingDistance;   // 정지 거리
+        agent.speed = agentSpeed; // 이동 속도
+        agent.destination = correctPos; // 목적지
+        agent.updateRotation = agentUpdateRotation; // 회전 유무
+        agent.acceleration = agentacceleration; // 가속도
+        agent.angularSpeed = agentAngularSpeed; // 회전 속도
     }
 
     #region Animation
     
-    public bool IsAnimationRunning(string animationName)
+    public bool IsAnimationRunning(string animationName, ref float attackTime)
     {
         if (animator != null)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName((animationName)))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
             {
-                var normalizedTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-
-                return normalizedTime != 0 && normalizedTime < 1f;
+                attackTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1;
+                
+                return attackTime > 0.01 && attackTime < 0.99f;
             }
         }
         
@@ -93,14 +108,19 @@ public class BasicZombieData
     
     public void IsAnimationRunCheck()
     {
-        if (!animator.GetBool(RUN_ANIM_BOOL_NAME))
-        {
-            animator.SetBool(RUN_ANIM_BOOL_NAME, true);
-        }
-
         if (animator.GetBool(ATTACK_ANIM_BOOL_NAME))
         {
             animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+        }
+        
+        if (animator.GetBool(WALK_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(WALK_ANIM_BOOL_NAME, false);
+        }
+        
+        if (!animator.GetBool(RUN_ANIM_BOOL_NAME))
+        {
+            animator.SetBool(RUN_ANIM_BOOL_NAME, true);
         }
     }
 

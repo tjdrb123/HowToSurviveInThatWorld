@@ -9,7 +9,7 @@ public class BehaviorTreeRunner : MonoBehaviour
     
     public BehaviorTree tree;
 
-    private BasicZombieData _basicZombieData;
+    public BasicZombieData _basicZombieData;
     
     /*===========================================================================================================*/
     
