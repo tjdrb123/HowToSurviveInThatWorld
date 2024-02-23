@@ -872,7 +872,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   Prefabs: {fileID: 6733199199356185634, guid: 4fc041fc2e575c04aaed13db2a60fd45, type: 3}
   itemDatas: []
-  Carrot: {fileID: 0}
+  Carrot: {fileID: 11400000, guid: a3c6a02ca365f2440b0dbc225eaaf2a8, type: 2}
 --- !u!114 &1829455825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56aef2d96c7cd6b4192ec1ff1b383d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 1333078047729409982, guid: 5d78d7accc9b9a245881cbbe0cc51453, type: 3}
 --- !u!1 &2136311197
 GameObject:
   m_ObjectHideFlags: 0

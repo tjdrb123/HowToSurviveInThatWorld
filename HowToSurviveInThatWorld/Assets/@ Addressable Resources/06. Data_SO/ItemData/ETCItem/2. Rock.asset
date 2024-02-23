@@ -20,4 +20,4 @@ MonoBehaviour:
   ItemImage: {fileID: -537491423, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 0
   CraftingItems: []
-  MaxStack: 30
+  MaxStack: 4
