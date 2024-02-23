@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class test : MonoBehaviour
 {
@@ -41,8 +42,9 @@ public class test : MonoBehaviour
             }
             else
             {
-                EtcItem etcItem = new EtcItem(Carrot as EtcItem);
-                inventory.CombineSlot<EtcItem>(etcItem);
+                Manager_Inventory.Instance.Additem(Carrot, 2);
+                //EtcItem etcItem = new EtcItem(Carrot as EtcItem);
+                //inventory.CombineSlot<EtcItem>(etcItem);
             }
         }
     }
@@ -65,7 +67,6 @@ public class test : MonoBehaviour
     {
         Manager_Inventory.Instance.ChestItemDatas = itemDatas;
         button.gameObject.SetActive(true);
-        //이벤트를 아이템에 대한 
     }
     private void OnCollisionExit(Collision collision)
     {

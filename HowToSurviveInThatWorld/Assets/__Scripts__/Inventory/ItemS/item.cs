@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class item : MonoBehaviour
 {
-    public UseItem weapon;
+    public UseItem useItem;
     public void ItemPlus()
     {
-        Manager_Inventory.Instance.BaseSlotDatas[0] = weapon;
+        Manager_Inventory.Instance.Additem(useItem, 1);
     }
 }
