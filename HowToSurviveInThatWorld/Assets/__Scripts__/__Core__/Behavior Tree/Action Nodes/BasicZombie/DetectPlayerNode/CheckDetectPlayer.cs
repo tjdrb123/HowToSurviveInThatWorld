@@ -8,7 +8,6 @@ using UnityEngine;
 public class CheckDetectPlayer : LeafAction
 {
     private Collider[] _overlapColliders;
-    private readonly float _DOT_PRODUCT_ = 0.9f;
     
     protected override void OnStart()
     {
@@ -30,7 +29,7 @@ public class CheckDetectPlayer : LeafAction
             Transform undefinedPlayer = _overlapColliders[0].transform;
             Vector3 directionToPlayer = (undefinedPlayer.position - zombieData.transform.position).normalized;
             
-            if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) > _DOT_PRODUCT_)
+            if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) > zombieData.enemyDot)
             {
                 float distanceToTarget = Vector3.Distance(undefinedPlayer.position ,zombieData.transform.position);
 

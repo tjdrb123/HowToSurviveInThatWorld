@@ -39,11 +39,16 @@ public class CheckAttacking : LeafAction
             if (Vector3.SqrMagnitude(zombieData.detectedPlayer.position - zombieData.transform.position) <
                 (zombieData.attackDistance * zombieData.attackDistance))
             {
-                zombieData.enemy.ApplyDamage(this, zombieData.detectedPlayer.gameObject);
-                _isAttack = false;
+                Vector3 directionToPlayer =
+                    (zombieData.detectedPlayer.position - zombieData.transform.position).normalized;
+                if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) >= zombieData.enemyDot)
+                {
+                    zombieData.enemy.ApplyDamage(this, zombieData.detectedPlayer.gameObject);
+
+                    _isAttack = false;
+                }
             }
+
         }
     }
 }
-
-// 애니메이션이 7할정도 진행이 되고, 그 순간에 Enemy와 Player와의 거리가 attackDistance 이하일 때,
