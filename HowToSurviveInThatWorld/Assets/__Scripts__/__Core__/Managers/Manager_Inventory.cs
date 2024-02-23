@@ -77,4 +77,75 @@ public class Manager_Inventory : MonoBehaviour
         }
         return count < inventory.inventoryAvailableSlots;
     }
+    private bool InventoryMaxCheck(Inventory inventory, ItemDataSo[] itemDataSo) //Data의 공간을 체크를 합니다.
+    {
+        int count = 0;
+        for (int i = 0; i < itemDataSo.Length; i++)
+        {
+            if (itemDataSo[i].KeyNumber != 0)
+            {
+                var item = itemDataSo[i].BaseType == E_BaseType.UseItem ? itemDataSo[i] as UseItem : itemDataSo[i] as EtcItem;
+                if (itemDataSo[i].CurrentAmont < item.MaxStack) //Data가 들어있지만 현재의 MaxStack아래면 True
+                    return true;
+                count++;
+            }
+        }
+        return count < inventory.inventoryAvailableSlots;
+    }
+    public void Additem(ItemDataSo itemData, int value) //아이템을 추가하기 위해
+    {
+        bool isBaseInven = InventoryMaxCheck(BaseInventory, BaseSlotDatas);
+        bool isBackPackInven = InventoryMaxCheck(BackPackInventory, BackPackSlotDatas);
+        if (!isBaseInven && !isBackPackInven)
+        {
+            Debug.Log("인벤토리에 현재 공간이 없습니다.");
+            return;
+        }
+        var item = itemData.BaseType == E_BaseType.UseItem ? new UseItem(itemData as UseItem) : new EtcItem(itemData as EtcItem);
+        item.CurrentAmont = value;
+        if (isBaseInven)
+            CombineData(item, BaseSlotDatas);
+        else if (isBackPackInven)
+            CombineData(item, BackPackSlotDatas);
+    }
+    private void CombineData(ItemDataSo itemData, ItemDataSo[] itemDatas) //기타 아이템과 소비 아이템을 추가하기 위한 함수
+    {
+        if (itemData.BaseType == E_BaseType.UseItem || itemData.BaseType == E_BaseType.EtcItem)
+        {
+            var currentItem = itemData.BaseType == E_BaseType.UseItem ? itemData as UseItem : itemData as EtcItem;
+            for (int i = 0; i < itemDatas.Length; i++)
+            {
+                if (itemDatas[i].KeyNumber != 0 && itemDatas[i].Name == itemData.Name && itemDatas[i].CurrentAmont != currentItem.MaxStack) //현재 Data가 안들어있고 
+                {
+                    Debug.Log("if 작동");
+                    int stack = MaxValueCheck(currentItem, itemDatas[i]);
+                    if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
+                    {
+                        currentItem.CurrentAmont = stack; //Stack의 값이 0이 아니고 정수이면 값 추가하기
+                        continue;
+                    }
+                    else
+                        return;
+                }
+                else if (itemDatas[i].KeyNumber == 0)
+                {
+                    BaseSlotDatas[i] = itemData;
+                    return;
+                }
+            }
+        }
+    }
+    private int MaxValueCheck(ItemDataSo currenData, ItemDataSo itemData) //MaxStack이 넘었는지 안넘었는지 확인하는 함수입니다.
+    {
+        if (currenData == null) return 0; //Data가 없으면 바로 리턴
+        var item = currenData.BaseType == E_BaseType.UseItem ? currenData as UseItem : currenData as EtcItem;
+        itemData.CurrentAmont += item == null ? 0 : item.CurrentAmont;
+        if (itemData.CurrentAmont > item.MaxStack)
+        {
+            int returnValue = itemData.CurrentAmont - item.MaxStack;
+            itemData.CurrentAmont = item.MaxStack;
+            return returnValue;
+        }
+        return 0;
+    }
 }
