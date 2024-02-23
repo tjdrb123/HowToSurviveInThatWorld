@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class item : MonoBehaviour
 {
-    public UseItem useItem;
+    public EtcItem useItem;
     public void ItemPlus()
     {
-        Manager_Inventory.Instance.Additem(useItem, 1);
+        Manager_Inventory.Instance.Additem(useItem, 10);
     }
 }

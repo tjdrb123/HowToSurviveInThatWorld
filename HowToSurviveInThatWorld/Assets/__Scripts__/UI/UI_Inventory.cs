@@ -21,7 +21,6 @@ public class UI_Inventory : UI_Popup
     }
 
     private ItemSlot _selectSlot;
-
     private void Start()
     {
         DataReset();
@@ -94,7 +93,7 @@ public class UI_Inventory : UI_Popup
     }
     public int GetBackPackSlot()
     {
-        int count = 0;  
+        int count = 0;
         for (int i = 0; i < 15; i++)
         {
             if (GetObject((int)E_Object.BackPack).GetComponent<Inventory>().BaseSlot[i].ItemData.KeyNumber != 0)
