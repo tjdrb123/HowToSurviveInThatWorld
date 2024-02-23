@@ -1409,6 +1409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf12229017134534a918b723ab2976a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _etcItem: {fileID: 11400000, guid: a3c6a02ca365f2440b0dbc225eaaf2a8, type: 2}
 --- !u!65 &1766688095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3409,10 +3410,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8143147521462251428, guid: d677a15ef01633f43aa01a7e32f66973, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1715979089}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d677a15ef01633f43aa01a7e32f66973, type: 3}
 --- !u!224 &7090922842527505972
 RectTransform:
@@ -3642,5 +3640,7 @@ SceneRoots:
   - {fileID: 5771931845011343313}
   - {fileID: 1808713523}
   - {fileID: 1206739283}
-  - {fileID: 223437582}
+  - {fileID: 453472614}
   - {fileID: 1766688098}
+  - {fileID: 700297224}
+  - {fileID: 5391884477229148629}
