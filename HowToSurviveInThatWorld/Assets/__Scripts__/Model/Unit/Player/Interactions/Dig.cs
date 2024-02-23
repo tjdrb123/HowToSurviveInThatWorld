@@ -21,6 +21,7 @@ public class Dig : MonoBehaviour, IInteractableObject
     {
         if (_DigCount == _etcItem.PlusValue)
         {
+            Manager_Inventory.Instance.Additem(_etcItem, 4);
             Destroy(gameObject);
             _DigCount = 0;
         }
