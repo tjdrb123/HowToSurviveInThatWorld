@@ -11,16 +11,14 @@ public class SimplePickUp : MonoBehaviour, IInteractableObject
     }
     public void Interact(PlayerController playerController, Animator animator)
     {
-        playerController._hitColliders[0].gameObject.SetActive(false);
         _item.ItemPlus();
-        Destroy(this);
         animator.SetInteger("InteractingType", 0);
         animator.SetBool("IsInteracting", true);
     }
 
     public void StopInteract(PlayerController playerController, Animator animator)
     {
-        playerController._hitColliders[0].gameObject.SetActive(true);
         animator.SetBool("IsInteracting", false);
+        Destroy(gameObject);
     }
 }
