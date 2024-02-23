@@ -19,4 +19,6 @@ MonoBehaviour:
   CurrentAmont: 0
   ItemImage: {fileID: -321175893, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 1
+  ItemDataSos: []
+  CraftingItems: []
   armorType: 23

@@ -39,6 +39,11 @@ public class test : MonoBehaviour
                 ArmorItem useitem = new ArmorItem(Carrot as ArmorItem);
                 inventory.CombineSlot<ArmorItem>(useitem);
             }
+            else
+            {
+                EtcItem etcItem = new EtcItem(Carrot as EtcItem);
+                inventory.CombineSlot<EtcItem>(etcItem);
+            }
         }
     }
     public void OpenChest()
@@ -56,13 +61,13 @@ public class test : MonoBehaviour
         }
         return itemDatas;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         Manager_Inventory.Instance.ChestItemDatas = itemDatas;
         button.gameObject.SetActive(true);
         //이벤트를 아이템에 대한 
     }
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
         button.gameObject.SetActive(false);
     }
