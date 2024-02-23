@@ -70,6 +70,27 @@ public class BasicZombieData
         agent.angularSpeed = agentAngularSpeed; // 회전 속도
     }
 
+    public void DeadComponents(GameObject gameObject)
+    {
+        Component[] components = gameObject.GetComponents<Component>();
+        
+        foreach (var component in components)
+        {
+            if (component is MonoBehaviour)
+            {
+                (component as MonoBehaviour).enabled = false;
+            }
+            else if (component is Collider)
+            {
+                (component as Collider).enabled = false;
+            }
+            else if (component is NavMeshAgent)
+            {
+                (component as NavMeshAgent).enabled = false;
+            }
+        }
+    }
+
     #region Animation
     
     public bool IsAnimationRunning(string animationName, ref float attackTime)
