@@ -5,19 +5,12 @@ using UnityEngine.AI;
 
 public abstract class Node : ScriptableObject
 {
-    public enum E_NodeState
-    {
-        Running,
-        Success,
-        Failure
-    }
-
     [HideInInspector] public E_NodeState state = E_NodeState.Running;
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;
     [HideInInspector] public Vector2 position;
     [HideInInspector] public DataContext dataContext;
-    [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public BasicZombieData zombieData;
     [TextArea] public string description;
 
     public E_NodeState Update()
