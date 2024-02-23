@@ -13,11 +13,11 @@ public class Inventory : MonoBehaviour
     private ItemSlot _secondSlot;
 
     public ItemSlot[] BaseSlot { get => _baseSlot; }
-    public int _inventoryAvailableSlots { get; set; }
+    public int inventoryAvailableSlots { get; set; }
     private void Awake()
     {
         _baseSlot = GetComponentsInChildren<ItemSlot>(); //자기 자식들중 ItemSlot을 가지고 있는 오브젝트들을 가져옵니다.
-        _inventoryAvailableSlots = (this.name == "BackPack") ? -1 : _baseSlot.Length;
+        inventoryAvailableSlots = (this.name == "BackPack") ? -1 : _baseSlot.Length;
     }
     public void SlotDataSet(ItemDataSo[] items) //슬롯의 값들을 셋팅해주기 위한 함수
     {
@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
     }
     public void CombineSlot<T>(ItemDataSo item) where T : ItemDataSo//아이템이 인벤토리에 추가 되면 아이템을 합치기 위한 함수
     {
-        if (item.BaseType == E_BaseType.UseItem)
+        if (item.BaseType == E_BaseType.UseItem || item.BaseType == E_BaseType.EtcItem)
         {
             var currentItem = item.BaseType == E_BaseType.UseItem ? item as UseItem : item as EtcItem;
             for (int i = 0; i < _baseSlot.Length; i++)
@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
     { 
         _firstSlot = firstslot; //현재 슬롯 (내가 옮기고 싶은 Slot)
         _secondSlot = secondSlot; //옛날 슬롯 (DragSlot에 저장되어 있는 Slot입니다.)
-        if (_firstSlot.SlotIndex <= _inventoryAvailableSlots)
+        if (_firstSlot.SlotIndex <= inventoryAvailableSlots)
         {
             if (_secondSlot.ItemData != null && (_firstSlot.ItemData.BaseType == E_BaseType.UseItem || _firstSlot.ItemData.BaseType == E_BaseType.EtcItem))
             {
@@ -96,20 +96,24 @@ public class Inventory : MonoBehaviour
         {
             if (_baseSlot[i].ItemData.KeyNumber == 0)
             {
-                if (item.BaseType == E_BaseType.UseItem)
+                if (item.BaseType == E_BaseType.UseItem) //소비아이템
                 {
                     UseItem useItem = item as UseItem;
                     _baseSlot[i].AddItem(useItem);
                 }
-                else if (item.BaseType == E_BaseType.WeaponItem || item.BaseType == E_BaseType.SubWeaponItem)
+                else if (item.BaseType == E_BaseType.WeaponItem || item.BaseType == E_BaseType.SubWeaponItem) //무기 아이템
                 {
                     WeaponItem weaponItem = item as WeaponItem;
                     _baseSlot[i].AddItem(weaponItem);
                 }
-                else if (item.BaseType == E_BaseType.ArmorItem)
+                else if (item.BaseType == E_BaseType.ArmorItem) //방어구
                 {
                     ArmorItem armorItem = item as ArmorItem;
                     _baseSlot[i].AddItem(armorItem);
+                }
+                else //기타
+                {
+                    _baseSlot[i].AddItem(item);
                 }
                 break;
             }

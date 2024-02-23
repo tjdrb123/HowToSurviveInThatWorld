@@ -39,6 +39,11 @@ public class test : MonoBehaviour
                 ArmorItem useitem = new ArmorItem(Carrot as ArmorItem);
                 inventory.CombineSlot<ArmorItem>(useitem);
             }
+            else
+            {
+                EtcItem etcItem = new EtcItem(Carrot as EtcItem);
+                inventory.CombineSlot<EtcItem>(etcItem);
+            }
         }
     }
     public void OpenChest()

@@ -2823,6 +2823,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51aad30ba8f51734d90e46d5377b71c1, type: 2}
   _baseSlot: []
   _craftingSlot: {fileID: 3056311655303866095}
+  _newItemSlot: {fileID: 3329774898139822081}
 --- !u!1 &1038202640631100842
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,6 +6994,7 @@ MonoBehaviour:
   _itemDataSo: []
   _baseSlot: []
   _craftingSlot: {fileID: 0}
+  _newItemSlot: {fileID: 0}
 --- !u!1 &3067287707214354657
 GameObject:
   m_ObjectHideFlags: 0
@@ -7564,6 +7566,7 @@ GameObject:
   - component: {fileID: 3259918236569053706}
   - component: {fileID: 3884077035641364833}
   - component: {fileID: 8406477701365067275}
+  - component: {fileID: 5914373027311913856}
   m_Layer: 5
   m_Name: CraftingItemSlot
   m_TagString: Untagged
@@ -7687,6 +7690,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 0}
+--- !u!114 &5914373027311913856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329774898139822081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a3cd4a206ace64084f5ef53eab1daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3444292377648802238
 GameObject:
   m_ObjectHideFlags: 0

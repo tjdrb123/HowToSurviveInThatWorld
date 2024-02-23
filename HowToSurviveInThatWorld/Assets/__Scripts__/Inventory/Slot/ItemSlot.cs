@@ -105,6 +105,18 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
                 SlotClear();
         }
     }
+    public int ItemMinus(int value) 
+    {
+        int currentValue = 0;
+        ItemData.CurrentAmont -= value;
+        SlotSetting();
+        if (ItemData.CurrentAmont <= 0) // 뺀 값이 마이너스로 가면 슬롯 클리어 및 마이너스 값 전달
+        {
+            currentValue = ItemData.CurrentAmont;
+            SlotClear();
+        }
+        return currentValue;
+    }
     public int MaxStackCheck(ItemDataSo useItem) //아이템의 수량이 최대 수량보다 높게 합쳐지지 않게하기 위한 함수
     {
         if (useItem == null) return 0;
@@ -132,7 +144,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             _dragSlot.transform.position = transform.position;
             _dragSlotComponent.SetSlot(_itemImage, _quantityText, this);
         }
-        else if (!_isLock)
+        else if (!_isLock && this.GetComponentInParent<CraftingInventory>() != null)
         {
             CraftingInventory crafting = this.GetComponentInParent<CraftingInventory>();
             if (crafting != null)

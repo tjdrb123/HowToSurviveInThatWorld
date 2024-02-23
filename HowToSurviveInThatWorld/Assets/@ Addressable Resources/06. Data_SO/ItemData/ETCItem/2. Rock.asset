@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12995f9ab1e373a4aa08533cb5d2330a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ae4974cdbdfc904fbe9f017d2177014, type: 3}
   m_Name: 2. Rock
   m_EditorClassIdentifier: 
   KeyNumber: 2
@@ -20,3 +20,4 @@ MonoBehaviour:
   ItemImage: {fileID: -537491423, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 0
   CraftingItems: []
+  MaxStack: 30

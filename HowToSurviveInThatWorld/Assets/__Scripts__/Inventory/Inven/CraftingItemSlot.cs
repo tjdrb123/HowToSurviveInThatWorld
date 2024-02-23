@@ -12,7 +12,7 @@ public class CraftingItemSlot : CraftingInventory
     }
     public override void SlotDataSet()
     {
-        if (_itemData != null)
+        if (_itemData != null && _itemData.KeyNumber != 0)
         {
             _itemDataSo = new ItemDataSo[_itemData.CraftingItems.Length];
             for (int i = 0; i < _itemData.CraftingItems.Length; i++)
