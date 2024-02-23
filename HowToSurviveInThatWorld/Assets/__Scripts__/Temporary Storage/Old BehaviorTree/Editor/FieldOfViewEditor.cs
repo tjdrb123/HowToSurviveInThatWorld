@@ -11,6 +11,9 @@ public class FieldOfViewEditor : Editor
     {
         #if DEBUG_MODE
         BehaviorTreeRunner enemyFOV = (BehaviorTreeRunner)target;
+        if (enemyFOV == null || enemyFOV._basicZombieData == null)
+            return;
+        
         Vector3 enemyForward = enemyFOV.transform.forward;
         
         Handles.color = Color.black;
@@ -32,7 +35,4 @@ public class FieldOfViewEditor : Editor
         }
         #endif
     }
-    
-    // 좀비가 공격중에 detectDistance 원 밖으로 나간뒤에, 다시 만나면 그 때 자리로 순간인동
-    // 
 }
