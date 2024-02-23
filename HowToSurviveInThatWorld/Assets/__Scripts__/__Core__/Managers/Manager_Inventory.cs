@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Pipeline.Injector;
 using UnityEngine;
 
 public class Manager_Inventory : MonoBehaviour
@@ -41,11 +42,13 @@ public class Manager_Inventory : MonoBehaviour
         {
             if (EquipInventory.GetSlot(E_SlotType.BackPack).SlotType == E_SlotType.BackPack && EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.KeyNumber != 0)
             {
-                ArmorItem armorItem =  EquipInventory.GetSlot(E_SlotType.BackPack).ItemData as ArmorItem;
+                ArmorItem armorItem = EquipInventory.GetSlot(E_SlotType.BackPack).ItemData as ArmorItem;
                 BackPackInventory.inventoryAvailableSlots = armorItem.PlusValue;
             }
             else if (EquipInventory.GetSlot(E_SlotType.BackPack).SlotType == E_SlotType.BackPack && EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.KeyNumber == 0)
+            {
                 BackPackInventory.inventoryAvailableSlots = -1;
+            }
         }
     }
     public int ItemCheck(ItemDataSo item) //아이템의 갯수를 확인하는 함수
@@ -54,59 +57,71 @@ public class Manager_Inventory : MonoBehaviour
         for (int i = 0; i < BaseInventory.BaseSlot.Length; i++)
         {
             if (item.KeyNumber == BaseInventory.BaseSlot[i].ItemData.KeyNumber)
-            {
                 currentValue += BaseInventory.BaseSlot[i].ItemData.CurrentAmont;
-            }
         }
         for (int i = 0; i < BackPackInventory.BaseSlot.Length; i++)
         {
             if (item.KeyNumber == BackPackInventory.BaseSlot[i].ItemData.KeyNumber)
-            {
-                currentValue += BaseInventory.BaseSlot[i].ItemData.CurrentAmont;
-            }
+                currentValue += BackPackInventory.BaseSlot[i].ItemData.CurrentAmont;
         }
         return currentValue;
     }
-    public bool InventoryMaxCheck(Inventory inventory) //인벤토리 공간 체크
+    public bool InventoryMaxCheck(ItemSlot[] itemslot, bool isBack = true) //인벤토리 공간 체크
     {
         int count = 0;
-        for (int i = 0; i < inventory.inventoryAvailableSlots; i++)
+        for (int i = 0; i < itemslot.Length; i++)
         {
-            if (inventory.BaseSlot[i].ItemData.KeyNumber != 0)
+            if (itemslot[i].ItemData.KeyNumber != 0)
                 count++;
         }
-        return count < inventory.inventoryAvailableSlots;
+        if (isBack)
+            return count < itemslot.Length;
+        else
+        {
+            if (EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.KeyNumber != 0)
+            {
+                return count < EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.PlusValue + 1;
+            }
+            return false;
+        }
     }
-    private bool InventoryMaxCheck(Inventory inventory, ItemDataSo[] itemDataSo) //Data의 공간을 체크를 합니다.
+    private bool InventoryMaxCheck(int value, ItemDataSo[] itemDataSo) //Data의 공간을 체크를 합니다.
     {
         int count = 0;
         for (int i = 0; i < itemDataSo.Length; i++)
         {
             if (itemDataSo[i].KeyNumber != 0)
             {
-                var item = itemDataSo[i].BaseType == E_BaseType.UseItem ? itemDataSo[i] as UseItem : itemDataSo[i] as EtcItem;
-                if (itemDataSo[i].CurrentAmont < item.MaxStack) //Data가 들어있지만 현재의 MaxStack아래면 True
-                    return true;
+                if (itemDataSo[i].BaseType == E_BaseType.UseItem || itemDataSo[i].BaseType == E_BaseType.EtcItem)
+                {
+                    var item = itemDataSo[i].BaseType == E_BaseType.UseItem ? itemDataSo[i] as UseItem : itemDataSo[i] as EtcItem;
+                    if (itemDataSo[i].CurrentAmont < item.MaxStack) //Data가 들어있지만 현재의 MaxStack아래면 True
+                        return true;
+                }
                 count++;
             }
         }
-        return count < inventory.inventoryAvailableSlots;
+        return count < value;
     }
     public void Additem(ItemDataSo itemData, int value) //아이템을 추가하기 위해
     {
-        bool isBaseInven = InventoryMaxCheck(BaseInventory, BaseSlotDatas);
-        bool isBackPackInven = InventoryMaxCheck(BackPackInventory, BackPackSlotDatas);
+        bool isBaseInven = InventoryMaxCheck(BaseInventory.BaseSlot.Length, BaseSlotDatas);
+        bool isBackPackInven = InventoryMaxCheck(EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.PlusValue, BackPackSlotDatas);
         if (!isBaseInven && !isBackPackInven)
         {
-            Debug.Log("인벤토리에 현재 공간이 없습니다.");
+            Debug.Log("인벤토리에 현재 공간이 없습니다."); // 이제 활성화 버튼을 눌러도 아무런 변화가 안일어나게 해야함?
             return;
         }
         var item = itemData.BaseType == E_BaseType.UseItem ? new UseItem(itemData as UseItem) : new EtcItem(itemData as EtcItem);
         item.CurrentAmont = value;
         if (isBaseInven)
+        {
             CombineData(item, BaseSlotDatas);
+        }
         else if (isBackPackInven)
+        {
             CombineData(item, BackPackSlotDatas);
+        }
     }
     private void CombineData(ItemDataSo itemData, ItemDataSo[] itemDatas) //기타 아이템과 소비 아이템을 추가하기 위한 함수
     {
@@ -117,7 +132,6 @@ public class Manager_Inventory : MonoBehaviour
             {
                 if (itemDatas[i].KeyNumber != 0 && itemDatas[i].Name == itemData.Name && itemDatas[i].CurrentAmont != currentItem.MaxStack) //현재 Data가 안들어있고 
                 {
-                    Debug.Log("if 작동");
                     int stack = MaxValueCheck(currentItem, itemDatas[i]);
                     if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
                     {
@@ -129,7 +143,7 @@ public class Manager_Inventory : MonoBehaviour
                 }
                 else if (itemDatas[i].KeyNumber == 0)
                 {
-                    BaseSlotDatas[i] = itemData;
+                    itemDatas[i] = currentItem;
                     return;
                 }
             }
@@ -147,5 +161,16 @@ public class Manager_Inventory : MonoBehaviour
             return returnValue;
         }
         return 0;
+    }
+    public bool ObjectDestroy(GameObject Object) 
+    {
+        if (Object.name == "Chest" || Object.name == "Produce")
+            return false;
+        for (int i = 0; i < ChestItemDatas.Length; i++)
+        {
+            if (ChestItemDatas[i].KeyNumber != 0)
+                return false;
+        }
+        return true;
     }
 }

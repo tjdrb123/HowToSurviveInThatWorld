@@ -12,7 +12,6 @@ public class Dig : MonoBehaviour, IInteractableObject
     public void Interact(PlayerController playerController, Animator animator)
     {
         _DigCount++;
-        playerController._hitColliders[0].gameObject.SetActive(false);
         animator.SetInteger("InteractingType", 2);
         animator.SetBool("IsInteracting", true);
     }
@@ -21,11 +20,10 @@ public class Dig : MonoBehaviour, IInteractableObject
     {
         if (_DigCount == _etcItem.PlusValue)
         {
-            Manager_Inventory.Instance.Additem(_etcItem, 4);
+            Manager_Inventory.Instance.Additem(_etcItem, 10); //랜덤 값을 넣어줘도 상관없음
             Destroy(gameObject);
             _DigCount = 0;
         }
-        playerController._hitColliders[0].gameObject.SetActive(true);
         animator.SetBool("IsInteracting", false);
     }
 }

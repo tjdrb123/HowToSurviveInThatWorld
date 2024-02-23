@@ -30,6 +30,7 @@ public class UI_CraftingInventory : UI_Popup
     {
         GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BaseSlotDatas);
         GetObject((int)E_Object.BackPack).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BackPackSlotDatas);
+        GetObject((int)E_Object.BackPack).GetComponent<Inventory>().inventoryAvailableSlots = Manager_Inventory.Instance.EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.PlusValue;
         SetInventory();
     }
     public void SetInventory()

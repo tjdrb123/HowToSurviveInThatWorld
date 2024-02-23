@@ -26,10 +26,15 @@ public class NewItemSlot : MonoBehaviour, IPointerDownHandler
                 return;
             }
         }
-        if (manager_Inventory.InventoryMaxCheck(manager_Inventory.BaseInventory))
+        if (manager_Inventory.InventoryMaxCheck(baseInvenItems))
+        {
             ItemAdd(_slot.ItemData, manager_Inventory.BaseInventory);
-        else if (manager_Inventory.InventoryMaxCheck(manager_Inventory.BackPackInventory))
+
+        }
+        else if (manager_Inventory.InventoryMaxCheck(BPInvenItems, false))
+        {
             ItemAdd(_slot.ItemData, manager_Inventory.BackPackInventory);
+        }
         else
         {
             Debug.Log("공간이 부족합니다.");
