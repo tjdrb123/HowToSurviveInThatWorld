@@ -13,7 +13,7 @@ public class BasicZombieData
     
     [Header("Distance")] 
     public float detectDistance = 10f;
-    public float attackDistance = 1f;
+    public float attackDistance = 1.5f;
     
     [Header("PatrolPosition")]
     public Vector2 patrolMinPos = Vector2.one * -20;
@@ -39,12 +39,13 @@ public class BasicZombieData
     [Header("NavMeshAgent")]
     public float agentSpeed = 0.1f;
     public float agentTrackingSpeed = 3f;
-    public float agentStoppingDistance = 0.5f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
+    public float agentStoppingDistance = 1f; // 이동 중지 거리 (Mathf.Epsilon은 너무 거리가 짧아 애니메이션이 고장남)
     public bool agentUpdateRotation = true; // 자동 방향전환 여부
     public float agentacceleration = 50f; // 가속도
-    public float agentAngularSpeed = 400f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
+    public float agentAngularSpeed = 10800f;  // Angular Speed : Agent 회전 속도 (프로퍼티)(회전 속도 : degree/sec)
 
     public Enemy enemy;
+    public readonly float enemyDot = 0.9f;
 
     public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
     {
