@@ -99,17 +99,23 @@ public class UI_Inventory : UI_Popup
     }
     private void RemoveItem()
     {
-        _selectSlot.SlotClear();
-        SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
-        SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+        if (_selectSlot != null && _selectSlot.ItemData != null)
+        {
+            _selectSlot.SlotClear();
+            SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
+            SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+        }
     }
     private void UseItem()
     {
-        _selectSlot.UseItem();
-        if (_selectSlot.ItemData.KeyNumber == 0)
+        if (_selectSlot != null && _selectSlot.ItemData != null)
         {
-            SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
-            SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+            _selectSlot.UseItem();
+            if (_selectSlot.ItemData.KeyNumber == 0)
+            {
+                SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
+                SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+            }
         }
     }
 }
