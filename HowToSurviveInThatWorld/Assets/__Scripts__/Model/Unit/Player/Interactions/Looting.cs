@@ -6,14 +6,14 @@ public class Looting : MonoBehaviour, IInteractableObject
 {
     public Image _chargingImg;
     public float _interactionTime = 10f;
-    [SerializeField] GameObject Prefabs;
+    [SerializeField] private GameObject Prefabs;
+    private UI_ChestInventory _chestInventory;
     public void Interact(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(_chargingImg, _interactionTime, playerController));
         animator.SetInteger("InteractingType", 1);
         animator.SetBool("IsInteracting", true);
     }
-
     public  void StopInteract(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StopCrt(E_CoroutineKey.ChargeFillAmount);
@@ -32,5 +32,7 @@ public class Looting : MonoBehaviour, IInteractableObject
         }
         playerController.IsInteracting = false;
         Instantiate(Prefabs);
+        _chestInventory =  GameObject.Find("ChestCanvas(Clone)").GetComponent<UI_ChestInventory>();
+        _chestInventory.Object = gameObject;
     }
 }

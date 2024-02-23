@@ -43,8 +43,6 @@ public class test : MonoBehaviour
             else
             {
                 Manager_Inventory.Instance.Additem(Carrot, 2);
-                //EtcItem etcItem = new EtcItem(Carrot as EtcItem);
-                //inventory.CombineSlot<EtcItem>(etcItem);
             }
         }
     }

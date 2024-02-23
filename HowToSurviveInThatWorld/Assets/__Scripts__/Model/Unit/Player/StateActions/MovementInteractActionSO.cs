@@ -53,6 +53,8 @@ public class MovementInteractAction : FiniteStateAction
             var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
             if (interactableObject != null)
                 interactableObject.Interact(_playerController, _animator);
+            else
+                _playerController.IsInteracting = false;
         }
     }
 
