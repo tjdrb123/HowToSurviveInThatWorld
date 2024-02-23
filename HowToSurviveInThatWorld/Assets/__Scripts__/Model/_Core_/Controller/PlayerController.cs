@@ -1,6 +1,8 @@
 
 using System;
+using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _interactableLayer;
     [NonSerialized] public Collider[] _hitColliders;
     private Transform _transform;
+    private Animator _animator;
     public Image _chargingImg;
 
     // ========================================
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _transform = transform;
+        _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -71,8 +75,8 @@ public class PlayerController : MonoBehaviour
         _inputReader.OnCrouchEvent += Crouch;
         _inputReader.OnAttackEvent += Attack;
         _inputReader.OnAttackCanceledEvent += CanceledAttack;
-        _inputReader.OnInteractEvent += Interaction;
-        _inputReader.OnInteractCanceledEvent += CanceledInterAction;
+        _inputReader.OnInteractEvent += Interact;
+        _inputReader.OnInteractCanceledEvent += CanceledInteract;
         _inputReader.OnRunEvent += Run;
     }
 
@@ -82,8 +86,8 @@ public class PlayerController : MonoBehaviour
         _inputReader.OnCrouchEvent -= Crouch;
         _inputReader.OnAttackEvent -= Attack;
         _inputReader.OnAttackCanceledEvent -= CanceledAttack;
-        _inputReader.OnInteractEvent -= Interaction;
-        _inputReader.OnInteractCanceledEvent -= CanceledInterAction;
+        _inputReader.OnInteractEvent -= Interact;
+        _inputReader.OnInteractCanceledEvent -= CanceledInteract;
         _inputReader.OnRunEvent -= Run;
     }
 
@@ -119,7 +123,7 @@ public class PlayerController : MonoBehaviour
         IsAttacking = false;
     }
 
-    private void Interaction()
+    private void Interact()
     {
         Vector3 boxCenter = _transform.position + Vector3.up * 1f;
         Vector3 halfExtents = new Vector3(0.5f, 1f, 0.5f);
@@ -137,10 +141,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CanceledInterAction()
+    private void CanceledInteract()
     {
         IsInteracting = false;
     }
+
 
     void OnDrawGizmos()
     {
