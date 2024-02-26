@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Transform _transform;
     private Animator _animator;
     public Image _chargingImg;
+    [HideInInspector]public Player player;
 
     // ========================================
     // # Input Associated.
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         _transform = transform;
         _animator = GetComponent<Animator>();
+        player = GetComponent<Player>();
     }
 
     private void OnEnable()
