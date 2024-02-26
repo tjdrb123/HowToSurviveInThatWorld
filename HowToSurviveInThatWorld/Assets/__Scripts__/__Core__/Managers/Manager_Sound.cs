@@ -18,14 +18,19 @@ public class Manager_Sound : MonoBehaviour
     public static Manager_Sound instance;
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
     }
-    public void AddClip(string clipName)
+    public void AddClip(string clipName) //클립을 추가시키는 함수
     {
         AudioClip clip = Resources.Load($"{clipName}") as AudioClip;
         _audioClips.Add(clipName, clip);
     }
-    public void PlayBGM(string bgmName, bool loop = true)
+    public void PlayBGM(string bgmName, bool loop = true) //배경음 
     {
         if (!_audioSource.TryGetValue(bgmName, out AudioSource source)) //초기 설정
         {
@@ -48,11 +53,42 @@ public class Manager_Sound : MonoBehaviour
         }
         audioSource.Play();
     }
-    
+    public void AudioPlay(AudioSource audio, string name, bool isBgm = false, bool isLoop = false) 
+    {
+        if (isBgm)
+        {
+            //BGM을 실행시킨다
+        }
+        else
+        {
+            if (isLoop)
+            {
+                //Loop인 SFX실행
+            }
+            else
+            {
+                //일반 SFX실행
+            }
+        }
+    }
+    private AudioSource AddAudioSource(GameObject audioObject) //오디오가 없으면 추가해주고 있으면 그냥 반환
+    {
+        AudioSource audio = audioObject.GetComponent<AudioSource>();
+        if (audio == null)
+        {
+            audio = audioObject.AddComponent<AudioSource>();
+            return audio;
+        }
+        else
+        {
+            return audio;
+        }    
+    }
     public void AudioClear() //좀더 보안해야함, 현재 clip의 값만 초기화를 시켜주는거임
     {
         foreach (var item in _audioSource.Values)
         {
+            item.Stop();
             item.clip = null;
         }
     }
