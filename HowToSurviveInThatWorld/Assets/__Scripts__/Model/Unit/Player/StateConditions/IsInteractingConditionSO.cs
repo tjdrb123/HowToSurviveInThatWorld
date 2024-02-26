@@ -19,6 +19,7 @@ public class IsInteractingCondition : FiniteStateCondition
     private Animator _animator;
     private bool _isInteracting;
     private AnimatorStateInfo _stateInfo;
+    private string _currentAnimStateName;
 
     // Property (Origin SO)
     private new IsInteractingConditionSO OriginSO => base.OriginSO as IsInteractingConditionSO;
@@ -38,8 +39,13 @@ public class IsInteractingCondition : FiniteStateCondition
     {
         _isInteracting = _playerController.IsInteracting;
         _stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-        CheckAnimationState("PickingUp");
-        CheckAnimationState("Dig");
+        
+        if (_stateInfo.IsName("PickingUp"))
+            _currentAnimStateName = "PickingUp";
+        else if (_stateInfo.IsName("Dig"))
+            _currentAnimStateName = "Dig";
+        
+        CheckAnimationState(_currentAnimStateName);
         return _isInteracting;
     }
 
