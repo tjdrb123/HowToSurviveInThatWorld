@@ -51,14 +51,7 @@ public class MovementInteractAction : FiniteStateAction
         if (_playerController._hitColliders[0] != null) 
         {
             var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
-<<<<<<< Updated upstream
-            if (interactableObject != null)
-                interactableObject.Interact(_playerController, _animator);
-            else
-                _playerController.IsInteracting = false;
-=======
             interactableObject.Interact(_playerController, _animator);
->>>>>>> Stashed changes
         }
     }
 
