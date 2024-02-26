@@ -48,21 +48,27 @@ public class MovementInteractAction : FiniteStateAction
 
     public override void FiniteStateEnter()
     {
-        if (OriginSO.Moment == SpecificMoment.OnEnter)
+        if (_playerController._hitColliders[0] != null) 
         {
             var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
+<<<<<<< Updated upstream
             if (interactableObject != null)
                 interactableObject.Interact(_playerController, _animator);
             else
                 _playerController.IsInteracting = false;
+=======
+            interactableObject.Interact(_playerController, _animator);
+>>>>>>> Stashed changes
         }
     }
 
     public override void FiniteStateExit()
     {
-        var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
-        if (interactableObject != null)
+        if (_playerController._hitColliders[0] != null) 
+        {
+            var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
             interactableObject.StopInteract(_playerController, _animator);
+        }
     }
 
     public override void FiniteStateUpdate()
