@@ -13,7 +13,8 @@ public enum E_Sound
 }
 public class Manager_Sound : MonoBehaviour
 {
-    [SerializeField] private List<AudioSource> _arrAudioSource = new List<AudioSource> { };
+    [SerializeField] private List<AudioSource> _bgmAudioSource = new List<AudioSource> { };
+    [SerializeField] private List<AudioSource> _sfxAudioSource = new List<AudioSource> { };
     [SerializeField] private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>(); //오디오 클립을 관리할 예정
 
     public static Manager_Sound instance;
@@ -26,22 +27,46 @@ public class Manager_Sound : MonoBehaviour
         }
         instance = this;
     }
-    public void AudioVolume(float audioVolume) //설정창에서 사용가능하도록
+    public void AudioVolume(float audioVolume, int Choice) //설정창에서 사용가능하도록
     {
-        foreach (AudioSource source in _arrAudioSource)
-            source.volume = audioVolume;
+        switch (Choice)
+        {
+            case 1:
+                foreach (AudioSource source in _bgmAudioSource)
+                    source.volume = audioVolume;
+                break;
+            case 2:
+                foreach (AudioSource source in _sfxAudioSource)
+                    source.volume = audioVolume;
+                break;
+            case 3:
+                foreach (AudioSource source in _bgmAudioSource)
+                    source.volume = audioVolume; 
+                foreach (AudioSource source in _sfxAudioSource)
+                    source.volume = audioVolume;
+                break;
+        }
+    }
+    public void AudioMute(bool isMute) //설정창에서 사용가능하도록
+    {
+        foreach (AudioSource source in _bgmAudioSource)
+            source.mute = isMute;
+        foreach (AudioSource source in _sfxAudioSource)
+            source.mute = isMute;
     }
     private void AddClip(string clipName) //클립을 추가시키는 함수
     {
         AudioClip clip = Resources.Load<AudioClip>($"{clipName}");
         _audioClips.Add(clipName, clip);
     }
-    private void PlayAudioSource(AudioSource audioSource, AudioClip clip, bool loop = true) //배경음 
+    private void PlayAudioSource(AudioSource audioSource, AudioClip clip, bool loop, bool BGM) //배경음 
     {
         if (audioSource != null)
         {
-            if (!_arrAudioSource.Contains(audioSource))
-                _arrAudioSource.Add(audioSource);
+            if (!_bgmAudioSource.Contains(audioSource) && BGM)
+                _bgmAudioSource.Add(audioSource);
+            else if (!_sfxAudioSource.Contains(audioSource) && !BGM)
+                _sfxAudioSource.Add(audioSource);
             audioSource.playOnAwake = loop;
             audioSource.loop = loop;
             audioSource.clip = clip;
@@ -49,17 +74,17 @@ public class Manager_Sound : MonoBehaviour
             audioSource.Play();
         }
     }
-    public void AudioPlay(GameObject audioObject, string name, bool isLoop = false) //해당 오브젝트의 오디오 소스를 가지고 시작함
+    public void AudioPlay(GameObject audioObject, string name, bool isLoop = false, bool isBGM = false) //해당 오브젝트의 오디오 소스를 가지고 시작함
     {
         AudioSource audioSource = AddAudioSource(audioObject);
         if (_audioClips.TryGetValue(name, out AudioClip audioClip))
         {
-            PlayAudioSource(audioSource, audioClip, isLoop);
+            PlayAudioSource(audioSource, audioClip, isLoop, isBGM);
         }
         else
         {
             AddClip(name);
-            PlayAudioSource(audioSource, _audioClips[name], isLoop);
+            PlayAudioSource(audioSource, _audioClips[name], isLoop, isBGM);
         }
     }
     private AudioSource AddAudioSource(GameObject audioObject) //오디오가 없으면 추가해주고 있으면 그냥 반환
@@ -75,8 +100,11 @@ public class Manager_Sound : MonoBehaviour
     }
     public void AudioClear() //좀더 보안해야함, 현재 clip의 값만 초기화를 시켜주는거임
     {
-        foreach (var item in _arrAudioSource)
+        foreach (var item in _bgmAudioSource)
             item.Stop();
-        _arrAudioSource.Clear();
+        foreach (var item in _sfxAudioSource)
+            item.Stop();
+        _bgmAudioSource.Clear();
+        _sfxAudioSource.Clear();
     }
 }
