@@ -219,8 +219,16 @@ public class BasicZombieData
     public void IsHit(int index)
     {
         Debug.Log(index);
-        if (index <= 3)
+        if (index <= 10)
+        {
+            animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
             hitCheck = true;
+        }
+    }
+
+    public void ResetAnimmation()
+    {
+        animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
     }
     
 }
