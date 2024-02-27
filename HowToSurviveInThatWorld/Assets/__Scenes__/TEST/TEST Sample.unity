@@ -1940,7 +1940,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.74, y: 0.49, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5771931845011343314}
@@ -1986,8 +1986,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b28f57a30a99bf745933957ca33c939b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ab9238dadd36a944e897cfae22f40715, type: 3}
+  m_Color: {r: 0, g: 0.2465775, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5152,7 +5152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe42472ca810ca4298fffca256a0dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrAudioSource: []
+  _bgmAudioSource: []
+  _sfxAudioSource: []
 --- !u!1 &2038648247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3959230558104713151, guid: eef5aa02393db4cd385398b22923259b, type: 3}
