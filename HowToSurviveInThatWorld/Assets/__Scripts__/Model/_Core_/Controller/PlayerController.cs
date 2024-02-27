@@ -134,6 +134,8 @@ public class PlayerController : MonoBehaviour
         if (_hitColliders.Length > 0)
         {
             _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
+            
+            // TODO : 만약 인벤토리가 비어 있다면 IsInteracting = true;
             IsInteracting = true;
             
             Vector3 directionToLookAt = _hitColliders[0].transform.position - _transform.position;
