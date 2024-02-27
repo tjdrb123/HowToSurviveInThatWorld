@@ -8,7 +8,9 @@ public class CheckHitting : LeafAction
     protected override void OnStart()
     {
         if (zombieData.hitCheck)
+        {
             zombieData.HitAnimation();
+        }
     }
 
     protected override void OnStop()
