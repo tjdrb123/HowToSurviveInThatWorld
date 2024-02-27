@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class MovementAttackAction : FiniteStateAction
     private Animator _animator;
     
     /*  */
+    
+    
     private Collider[] _targetColliders;
     private Transform _enemy;
     private const float _attackDistance = 1f;
@@ -79,7 +82,8 @@ public class MovementAttackAction : FiniteStateAction
     
     public override void FiniteStateUpdate() 
     { 
-        Debug.DrawRay(_playerController.transform.position + (Vector3.up * 1.0f), _playerController.transform.forward * _weaponDistance, Color.blue);
+        Debug.DrawRay(_playerController.transform.position + (Vector3.up * 1.0f),
+            _playerController.transform.forward * (_attackDistance * _weaponDistance), Color.blue);
         // None
         // Player 와 Enemy 의 거리가 공격범위 안에 있다면
         if (PlayerToEnemyDistance())
@@ -165,7 +169,7 @@ public class MovementAttackAction : FiniteStateAction
             return false;
 
         return Vector3.SqrMagnitude(_playerController.transform.position - _enemy.transform.position) <=
-                             (_attackDistance * _attackDistance) * _weaponDistance;
+                             (_attackDistance * _attackDistance) * (_weaponDistance * _weaponDistance);
     }
     
     // 애니메이션 진행도에 따라 데미지 적용
@@ -186,6 +190,7 @@ public class MovementAttackAction : FiniteStateAction
         if (_enemy != null && _animationTime > _weaponAimTime && _isAttack)
         {
             _playerController.player.ApplyDamage(_playerController.gameObject, _enemy.gameObject);
+            Manager_UnitEvent.Instance.OnDamagedEnemy(); // 이벤트 발생
             _isAttack = false;
         }
     }
@@ -206,6 +211,8 @@ public class MovementAttackAction : FiniteStateAction
     {
         return _animator.GetFloat("WeaponType");
     }
+    
+    /*=================================================================================================================*/
     
     #endregion
 }

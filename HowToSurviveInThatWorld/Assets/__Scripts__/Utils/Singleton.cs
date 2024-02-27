@@ -5,7 +5,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     #region Fields
 
-    private static T _instance;
+    private static T _instance;       
     private static bool _isApplicationQuit;
     private static readonly object _Lock = new();
 

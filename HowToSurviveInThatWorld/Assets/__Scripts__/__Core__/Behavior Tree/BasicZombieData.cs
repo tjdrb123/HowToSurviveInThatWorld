@@ -46,6 +46,7 @@ public class BasicZombieData
 
     public Enemy enemy;
     public readonly float enemyDot = 0.9f;
+    public bool hitCheck;
 
     public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
     {
@@ -126,6 +127,7 @@ public class BasicZombieData
             animator.SetBool(RUN_ANIM_BOOL_NAME, false);
             animator.SetBool(WALK_ANIM_BOOL_NAME, false);
         }
+        
     }
     
     public void IsAnimationRunCheck()
@@ -172,6 +174,17 @@ public class BasicZombieData
         agent.updatePosition = true;
         agent.updateRotation = true;
     }
+
+    public void NavMeshAgentHitSetting()
+    {
+        animator.applyRootMotion = true;
+        agent.speed = 0f;
+        patrolRandomPosCheck = false;
+        
+        agent.isStopped = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+    }
     
     public void NavMeshAgentAttackSetting()
     {
@@ -196,5 +209,26 @@ public class BasicZombieData
     }
 
     #endregion
+    
+    public void HitAnimation()
+    {
+        animator.SetTrigger("IsHit");
+        hitCheck = false;
+    }
+
+    public void IsHit(int index)
+    {
+        Debug.Log(index);
+        if (index <= 10)
+        {
+            animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+            hitCheck = true;
+        }
+    }
+
+    public void ResetAnimmation()
+    {
+        animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+    }
     
 }
