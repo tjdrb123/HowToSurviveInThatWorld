@@ -141,6 +141,11 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(directionToLookAt);
             _transform.rotation = rotation;
         }
+        else
+        {
+            // TODO : 'UI에 상호작용 오브젝트가 존재하지 않습니다' 띄우기
+            DebugLogger.LogWarning("_hitColliders.Length가 0입니다.");
+        }
     }
 
     private void CanceledInteract()
