@@ -16,6 +16,9 @@ public class Manager_Sound : MonoBehaviour
     [SerializeField] private List<AudioSource> _bgmAudioSource = new List<AudioSource> { };
     [SerializeField] private List<AudioSource> _sfxAudioSource = new List<AudioSource> { };
     [SerializeField] private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>(); //오디오 클립을 관리할 예정
+    public bool IsMute { get; set; }
+    public float BGMVolume { get; set; }
+    public float SFXVolume { get; set; }
 
     public static Manager_Sound instance;
     private void Awake()
@@ -26,29 +29,36 @@ public class Manager_Sound : MonoBehaviour
             return;
         }
         instance = this;
+        BGMVolume = 0.4f;
+        SFXVolume = 0.4f;
     }
     public void AudioVolume(float audioVolume, int Choice) //설정창에서 사용가능하도록
     {
         switch (Choice)
         {
-            case 1:
+            case 1: //Bgm 볼륨
+                BGMVolume = audioVolume;
                 foreach (AudioSource source in _bgmAudioSource)
-                    source.volume = audioVolume;
+                    source.volume = BGMVolume;
                 break;
-            case 2:
+            case 2: //Sfx 볼륨
+                SFXVolume = audioVolume;
                 foreach (AudioSource source in _sfxAudioSource)
-                    source.volume = audioVolume;
+                    source.volume = SFXVolume;
                 break;
-            case 3:
+            case 3: //전체 볼륨
+                BGMVolume = audioVolume;
+                SFXVolume = audioVolume;
                 foreach (AudioSource source in _bgmAudioSource)
-                    source.volume = audioVolume; 
+                    source.volume = BGMVolume; 
                 foreach (AudioSource source in _sfxAudioSource)
-                    source.volume = audioVolume;
+                    source.volume = SFXVolume;
                 break;
         }
     }
     public void AudioMute(bool isMute) //설정창에서 사용가능하도록
     {
+        IsMute = isMute;
         foreach (AudioSource source in _bgmAudioSource)
             source.mute = isMute;
         foreach (AudioSource source in _sfxAudioSource)
@@ -70,6 +80,8 @@ public class Manager_Sound : MonoBehaviour
             audioSource.playOnAwake = loop;
             audioSource.loop = loop;
             audioSource.clip = clip;
+            audioSource.mute = IsMute;
+            audioSource.volume = BGM ? BGMVolume : SFXVolume;
             audioSource.spatialBlend = loop == true ? 1f : 0f; //SpatialBlend의 값이 1이면 3D 0이면 2D이다
             audioSource.Play();
         }
