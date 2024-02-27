@@ -110,18 +110,22 @@ public class MovementAttackAction : FiniteStateAction
             case 0:
                 _weaponDistance = 1.5f;
                 _weaponAimTime = 0.35f;
+                _playerController.player.weaponTypeDamage = 40;
                 break;
             case 1:
                 _weaponDistance = 2f;
                 _weaponAimTime = 0.35f;
+                _playerController.player.weaponTypeDamage = 10;
                 break;
             case 2:
                 _weaponDistance = 10f;
                 _weaponAimTime = 0.05f;
+                _playerController.player.weaponTypeDamage = -20;
                 break;
             case 3:
                 _weaponDistance = 15f;
                 _weaponAimTime = 0.05f;
+                _playerController.player.weaponTypeDamage = -40;
                 break;
         }
     }

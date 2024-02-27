@@ -3,6 +3,8 @@ using UnityEngine;
 
 public sealed class Player : Unit, ICombative
 {
+    public int weaponTypeDamage;
+    
     public void ApplyDamage(Object source, GameObject target)
     {
         IDamageable damageable = target.GetComponent<IDamageable>(); // 플레이어의 Unit을 가져옴
@@ -14,7 +16,7 @@ public sealed class Player : Unit, ICombative
 
             Type = E_StatModifier_OperatorType.Additive,
 
-            Magnitude = (-1) * _statController.GetStat(E_StatType.Damage).Value,
+            Magnitude = ((-1) * _statController.GetStat(E_StatType.Damage).Value) + weaponTypeDamage,
 
             Source = source,
 
