@@ -12,7 +12,10 @@ public class RepeatNode : Decorator
     protected override void OnStart()
     {
         if (_hitCheck)
-           Manager_UnitEvent.Instance.OnDamaged += zombieData.IsHit;
+        {
+            Manager_UnitEvent.Instance.OnDamaged += zombieData.IsHit;
+            Manager_UnitEvent.Instance.OnDamaged += zombieData.effects.HitParticle;
+        }
     }
 
     protected override void OnStop()

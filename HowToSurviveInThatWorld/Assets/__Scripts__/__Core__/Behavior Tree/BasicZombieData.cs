@@ -47,6 +47,7 @@ public class BasicZombieData
     public Enemy enemy;
     public readonly float enemyDot = 0.9f;
     public bool hitCheck;
+    public EnemyEffects effects;
 
     public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
     {
@@ -58,6 +59,7 @@ public class BasicZombieData
         basicZombieData.InitializeAgent();
 
         basicZombieData.enemy = gameObject.GetComponent<Enemy>();
+        basicZombieData.effects = gameObject.GetComponent<EnemyEffects>();
         
         return basicZombieData;
     }
@@ -216,13 +218,16 @@ public class BasicZombieData
         hitCheck = false;
     }
 
-    public void IsHit(int index)
+    public void IsHit(int index, GameObject gameObject)
     {
-        Debug.Log(index);
-        if (index <= 10)
+        if (gameObject == this.gameObject)
         {
-            animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
-            hitCheck = true;
+            if (index <= 10)
+            {
+                animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+                hitCheck = true;
+            }
+            
         }
     }
 
