@@ -190,7 +190,7 @@ public class MovementAttackAction : FiniteStateAction
         if (_enemy != null && _animationTime > _weaponAimTime && _isAttack)
         {
             _playerController.player.ApplyDamage(_playerController.gameObject, _enemy.gameObject);
-            Manager_UnitEvent.Instance.OnDamagedEnemy(); // 이벤트 발생
+            Manager_UnitEvent.Instance.OnDamagedEnemy(_enemy.gameObject); // 이벤트 발생
             _isAttack = false;
         }
     }

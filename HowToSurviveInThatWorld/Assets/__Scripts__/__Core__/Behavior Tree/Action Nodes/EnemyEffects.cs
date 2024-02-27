@@ -6,13 +6,12 @@ using UnityEngine.AI;
 
 public class EnemyEffects : MonoBehaviour
 {
-    private Animator _animator;
-    private NavMeshAgent _agent;
+    public ParticleSystem hitPrefab;
+    private Collider _collider;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
-        _agent = GetComponent<NavMeshAgent>();
+        _collider = GetComponent<Collider>();
     }
 
     private void Start()
@@ -21,9 +20,18 @@ public class EnemyEffects : MonoBehaviour
     }
     
     // 좀비 피격 파티클 소환
-    private void HitParticle()
+    public void HitParticle(int index, GameObject gameObject)
     {
-        
+        if (gameObject == this.gameObject)
+        {
+            var position = transform.position;
+            Vector3 hitPoint = _collider.ClosestPoint(position) + (Vector3.up * 0.8f);
+            Vector3 hitDirection = (hitPoint - position).normalized;
+
+            ParticleSystem hitParticle = Instantiate(hitPrefab, hitPoint, Quaternion.LookRotation(hitDirection));
+            hitParticle.Play();
+            Destroy(hitParticle.gameObject, 0.8f);
+        }
     }
 
     private void OnDisable()
