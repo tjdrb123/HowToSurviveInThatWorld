@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public enum E_Sound
 {
@@ -12,8 +13,9 @@ public enum E_Sound
 }
 public class Manager_Sound : MonoBehaviour
 {
-    Dictionary<string, AudioSource> _audioSource = new Dictionary<string, AudioSource>();
-    Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>(); //오디오 클립을 관리할 예정
+    [SerializeField] private List<AudioSource> _bgmAudioSource = new List<AudioSource> { };
+    [SerializeField] private List<AudioSource> _sfxAudioSource = new List<AudioSource> { };
+    [SerializeField] private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>(); //오디오 클립을 관리할 예정
 
     public static Manager_Sound instance;
     private void Awake()
@@ -25,50 +27,64 @@ public class Manager_Sound : MonoBehaviour
         }
         instance = this;
     }
-    public void AddClip(string clipName) //클립을 추가시키는 함수
+    public void AudioVolume(float audioVolume, int Choice) //설정창에서 사용가능하도록
     {
-        AudioClip clip = Resources.Load($"{clipName}") as AudioClip;
+        switch (Choice)
+        {
+            case 1:
+                foreach (AudioSource source in _bgmAudioSource)
+                    source.volume = audioVolume;
+                break;
+            case 2:
+                foreach (AudioSource source in _sfxAudioSource)
+                    source.volume = audioVolume;
+                break;
+            case 3:
+                foreach (AudioSource source in _bgmAudioSource)
+                    source.volume = audioVolume; 
+                foreach (AudioSource source in _sfxAudioSource)
+                    source.volume = audioVolume;
+                break;
+        }
+    }
+    public void AudioMute(bool isMute) //설정창에서 사용가능하도록
+    {
+        foreach (AudioSource source in _bgmAudioSource)
+            source.mute = isMute;
+        foreach (AudioSource source in _sfxAudioSource)
+            source.mute = isMute;
+    }
+    private void AddClip(string clipName) //클립을 추가시키는 함수
+    {
+        AudioClip clip = Resources.Load<AudioClip>($"{clipName}");
         _audioClips.Add(clipName, clip);
     }
-    public void PlayBGM(string bgmName, bool loop = true) //배경음 
+    private void PlayAudioSource(AudioSource audioSource, AudioClip clip, bool loop, bool BGM) //배경음 
     {
-        if (!_audioSource.TryGetValue(bgmName, out AudioSource source)) //초기 설정
+        if (audioSource != null)
         {
-            if (!gameObject.TryGetComponent(out source))
-            {
-                source = gameObject.AddComponent<AudioSource>();
-            }
-            source.loop = loop;
-            _audioSource[bgmName] = source;
+            if (!_bgmAudioSource.Contains(audioSource) && BGM)
+                _bgmAudioSource.Add(audioSource);
+            else if (!_sfxAudioSource.Contains(audioSource) && !BGM)
+                _sfxAudioSource.Add(audioSource);
+            audioSource.playOnAwake = loop;
+            audioSource.loop = loop;
+            audioSource.clip = clip;
+            audioSource.spatialBlend = loop == true ? 1f : 0f; //SpatialBlend의 값이 1이면 3D 0이면 2D이다
+            audioSource.Play();
         }
-        source.clip = _audioClips[bgmName];
-        _audioSource[bgmName].Play();
     }
-    public void PlaySFX(AudioSource audioSource, string sfxName) //게임오브젝트의 AudioSource에 접근해서 값 전달하기, 게임오브젝트의 AudiloSource생성하게 하기
+    public void AudioPlay(GameObject audioObject, string name, bool isLoop = false, bool isBGM = false) //해당 오브젝트의 오디오 소스를 가지고 시작함
     {
-        if (_audioClips.TryGetValue(sfxName, out AudioClip source))
+        AudioSource audioSource = AddAudioSource(audioObject);
+        if (_audioClips.TryGetValue(name, out AudioClip audioClip))
         {
-            audioSource.clip = source;
-            audioSource.loop = false;
-        }
-        audioSource.Play();
-    }
-    public void AudioPlay(AudioSource audio, string name, bool isBgm = false, bool isLoop = false) 
-    {
-        if (isBgm)
-        {
-            //BGM을 실행시킨다
+            PlayAudioSource(audioSource, audioClip, isLoop, isBGM);
         }
         else
         {
-            if (isLoop)
-            {
-                //Loop인 SFX실행
-            }
-            else
-            {
-                //일반 SFX실행
-            }
+            AddClip(name);
+            PlayAudioSource(audioSource, _audioClips[name], isLoop, isBGM);
         }
     }
     private AudioSource AddAudioSource(GameObject audioObject) //오디오가 없으면 추가해주고 있으면 그냥 반환
@@ -80,16 +96,15 @@ public class Manager_Sound : MonoBehaviour
             return audio;
         }
         else
-        {
             return audio;
-        }    
     }
     public void AudioClear() //좀더 보안해야함, 현재 clip의 값만 초기화를 시켜주는거임
     {
-        foreach (var item in _audioSource.Values)
-        {
+        foreach (var item in _bgmAudioSource)
             item.Stop();
-            item.clip = null;
-        }
+        foreach (var item in _sfxAudioSource)
+            item.Stop();
+        _bgmAudioSource.Clear();
+        _sfxAudioSource.Clear();
     }
 }
