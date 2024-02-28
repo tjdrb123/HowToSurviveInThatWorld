@@ -85,7 +85,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8f5732c1eca62480b8afa0221b0309ea
-  position: {x: 0.000019550323, y: 350}
+  position: {x: -0.000019073486, y: 350}
   dataContext:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveToTarget: {fileID: 0}

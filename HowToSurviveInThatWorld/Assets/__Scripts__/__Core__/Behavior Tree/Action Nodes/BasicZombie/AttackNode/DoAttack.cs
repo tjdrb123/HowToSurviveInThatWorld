@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DoAttack : LeafAction
 {
-    
     protected override void OnStart()
     {
         

@@ -105,7 +105,7 @@ public class BasicZombieData
             {
                 attackTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1;
                 
-                return attackTime > 0.01 && attackTime < 0.99f;
+                return attackTime > 0f && attackTime < 0.99f;
             }
         }
         
@@ -190,7 +190,7 @@ public class BasicZombieData
     
     public void NavMeshAgentAttackSetting()
     {
-        IsAnimationAttackCheck();
+        //IsAnimationAttackCheck();
         
         animator.applyRootMotion = false;
         agent.isStopped = true;

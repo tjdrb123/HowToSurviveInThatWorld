@@ -36,8 +36,8 @@ public class CheckAttacking : LeafAction
     {
         if (zombieData.detectedPlayer != null && _attackTime > 0.35f && _isAttack)
         {
-            if (Vector3.SqrMagnitude(zombieData.detectedPlayer.position - zombieData.transform.position) <
-                (zombieData.attackDistance * zombieData.attackDistance))
+            if (Vector3.SqrMagnitude(zombieData.detectedPlayer.position - zombieData.transform.position) <=
+                (zombieData.attackDistance * zombieData.attackDistance) + 0.5f)
             {
                 Vector3 directionToPlayer =
                     (zombieData.detectedPlayer.position - zombieData.transform.position).normalized;
