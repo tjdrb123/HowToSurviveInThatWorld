@@ -43,6 +43,7 @@ public class MovementCrouchAction : FiniteStateAction
         if (OriginSO.Moment == SpecificMoment.OnEnter)
         {
             _animator.SetBool("IsCrouching", true);
+            _playerController.IsRunning = false;
         }
     }
 
