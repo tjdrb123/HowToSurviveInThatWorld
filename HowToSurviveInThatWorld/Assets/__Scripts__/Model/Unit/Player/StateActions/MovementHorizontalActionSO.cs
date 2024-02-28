@@ -38,6 +38,7 @@ public class MovementHorizontalAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
+        OriginSO.MovementSpeed = _playerController.IsRunning ? 4.2f : (_playerController.IsCrouching ? 1.5f : 2.7f);
         _playerController.MovementVector.x = _playerController.MovementInput.x * OriginSO.MovementSpeed;
         _playerController.MovementVector.z = _playerController.MovementInput.z * OriginSO.MovementSpeed;
     }
