@@ -85,6 +85,15 @@ public class Manager_Inventory : MonoBehaviour
             return false;
         }
     }
+    public bool InventoryMaxCheck()
+    {
+        bool isBase = InventoryMaxCheck(BaseInventory.BaseSlot.Length, BaseSlotDatas);
+        bool isBackPack = EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.KeyNumber == 0 ? false :InventoryMaxCheck(EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.PlusValue, BackPackSlotDatas);
+        if (isBackPack || isBase)
+            return true;
+        else 
+            return false;
+    }
     private bool InventoryMaxCheck(int value, ItemDataSo[] itemDataSo) //Data의 공간을 체크를 합니다.
     {
         int count = 0;

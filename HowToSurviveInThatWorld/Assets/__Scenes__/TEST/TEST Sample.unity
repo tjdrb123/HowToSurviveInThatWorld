@@ -503,7 +503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.90900004, y: 0.48680556}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45, y: 6.5}
+  m_AnchoredPosition: {x: -424, y: 6.5}
   m_SizeDelta: {x: -46.116943, y: -552.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &423488560
@@ -1114,7 +1114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73840183, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.45507812, y: -0.059936523}
+  m_AnchoredPosition: {x: 0.45507812, y: -0.059814453}
   m_SizeDelta: {x: 1.0900269, y: 0.13000488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &700297224
@@ -1540,7 +1540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.90900004, y: 0.48680556}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45, y: 211}
+  m_AnchoredPosition: {x: -424, y: 211}
   m_SizeDelta: {x: -46.116943, y: -552.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954403479
@@ -4321,7 +4321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgmAudioSource: []
   _sfxAudioSource: []
-  _volume: 0
 --- !u!1 &2038648247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3959230558104713151, guid: eef5aa02393db4cd385398b22923259b, type: 3}
@@ -4339,6 +4338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1882bbfbb208a45ad9040f346f467c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPrefab: {fileID: 0}
 --- !u!1 &2046984413
 GameObject:
   m_ObjectHideFlags: 0
