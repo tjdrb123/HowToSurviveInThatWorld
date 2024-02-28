@@ -34,6 +34,14 @@ public class MovementHorizontalAction : FiniteStateAction
     public override void FiniteStateUpdate() 
     { 
         // None
+        if (OriginSO.MovementSpeed > 2.0f)
+        {
+            Manager_UnitEvent.Instance.OnMoveSoundEnemy(); // 이동 소리 이벤트
+        }
+        else
+        {
+            Manager_UnitEvent.Instance.OutMoveSoundEnemy();
+        }
     }
     
     public override void FiniteStateFixedUpdate()
