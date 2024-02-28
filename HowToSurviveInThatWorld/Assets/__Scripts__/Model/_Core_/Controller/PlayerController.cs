@@ -108,6 +108,9 @@ public class PlayerController : MonoBehaviour
     private void Run()
     {
         IsRunning = !IsRunning;
+
+        if (IsRunning && IsCrouching)
+            IsCrouching = false;
     }
 
     private void Crouch()
