@@ -15,6 +15,7 @@ public class RepeatNode : Decorator
         {
             Manager_UnitEvent.Instance.OnDamaged += zombieData.IsHit;
             Manager_UnitEvent.Instance.OnDamaged += zombieData.effects.HitParticle;
+            Manager_UnitEvent.Instance.OnHitProgress += zombieData.PlayerAllocate;
         }
     }
 
@@ -30,6 +31,7 @@ public class RepeatNode : Decorator
             Death();
             Manager_UnitEvent.Instance.OnDamaged -= zombieData.IsHit;
             Manager_UnitEvent.Instance.OnDamaged -= zombieData.effects.HitParticle;
+            Manager_UnitEvent.Instance.OnHitProgress -= zombieData.PlayerAllocate;
         }
         else 
             child.Update();
