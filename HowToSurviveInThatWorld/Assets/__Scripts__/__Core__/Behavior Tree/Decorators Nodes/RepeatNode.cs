@@ -16,6 +16,10 @@ public class RepeatNode : Decorator
             Manager_UnitEvent.Instance.OnDamaged += zombieData.IsHit;
             Manager_UnitEvent.Instance.OnDamaged += zombieData.effects.HitParticle;
             Manager_UnitEvent.Instance.OnHitProgress += zombieData.PlayerAllocate;
+            Manager_UnitEvent.Instance.OnAttackSound += zombieData.SoundDistanceInPlayer;
+            Manager_UnitEvent.Instance.OnMoveSound += zombieData.MoveSoundInPlayer;
+            Manager_UnitEvent.Instance.OutMoveSound += zombieData.MoveSoundOutPlayer;
+
         }
     }
 
@@ -32,6 +36,9 @@ public class RepeatNode : Decorator
             Manager_UnitEvent.Instance.OnDamaged -= zombieData.IsHit;
             Manager_UnitEvent.Instance.OnDamaged -= zombieData.effects.HitParticle;
             Manager_UnitEvent.Instance.OnHitProgress -= zombieData.PlayerAllocate;
+            Manager_UnitEvent.Instance.OnAttackSound -= zombieData.SoundDistanceInPlayer;
+            Manager_UnitEvent.Instance.OnMoveSound -= zombieData.MoveSoundInPlayer;
+            Manager_UnitEvent.Instance.OutMoveSound -= zombieData.MoveSoundOutPlayer;
         }
         else 
             child.Update();

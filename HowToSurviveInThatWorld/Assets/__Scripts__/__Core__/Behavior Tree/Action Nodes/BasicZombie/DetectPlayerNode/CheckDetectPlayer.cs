@@ -23,33 +23,61 @@ public class CheckDetectPlayer : LeafAction
 
     protected override E_NodeState OnUpdate()
     {
-        if (_overlapColliders != null & _overlapColliders.Length> 0)
+        if (zombieData.attackSoundCheck)
         {
+            // Attack Sound Distance Check
+            var overlapColliders = Physics.OverlapSphere(zombieData.transform.position, zombieData.attackSoundDistance
+                , zombieData.PLAYER_LAYER_MASK);
 
-            Transform undefinedPlayer = _overlapColliders[0].transform;
-            Vector3 directionToPlayer = (undefinedPlayer.position - zombieData.transform.position).normalized;
-            
-            if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) > zombieData.enemyDot)
+            if (overlapColliders != null & overlapColliders.Length > 0)
             {
-                float distanceToTarget = Vector3.Distance(undefinedPlayer.position ,zombieData.transform.position);
-
-                if (!Physics.Raycast(zombieData.transform.position, directionToPlayer, distanceToTarget, zombieData.ENEMY_LAYER_MASK))
-                {
-                    // 순찰 노드 최초확인 bool값 초기화.
-                    zombieData.patrolRandomPosCheck = true;
-                    zombieData.idleWaitCheck = true;
-                    
-                    zombieData.detectedPlayer = undefinedPlayer;
-                }
+                zombieData.detectedPlayer = overlapColliders[0].transform;
+                return E_NodeState.Success;
             }
-
-            InspectorViewData(); // 삭제 예정
             
-            return E_NodeState.Success;
+            // Detect Distance Check
+            if (_overlapColliders != null & _overlapColliders.Length> 0)
+            {
+                DetectDistanceCheck();
+            
+                return E_NodeState.Success;
+            }
+        }
+        else if (zombieData.moveSoundCheck)
+        {
+            // Move Sound Distance Check
+            var overlapColliders = Physics.OverlapSphere(zombieData.transform.position, zombieData.moveSoundDistance
+                , zombieData.PLAYER_LAYER_MASK);
+
+            if (overlapColliders != null & overlapColliders.Length > 0)
+            {
+                zombieData.detectedPlayer = overlapColliders[0].transform;
+                return E_NodeState.Success;
+            }
+            
+            // Detect Distance Check
+            if (_overlapColliders != null & _overlapColliders.Length> 0)
+            {
+                DetectDistanceCheck();
+            
+                return E_NodeState.Success;
+            }
+        }
+        else
+        {
+            if (_overlapColliders != null & _overlapColliders.Length> 0)
+            {
+                DetectDistanceCheck();
+            
+                return E_NodeState.Success;
+            }
         }
 
         InspectorViewData(); // 삭제 예정
+        zombieData.moveSoundCheck = false;
+        zombieData.attackSoundCheck = false;
         zombieData.detectedPlayer = null;
+        zombieData.detectDistance = 10f;
         
         return E_NodeState.Failure;
     }
@@ -57,5 +85,27 @@ public class CheckDetectPlayer : LeafAction
     private void InspectorViewData()
     {
         dataContext.moveToTarget = zombieData.detectedPlayer;
+    }
+
+    private void DetectDistanceCheck()
+    {
+        Transform undefinedPlayer = _overlapColliders[0].transform;
+        Vector3 directionToPlayer = (undefinedPlayer.position - zombieData.transform.position).normalized;
+            
+        if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) > zombieData.enemyDot)
+        {
+            float distanceToTarget = Vector3.Distance(undefinedPlayer.position ,zombieData.transform.position);
+
+            if (!Physics.Raycast(zombieData.transform.position, directionToPlayer, distanceToTarget, zombieData.ENEMY_LAYER_MASK))
+            {
+                // 순찰 노드 최초확인 bool값 초기화.
+                zombieData.patrolRandomPosCheck = true;
+                zombieData.idleWaitCheck = true;
+                    
+                zombieData.detectedPlayer = undefinedPlayer;
+            }
+        }
+
+        InspectorViewData(); // 삭제 예정
     }
 }

@@ -10,6 +10,7 @@ public class CheckHitting : LeafAction
         if (zombieData.hitCheck)
         {
             zombieData.HitAnimation();
+            zombieData.detectDistance = 20f; // 피격시 감지범위 상승
         }
     }
 
@@ -25,7 +26,7 @@ public class CheckHitting : LeafAction
             zombieData.NavMeshAgentHitSetting();
             return E_NodeState.Running;
         }
-
+        
         return E_NodeState.Failure;
     }
     
