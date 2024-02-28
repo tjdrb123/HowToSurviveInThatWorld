@@ -10,23 +10,6 @@
  * public enum E_Player_State { types... }
 */
 
-#region PlayerFSM Enum
-
-public enum E_Player_Locations
-{
-    Dungeon = 1,
-    Village,
-};
-
-public enum E_Player_States
-{
-    NormallyState,
-    GlobalState,
-}
-
-#endregion
-
-
 
 #region Coroutine Key
 
@@ -35,11 +18,22 @@ public enum E_Player_States
 //   - ex) NetworkLogin 과 같은 타입을 안에 작성하면 됩니다.
 public enum E_CoroutineKey
 {
-    None
+    ChargeFillAmount,
 }
 
 #endregion
 
+
+#region Node State
+
+public enum E_NodeState
+{
+    Running,
+    Success,
+    Failure
+}
+
+#endregion
 
 
 #region Stat Type
@@ -54,11 +48,9 @@ public enum E_StatType
     Defense,
     CriticalChance,
     CriticalDamage,
-    
 }
 
 #endregion
-
 
 
 #region Stat Modeifier Operator Type

@@ -1,105 +1,31 @@
 
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public sealed class Player : Unit
+public sealed class Player : Unit, ICombative
 {
-    #region Fields
-
-    // Input Reader
-    [SerializeField] private InputReader _inputReader;
-
-    private Vector2 _inputVector;
-
-    // Input Associated.
-    [NonSerialized] public bool IsAttack;
-    [NonSerialized] public bool IsRunning;
-    [NonSerialized] public bool IsCrouching;
-    [NonSerialized] public Vector3 MovementInput;
-    [NonSerialized] public Vector3 MovementVector;
-
-    #endregion
-
-
-
-    #region Input Events
-
-    protected override void EntitySubscribeEvents()
+    public int weaponTypeDamage;
+    
+    public void ApplyDamage(Object source, GameObject target)
     {
-        // 추 후에 이벤트 구독 내용이 변경 될 경우 사용 예정
-        // base.EntitySubscribeEvents();
+        IDamageable damageable = target.GetComponent<IDamageable>(); // 플레이어의 Unit을 가져옴
 
-        _inputReader.OnMoveEvent += Movement;
-        _inputReader.OnCrouchEvent += Crouch;
-        _inputReader.OnAttackEvent += Attack;
-        _inputReader.OnAttackCanceledEvent += AttackCanceled;
-    }
+        HealthStatModifier rawDamage = new HealthStatModifier
+        {
 
-    protected override void EntityDisposeEvents()
-    {
-        // 추 후에 이벤트 구독 내용이 변경 될 경우 사용 예정
-        // base.EntityDisposeEvents();
+            Instigator = gameObject,
 
-        _inputReader.OnMoveEvent -= Movement;
-        _inputReader.OnCrouchEvent -= Crouch;
-        _inputReader.OnAttackEvent -= Attack;
-        _inputReader.OnAttackCanceledEvent -= AttackCanceled;
-    }
+            Type = E_StatModifier_OperatorType.Additive,
 
-    #endregion
+            Magnitude = ((-1) * _statController.GetStat(E_StatType.Damage).Value) + weaponTypeDamage,
 
+            Source = source,
 
-
-    #region Unity Behavior
-
-    protected override void Awake()
-    {
-        // Base (Unit) Awake 초기화 진행
-        base.Awake();
-
-    }
-
-    private void FixedUpdate()
-    {
-
-    }
-
-    #endregion
-
-
-
-    #region Recalculate Movement Input
-
-
-
-    #endregion
-
-
-
-    #region Input Event Listener
-
-    // # 인풋 관련된 이벤트 리스너들이 추가 될 예정.
-
-    private void Movement(Vector2 movementInput)
-    {
-        _inputVector = movementInput;
-        MovementInput = new Vector3(_inputVector.x, 0f, _inputVector.y);
-    }
-
-    private void Crouch()
-    {
-        IsCrouching = !IsCrouching;
-    }
-
-    private void Attack()
-    {
+            IsCriticalHit = false,
+        };
         
+        // 추가적 연산작업 (크리티컬, 랜덤 데미지 추가 등)
+        damageable.TakeDamage(rawDamage);
     }
-
-    private void AttackCanceled()
-    {
-        
-    }
-
-#endregion
 }

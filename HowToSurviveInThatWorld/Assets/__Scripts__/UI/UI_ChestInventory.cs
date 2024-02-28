@@ -15,6 +15,7 @@ public class UI_ChestInventory : UI_Popup
         ChestInven
     }
     public ItemData[] ItemData;
+    public GameObject Object;
     private void Start()
     {
         DataReset();
@@ -33,6 +34,7 @@ public class UI_ChestInventory : UI_Popup
         GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BaseSlotDatas);
         GetObject((int)E_Object.BackPack).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BackPackSlotDatas);
         GetObject((int)E_Object.ChestInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.ChestItemDatas);
+        GetObject((int)E_Object.BackPack).GetComponent<Inventory>().inventoryAvailableSlots = Manager_Inventory.Instance.EquipInventory.GetSlot(E_SlotType.BackPack).ItemData.PlusValue;
     }
     private void BtnClose()
     {
@@ -42,6 +44,8 @@ public class UI_ChestInventory : UI_Popup
             Manager_Inventory.Instance.BackPackSlotDatas[i] = GetObject((int)E_Object.BackPack).GetComponent<Inventory>().BaseSlot[i].ItemData;
             Manager_Inventory.Instance.ChestItemDatas[i] = GetObject((int)E_Object.ChestInven).GetComponent<Inventory>().BaseSlot[i].ItemData;
         }
+        if (Object != null && Manager_Inventory.Instance.ObjectDestroy(Object))
+            Destroy(Object);
         ClosePopup();
     }
 }

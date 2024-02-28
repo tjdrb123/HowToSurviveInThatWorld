@@ -1,0 +1,458 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8532711879717957051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602d0575120a44dc4951d8d1a309a070, type: 3}
+  m_Name: CorrectPathCheck
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 558d83cd9323a491f91b0c41862ecb33
+  position: {x: -426.00012, y: 741.6502}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-8221056337593287692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbd66d4a03dc4bcfbc37b08960ca709, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c995a279d4db1465eb6d2d2b2b2567b3
+  position: {x: 0, y: 223}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  children:
+  - {fileID: 8589194665179551575}
+  - {fileID: -7072453857577340791}
+  - {fileID: -1477989384707575478}
+--- !u!114 &-7898985485091875802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107818029dd084dc5af4a135684b81c0, type: 3}
+  m_Name: IdleWaitTimeCheck
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1c8c570de19a848458a028a634b7303b
+  position: {x: -120.00013, y: 871.0001}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-7072453857577340791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f421ba8872e54d84946edd368fa3588, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8f5732c1eca62480b8afa0221b0309ea
+  position: {x: 0.000019550323, y: 350}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  children:
+  - {fileID: 1477353830283427173}
+  - {fileID: -2027711742792120597}
+  - {fileID: 6305509357230191711}
+--- !u!114 &-5652991603656940799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33e4f2410ad243ecb57fd1b9fbc981f, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 63a2d511d6e48488a8010cf146240167
+  position: {x: 0, y: 101}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  child: {fileID: -8221056337593287692}
+--- !u!114 &-5362378529858528355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedffa666290b43d18801ea2cd0a5720, type: 3}
+  m_Name: CheckHitting
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 300fd6530ac8e4939880d867d3706467
+  position: {x: -896, y: 613}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-4306604687214208898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f421ba8872e54d84946edd368fa3588, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6c6d1be479ac44c91b876ee8a14b6bd6
+  position: {x: -233.00021, y: 742.0001}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  children:
+  - {fileID: 1033255165626535057}
+  - {fileID: -7898985485091875802}
+--- !u!114 &-3225983735596749919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7fdd2e77a1d49179381692bb0f4991, type: 3}
+  m_Name: CheckDetectPlayer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c5e647b89687248858827c93f4b6aa53
+  position: {x: -726.00006, y: 613.0001}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-2468233131542709725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbd66d4a03dc4bcfbc37b08960ca709, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a5cef332096f642c9b7bc8a305268e11
+  position: {x: -576, y: 475.9999}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  children:
+  - {fileID: -5362378529858528355}
+  - {fileID: -3225983735596749919}
+  - {fileID: 3187873613838283423}
+--- !u!114 &-2027711742792120597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8a9b594cbc34d6ea198881a5b829e1, type: 3}
+  m_Name: PlayerInAttackRange
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 93e67161820a24b4bb868d29830b21cf
+  position: {x: -4.000029, y: 475.6501}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-1477989384707575478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6207768eccb584a13a40699682362d4d, type: 3}
+  m_Name: DoTracking
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d322632846a07464d94a302acd1071d2
+  position: {x: 601.3, y: 350}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &-410581840800522454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb32c7dcb9764396b9925d7aecbe3d3, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b698daab455444cf688a76dec7aff156
+  position: {x: 0, y: -4}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  child: {fileID: -5652991603656940799}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8844472093ac24c5990348130ce164f2, type: 3}
+  m_Name: BasicZombie
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -410581840800522454}
+  treeState: 0
+  nodes:
+  - {fileID: -410581840800522454}
+  - {fileID: -5652991603656940799}
+  - {fileID: -8221056337593287692}
+  - {fileID: 8589194665179551575}
+  - {fileID: -7072453857577340791}
+  - {fileID: -1477989384707575478}
+  - {fileID: -2468233131542709725}
+  - {fileID: -3225983735596749919}
+  - {fileID: 3187873613838283423}
+  - {fileID: 1916479620258908821}
+  - {fileID: 1033255165626535057}
+  - {fileID: -4306604687214208898}
+  - {fileID: -7898985485091875802}
+  - {fileID: -8532711879717957051}
+  - {fileID: 1477353830283427173}
+  - {fileID: -2027711742792120597}
+  - {fileID: 6305509357230191711}
+  - {fileID: -5362378529858528355}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+--- !u!114 &1033255165626535057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838bd92750a2c424cbfe032063686eae, type: 3}
+  m_Name: CheckArrivalAtDestination
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 28d9ff5b6b1a54c34a9d02bba4ce530f
+  position: {x: -372.50012, y: 871.0001}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &1477353830283427173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787d1b4306c2d4826a0b3c307d31759e, type: 3}
+  m_Name: CheckAttacking
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: cb63483d9f1fc44ef9c3e797b466113a
+  position: {x: -195, y: 475.6501}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &1916479620258908821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c297b3e88f5a54e798f4c6c0e9848a2b, type: 3}
+  m_Name: RandomPositionAssignment
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6a1b1c789bb4347daba9ec147eba5ccd
+  position: {x: -672.00006, y: 742.0001}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &3187873613838283423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbd66d4a03dc4bcfbc37b08960ca709, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8a19de98a17944a65b3ccb5297ac0cfa
+  position: {x: -426.00012, y: 613.35016}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  children:
+  - {fileID: 1916479620258908821}
+  - {fileID: -8532711879717957051}
+  - {fileID: -4306604687214208898}
+--- !u!114 &6305509357230191711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7074fc0420c04a60b424f9e35238925, type: 3}
+  m_Name: DoAttack
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 35883692704814a8284f28976c7bba2e
+  position: {x: 195.99997, y: 475.6501}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+--- !u!114 &8589194665179551575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6f1f4c4e9ff40b49f13bf0aa9a8171, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f13abffdf59584c108bfaa980f4c5b9c
+  position: {x: -576.00006, y: 350.00006}
+  dataContext:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToTarget: {fileID: 0}
+    patrolMinPos: {x: 0, y: 0}
+    patrolMaxPos: {x: 0, y: 0}
+  description: 
+  child: {fileID: -2468233131542709725}

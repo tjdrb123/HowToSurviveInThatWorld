@@ -11,16 +11,16 @@ public class MovementCrouchActionSO : FiniteStateActionSO
     // Properties
     
     public FiniteStateAction.SpecificMoment Moment => _moment;
-    protected override FiniteStateAction CreateAction() => new CrouchAction();
+    protected override FiniteStateAction CreateAction() => new MovementCrouchAction();
     
     #endregion
 }
 
-public class CrouchAction : FiniteStateAction
+public class MovementCrouchAction : FiniteStateAction
 {
     #region Fields
     
-    private Player _playerScript;
+    private PlayerController _playerController;
     private Animator _animator;
 
     // Property (Origin SO)
@@ -34,27 +34,22 @@ public class CrouchAction : FiniteStateAction
 
     public override void Initialize(FiniteStateMachine finiteStateMachine)
     {
-        _playerScript = finiteStateMachine.GetComponent<Player>();
+        _playerController = finiteStateMachine.GetComponent<PlayerController>();
         _animator = finiteStateMachine.GetComponent<Animator>();
     }
     
     public override void FiniteStateEnter()
     {
-        _animator.SetBool("IsCrouching", true);
         if (OriginSO.Moment == SpecificMoment.OnEnter)
         {
-            
+            _animator.SetBool("IsCrouching", true);
         }
     }
 
     public override void FiniteStateExit()
     {
-        _animator.SetBool("IsCrouching", false);
         _animator.SetBool("IsCrouchingWalk", false);
-        if (OriginSO.Moment == SpecificMoment.OnExit)
-        {
-            
-        }
+        _animator.SetBool("IsCrouching", false);
     }
     
     public override void FiniteStateUpdate() 
@@ -64,7 +59,7 @@ public class CrouchAction : FiniteStateAction
     
     public override void FiniteStateFixedUpdate()
     {
-        _animator.SetBool("IsCrouchingWalk", _playerScript.MovementInput.x != 0 || _playerScript.MovementInput.z != 0);
+        _animator.SetBool("IsCrouchingWalk", _playerController.MovementInput.x != 0 || _playerController.MovementInput.z != 0);
     }
 
     #endregion
