@@ -105,7 +105,7 @@ public class BasicZombieData
             {
                 attackTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1;
                 
-                return attackTime > 0.01 && attackTime < 0.99f;
+                return attackTime > 0f && attackTime < 0.99f;
             }
         }
         
@@ -190,7 +190,7 @@ public class BasicZombieData
     
     public void NavMeshAgentAttackSetting()
     {
-        IsAnimationAttackCheck();
+        //IsAnimationAttackCheck();
         
         animator.applyRootMotion = false;
         agent.isStopped = true;
@@ -231,9 +231,20 @@ public class BasicZombieData
         }
     }
 
-    public void ResetAnimmation()
+    // 피격시 플레이어 바라보고 정보 할당.
+    public void PlayerAllocate(GameObject player, GameObject enemys)
     {
-        animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
+        if (enemys.gameObject != this.gameObject)
+            return;
+        
+        if (detectedPlayer == null)
+        {
+            var directionToPlayer = (player.transform.position - enemy.transform.position ).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+            enemy.gameObject.transform.rotation = lookRotation;
+            
+            detectedPlayer = player.transform;
+        }
     }
     
 }

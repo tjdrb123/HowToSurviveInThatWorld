@@ -191,6 +191,7 @@ public class MovementAttackAction : FiniteStateAction
         {
             _playerController.player.ApplyDamage(_playerController.gameObject, _enemy.gameObject);
             Manager_UnitEvent.Instance.OnDamagedEnemy(_enemy.gameObject); // 이벤트 발생
+            Manager_UnitEvent.Instance.OnHitEnemyAllocate(_playerController.gameObject, _enemy.gameObject);
             _isAttack = false;
         }
     }
@@ -213,6 +214,7 @@ public class MovementAttackAction : FiniteStateAction
     }
     
     /*=================================================================================================================*/
+    
     
     #endregion
 }

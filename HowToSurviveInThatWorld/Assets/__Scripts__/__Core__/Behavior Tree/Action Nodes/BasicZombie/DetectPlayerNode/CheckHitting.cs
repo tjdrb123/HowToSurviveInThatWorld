@@ -28,4 +28,12 @@ public class CheckHitting : LeafAction
 
         return E_NodeState.Failure;
     }
+    
+    // 맞게되면 표적 플레이어로 할당.
+    private void HitPlayerAllocate()
+    {
+        
+    }
+    
+    // 플레이어를 바라보게 회전.
 }

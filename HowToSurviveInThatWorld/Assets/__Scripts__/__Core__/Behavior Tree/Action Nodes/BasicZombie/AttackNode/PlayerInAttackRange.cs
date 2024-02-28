@@ -31,21 +31,20 @@ public class PlayerInAttackRange : LeafAction
             {
                 TargetDirectionCompensate();
             }
-            else if (TargetForwardCheck())
-            {
-                zombieData.NavMeshAgentAttackSetting();
-                return E_NodeState.Success;
-            }
+
+            zombieData.NavMeshAgentAttackSetting();
+            return E_NodeState.Success;
+            
         }
 
         return E_NodeState.Failure;
     }
 
-    // 타겟이 공격 거리 안에 있고, 적과 플레이어 사이의 내적이 enemyDot보다 크거나 같은 경우
+    // 타겟이 공격 거리 안에 있는지 체크
     private bool TargetByCheck()
     {
-        return Vector3.SqrMagnitude(zombieData.detectedPlayer.position - zombieData.transform.position) < 
-               (zombieData.attackDistance * zombieData.attackDistance);
+        return Vector3.SqrMagnitude(zombieData.detectedPlayer.position - zombieData.transform.position) <= 
+               (zombieData.attackDistance * zombieData.attackDistance) - 1.2f;
     }
 
     // 타겟이 내적 안에 있는지 확인
@@ -55,15 +54,13 @@ public class PlayerInAttackRange : LeafAction
     }
 
     //정면 회전 처리
-    private E_NodeState TargetDirectionCompensate()
+    private void TargetDirectionCompensate()
     {
             // 타겟 방향으로의 회전을 계산.
             Quaternion lookRotation = Quaternion.LookRotation(_directionToPlayer);
             // 현재 방향에서 타겟 방향으로 점진적으로 회전.
             zombieData.transform.rotation = Quaternion.Slerp(zombieData.transform.rotation, lookRotation,
                 Time.deltaTime * _rotationSpeed);
-                
-            return E_NodeState.Running;
     }
     
 }
