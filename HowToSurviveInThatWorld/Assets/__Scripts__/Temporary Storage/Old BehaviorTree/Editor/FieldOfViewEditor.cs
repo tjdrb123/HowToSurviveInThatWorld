@@ -19,8 +19,14 @@ public class FieldOfViewEditor : Editor
         Handles.color = Color.black;
         Handles.DrawWireArc // Radius = _detectDistance 인 원을 그린다.
             (enemyFOV.transform.position, Vector3.up, Vector3.forward, 360, enemyFOV._basicZombieData.detectDistance);
-        Handles.DrawWireArc // Radius = _detectDistance 인 원을 그린다.
+        Handles.DrawWireArc // Radius = attackDistance 인 원을 그린다.
             (enemyFOV.transform.position, Vector3.up, Vector3.forward, 360, enemyFOV._basicZombieData.attackDistance);
+        Handles.color = Color.green;
+        Handles.DrawWireArc // Radius = attackSoundDistance 인 원을 그린다.
+            (enemyFOV.transform.position, Vector3.up, Vector3.forward, 360, enemyFOV._basicZombieData.attackSoundDistance);
+        Handles.DrawWireArc // Radius = moveSoundDistance 인 원을 그린다.
+            (enemyFOV.transform.position, Vector3.up, Vector3.forward, 360, enemyFOV._basicZombieData.moveSoundDistance);
+        
 
         float vie = Mathf.Acos(enemyFOV._basicZombieData.enemyDot) * Mathf.Rad2Deg;
         Vector3 leftViewDirection = Quaternion.Euler(0f, -vie, 0) * enemyForward;

@@ -13,6 +13,8 @@ public class BasicZombieData
     
     [Header("Distance")] 
     public float detectDistance = 10f;
+    public float attackSoundDistance = 0f;
+    public float moveSoundDistance = 5f;
     public float attackDistance = 1.5f;
     
     [Header("PatrolPosition")]
@@ -47,7 +49,11 @@ public class BasicZombieData
     public Enemy enemy;
     public readonly float enemyDot = 0.9f;
     public bool hitCheck;
+    public bool attackSoundCheck;
+    public bool moveSoundCheck;
     public EnemyEffects effects;
+
+    #region LifeSetting
 
     public static BasicZombieData CreateBasicZombieData(GameObject gameObject)
     {
@@ -94,6 +100,9 @@ public class BasicZombieData
             }
         }
     }
+    
+    #endregion
+    
 
     #region Animation
     
@@ -212,6 +221,7 @@ public class BasicZombieData
 
     #endregion
     
+    // 피격시 이벤트 애니메이션
     public void HitAnimation()
     {
         animator.SetTrigger("IsHit");
@@ -245,6 +255,47 @@ public class BasicZombieData
             
             detectedPlayer = player.transform;
         }
+    }
+    
+    // soundDistance 안에 있는지 확인.
+    public void SoundDistanceInPlayer(float weaponType)
+    {
+        
+        // 이벤트 발생.
+        attackSoundCheck = true;
+        
+        // Weapon Type 에 따른 SoundDistance 거리 설정.
+        switch (weaponType)
+        {
+            case 0:
+            case 1:
+                attackSoundDistance = 2f;
+                break;
+            case 2:
+                attackSoundDistance = 12f;
+                break;
+            case 3:
+                attackSoundDistance = 18f;
+                break;
+        }
+        
+        // SoundDistance 안에 있는지 확인.
+
+        
+        // 있다면 detectedPlayer 할당.
+    }
+    
+    // MoveDistance 안에 있는지 확인.
+    public void MoveSoundInPlayer()
+    {
+        if (!moveSoundCheck)
+            moveSoundCheck = true;
+    }
+
+    public void MoveSoundOutPlayer()
+    {
+        if (moveSoundCheck)
+            moveSoundCheck = false;
     }
     
 }

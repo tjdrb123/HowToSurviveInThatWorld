@@ -70,6 +70,7 @@ public class MovementAttackAction : FiniteStateAction
             WeaponTypeSetting(); // 무기 타입에 따른 셋팅 설정.
             _enemy = EnemyCheck(); // 가까운 Enemy 할당.
             TargetDirectionCompensate(); // Enemy 바라보기
+            Manager_UnitEvent.Instance.OnAttackSoundEnemy(_weaponType); // 공격 사운드 이벤트
             // 웨폰 타입에 따라 공격 사거리, 공격력, 다르게 설정
         }
     }
@@ -78,6 +79,7 @@ public class MovementAttackAction : FiniteStateAction
     {
         _animator.ResetTrigger("IsAttacking");
         _playerController.IsCrouching = false;
+        
     }
     
     public override void FiniteStateUpdate() 
@@ -179,7 +181,7 @@ public class MovementAttackAction : FiniteStateAction
         {
             _animationTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1;
 
-            return _animationTime > 0.01f && _animationTime < 0.99f;
+            return _animationTime > 0f && _animationTime < 0.99f;
         }
 
         return false;
@@ -190,8 +192,7 @@ public class MovementAttackAction : FiniteStateAction
         if (_enemy != null && _animationTime > _weaponAimTime && _isAttack)
         {
             _playerController.player.ApplyDamage(_playerController.gameObject, _enemy.gameObject);
-            Manager_UnitEvent.Instance.OnDamagedEnemy(_enemy.gameObject); // 이벤트 발생
-            Manager_UnitEvent.Instance.OnHitEnemyAllocate(_playerController.gameObject, _enemy.gameObject);
+            EventMethodInvoke();
             _isAttack = false;
         }
     }
@@ -214,7 +215,17 @@ public class MovementAttackAction : FiniteStateAction
     }
     
     /*=================================================================================================================*/
-    
+
+    private void EventMethodInvoke()
+    {
+        Manager_UnitEvent.Instance.OnDamagedEnemy(_enemy.gameObject); // 파티클, 애니메이션
+        Manager_UnitEvent.Instance.OnHitEnemyAllocate(_playerController.gameObject, _enemy.gameObject); // 회전
+
+        if (_weaponType >= 2 && _weaponType <= 3)
+        {
+            // Attack Event Invoke Logic
+        }
+    }
     
     #endregion
 }
