@@ -29,6 +29,7 @@ public class RepeatNode : Decorator
         {
             Death();
             Manager_UnitEvent.Instance.OnDamaged -= zombieData.IsHit;
+            Manager_UnitEvent.Instance.OnDamaged -= zombieData.effects.HitParticle;
         }
         else 
             child.Update();
