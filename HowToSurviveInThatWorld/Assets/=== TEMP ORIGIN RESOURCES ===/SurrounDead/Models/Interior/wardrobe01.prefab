@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3395396}
   - component: {fileID: 2375572}
   - component: {fileID: 6590172}
-  m_Layer: 0
+  - component: {fileID: 5548975874632680724}
+  - component: {fileID: 2816303804812782162}
+  m_Layer: 8
   m_Name: wardrobe01_doorL
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +107,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.029994674, y: 1.8668505, z: 0.6700002}
   m_Center: {x: 0.014997244, y: 0.93342525, z: 0.3349997}
+--- !u!114 &5548975874632680724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
+  - {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &2816303804812782162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionTime: 10
+  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!1 &143590
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,8 +266,6 @@ GameObject:
   - component: {fileID: 3308098}
   - component: {fileID: 2359710}
   - component: {fileID: 6491864}
-  - component: {fileID: 4946029766170645655}
-  - component: {fileID: 5339991996220120543}
   m_Layer: 0
   m_Name: wardrobe01
   m_TagString: Untagged
@@ -320,45 +362,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 674eef33fa8c0d347ad1d0c38b8f6418, type: 3}
---- !u!114 &4946029766170645655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _items:
-  - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
-  - {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &5339991996220120543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionTime: 10
-  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
