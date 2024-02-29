@@ -6,25 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/__Scenes__/__Initialization__.unity
-    guid: c82efb5a21e57c9498993ec532b8d63b
-  - enabled: 1
     path: Assets/__Scenes__/__Title__.unity
     guid: 85f259a5357d8fc4d84b1ef30c1ca64b
   - enabled: 1
-    path: Assets/__Scenes__/02_Selector.unity
-    guid: 4614384d2a2181e448cf5648e3ef6cd8
-  - enabled: 1
-    path: Assets/__Scenes__/03_Lobby.unity
-    guid: efd9227b8231d33498ce0660f3f3a8d8
+    path: Assets/__Scenes__/06_Game_Main.unity
+    guid: ce75c71efc8d01d48813783811d6ffcb
   - enabled: 1
     path: Assets/__Scenes__/04_Loading.unity
     guid: e2dcf2df4f961b746823efe6d47d4c0e
-  - enabled: 1
-    path: Assets/__Scenes__/05_Game_Village.unity
-    guid: f4bf7d289bbf0a047baa98d29bca549b
-  - enabled: 1
-    path: Assets/__Scenes__/06_Game_Main.unity
-    guid: ce75c71efc8d01d48813783811d6ffcb
-  m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: a4d6d2372a4b38f49aa31bf5f36dc847, type: 2}
+  m_configObjects: {}

@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class NextScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void NextSceneLoad(int index)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Manager_LoadingScene.LoadScene(index);
     }
 }
