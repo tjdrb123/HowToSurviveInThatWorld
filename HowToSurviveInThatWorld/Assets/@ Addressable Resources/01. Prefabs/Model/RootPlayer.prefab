@@ -8420,7 +8420,7 @@ GameObject:
   - component: {fileID: 7505410028455563708}
   m_Layer: 0
   m_Name: RootPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8546,6 +8546,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _chargingImg: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &2793298485080245618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8571,6 +8572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fac11347bc7ac24888b49abac82d90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponTypeDamage: 0
 --- !u!1 &5828192417467140603
 GameObject:
   m_ObjectHideFlags: 0

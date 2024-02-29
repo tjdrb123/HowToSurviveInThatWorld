@@ -20,7 +20,6 @@ public class Camera : MonoBehaviour
         RaycastHit[] hits;
         Vector3 direction = player.position - transform.position;
         hits = Physics.RaycastAll(transform.position + new Vector3(0, 1, 0), direction, direction.magnitude);
-
         HashSet<GameObject> hitObstacles = new HashSet<GameObject>();
         foreach (RaycastHit hit in hits)
         {
@@ -51,7 +50,6 @@ public class Camera : MonoBehaviour
                 obstaclesToUnfade.Add(fadingObstacle);
             }
         }
-
         // 투명하게 만든 장애물 중 레이캐스트에 걸리지 않는 장애물을 원래 상태로 돌
         foreach (GameObject obstacleToUnfade in obstaclesToUnfade)
         {

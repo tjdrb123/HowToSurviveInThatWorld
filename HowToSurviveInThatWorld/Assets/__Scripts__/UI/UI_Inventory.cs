@@ -88,6 +88,7 @@ public class UI_Inventory : UI_Popup
                 Manager_Inventory.Instance.EquipMentSlotDatas[i] = GetObject((int)E_Object.Equipments).GetComponent<Inventory>().BaseSlot[i].ItemData;
             }
         }
+        Manager_Inventory.Instance.BtnSounds(1);
         SetInventory();
         ClosePopup();
     }
@@ -108,6 +109,7 @@ public class UI_Inventory : UI_Popup
             _selectSlot.SlotClear();
             SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
             SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+            Manager_Inventory.Instance.BtnSounds(0);
         }
     }
     private void UseItem()
@@ -119,6 +121,7 @@ public class UI_Inventory : UI_Popup
             {
                 SetAlpha(GetObject((int)E_Object.SelectBtn).GetComponent<Image>());
                 SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
+                Manager_Inventory.Instance.BtnSounds(0);
             }
         }
     }

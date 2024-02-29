@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_SelectorPopUP : UI_Popup
 {
@@ -32,6 +33,7 @@ public class UI_SelectorPopUP : UI_Popup
         BindText(typeof(E_Text));
         BindObject(typeof(E_Object));
 
+        GetButton((int)E_Button.NextSceneBtn).onClick.AddListener(() => SceneLoad());
         GetButton((int)E_Button.PopUpBtn).onClick.AddListener(() => ClosePopup());
         GetButton((int)E_Button.CancelBtn).onClick.AddListener(() => ClosePopup());
         return true;
@@ -48,5 +50,9 @@ public class UI_SelectorPopUP : UI_Popup
         BtnAtive();
         GetText((int)E_Text.TextTitle).text = title;
         GetText((int)E_Text.InformText).text = inform;
+    }
+    private void SceneLoad()
+    {
+        SceneManager.LoadScene("06_Game_Main");
     }
 }

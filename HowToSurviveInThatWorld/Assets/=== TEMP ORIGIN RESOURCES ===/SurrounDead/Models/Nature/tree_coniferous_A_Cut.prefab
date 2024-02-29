@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3310408}
   - component: {fileID: 2316952}
   - component: {fileID: 13692418}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_coniferous_A_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3346188}
   - component: {fileID: 2341676}
   - component: {fileID: 13506808}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_coniferous_A_Cut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

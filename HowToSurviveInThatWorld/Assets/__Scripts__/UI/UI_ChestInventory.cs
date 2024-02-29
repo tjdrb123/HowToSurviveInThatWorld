@@ -44,6 +44,7 @@ public class UI_ChestInventory : UI_Popup
             Manager_Inventory.Instance.BackPackSlotDatas[i] = GetObject((int)E_Object.BackPack).GetComponent<Inventory>().BaseSlot[i].ItemData;
             Manager_Inventory.Instance.ChestItemDatas[i] = GetObject((int)E_Object.ChestInven).GetComponent<Inventory>().BaseSlot[i].ItemData;
         }
+        Manager_Inventory.Instance.BtnSounds(1);
         if (Object != null && Manager_Inventory.Instance.ObjectDestroy(Object))
             Destroy(Object);
         ClosePopup();

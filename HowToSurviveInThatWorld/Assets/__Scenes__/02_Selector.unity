@@ -567,6 +567,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3534128498546625532, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.795
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534128498546625532, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.24300002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534128498546625532, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -723
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534128498546625532, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8
+      objectReference: {fileID: 0}
     - target: {fileID: 4391439445348632327, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
       propertyPath: m_Name
       value: SelectorCanvas
@@ -607,6 +623,30 @@ PrefabInstance:
       propertyPath: _femaleAnimation
       value: 
       objectReference: {fileID: 4613649214696270908}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 604.0382
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548550046456097722, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6715384333903464686, guid: 514a2bbf3f6df4f4e8db996b47978366, type: 3}
       propertyPath: m_Name
       value: FemaleImage

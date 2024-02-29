@@ -60,9 +60,15 @@ public class Manager_Sound : MonoBehaviour
     {
         IsMute = isMute;
         foreach (AudioSource source in _bgmAudioSource)
-            source.mute = isMute;
+        {
+            if (source != null)
+                source.mute = isMute;
+        }
         foreach (AudioSource source in _sfxAudioSource)
-            source.mute = isMute;
+        {
+            if (source != null)
+                source.mute = isMute;
+        }
     }
     private void AddClip(string clipName) //클립을 추가시키는 함수
     {
@@ -71,6 +77,7 @@ public class Manager_Sound : MonoBehaviour
     }
     private void PlayAudioSource(AudioSource audioSource, AudioClip clip, bool loop, bool BGM) //배경음 
     {
+        if (audioSource == null) return;
         if (audioSource != null)
         {
             if (!_bgmAudioSource.Contains(audioSource) && BGM)
@@ -113,9 +120,15 @@ public class Manager_Sound : MonoBehaviour
     public void AudioClear() //좀더 보안해야함, 현재 clip의 값만 초기화를 시켜주는거임
     {
         foreach (var item in _bgmAudioSource)
-            item.Stop();
+        {
+            if (item != null)
+                item.Stop();
+        }
         foreach (var item in _sfxAudioSource)
-            item.Stop();
+        {
+            if (item != null)
+                item.Stop();
+        }
         _bgmAudioSource.Clear();
         _sfxAudioSource.Clear();
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431912}
   - component: {fileID: 13707722}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_birch02_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 9597458}
   - component: {fileID: 13655102}
   - component: {fileID: -2488005214215117829}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_birch02_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436060}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: bone_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -30,12 +30,12 @@ public class MainScene_UI_Btn : UI_Base
     }
     private void OpenSetting()
     {
-        Manager_Sound.instance.AudioPlay(GetObject((int)E_Object.Setting_Button), "sound");
+        Manager_Inventory.Instance.BtnSounds(0);
         Instantiate(_setting);
     }
     private void OpenInven()
     {
-        Manager_Sound.instance.AudioPlay(GetObject((int)E_Object.BackPack_Button), "sound");
+        Manager_Inventory.Instance.BtnSounds(1);
         Instantiate(_inventory);
     }
 }

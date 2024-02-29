@@ -182,4 +182,13 @@ public class Manager_Inventory : MonoBehaviour
         }
         return true;
     }
+    public void BtnSounds(int SoundNum)
+    {
+        if (SoundNum == 0)
+            Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/ButtonSound");
+        else if (SoundNum == 1)
+            Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/EquipSound");
+        else
+            Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/CloseSound");
+    }
 }
