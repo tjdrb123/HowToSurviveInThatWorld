@@ -175,10 +175,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2817727886838827841, guid: fc39e6d31e78e1e418c07e0d1233c7f0, type: 3}
-      propertyPath: _interactionTime
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -235,10 +231,6 @@ PrefabInstance:
     - target: {fileID: 4933023631128974, guid: f601cedd26ec5ef4288f3af1d2b9029b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790968862134207690, guid: f601cedd26ec5ef4288f3af1d2b9029b, type: 3}
-      propertyPath: _interactionTime
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -360,10 +352,6 @@ PrefabInstance:
     - target: {fileID: 4872262435421554, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 188396631624638822, guid: 7d9d5091e7afda147a67d59ca7ad6fff, type: 3}
-      propertyPath: _interactionTime
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -492,10 +480,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2293773552084019216, guid: faa38d60dcffd0b478bb3454df7a16f8, type: 3}
-      propertyPath: _interactionTime
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -574,10 +558,6 @@ PrefabInstance:
     - target: {fileID: 3959230558104713151, guid: eef5aa02393db4cd385398b22923259b, type: 3}
       propertyPath: m_Name
       value: ZombieMale03_Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430322914910631901, guid: eef5aa02393db4cd385398b22923259b, type: 3}
-      propertyPath: _interactionTime
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5546709986470890372, guid: eef5aa02393db4cd385398b22923259b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,10 +1742,6 @@ PrefabInstance:
     - target: {fileID: 4187202280313438, guid: 493ea38787d207c44b0a0e62b9ac5d52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6218978685845356634, guid: 493ea38787d207c44b0a0e62b9ac5d52, type: 3}
-      propertyPath: _interactionTime
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
