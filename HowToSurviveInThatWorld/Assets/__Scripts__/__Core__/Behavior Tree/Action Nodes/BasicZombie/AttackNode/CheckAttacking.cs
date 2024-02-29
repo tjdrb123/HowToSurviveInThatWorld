@@ -44,6 +44,7 @@ public class CheckAttacking : LeafAction
                 if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) >= zombieData.enemyDot)
                 {
                     zombieData.enemy.ApplyDamage(this, zombieData.detectedPlayer.gameObject);
+                    Manager_WarScene.Instance.HealthProgressBar(zombieData.detectedPlayer.gameObject);
 
                     _isAttack = false;
                 }

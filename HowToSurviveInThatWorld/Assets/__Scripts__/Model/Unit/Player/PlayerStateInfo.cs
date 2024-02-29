@@ -6,10 +6,11 @@ public class PlayerStateInfo : MonoBehaviour
 {
     private Animator _animator;
     private Player _player;
-    private bool _deadCheck = true;
+    private bool _deadCheck;
     
     void Start()
     {
+        _deadCheck = true;
         _animator = GetComponent<Animator>();
         _player = GetComponent<Player>();
     }
@@ -19,6 +20,7 @@ public class PlayerStateInfo : MonoBehaviour
         if (_player.Health <= 0 && _deadCheck)
         {
             _deadCheck = false;
+            Manager_WarScene.Instance.playerDeathCheck = false;
             _animator.SetTrigger("IsDead");
             gameObject.layer = 0;
             DeathSetting();
