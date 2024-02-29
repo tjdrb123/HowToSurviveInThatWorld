@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 453472611}
   - component: {fileID: 453472609}
   - component: {fileID: 453472615}
+  - component: {fileID: 453472616}
   m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -802,6 +803,34 @@ MonoBehaviour:
   _chargingImg: {fileID: 1618753142}
   _interactionTime: 2
   Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
+--- !u!114 &453472616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453472607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
+  - {fileID: 11400000, guid: cf7c96717d89f494c9a812e943d849f3, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &491016763
 GameObject:
   m_ObjectHideFlags: 0

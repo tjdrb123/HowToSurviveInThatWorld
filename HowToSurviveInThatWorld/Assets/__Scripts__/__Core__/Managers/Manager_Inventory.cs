@@ -124,13 +124,9 @@ public class Manager_Inventory : MonoBehaviour
         var item = itemData.BaseType == E_BaseType.UseItem ? new UseItem(itemData as UseItem) : new EtcItem(itemData as EtcItem);
         item.CurrentAmont = value;
         if (isBaseInven)
-        {
             CombineData(item, BaseSlotDatas);
-        }
         else if (isBackPackInven)
-        {
             CombineData(item, BackPackSlotDatas);
-        }
     }
     private void CombineData(ItemDataSo itemData, ItemDataSo[] itemDatas) //기타 아이템과 소비 아이템을 추가하기 위한 함수
     {
