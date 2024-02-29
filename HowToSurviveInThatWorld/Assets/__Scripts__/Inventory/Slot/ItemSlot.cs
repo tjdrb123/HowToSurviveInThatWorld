@@ -155,6 +155,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
                 crafting.CraftingSlot.SlotDataSet();
             }
         }
+        Manager_Inventory.Instance.BtnSounds(0);
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -203,6 +204,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
                 }
             }
         }
+        Manager_Inventory.Instance.BtnSounds(1);
     }
     public void OnEndDrag(PointerEventData eventData)
     {

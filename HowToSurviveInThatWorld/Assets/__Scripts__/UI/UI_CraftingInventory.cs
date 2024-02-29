@@ -45,6 +45,7 @@ public class UI_CraftingInventory : UI_Popup
             Manager_Inventory.Instance.BaseSlotDatas[i] = GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().BaseSlot[i].ItemData;
             Manager_Inventory.Instance.BackPackSlotDatas[i] = GetObject((int)E_Object.BackPack).GetComponent<Inventory>().BaseSlot[i].ItemData;
         }
+        Manager_Inventory.Instance.BtnSounds(1);
         ClosePopup();
     }
 }

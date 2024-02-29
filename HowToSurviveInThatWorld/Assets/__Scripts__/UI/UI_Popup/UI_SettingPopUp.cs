@@ -33,7 +33,7 @@ public class UI_SettingPopUp : UI_Popup
         BindObject(typeof(E_Object));
         AudioMute(Manager_Sound.instance.IsMute);
         //닫기 버튼
-        GetButton((int)E_Button.Close_Button).onClick.AddListener(() => ClosePopup());
+        GetButton((int)E_Button.Close_Button).onClick.AddListener(() => Close());
         //음소거 버튼
         GetButton((int)E_Button.ON_Button).onClick.AddListener(() => AudioMute(false)); 
         GetButton((int)E_Button.OFF_Button).onClick.AddListener(() => AudioMute(true));
@@ -45,15 +45,23 @@ public class UI_SettingPopUp : UI_Popup
         _bgmSlider.onValueChanged.AddListener((volume) => AudioVolume(volume, 1));
         _sfxSlider.onValueChanged.AddListener((volume) => AudioVolume(volume, 2));
         //조이스틱
-        joystick = GameObject.Find("JoystickArea").GetComponent<InputUIJoystick>();
-        JoyStick((int)joystick.JoystickType, joystick.JoystickType == InputUIJoystick.E_JoystickType.Fixed);
-        GetButton((int)E_Button.Fixed_Button).onClick.AddListener(() => JoyStick(0, true));
-        GetButton((int)E_Button.Floating_Button).onClick.AddListener(() => JoyStick(1, false));
+        //joystick = GameObject.Find("JoystickArea").GetComponent<InputUIJoystick>();
+        if (joystick != null)
+        {
+            JoyStick((int)joystick.JoystickType, joystick.JoystickType == InputUIJoystick.E_JoystickType.Fixed);
+                                                  GetButton((int)E_Button.Fixed_Button).onClick.AddListener(() => JoyStick(0, true));
+            GetButton((int)E_Button.Floating_Button).onClick.AddListener(() => JoyStick(1, false));
+        }
         return true;
     }
-
+    private void Close()
+    {
+        Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/ButtonSound");
+        ClosePopup();
+    }
     private void AudioMute(bool isMute)
     {
+        if (!isMute) { Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/ButtonSound"); }
         GetObject((int)E_Object.ONCheckImage).SetActive(!isMute);
         GetObject((int)E_Object.OFFCheckImage).SetActive(isMute);
         Manager_Sound.instance.AudioMute(isMute);
@@ -70,5 +78,6 @@ public class UI_SettingPopUp : UI_Popup
             joystick.SetJoystickMode(InputUIJoystick.E_JoystickType.Floating);
         GetObject((int)E_Object.ONJoyStickImage).SetActive(isMove);
         GetObject((int)E_Object.OFFJoyStickImage).SetActive(!isMove);
+        Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/ButtonSound");
     }
 }

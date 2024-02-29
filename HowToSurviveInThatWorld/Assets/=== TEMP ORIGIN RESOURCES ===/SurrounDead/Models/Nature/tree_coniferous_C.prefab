@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470382}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: bone_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467122}
   - component: {fileID: 13763450}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_coniferous_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 9566220}
   - component: {fileID: 13678288}
   - component: {fileID: -1226269649676487617}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: tree_coniferous_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
