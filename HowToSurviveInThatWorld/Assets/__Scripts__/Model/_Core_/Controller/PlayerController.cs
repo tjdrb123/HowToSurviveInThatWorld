@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private Transform _transform;
     private Animator _animator;
     public Image _chargingImg;
+    public Image _interactBtnImg;
     [HideInInspector]public Player player;
 
     // ========================================
@@ -131,12 +132,20 @@ public class PlayerController : MonoBehaviour
         IsAttacking = false;
     }
 
+    private void Update()
+    {
+        _hitColliders = Physics.OverlapBox(_transform.position + Vector3.up * 1f,  new Vector3(0.5f, 1f, 0.5f), Quaternion.identity, _interactableLayer | _wallMask);
+        if (_hitColliders.Length > 0)
+            _interactBtnImg.color = Color.white;
+        else
+        {
+            _interactBtnImg.color = Color.black;
+            IsInteracting = false;
+        }
+    }
+
     private void Interact()
     {
-        Vector3 boxCenter = _transform.position + Vector3.up * 1f;
-        Vector3 halfExtents = new Vector3(0.5f, 1f, 0.5f);
-
-        _hitColliders = Physics.OverlapBox(boxCenter, halfExtents, Quaternion.identity, _interactableLayer | _wallMask);
         if (_hitColliders.Length > 0)
         {
             _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
@@ -147,11 +156,6 @@ public class PlayerController : MonoBehaviour
             directionToLookAt.y = 0;
             Quaternion rotation = Quaternion.LookRotation(directionToLookAt);
             _transform.rotation = rotation;
-        }
-        else
-        {
-            // TODO : 'UI에 상호작용 오브젝트가 존재하지 않습니다' 띄우기
-            DebugLogger.LogWarning("_hitColliders.Length가 0입니다.");
         }
     }
 
