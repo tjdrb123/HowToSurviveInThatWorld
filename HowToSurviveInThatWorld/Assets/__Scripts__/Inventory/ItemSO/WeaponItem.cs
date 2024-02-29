@@ -4,10 +4,11 @@ using UnityEngine;
 
 public enum E_WeaponItemType
 {
-    Sword,
+    Sword = 1,
+    Pistol,
+    Rifle,
     Axe,
     Pick,
-    Gun
 }
 
 [CreateAssetMenu(fileName = "WeaponItemData", menuName = "ItemDataSO/WeaponItem", order = 0)]

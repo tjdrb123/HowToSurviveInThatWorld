@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -124,6 +125,31 @@ public class UI_Inventory : UI_Popup
                 SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
                 Manager_Inventory.Instance.BtnSounds(0);
             }
+        }
+    }
+    private void OnDisable()
+    {
+        WeaponItem weaponItem = null;
+        if (Manager_Inventory.Instance.EquipMentSlotDatas[6] != null)
+            weaponItem = Manager_Inventory.Instance.EquipMentSlotDatas[6] as WeaponItem;
+        if (weaponItem != null) 
+        {
+            switch (weaponItem.WeaponType)
+            {
+                case E_WeaponItemType.Sword:
+                    Manager_Inventory.Instance.WeaponSwap(0);
+                    break;
+                case E_WeaponItemType.Pistol:
+                    Manager_Inventory.Instance.WeaponSwap(1);
+                    break;
+                case E_WeaponItemType.Rifle:
+                    Manager_Inventory.Instance.WeaponSwap(2);
+                    break;
+            }
+        }
+        else
+        {
+            Manager_Inventory.Instance.WeaponSwap(-1);
         }
     }
 }
