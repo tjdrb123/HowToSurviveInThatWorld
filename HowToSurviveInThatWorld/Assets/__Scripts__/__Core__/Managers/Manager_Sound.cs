@@ -39,20 +39,32 @@ public class Manager_Sound : MonoBehaviour
             case 1: //Bgm 볼륨
                 BGMVolume = audioVolume;
                 foreach (AudioSource source in _bgmAudioSource)
-                    source.volume = BGMVolume;
+                {
+                    if (source != null)
+                        source.volume = BGMVolume;
+                }
                 break;
             case 2: //Sfx 볼륨
                 SFXVolume = audioVolume;
                 foreach (AudioSource source in _sfxAudioSource)
-                    source.volume = SFXVolume;
+                {
+                    if (source != null)
+                        source.volume = SFXVolume;
+                }
                 break;
             case 3: //전체 볼륨
                 BGMVolume = audioVolume;
                 SFXVolume = audioVolume;
                 foreach (AudioSource source in _bgmAudioSource)
-                    source.volume = BGMVolume; 
+                {
+                    if (source != null)
+                        source.volume = BGMVolume;
+                }
                 foreach (AudioSource source in _sfxAudioSource)
-                    source.volume = SFXVolume;
+                {
+                    if (source != null)
+                        source.volume = SFXVolume;
+                }
                 break;
         }
     }
