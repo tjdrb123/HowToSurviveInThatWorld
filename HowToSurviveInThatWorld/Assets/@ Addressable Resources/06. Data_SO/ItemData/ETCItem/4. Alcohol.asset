@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4974cdbdfc904fbe9f017d2177014, type: 3}
+  m_Name: 4. Alcohol
+  m_EditorClassIdentifier: 
+  KeyNumber: 4
+  Name: "\uC54C\uCF54\uC62C"
+  Description: "\uC0C1\uCC98\uB97C \uC18C\uB3C5\uD574\uC90D\uB2C8\uB2E4."
+  PlusValue: 0
+  CurrentAmont: 1
+  ItemImage: {fileID: -317221717, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  BaseType: 0
+  CraftingItems: []
+  MaxStack: 30

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e495a02010faa74bbc337b66b638418, type: 3}
+  m_Name: 53. Meat
+  m_EditorClassIdentifier: 
+  KeyNumber: 53
+  Name: "\uC0DD\uACE0\uAE30"
+  Description: "\uC2E0\uC120\uD55C \uACE0\uAE30\uC774\uB2E4."
+  PlusValue: 5
+  CurrentAmont: 1
+  ItemImage: {fileID: 1335211751, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  BaseType: 27
+  CraftingItems: []
+  MaxStack: 30
+  UseType: 0

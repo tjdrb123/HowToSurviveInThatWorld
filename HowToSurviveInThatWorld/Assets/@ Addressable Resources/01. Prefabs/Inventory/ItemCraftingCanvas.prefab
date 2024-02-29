@@ -2821,6 +2821,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2deee48660b25d4daca6c328ecccf03, type: 2}
   - {fileID: 11400000, guid: c0901acefcde17a429d783a35d59c374, type: 2}
   - {fileID: 11400000, guid: 51aad30ba8f51734d90e46d5377b71c1, type: 2}
+  - {fileID: 11400000, guid: efb5147675c340240b887dc3d999dab1, type: 2}
+  - {fileID: 11400000, guid: 3eae9834eaf7c0d408b004c2d9719aeb, type: 2}
   _baseSlot: []
   _craftingSlot: {fileID: 3056311655303866095}
   _newItemSlot: {fileID: 3329774898139822081}
