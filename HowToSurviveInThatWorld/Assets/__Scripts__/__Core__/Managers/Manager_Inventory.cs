@@ -169,7 +169,7 @@ public class Manager_Inventory : MonoBehaviour
     }
     public bool ObjectDestroy(GameObject Object) 
     {
-        if (Object.name == "Chest" || Object.name == "Produce")
+        if (Object.tag == "Chest" || Object.tag == "Produce")
             return false;
         for (int i = 0; i < ChestItemDatas.Length; i++)
         {

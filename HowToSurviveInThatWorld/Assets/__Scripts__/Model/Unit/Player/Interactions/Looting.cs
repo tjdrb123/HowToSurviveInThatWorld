@@ -4,20 +4,21 @@ using UnityEngine.UI;
 
 public class Looting : MonoBehaviour, IInteractableObject
 {
-    public Image _chargingImg;
+    public Image ChargingImg { get; set; }
     public float _interactionTime = 10f;
     [SerializeField] private GameObject Prefabs;
     private UI_ChestInventory _chestInventory;
+    private ChestInventory _chestData;
     public void Interact(PlayerController playerController, Animator animator)
     {
-        CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(_chargingImg, _interactionTime, playerController));
+        CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(ChargingImg, _interactionTime, playerController));
         animator.SetInteger("InteractingType", 1);
         animator.SetBool("IsInteracting", true);
     }
     public  void StopInteract(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StopCrt(E_CoroutineKey.ChargeFillAmount);
-        _chargingImg.fillAmount = 0;
+        ChargingImg.fillAmount = 0;
         animator.SetBool("IsInteracting", false);
     }
 
@@ -32,6 +33,8 @@ public class Looting : MonoBehaviour, IInteractableObject
         }
         playerController.IsInteracting = false;
         Instantiate(Prefabs);
+        _chestData = GetComponent<ChestInventory>();
+        _chestData.ChestData();
         _chestInventory =  GameObject.Find("ChestCanvas(Clone)").GetComponent<UI_ChestInventory>();
         _chestInventory.Object = gameObject;
     }

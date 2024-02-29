@@ -129,9 +129,10 @@ GameObject:
   - component: {fileID: 9594094}
   - component: {fileID: 13623050}
   - component: {fileID: 6767843167726483209}
+  - component: {fileID: 5033635340848227983}
   m_Layer: 12
   m_Name: tree_coniferous_A
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,3 +219,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 5.4, z: 3}
   m_Center: {x: 0, y: 3.66, z: 0}
+--- !u!114 &5033635340848227983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf12229017134534a918b723ab2976a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _etcItem: {fileID: 11400000, guid: 85d7b001c52bcf640aa2557855d46d88, type: 2}

@@ -7,7 +7,7 @@ public class ChestInventory : MonoBehaviour
 {
     [SerializeField] private ItemDataSo[] _items = new ItemDataSo[15];
     private bool isFrist = true;
-    private void Start()
+    public void ChestData()
     {
         if (isFrist)
         {
