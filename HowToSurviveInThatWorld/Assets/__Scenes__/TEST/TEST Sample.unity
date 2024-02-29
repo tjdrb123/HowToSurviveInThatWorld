@@ -1878,6 +1878,18 @@ PrefabInstance:
       propertyPath: minimapCamera
       value: 
       objectReference: {fileID: 1076454540}
+    - target: {fileID: 3429727861133994054, guid: 71606a388508f2946af94ac0483cf5cf, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18135104
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429727861133994054, guid: 71606a388508f2946af94ac0483cf5cf, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429727861133994054, guid: 71606a388508f2946af94ac0483cf5cf, type: 3}
+      propertyPath: m_Color.r
+      value: 0.17377181
+      objectReference: {fileID: 0}
     - target: {fileID: 5927062547763369356, guid: 71606a388508f2946af94ac0483cf5cf, type: 3}
       propertyPath: m_Name
       value: ui
