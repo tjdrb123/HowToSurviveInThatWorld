@@ -16,8 +16,8 @@ public class Manager_Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         DataSetting();
+        Instance = this;
     }
     private void DataSetting()
     {

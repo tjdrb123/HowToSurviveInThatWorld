@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class TestScene : SceneBase
@@ -14,7 +13,6 @@ public class TestScene : SceneBase
             return false;
         }
         Destroy(_inventory);
-        Instantiate(Managers.Addressable.GetAsset<GameObject>("air_A"));
 
         return true;
     }
