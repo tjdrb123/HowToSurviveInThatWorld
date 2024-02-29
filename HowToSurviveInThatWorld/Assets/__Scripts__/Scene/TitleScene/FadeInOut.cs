@@ -1,18 +1,17 @@
-using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeInOut : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI _touchScreenText;
-    
+    private Graphic _graphic;
+
     private readonly float _fadeTime = 2f;
 
     private void Awake()
     {
-        _touchScreenText = transform.GetComponent<TextMeshProUGUI>();
+        _graphic = GetComponent<Graphic>();
     }
 
     private void OnEnable()
@@ -22,12 +21,12 @@ public class FadeInOut : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        Color tempColor = _touchScreenText.color;
+        Color tempColor = _graphic.color;
         tempColor.a = 0f;
         while (tempColor.a < 1f)
         {
             tempColor.a += Time.deltaTime / _fadeTime;
-            _touchScreenText.color = tempColor;
+            _graphic.color = tempColor;
 
             if (tempColor.a >= 1f)
             {
@@ -41,11 +40,11 @@ public class FadeInOut : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        Color tempColor = _touchScreenText.color;
+        Color tempColor = _graphic.color;
         while (tempColor.a > 0f)
         {
             tempColor.a -= Time.deltaTime / _fadeTime;
-            _touchScreenText.color = tempColor;
+            _graphic.color = tempColor;
 
             if (tempColor.a <= 0f)
             {
@@ -63,4 +62,5 @@ public class FadeInOut : MonoBehaviour
         StopAllCoroutines();
     }
 }
+
 // 60 ~ 255, 2초 간격으로 Fade In Out
