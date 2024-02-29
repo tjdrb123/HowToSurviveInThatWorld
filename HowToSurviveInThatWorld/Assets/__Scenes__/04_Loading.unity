@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 584250914}
   - component: {fileID: 584250913}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TipText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 2.1449}
+  m_SizeDelta: {x: 1000, y: 45.7102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584250913
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tip:'
+  m_text: "TIP : \uC880\uBE44\uB294 \uC18C\uB9AC\uB97C \uAC10\uC9C0\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46bcf6918410f5d4c92d5d348653feec, type: 2}
   m_sharedMaterial: {fileID: 2219190768089331910, guid: 46bcf6918410f5d4c92d5d348653feec, type: 2}
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -507,7 +507,6 @@ GameObject:
   - component: {fileID: 7018862269860127775}
   - component: {fileID: 8926430047660684856}
   - component: {fileID: 7301412571437604227}
-  - component: {fileID: 2869572163862686207}
   m_Layer: 5
   m_Name: ProgressBar_BG
   m_TagString: Untagged
@@ -605,19 +604,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2869572163862686207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672425891280544971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f67c85d04c9e42cc8e4bcdbedd0421e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _touchScreen: {fileID: 0}
 --- !u!114 &4220371957726059860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4567379163167222281}
+  - component: {fileID: 7303917755157339859}
   - component: {fileID: 2065106505489292419}
   - component: {fileID: 811515309267792890}
   - component: {fileID: 5774435678214899650}
@@ -895,6 +882,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7303917755157339859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303917755157339858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5c45042c70a4a728605e71c11bc83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _progressBar: {fileID: 2778486843040672333}
+  _tipText: {fileID: 584250913}
+  _backGroundImage: {fileID: 1572746764527289092}
+  _backGround:
+  - {fileID: 21300000, guid: 1587f745626224f478915be944b8b2a9, type: 3}
+  - {fileID: 21300000, guid: ad539e401a7613547aaaca0bdbe10628, type: 3}
+  - {fileID: 21300000, guid: 482366c4183ded84e9569c56680927d2, type: 3}
 --- !u!224 &8418493764108194064
 RectTransform:
   m_ObjectHideFlags: 0
