@@ -7622,7 +7622,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4813877958552307704}
@@ -7669,7 +7669,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 43078e170b24df946a576e985ef8f711, type: 3}
-  m_Color: {r: 0, g: 0.9528302, b: 0.10381257, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.3333335, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8630,6 +8630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: bb256f0b244e1e04981feedea8a53c12, type: 2}
   _chargingImg: {fileID: 0}
+  _interactBtnImg: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &2793298485080245618
 MonoBehaviour:
