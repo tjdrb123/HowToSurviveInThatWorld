@@ -62,10 +62,7 @@ public class FiniteStateMachine : MonoBehaviour
     private void Update()
     {
         if (_currentState.TryGetTransition(out var transitionState))
-        {
             Transition(transitionState);
-        }
-        
         _currentState.FiniteStateUpdate();
     }
 

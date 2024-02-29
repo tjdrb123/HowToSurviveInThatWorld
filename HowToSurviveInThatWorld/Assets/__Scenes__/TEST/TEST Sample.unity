@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1693,7 +1693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chargingImg: {fileID: 1618753142}
   _interactionTime: 2
   Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!114 &453472616
@@ -3762,8 +3761,8 @@ GameObject:
   - component: {fileID: 1206739282}
   - component: {fileID: 1206739281}
   - component: {fileID: 1206739280}
-  - component: {fileID: 1206739284}
   - component: {fileID: 1206739286}
+  - component: {fileID: 1206739284}
   - component: {fileID: 1206739287}
   m_Layer: 8
   m_Name: Cube
@@ -6024,7 +6023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chargingImg: {fileID: 1618753142}
   _interactionTime: 2
   Prefabs: {fileID: 5070397974674816784, guid: bf33b92669090a64d9cf622d54418f27, type: 3}
 --- !u!54 &1726194766

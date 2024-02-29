@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +19,8 @@ public class Dig : MonoBehaviour, IInteractableObject
     {
         if (_DigCount == _etcItem.PlusValue)
         {
-            Manager_Inventory.Instance.Additem(_etcItem, 20); //랜덤 값을 넣어줘도 상관없음
+            int RanValue = Random.Range(3, 6);
+            Manager_Inventory.Instance.Additem(_etcItem, RanValue); //랜덤 값을 넣어줘도 상관없음
             Destroy(gameObject);
             _DigCount = 0;
         }

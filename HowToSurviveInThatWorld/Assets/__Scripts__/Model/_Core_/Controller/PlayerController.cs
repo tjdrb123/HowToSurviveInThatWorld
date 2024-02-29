@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     // Input Reader
     [SerializeField] private InputReader _inputReader;
 
-    [SerializeField] private LayerMask _interactableLayer;
+    private LayerMask _interactableLayer;
+    private LayerMask _wallMask;
     [NonSerialized] public Collider[] _hitColliders;
     private Transform _transform;
     private Animator _animator;
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
         _transform = transform;
         _animator = GetComponent<Animator>();
         player = GetComponent<Player>();
+        _interactableLayer = 1 << LayerMask.NameToLayer("Interactable");
+        _wallMask = 1 << LayerMask.NameToLayer("Wall");
     }
 
     private void OnEnable()
@@ -133,13 +136,13 @@ public class PlayerController : MonoBehaviour
         Vector3 boxCenter = _transform.position + Vector3.up * 1f;
         Vector3 halfExtents = new Vector3(0.5f, 1f, 0.5f);
 
-        _hitColliders = Physics.OverlapBox(boxCenter, halfExtents, Quaternion.identity, _interactableLayer);
+        _hitColliders = Physics.OverlapBox(boxCenter, halfExtents, Quaternion.identity, _interactableLayer | _wallMask);
         if (_hitColliders.Length > 0)
         {
             _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
-
             IsInteracting = Manager_Inventory.Instance.InventoryMaxCheck();
-            
+            if (_hitColliders[0].GetComponent<Looting>())
+                _hitColliders[0].GetComponent<Looting>().ChargingImg = _chargingImg;
             Vector3 directionToLookAt = _hitColliders[0].transform.position - _transform.position;
             directionToLookAt.y = 0;
             Quaternion rotation = Quaternion.LookRotation(directionToLookAt);
