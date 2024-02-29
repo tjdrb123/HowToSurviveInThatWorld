@@ -67,11 +67,11 @@ public class UI_SelectorUI : UI_Scene
         GameObject popup = Instantiate(_popUP);
         if (nickname.Length <= 2 || nickname.Length >= 17)
         {
-            popup.GetComponent<UI_SelectorPopUP>().TextChange("로그인 에러", "글자 수는 2 ~ 16글자 \n 사이로 해주세요.");
+            popup.GetComponent<UI_SelectorPopUP>().TextChange("Warning", "글자 수는 2 ~ 16글자 \n 사이로 해주세요.");
         }
         else
         {
-            popup.GetComponent<UI_SelectorPopUP>().TextChange("닉네임 생성 완료", $"해당 \"{nickname}\" 이름으로 \n 생성하시겠습니까?", false);
+            popup.GetComponent<UI_SelectorPopUP>().TextChange("생성 확인", $"해당 \"{nickname}\" 이름으로 \n 생성하시겠습니까?", false);
         }
     }
 
@@ -86,8 +86,8 @@ public class UI_SelectorUI : UI_Scene
     {
         Color maleBtnColor = GetImage((int)E_Image.MaleImage).color;
         Color FemaleBtnColor = GetImage((int)E_Image.FemaleImage).color;
-        maleBtnColor = (GenderIndex == 1) ? new Color(61 / 255f, 255 / 255f, 0 / 255f) : new Color(1, 1, 1);
-        FemaleBtnColor = (GenderIndex != 1) ? new Color(61 / 255f, 255 / 255f, 0 / 255f) : new Color(1, 1, 1);
+        maleBtnColor = (GenderIndex == 1) ? new Color(61 / 255f, 255 / 255f, 0 / 200f) : new Color(1, 1, 1);
+        FemaleBtnColor = (GenderIndex != 1) ? new Color(61 / 255f, 255 / 255f, 0 / 200f) : new Color(1, 1, 1);
         if (GenderIndex == 1)
         {
             GetImage((int)E_Image.MaleImage).color = maleBtnColor;
