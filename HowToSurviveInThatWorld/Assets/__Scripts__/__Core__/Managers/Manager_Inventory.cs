@@ -13,6 +13,8 @@ public class Manager_Inventory : MonoBehaviour
     public Inventory EquipInventory { get; set; }
     public Inventory BaseInventory { get; set; }
     public static Manager_Inventory Instance;
+    [SerializeField] private GameObject _weaponPosition;
+    public GameObject WeaponPosition { get => _weaponPosition; }
 
     private void Awake()
     {
@@ -186,5 +188,27 @@ public class Manager_Inventory : MonoBehaviour
             Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/EquipSound");
         else
             Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/CloseSound");
+    }
+    public void WeaponSwap(int weaponIndex)
+    {
+        for (int i = 0; i < 5; i++)//무기 초기화
+            Manager_Inventory.Instance.WeaponPosition.transform.GetChild(i).gameObject.SetActive(false);
+        if (weaponIndex > -1)
+            Manager_Inventory.Instance.WeaponPosition.transform.GetChild(weaponIndex).gameObject.SetActive(true);
+    }
+    public int GetWeaponTypeIndex()
+    {
+        WeaponItem weaponItem = EquipMentSlotDatas[6] as WeaponItem;
+        if (weaponItem == null)
+            return -1;
+        return (int)weaponItem.WeaponType;
+    }
+    public int GetSubWeaponTypeIndex()
+    {
+        WeaponItem weaponItem = EquipMentSlotDatas[5] as WeaponItem;
+        Debug.Log((int)weaponItem.WeaponType);
+        if (weaponItem == null)
+            return -1;
+        return (int)weaponItem.WeaponType;
     }
 }
