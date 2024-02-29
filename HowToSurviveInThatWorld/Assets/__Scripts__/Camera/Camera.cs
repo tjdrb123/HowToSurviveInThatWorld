@@ -53,15 +53,18 @@ public class Camera : MonoBehaviour
         // 투명하게 만든 장애물 중 레이캐스트에 걸리지 않는 장애물을 원래 상태로 돌
         foreach (GameObject obstacleToUnfade in obstaclesToUnfade)
         {
-            if (obstacleToUnfade.layer == LayerMask.NameToLayer("Roof"))
+            if (obstacleToUnfade != null)
             {
-                SetTransparency(obstacleToUnfade, false);
-            }
-            else if (obstacleToUnfade.layer == LayerMask.NameToLayer("Wall"))
-            {
-                StopCoroutine(fadingObstacles[obstacleToUnfade]); // 투명하게 만드는 코루틴 중지
-                fadingObstacles.Remove(obstacleToUnfade); // 딕셔너리에서 제거
-                StartCoroutine(FadeObstacle(obstacleToUnfade, false)); // 원래 상태로 돌리는 코루틴 시작    
+                if (obstacleToUnfade.layer == LayerMask.NameToLayer("Roof"))
+                {
+                    SetTransparency(obstacleToUnfade, false);
+                }
+                else if (obstacleToUnfade.layer == LayerMask.NameToLayer("Wall"))
+                {
+                    StopCoroutine(fadingObstacles[obstacleToUnfade]); // 투명하게 만드는 코루틴 중지
+                    fadingObstacles.Remove(obstacleToUnfade); // 딕셔너리에서 제거
+                    StartCoroutine(FadeObstacle(obstacleToUnfade, false)); // 원래 상태로 돌리는 코루틴 시작    
+                }
             }
         }
     }

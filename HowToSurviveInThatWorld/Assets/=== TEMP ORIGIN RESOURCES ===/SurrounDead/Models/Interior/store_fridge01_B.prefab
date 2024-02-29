@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3359860}
   - component: {fileID: 2302768}
   - component: {fileID: 6572968}
+  - component: {fileID: 2812227494267286093}
+  - component: {fileID: 6210079653021716023}
   m_Layer: 8
   m_Name: store_fridge01_B_doorL
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +108,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06074394, y: 1.4736644, z: 0.7040072}
   m_Center: {x: 0.03037197, y: 0.7368322, z: 0.35200062}
+--- !u!114 &2812227494267286093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: b23d85f49e72dad40ab78ed6dab3a406, type: 2}
+  - {fileID: 11400000, guid: f3d490bab2807034c90a111e273f9257, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &6210079653021716023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionTime: 10
+  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!1 &136240
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,9 +162,7 @@ GameObject:
   - component: {fileID: 3379916}
   - component: {fileID: 2397268}
   - component: {fileID: 6473108}
-  - component: {fileID: 2835356974206275057}
-  - component: {fileID: 6438470549669994342}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: store_fridge01_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,48 +258,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 884b10d60963ad647b1f13985e55409e, type: 3}
---- !u!114 &2835356974206275057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _items:
-  - {fileID: 11400000, guid: b23d85f49e72dad40ab78ed6dab3a406, type: 2}
-  - {fileID: 11400000, guid: f3d490bab2807034c90a111e273f9257, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &6438470549669994342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionTime: 10
-  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!1 &158352
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 3316824}
   - component: {fileID: 2375664}
   - component: {fileID: 6507590}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: store_fridge01_B_doorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
