@@ -19,4 +19,9 @@ MonoBehaviour:
   CurrentAmont: 0
   ItemImage: {fileID: -1237647185, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 1
+  CraftingItems:
+  - item: {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
+    itemValue: 8
+  - item: {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
+    itemValue: 8
   armorType: 24

@@ -2606,7 +2606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_117
+      name: Bandage
       rect:
         serializedVersion: 2
         x: 480
@@ -3950,7 +3950,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_181
+      name: Alcohol
       rect:
         serializedVersion: 2
         x: 480
@@ -5084,7 +5084,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_235
+      name: Cloth
       rect:
         serializedVersion: 2
         x: 224
@@ -5798,10 +5798,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_269
+      name: gunpowder
       rect:
         serializedVersion: 2
-        x: 384
+        x: 383
         y: 195
         width: 32
         height: 32
@@ -6123,14 +6123,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Alcohol: -317221717
       Apple: 1022179692
       Ax: -799643305
       Axe: 1965703044
       BackPack1: -1070901256
       BackPack2: -1237647185
       Banana: 1977023175
+      Bandage: 1501890380
       Bread: 584231591
       Carrot: -429161160
+      Cloth: -942035336
       Clothes_Blue: 1702564139
       Clothes_green: 902533203
       Corn: 1917860108
@@ -6159,7 +6162,6 @@ TextureImporter:
       Items_114: -1270650376
       Items_115: 823703840
       Items_116: -1812700673
-      Items_117: 1501890380
       Items_12: 464108693
       Items_121: 1283389177
       Items_123: -1390435173
@@ -6226,7 +6228,6 @@ TextureImporter:
       Items_179: 1269020524
       Items_18: -1433810589
       Items_180: -610040546
-      Items_181: -317221717
       Items_184: 1673926263
       Items_185: 1718475076
       Items_186: 372919037
@@ -6275,7 +6276,6 @@ TextureImporter:
       Items_231: -299988482
       Items_232: 1072418672
       Items_234: -1870643202
-      Items_235: -942035336
       Items_237: 1917184871
       Items_238: 563258477
       Items_239: -476538136
@@ -6300,113 +6300,113 @@ TextureImporter:
       Items_256: -194509641
       Items_257: -1327832445
       Items_258: -1542322820
-      Items_259: -1102319170
-      Items_26: -628646876
-      Items_260: -1809331729
-      Items_261: 1147920734
-      Items_262: 1109499201
-      Items_263: -931372814
-      Items_264: 343330619
-      Items_265: 1018958030
-      Items_266: 972095875
-      Items_267: 1902025868
-      Items_268: -1112531312
-      Items_269: -1688425198
-      Items_27: 1499647756
-      Items_270: -1675956792
-      Items_271: -473490606
-      Items_272: 1600309033
-      Items_273: -1259004302
-      Items_274: 1996963224
-      Items_275: -199253285
-      Items_276: 840804417
-      Items_277: -1177789582
-      Items_278: 1449411553
-      Items_279: -1149235889
-      Items_28: -1331575581
-      Items_280: -1700393851
-      Items_281: 862062202
-      Items_282: 27767523
-      Items_283: -246576851
-      Items_29: -1433316003
-      Items_3: 2136700519
-      Items_30: 1547741926
-      Items_31: 922453581
-      Items_32: 1926746254
-      Items_33: 818151975
-      Items_34: 1317878810
-      Items_35: -718663626
-      Items_36: -1931288763
-      Items_37: -767007378
-      Items_38: 486276243
-      Items_39: -326596868
-      Items_4: 1368232943
-      Items_40: 133686938
-      Items_41: 50006938
-      Items_42: -167178520
-      Items_43: 1995186381
-      Items_44: -240242349
-      Items_45: -618150997
-      Items_46: -202008731
-      Items_47: -1073020014
-      Items_5: -1459991654
-      Items_50: 1048306968
-      Items_51: 1851317238
-      Items_52: 1024483059
-      Items_53: 556217973
-      Items_54: 343923168
-      Items_55: -143224061
-      Items_56: -753006669
-      Items_57: 1979458739
-      Items_59: 1898248754
-      Items_6: 1438518906
-      Items_60: 1105910601
-      Items_61: -1564917362
-      Items_62: 1404704726
-      Items_63: 727459836
-      Items_64: 1364244973
-      Items_65: 1612317395
-      Items_66: -2142808666
-      Items_67: 913692732
-      Items_68: -906743524
-      Items_69: 1487368894
-      Items_7: -674221868
-      Items_70: -168738551
-      Items_71: -1183490895
-      Items_72: -1500499131
-      Items_73: -435356742
-      Items_74: -1437690061
-      Items_75: 1644321983
-      Items_76: 368138751
-      Items_78: -1648636261
-      Items_79: -1444081102
-      Items_8: -1101417658
-      Items_88: -637571805
-      Items_89: 995888042
-      Items_9: 1467384986
-      Items_90: 708016531
-      Items_91: -1149971803
-      Items_96: -1598445014
-      Items_98: -431380808
-      Items_99: -2132210123
-      Leather: -2078120654
-      Meat: 1335211751
-      Pants: 1608368469
-      Pants_black: 958663101
-      Pick: 132728278
-      Ring: -1964363477
-      Rock: -537491423
-      Shoes: -321175893
-      Shoes_steel: -1215097146
-      Sword_steel: 918272746
-      Sword_wood: -518444282
-      Tomato: -189344141
-      TopArmor1: -737676413
-      TopArmor2: -827725294
-      TopArmor3: 915295602
-      TopArmorWood: 1603995861
-      Wood: -1205052147
-      cotton: 1824609586
+      Items_259: -1809331729
+      Items_26: 1147920734
+      Items_260: 1109499201
+      Items_261: -931372814
+      Items_262: 343330619
+      Items_263: 1018958030
+      Items_264: 972095875
+      Items_265: 1902025868
+      Items_266: -1112531312
+      Items_267: -1688425198
+      Items_268: -1675956792
+      Items_27: 1600309033
+      Items_270: -1259004302
+      Items_271: 1996963224
+      Items_272: -199253285
+      Items_273: 840804417
+      Items_274: -1177789582
+      Items_275: 1449411553
+      Items_276: -1149235889
+      Items_277: -1331575581
+      Items_278: -1700393851
+      Items_279: 862062202
+      Items_28: 27767523
+      Items_280: -246576851
+      Items_281: -1433316003
+      Items_282: 2136700519
+      Items_283: 1547741926
+      Items_29: 922453581
+      Items_3: 1926746254
+      Items_30: 818151975
+      Items_31: 1317878810
+      Items_32: -718663626
+      Items_33: -1931288763
+      Items_34: -767007378
+      Items_35: 486276243
+      Items_36: -326596868
+      Items_37: 1368232943
+      Items_38: 133686938
+      Items_39: 50006938
+      Items_4: -167178520
+      Items_40: 1995186381
+      Items_41: -240242349
+      Items_42: -618150997
+      Items_43: -202008731
+      Items_44: -1073020014
+      Items_45: -1459991654
+      Items_46: 1048306968
+      Items_47: 1851317238
+      Items_5: 1024483059
+      Items_50: 556217973
+      Items_51: 343923168
+      Items_52: -143224061
+      Items_53: -753006669
+      Items_54: 1979458739
+      Items_55: 1898248754
+      Items_56: 1438518906
+      Items_57: 1105910601
+      Items_59: -1564917362
+      Items_6: 1404704726
+      Items_60: 727459836
+      Items_61: 1364244973
+      Items_62: 1612317395
+      Items_63: -2142808666
+      Items_64: 913692732
+      Items_65: -906743524
+      Items_66: 1487368894
+      Items_67: -674221868
+      Items_68: -168738551
+      Items_69: -1183490895
+      Items_7: -1500499131
+      Items_70: -435356742
+      Items_71: -1437690061
+      Items_72: 1644321983
+      Items_73: 368138751
+      Items_74: -1648636261
+      Items_75: -1444081102
+      Items_76: -1101417658
+      Items_78: -637571805
+      Items_79: 995888042
+      Items_8: 1467384986
+      Items_88: 708016531
+      Items_89: -1149971803
+      Items_9: -1598445014
+      Items_90: -431380808
+      Items_91: -2132210123
+      Items_96: -2078120654
+      Items_98: 1335211751
+      Items_99: 1608368469
+      Leather: 958663101
+      Meat: 132728278
+      Pants: -1964363477
+      Pants_black: -537491423
+      Pick: -321175893
+      Ring: -1215097146
+      Rock: 918272746
+      Shoes: -518444282
+      Shoes_steel: -189344141
+      Sword_steel: -737676413
+      Sword_wood: -827725294
+      Tomato: 915295602
+      TopArmor1: 1603995861
+      TopArmor2: -1205052147
+      TopArmor3: 1824609586
+      TopArmorWood: -1102319170
+      Wood: -1102319170
+      cotton: -1688425198
+      gunpowder: -1688425198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
