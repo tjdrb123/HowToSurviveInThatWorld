@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64d9a0f629ba4e33b7f037ee8f1d2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _touchScreenText: {fileID: 0}
+  _graphic: {fileID: 0}
 --- !u!114 &4418449929944703507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,6 +1099,7 @@ GameObject:
   - component: {fileID: 1991661111579135797}
   - component: {fileID: 9191825117797091295}
   - component: {fileID: 9191825117797091296}
+  - component: {fileID: 9191825117797091297}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1501,7 +1502,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4837495373799208025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9191825117797091297}
+        m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
+        m_MethodName: NextSceneLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8945168058827039498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,9 +1552,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5192540250814539151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59a844fe6f3fb984a87d328a1f2523db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9191825117797091297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192540250814539151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02912b5172388466481ec851bd44dce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
