@@ -14,7 +14,6 @@ public class UI_ChestInventory : UI_Popup
         BackPack,
         ChestInven
     }
-    public ItemData[] ItemData;
     public GameObject Object;
     private void Start()
     {

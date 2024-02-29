@@ -72,8 +72,8 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void Swap() //아이템의 이미지와 Sprite를 변경함
     {
-        SetAlpha(ItemData.KeyNumber != 0);
-        if (ItemData.KeyNumber == 0)
+        SetAlpha(ItemData != null && ItemData.KeyNumber != 0);
+        if (ItemData == null || ItemData.KeyNumber == 0)
         {
             SlotClear();
             return;
