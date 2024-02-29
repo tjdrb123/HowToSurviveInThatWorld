@@ -50,8 +50,12 @@ public class MovementStopAction : FiniteStateAction
     }
     
     public override void FiniteStateUpdate() 
-    { 
+    {
         // None
+        WeaponItem weaponItem = null;
+        if (Manager_Inventory.Instance.EquipMentSlotDatas[6] != null)
+            weaponItem = Manager_Inventory.Instance.EquipMentSlotDatas[6] as WeaponItem;
+        _animator.SetFloat("WeaponType", weaponItem == null ? 0 : (int)weaponItem.WeaponType);
     }
     
     public override void FiniteStateFixedUpdate()

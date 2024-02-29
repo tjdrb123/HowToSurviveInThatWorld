@@ -19,22 +19,23 @@ public class UI_Inventory : UI_Popup
         SelectBtn,
         RemoveBtn,
     }
-
     private ItemSlot _selectSlot;
-    private void Start()
-    {
-        DataReset();
-    }
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
         BindButton(typeof(E_Button));
         BindObject(typeof(E_Object));
-
         GetButton((int)E_Button.Btn_Close).onClick.AddListener(BtnClose);
         GetButton((int)E_Button.RemoveBtn).onClick.AddListener(RemoveItem);
         GetButton((int)E_Button.SelectBtn).onClick.AddListener(UseItem);
+
         return true;
+    }
+    private void Start()
+    {
+        DataReset();
+        GameObject inventory = GameObject.Find("InventoryCanvas");
+        Destroy(inventory);
     }
     public void DataReset()
     {

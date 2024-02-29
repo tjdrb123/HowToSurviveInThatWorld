@@ -890,6 +890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6171978849876231962}
   - component: {fileID: 7475203102152618387}
+  - component: {fileID: 8679403651513810183}
   m_Layer: 0
   m_Name: ui
   m_TagString: Untagged
@@ -928,7 +929,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 1333078047729409982, guid: 5d78d7accc9b9a245881cbbe0cc51453, type: 3}
-  _setting: {fileID: 3968538354063002713, guid: a9ea7764b5229214a9ea4220317fdcb8, type: 3}
+  _setting: {fileID: 8765851690439677305, guid: 5f2696a217414d74fb212e61a0c243b6, type: 3}
+--- !u!114 &8679403651513810183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927062547763369356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe42472ca810ca4298fffca256a0dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bgmAudioSource: []
+  _sfxAudioSource: []
 --- !u!1 &6037463068329744600
 GameObject:
   m_ObjectHideFlags: 0

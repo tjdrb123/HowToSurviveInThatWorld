@@ -19,6 +19,7 @@ public class MainScene_UI_Btn : UI_Base
 
     [SerializeField] private GameObject _inventory;
     [SerializeField] private GameObject _setting;
+
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
