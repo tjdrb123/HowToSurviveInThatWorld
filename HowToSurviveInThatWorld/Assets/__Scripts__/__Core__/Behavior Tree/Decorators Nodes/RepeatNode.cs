@@ -50,7 +50,9 @@ public class RepeatNode : Decorator
     {
         zombieData.animator.ResetTrigger("IsHit");
         zombieData.animator.SetTrigger(IsDeath);
-        zombieData.DeadComponents(zombieData.gameObject);
+        zombieData.DeadComponents(zombieData.gameObject); // Components OnDisable
+        //zombieData.DeathLootingComponents(zombieData.gameObject); // Looting Component OnEnable
+        zombieData.gameObject.layer = 8;
         return E_NodeState.Failure;
     }
 }

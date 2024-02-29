@@ -90,13 +90,30 @@ public class BasicZombieData
             {
                 (component as MonoBehaviour).enabled = false;
             }
-            else if (component is Collider)
-            {
-                (component as Collider).enabled = false;
-            }
+            //else if (component is Collider)
+            //{
+                //(component as Collider).enabled = false;
+            //}
             else if (component is NavMeshAgent)
             {
                 (component as NavMeshAgent).enabled = false;
+            }
+        }
+    }
+
+    public void DeathLootingComponents(GameObject gameObject)
+    {
+        Component[] components = gameObject.GetComponents<Component>();
+
+        foreach (var component in components)
+        {
+            if (component is ChestInventory)
+            {
+                (component as ChestInventory).enabled = true;
+            }
+            else if (component is Looting)
+            {
+                (component as Looting).enabled = false;
             }
         }
     }
