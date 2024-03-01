@@ -23,6 +23,6 @@ public class UIMinimap : MonoBehaviour
     
     public void ZoomOut()
     {
-        minimapCamera.orthographicSize = Mathf.Min(minimapCamera.orthographicSize - zoomOneStep, zoomMax);
+        minimapCamera.orthographicSize = Mathf.Min(minimapCamera.orthographicSize + zoomOneStep, zoomMax);
     }
 }
