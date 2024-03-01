@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseValue: 1000
   _Capacity: -1
-  _Type: 8
+  _Type: 9
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseValue: 60
   _Capacity: -1
-  _Type: 4
+  _Type: 5
 --- !u!114 &7059232610617897157
 MonoBehaviour:
   m_ObjectHideFlags: 1

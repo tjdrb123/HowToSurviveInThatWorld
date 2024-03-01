@@ -31,7 +31,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseValue: 25
   _Capacity: -1
-  _Type: 4
+  _Type: 5
 --- !u!114 &3537332582553882311
 MonoBehaviour:
   m_ObjectHideFlags: 1
