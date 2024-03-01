@@ -53,6 +53,7 @@ public class RepeatNode : Decorator
         zombieData.DeadComponents(zombieData.gameObject); // Components OnDisable
         //zombieData.DeathLootingComponents(zombieData.gameObject); // Looting Component OnEnable
         zombieData.gameObject.layer = 8;
+        EnemySpawner.currentZombies--; // 좀비 최대 스폰을 확인하기 위한 Death Count
         return E_NodeState.Failure;
     }
 }

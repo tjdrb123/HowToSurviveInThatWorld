@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public int maxZombies = 30;
     public float spawnInterval = 5f;
 
-    private int currentZombies = 0;
+    public static int currentZombies = 0;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        Instantiate(zombiePrefab[zombiePrefab.Length], spawnPoint.position, spawnPoint.rotation);
+        Instantiate(zombiePrefab[Random.Range(0, zombiePrefab.Length)], spawnPoint.position, spawnPoint.rotation);
 
         currentZombies++;
     }
