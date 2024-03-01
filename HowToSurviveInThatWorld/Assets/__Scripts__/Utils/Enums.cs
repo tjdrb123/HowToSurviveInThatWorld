@@ -42,6 +42,7 @@ public enum E_StatType
 {
     None,
     Health,
+    Hunger,
     Exp,
     MoveSpeed,
     Damage,

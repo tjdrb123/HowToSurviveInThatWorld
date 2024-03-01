@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UI_GameMainUI : UI_Scene
 {
-    enum E_Button //°¢Á¾ ¹öÆ°µéÀ» °ü¸®ÇÑ´Ù.
+    enum E_Button //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
     {
         NextStageBtn,
         SettingsBtn
@@ -23,7 +23,7 @@ public class UI_GameMainUI : UI_Scene
     }
     private void SceneLoad()
     {
-        SceneManager.LoadScene("02_Selector");
+        //SceneManager.LoadScene("02_Selector");
     }
     private void OpenSetting()
     {
