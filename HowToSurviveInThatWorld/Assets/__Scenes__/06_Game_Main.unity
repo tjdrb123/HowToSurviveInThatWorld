@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 37865400}
   - component: {fileID: 37865403}
   - component: {fileID: 37865402}
+  - component: {fileID: 37865404}
   m_Layer: 5
   m_Name: Point4
   m_TagString: Untagged
@@ -256,7 +257,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 37865400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 37865404}
+        m_TargetAssemblyTypeName: UI_MapChanger, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &37865404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37865398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26388fcee956315459d4782802f8fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterCheckPanel: {fileID: 727148470}
+  panelImage: {fileID: 1226602119}
+  panelText: {fileID: 2101141846}
+  fadeInOut: {fileID: 37865402}
+  mapImage: {fileID: 21300000, guid: caeecddaf4857d64fb2f9d55e0c5b7ea, type: 3}
+  mapNameTxt: "\uC900\uBE44\uC911\uC785\uB2C8\uB2E4..."
 --- !u!1 &59643782
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +676,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175627386}
   m_CullTransparentMesh: 1
+--- !u!21 &213248824
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 300, g: 300, b: 60, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &376291271
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +728,7 @@ GameObject:
   - component: {fileID: 376291273}
   - component: {fileID: 376291276}
   - component: {fileID: 376291275}
+  - component: {fileID: 376291277}
   m_Layer: 5
   m_Name: Point3
   m_TagString: Untagged
@@ -778,7 +849,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 376291273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 376291277}
+        m_TargetAssemblyTypeName: UI_MapChanger, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &376291277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376291271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26388fcee956315459d4782802f8fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterCheckPanel: {fileID: 727148470}
+  panelImage: {fileID: 1226602119}
+  panelText: {fileID: 2101141846}
+  fadeInOut: {fileID: 376291275}
+  mapImage: {fileID: 21300000, guid: caeecddaf4857d64fb2f9d55e0c5b7ea, type: 3}
+  mapNameTxt: "\uC900\uBE44\uC911\uC785\uB2C8\uB2E4..."
 --- !u!1 &399761326
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &399761327
 RectTransform:
   m_ObjectHideFlags: 0
@@ -836,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1189796380}
+  m_Material: {fileID: 2130913480}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1351,7 +1452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727148471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1426,6 +1527,7 @@ GameObject:
   - component: {fileID: 862217618}
   - component: {fileID: 862217621}
   - component: {fileID: 862217620}
+  - component: {fileID: 862217622}
   m_Layer: 5
   m_Name: Point2
   m_TagString: Untagged
@@ -1546,46 +1648,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862217618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!21 &943832316
-Material:
-  serializedVersion: 8
+      m_Calls:
+      - m_Target: {fileID: 862217622}
+        m_TargetAssemblyTypeName: UI_MapChanger, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &862217622
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 300, g: 300, b: 60, a: 0}
-  m_BuildTextureStacks: []
+  m_GameObject: {fileID: 862217616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26388fcee956315459d4782802f8fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterCheckPanel: {fileID: 727148470}
+  panelImage: {fileID: 1226602119}
+  panelText: {fileID: 2101141846}
+  fadeInOut: {fileID: 862217620}
+  mapImage: {fileID: 21300000, guid: caeecddaf4857d64fb2f9d55e0c5b7ea, type: 3}
+  mapNameTxt: "\uC900\uBE44\uC911\uC785\uB2C8\uB2E4..."
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,45 +2113,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187236359}
   m_CullTransparentMesh: 1
---- !u!21 &1189796380
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1851.5103, g: 1138.8, b: 200, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1226602117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 943832316}
+  m_Material: {fileID: 213248824}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2163,6 +2217,7 @@ GameObject:
   - component: {fileID: 1243212090}
   - component: {fileID: 1243212093}
   - component: {fileID: 1243212092}
+  - component: {fileID: 1243212094}
   m_Layer: 5
   m_Name: Point1
   m_TagString: Untagged
@@ -2283,7 +2338,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1243212090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243212094}
+        m_TargetAssemblyTypeName: UI_MapChanger, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1243212094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243212088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26388fcee956315459d4782802f8fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterCheckPanel: {fileID: 727148470}
+  panelImage: {fileID: 1226602119}
+  panelText: {fileID: 2101141846}
+  fadeInOut: {fileID: 1243212092}
+  mapImage: {fileID: 21300000, guid: caeecddaf4857d64fb2f9d55e0c5b7ea, type: 3}
+  mapNameTxt: "\uC900\uBE44\uC911\uC785\uB2C8\uB2E4..."
 --- !u!1 &1251896879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,7 +2705,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1440824633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 727148470}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1440824633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3318,6 +3415,7 @@ GameObject:
   - component: {fileID: 1878183645}
   - component: {fileID: 1878183647}
   - component: {fileID: 1878183644}
+  - component: {fileID: 1878183648}
   m_Layer: 5
   m_Name: Point5
   m_TagString: Untagged
@@ -3351,7 +3449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878183642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c64d9a0f629ba4e33b7f037ee8f1d2aa, type: 3}
   m_Name: 
@@ -3438,7 +3536,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1878183645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1878183648}
+        m_TargetAssemblyTypeName: UI_MapChanger, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1878183648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878183642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26388fcee956315459d4782802f8fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterCheckPanel: {fileID: 727148470}
+  panelImage: {fileID: 1226602119}
+  panelText: {fileID: 2101141846}
+  fadeInOut: {fileID: 1878183644}
+  mapImage: {fileID: 21300000, guid: b65e6766d0f08f04cb49fa549b5054b9, type: 3}
+  mapNameTxt: Neighborhood
 --- !u!1 &1992409345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,6 +3854,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101141844}
   m_CullTransparentMesh: 1
+--- !u!21 &2130913480
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1851.5103, g: 1138.8, b: 200, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
