@@ -17,7 +17,7 @@ public class PlayerStateInfo : MonoBehaviour
     
     void Update()
     {
-        if (_player.Health <= 0 && _deadCheck)
+        if ((_player.Health <= 0 && _deadCheck) || (_player.Hungry <= 0 && _deadCheck))
         {
             _deadCheck = false;
             Manager_WarScene.Instance.playerDeathCheck = false;

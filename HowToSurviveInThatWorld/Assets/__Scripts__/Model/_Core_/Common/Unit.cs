@@ -38,6 +38,9 @@ public class Unit : Entity, IDamageable
 
     public float Health => (_statController.GetStat<Attribute>(E_StatType.Health)).CurrentValue;
     public float MaxHealth => (_statController.GetStat<Attribute>(E_StatType.Health)).Value;
+    
+    public float Hungry => (_statController.GetStat<Attribute>(E_StatType.Hungry)).CurrentValue;
+    public float MaxHungry => (_statController.GetStat<Attribute>(E_StatType.Hungry)).Value;
     public bool IsInitialized => _isInitialized;
 
     #endregion
@@ -148,6 +151,11 @@ public class Unit : Entity, IDamageable
 
         DebugLogger.LogWarning(
             $"Health : {_statController.GetStat<Attribute>(E_StatType.Health).CurrentValue} / {_statController.GetStat<Attribute>(E_StatType.Health).Value} ");
+    }
+    
+    public void TakeHungry(float rawHungry)
+    {
+        _statController.GetStat<Attribute>(E_StatType.Hungry).RawHungry(rawHungry);
     }
 
     #endregion
