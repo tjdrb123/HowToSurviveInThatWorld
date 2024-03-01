@@ -18,8 +18,8 @@ public class BasicZombieData
     public float attackDistance = 1.5f;
     
     [Header("PatrolPosition")]
-    public Vector2 patrolMinPos = Vector2.one * -20;
-    public Vector2 patrolMaxPos = Vector2.one * 20;
+    public Vector2 patrolMinPos = Vector2.one;
+    public Vector2 patrolMaxPos = Vector2.one * 150;
     public Vector3 correctPos;
     public bool patrolRandomPosCheck = true;
 
