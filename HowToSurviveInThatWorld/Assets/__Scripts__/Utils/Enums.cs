@@ -48,6 +48,7 @@ public enum E_StatType
     Defense,
     CriticalChance,
     CriticalDamage,
+    Hungry,
 }
 
 #endregion

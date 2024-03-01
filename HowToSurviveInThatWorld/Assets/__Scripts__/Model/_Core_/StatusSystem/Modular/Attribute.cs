@@ -23,6 +23,11 @@ public class Attribute : Stat
     public event Action<StatModifier> OnAppliedModifier;
 
     #endregion
+
+    public void RawHungry(float index)
+    {
+        _currentValue -= index;
+    }
     
     
     
