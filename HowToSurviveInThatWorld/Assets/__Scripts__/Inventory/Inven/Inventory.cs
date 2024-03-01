@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
 
     public ItemSlot[] BaseSlot { get => _baseSlot; }
     public int inventoryAvailableSlots { get; set; }
+    
     private void Awake()
     {
         _baseSlot = GetComponentsInChildren<ItemSlot>(); //자기 자식들중 ItemSlot을 가지고 있는 오브젝트들을 가져옵니다.

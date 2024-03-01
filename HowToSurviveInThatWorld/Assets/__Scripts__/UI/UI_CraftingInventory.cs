@@ -14,8 +14,11 @@ public class UI_CraftingInventory : UI_Popup
         BackPack,
     }
     public ItemData[] ItemData;
+    private FiniteStateMachine _finiteStateMachine;
     private void Start()
     {
+        _finiteStateMachine = GameObject.Find("RootPlayer").GetComponent<FiniteStateMachine>();
+        _finiteStateMachine.enabled = false;
         DataReset();
     }
     public override bool Initialize()
@@ -46,6 +49,7 @@ public class UI_CraftingInventory : UI_Popup
             Manager_Inventory.Instance.BackPackSlotDatas[i] = GetObject((int)E_Object.BackPack).GetComponent<Inventory>().BaseSlot[i].ItemData;
         }
         Manager_Inventory.Instance.BtnSounds(1);
+        _finiteStateMachine.enabled = true;
         ClosePopup();
     }
 }

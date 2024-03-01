@@ -15,8 +15,11 @@ public class UI_ChestInventory : UI_Popup
         ChestInven
     }
     public GameObject Object;
+    private FiniteStateMachine _finiteStateMachine;
     private void Start()
     {
+        _finiteStateMachine = GameObject.Find("RootPlayer").GetComponent<FiniteStateMachine>();
+        _finiteStateMachine.enabled = false;
         DataReset();
     }
     public override bool Initialize()
@@ -46,6 +49,7 @@ public class UI_ChestInventory : UI_Popup
         Manager_Inventory.Instance.BtnSounds(1);
         if (Object != null && Manager_Inventory.Instance.ObjectDestroy(Object))
             Destroy(Object);
+        _finiteStateMachine.enabled = true;
         ClosePopup();
     }
 }

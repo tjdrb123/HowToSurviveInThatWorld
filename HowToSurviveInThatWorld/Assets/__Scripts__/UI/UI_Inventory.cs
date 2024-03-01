@@ -21,6 +21,7 @@ public class UI_Inventory : UI_Popup
         RemoveBtn,
     }
     private ItemSlot _selectSlot;
+    private FiniteStateMachine _finiteStateMachine;
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
@@ -34,6 +35,8 @@ public class UI_Inventory : UI_Popup
     }
     private void Start()
     {
+        _finiteStateMachine = GameObject.Find("RootPlayer").GetComponent<FiniteStateMachine>();
+        _finiteStateMachine.enabled = false;
         DataReset();
         GameObject inventory = GameObject.Find("InventoryCanvas");
         Destroy(inventory);
@@ -148,8 +151,7 @@ public class UI_Inventory : UI_Popup
             }
         }
         else
-        {
             Manager_Inventory.Instance.WeaponSwap(-1);
-        }
+        _finiteStateMachine.enabled = true;
     }
 }
