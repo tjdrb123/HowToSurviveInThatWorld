@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseValue: 100
   _Capacity: -1
-  _Type: 4
+  _Type: 5

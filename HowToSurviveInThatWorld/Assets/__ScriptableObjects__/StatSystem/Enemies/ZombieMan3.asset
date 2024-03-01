@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseValue: 200
   _Capacity: -1
-  _Type: 4
+  _Type: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

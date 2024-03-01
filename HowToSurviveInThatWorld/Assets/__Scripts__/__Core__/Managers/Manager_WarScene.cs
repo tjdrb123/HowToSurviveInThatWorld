@@ -66,7 +66,7 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
 
     public void HungryProgressBar()
     {
-        _player.TakeHungry(4f);
+        _player.TakeHungry(-4f);
 
         playerHungryBar.fillAmount = _player.Hungry / _player.MaxHungry;
     }

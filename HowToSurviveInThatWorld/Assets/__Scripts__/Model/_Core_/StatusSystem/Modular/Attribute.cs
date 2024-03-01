@@ -26,7 +26,7 @@ public class Attribute : Stat
 
     public void RawHungry(float index)
     {
-        _currentValue -= index;
+        _currentValue += index;
     }
     
     
