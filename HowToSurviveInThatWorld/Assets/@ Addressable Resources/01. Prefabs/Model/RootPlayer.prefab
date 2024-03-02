@@ -1366,7 +1366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2505002634261256442}
   m_Layer: 6
-  m_Name: Top
+  m_Name: 2. Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,7 +1583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8336907688225097384}
   m_Layer: 6
-  m_Name: Boots
+  m_Name: 4. Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3603,7 +3603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893648190504156384}
   m_Layer: 6
-  m_Name: BackPack
+  m_Name: 5. BackPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7901,7 +7901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5787983252159073091}
   m_Layer: 6
-  m_Name: Bottom
+  m_Name: 3. Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8806,6 +8806,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203f551037526994292605bcef720ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArmorObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _weaponPosition: {fileID: 4299271071875749516}
   _mainScene_UI: {fileID: 0}
 --- !u!114 &7676019412515469748
@@ -10565,11 +10571,11 @@ Transform:
   - {fileID: 3871231597583643469}
   - {fileID: 3642184329420086267}
   - {fileID: 7878505988484429492}
-  - {fileID: 1893648190504156384}
   - {fileID: 6109026471241509972}
   - {fileID: 2505002634261256442}
   - {fileID: 5787983252159073091}
   - {fileID: 8336907688225097384}
+  - {fileID: 1893648190504156384}
   - {fileID: 770401044162800544}
   m_Father: {fileID: 4813877958552307704}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11217,7 +11223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6109026471241509972}
   m_Layer: 6
-  m_Name: Helmet
+  m_Name: 1. Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

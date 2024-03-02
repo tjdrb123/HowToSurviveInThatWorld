@@ -2826,6 +2826,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 091039f7ec1a0e54c994175662048d50, type: 2}
   - {fileID: 11400000, guid: b52e4fc310457094d8e63ffc1f1a12ce, type: 2}
   - {fileID: 11400000, guid: 9d26c6f289fd2d743a8f335b3a1890dc, type: 2}
+  - {fileID: 11400000, guid: 3eae9834eaf7c0d408b004c2d9719aeb, type: 2}
   _baseSlot: []
   _craftingSlot: {fileID: 3056311655303866095}
   _newItemSlot: {fileID: 3329774898139822081}
@@ -10994,7 +10995,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_TargetDisplay: 0
 --- !u!114 &5825221444318617699
 MonoBehaviour:
