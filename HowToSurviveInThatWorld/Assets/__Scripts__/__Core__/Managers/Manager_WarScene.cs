@@ -19,7 +19,7 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
     
     [HideInInspector] public bool playerDeathCheck;
     [HideInInspector] public float lifeTimer;
-    [HideInInspector] public int killCount;
+    [HideInInspector] public int killCount = 0;
     [HideInInspector] public Player _player;
     
 

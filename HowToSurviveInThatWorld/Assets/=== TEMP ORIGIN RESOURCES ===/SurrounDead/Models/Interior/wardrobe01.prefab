@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6590172}
   - component: {fileID: 5548975874632680724}
   - component: {fileID: 2816303804812782162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wardrobe01_doorL
   m_TagString: Chest
   m_Icon: {fileID: 0}
@@ -122,19 +122,6 @@ MonoBehaviour:
   _items:
   - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
   - {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   RandomMax: 3
 --- !u!114 &2816303804812782162
 MonoBehaviour:
