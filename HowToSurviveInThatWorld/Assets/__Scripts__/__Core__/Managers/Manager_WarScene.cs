@@ -64,12 +64,17 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
         }
     }
 
-    public void HealthProgressBar(GameObject playerObject)
+    public void HealthProgressBar()
     {
-        Player player = playerObject.GetComponent<Player>();
-        playerHealthBar.fillAmount = player.Health / player.MaxHealth;
+        playerHealthBar.fillAmount = _player.Health / _player.MaxHealth;
         StopCoroutine(PlayerHitPanel());
         StartCoroutine(PlayerHitPanel());
+    }
+
+    // 임시 메서드
+    public void UpdateHealth()
+    {
+        playerHealthBar.fillAmount = _player.Health / _player.MaxHealth;
     }
 
     public void HungryProgressBar()
