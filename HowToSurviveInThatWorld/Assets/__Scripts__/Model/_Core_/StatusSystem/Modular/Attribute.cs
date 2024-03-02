@@ -28,6 +28,11 @@ public class Attribute : Stat
     {
         _currentValue += index;
     }
+
+    public void RecoverHP(float index)
+    {
+        _currentValue += index;
+    }
     
     
     

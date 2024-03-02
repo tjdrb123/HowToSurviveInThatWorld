@@ -158,5 +158,12 @@ public class Unit : Entity, IDamageable
         _statController.GetStat<Attribute>(E_StatType.Hungry).RawHungry(rawHungry);
     }
 
+    // 임시 체력 접근 메서드
+    public void RecoverHealth(float recoverHealth)
+    {
+        _statController.GetStat<Attribute>(E_StatType.Health).RecoverHP(recoverHealth);
+        Manager_WarScene.Instance.UpdateHealth(); // 체력 UI 갱신
+    }
+
     #endregion
 }
