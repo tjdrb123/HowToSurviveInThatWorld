@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 50
   Name: "\uB2F9\uADFC"
-  Description: "\uC2F1\uC2F1\uD55C \uB2F9\uADFC\uC785\uB2C8\uB2E4."
-  PlusValue: 3
+  Description: "\uB2F9\uADFC (\uCCB4\uB825 +30)"
+  PlusValue: 30
   CurrentAmont: 1
   ItemImage: {fileID: -429161160, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 27
+  CraftingItems: []
   MaxStack: 30
-  UseType: 1
+  UseType: 0

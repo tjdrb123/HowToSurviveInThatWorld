@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e495a02010faa74bbc337b66b638418, type: 3}
+  m_Name: 57. EnergyDrink
+  m_EditorClassIdentifier: 
+  KeyNumber: 57
+  Name: "\uC5D0\uB108\uC9C0\uBC14"
+  Description: "\uC5D0\uB108\uC9C0\uBC14 (\uC2A4\uD14C\uBBF8\uB108 +80)"
+  PlusValue: 80
+  CurrentAmont: 1
+  ItemImage: {fileID: 21300000, guid: 78a1c290f9cbb264d9c6759c0c0c5775, type: 3}
+  BaseType: 0
+  CraftingItems: []
+  MaxStack: 25
+  UseType: 1
