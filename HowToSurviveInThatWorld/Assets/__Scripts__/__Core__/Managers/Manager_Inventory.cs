@@ -12,8 +12,10 @@ public class Manager_Inventory : MonoBehaviour
     public Inventory BackPackInventory { get; set; }
     public Inventory EquipInventory { get; set; }
     public Inventory BaseInventory { get; set; }
+    public ChestInventory ChestInventory { get; set; }
 
     public static Manager_Inventory Instance;
+    public GameObject[] ArmorObjects;
     
     private Player _player;
     [SerializeField] private GameObject _weaponPosition;

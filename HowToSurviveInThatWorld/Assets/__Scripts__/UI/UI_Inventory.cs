@@ -11,6 +11,7 @@ public class UI_Inventory : UI_Popup
         Btn_Close,
         SelectBtn,
         RemoveBtn,
+        CraftingBtn,
     }
     enum E_Object
     {
@@ -25,12 +26,13 @@ public class UI_Inventory : UI_Popup
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
+
         BindButton(typeof(E_Button));
         BindObject(typeof(E_Object));
+
         GetButton((int)E_Button.Btn_Close).onClick.AddListener(BtnClose);
         GetButton((int)E_Button.RemoveBtn).onClick.AddListener(RemoveItem);
         GetButton((int)E_Button.SelectBtn).onClick.AddListener(UseItem);
-
         return true;
     }
     private void Start()
@@ -130,6 +132,17 @@ public class UI_Inventory : UI_Popup
             }
         }
     }
+    private void ArmorEquip(GameObject[] gameObjects)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ArmorItem itemDataSo = Manager_Inventory.Instance.EquipInventory.BaseSlot[i].ItemData as ArmorItem;
+            if (itemDataSo != null && (int)itemDataSo.armorType == 20 + i)
+                gameObjects[i].SetActive(true);
+            else
+                gameObjects[i].SetActive(false);
+        }
+    }
     private void WeaponEquip()
     {
         WeaponItem weaponItem = null;
@@ -156,6 +169,7 @@ public class UI_Inventory : UI_Popup
     private void OnDisable()
     {
         WeaponEquip();
+        ArmorEquip(Manager_Inventory.Instance.ArmorObjects);
         _finiteStateMachine.enabled = true;
     }
 }

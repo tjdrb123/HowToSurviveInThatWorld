@@ -50,6 +50,7 @@ public class UI_ChestInventory : UI_Popup
         if (Object != null && Manager_Inventory.Instance.ObjectDestroy(Object))
             Destroy(Object);
         _finiteStateMachine.enabled = true;
+        Manager_Inventory.Instance.ChestInventory.ChestSetData();
         ClosePopup();
     }
 }

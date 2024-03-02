@@ -59,6 +59,8 @@ public class MovementInteractAction : FiniteStateAction
     {
         if (_playerController._hitColliders.Length != 0 && _playerController._hitColliders[0] != null) 
             interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
+        Debug.Log(_playerController);
+        Debug.Log(_animator);
         if (interactableObject != null)
             interactableObject.StopInteract(_playerController, _animator);
     }
