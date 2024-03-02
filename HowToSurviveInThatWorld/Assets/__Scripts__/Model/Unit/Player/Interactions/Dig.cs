@@ -13,8 +13,7 @@ public class Dig : MonoBehaviour, IInteractableObject
         animator.SetInteger("InteractingType", 2);
         animator.SetBool("IsInteracting", true);
         Manager_Inventory.Instance.WeaponSwap(-1);
-        Manager_Inventory.Instance.WeaponSwap(Manager_Inventory.Instance.GetSubWeaponTypeIndex() - 1);
-        Debug.Log("작동");
+        Manager_Inventory.Instance.WeaponSwap(Manager_Inventory.Instance.GetWeaponTypeIndex((int)E_SlotType.Sub_Weapon) - 1);
     }
 
     public void StopInteract(PlayerController playerController, Animator animator)
@@ -27,6 +26,6 @@ public class Dig : MonoBehaviour, IInteractableObject
             _DigCount = 0;
         }
         animator.SetBool("IsInteracting", false);
-        Manager_Inventory.Instance.WeaponSwap(Manager_Inventory.Instance.GetWeaponTypeIndex() - 1);
+        Manager_Inventory.Instance.WeaponSwap(Manager_Inventory.Instance.GetWeaponTypeIndex((int)E_SlotType.Weapon) - 1);
     }
 }

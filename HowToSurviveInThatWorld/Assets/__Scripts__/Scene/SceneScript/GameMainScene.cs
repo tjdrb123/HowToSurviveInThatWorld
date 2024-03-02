@@ -6,6 +6,7 @@ public class GameMainScene : MonoBehaviour
 {
     private void Start()
     {
+        Manager_Sound.instance.AudioClear();
         Manager_Sound.instance.AudioPlay(gameObject, "Sounds/BGM/TitleSound", true, true);
     }
 }

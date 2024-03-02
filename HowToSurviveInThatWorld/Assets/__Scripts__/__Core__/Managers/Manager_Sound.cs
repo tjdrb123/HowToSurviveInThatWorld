@@ -106,6 +106,11 @@ public class Manager_Sound : MonoBehaviour
             audioSource.Play();
         }
     }
+    public void AudioStop(GameObject Object)
+    { 
+        AudioSource audioSource = Object.GetComponent<AudioSource>();
+        audioSource.Stop();
+    }
     public void AudioPlay(GameObject audioObject, string name, bool isLoop = false, bool isBGM = false) //해당 오브젝트의 오디오 소스를 가지고 시작함
     {
         AudioSource audioSource = AddAudioSource(audioObject);

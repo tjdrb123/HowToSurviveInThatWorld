@@ -130,12 +130,12 @@ public class UI_Inventory : UI_Popup
             }
         }
     }
-    private void OnDisable()
+    private void WeaponEquip()
     {
         WeaponItem weaponItem = null;
         if (Manager_Inventory.Instance.EquipMentSlotDatas[6] != null)
             weaponItem = Manager_Inventory.Instance.EquipMentSlotDatas[6] as WeaponItem;
-        if (weaponItem != null) 
+        if (weaponItem != null)
         {
             switch (weaponItem.WeaponType)
             {
@@ -152,6 +152,10 @@ public class UI_Inventory : UI_Popup
         }
         else
             Manager_Inventory.Instance.WeaponSwap(-1);
+    }
+    private void OnDisable()
+    {
+        WeaponEquip();
         _finiteStateMachine.enabled = true;
     }
 }
