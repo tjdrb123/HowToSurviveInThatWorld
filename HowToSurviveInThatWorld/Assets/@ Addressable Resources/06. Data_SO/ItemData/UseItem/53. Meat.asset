@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: 53. Meat
   m_EditorClassIdentifier: 
   KeyNumber: 53
-  Name: "\uC0DD\uACE0\uAE30"
-  Description: "\uC2E0\uC120\uD55C \uACE0\uAE30\uC774\uB2E4."
-  PlusValue: 5
+  Name: "\uC775\uD78C\uACE0\uAE30"
+  Description: "\uC775\uD78C\uACE0\uAE30 (\uC2A4\uD14C\uBBF8\uB108 +120)"
+  PlusValue: 120
   CurrentAmont: 1
-  ItemImage: {fileID: 1335211751, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
+  ItemImage: {fileID: -681820905, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 27
-  CraftingItems: []
+  CraftingItems:
+  - item: {fileID: 11400000, guid: 85d7b001c52bcf640aa2557855d46d88, type: 2}
+    itemValue: 2
+  - item: {fileID: 11400000, guid: b9d3e11dcab803541abd6b9af25eb0e4, type: 2}
+    itemValue: 1
+  - item: {fileID: 11400000, guid: 6aa81cd38a13ad14b80a407085606148, type: 2}
+    itemValue: 1
   MaxStack: 30
-  UseType: 0
+  UseType: 1
