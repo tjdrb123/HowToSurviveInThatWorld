@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 51
   Name: "\uBE75"
-  Description: "\uC798 \uAD6C\uC6B4 \uBE75\uC785\uB2C8\uB2E4."
-  PlusValue: 10
+  Description: "\uBE75 (\uCCB4\uB825 +50)"
+  PlusValue: 50
   CurrentAmont: 1
   ItemImage: {fileID: 584231591, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 27
+  CraftingItems: []
   MaxStack: 20
-  UseType: 1
+  UseType: 0

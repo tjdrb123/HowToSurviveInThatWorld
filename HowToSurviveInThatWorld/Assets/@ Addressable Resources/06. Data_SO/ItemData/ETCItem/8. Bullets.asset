@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: 8. Bullets
   m_EditorClassIdentifier: 
   KeyNumber: 8
-  Name: "\uCD1D\uC54C"
-  Description: "30\uBC1C\uC774 \uB2F4\uACA8\uC788\uB294 \uCD1D\uC54C\uC0C1\uC790\uC785\uB2C8\uB2E4."
+  Name: "\uD0C4\uC57D"
+  Description: "\uD0C4\uC57D"
   PlusValue: 0
-  CurrentAmont: 30
+  CurrentAmont: 10
   ItemImage: {fileID: 21300000, guid: 8ff72bc15bf42364e9878cfc3b89f41c, type: 3}
   BaseType: 0
   CraftingItems:
   - item: {fileID: 11400000, guid: 6550d2bed358928428f372c296b992fb, type: 2}
-    itemValue: 10
+    itemValue: 1
   - item: {fileID: 11400000, guid: a86730b7c9f308e4499e4a96aa45ad6f, type: 2}
-    itemValue: 30
+    itemValue: 3
   MaxStack: 30
