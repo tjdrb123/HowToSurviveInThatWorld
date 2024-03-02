@@ -39,8 +39,11 @@ public class MainScene_UI_Btn : UI_Base
         BindImage(typeof(E_Image));
         GetButton((int)E_Button.Setting_Button).onClick.AddListener(OpenSetting);
         GetButton((int)E_Button.BackPack_Button).onClick.AddListener(OpenInven);
-        Manager_Inventory.Instance.MainScene_UI = this;
         return true;
+    }
+    private void Start()
+    {
+        Manager_Inventory.Instance.MainScene_UI = this;
     }
     public void OpenInformation(ItemDataSo itemDataSo, bool isOpen) 
     {
