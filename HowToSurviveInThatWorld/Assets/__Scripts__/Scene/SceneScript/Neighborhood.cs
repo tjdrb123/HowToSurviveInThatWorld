@@ -7,6 +7,6 @@ public class Neighborhood : MonoBehaviour
     private void Start()
     {
         Manager_Sound.instance.AudioClear();
-        Manager_Sound.instance.AudioPlay(gameObject, "Sounds/BGM/Neighborhood", true, true);
+        Manager_Sound.instance.AudioPlay(gameObject, "Sounds/BGM/Neighborhood_BackGround", true, true);
     }
 }
