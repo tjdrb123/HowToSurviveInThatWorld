@@ -138,16 +138,12 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_inventory != null) _inventory.SelectSlot(this);
-        if (eventData.button == PointerEventData.InputButton.Right) //오른쪽 클릭이면 해당 오브젝트의 아이템을 사용
-        {
-            Debug.Log("작동");
-            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData);
-        }
         if (_itemImage.sprite != null && _dragSlot != null && _isLock)
         {
             _dragSlot.SetActive(true);
             _dragSlot.transform.position = transform.position;
             _dragSlotComponent.SetSlot(_itemImage, _quantityText, this);
+            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, true);
         }
         else if (!_isLock && this.GetComponentInParent<CraftingInventory>() != null)
         {
@@ -166,6 +162,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && _isLock)
         {
+            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, false);
             _dragSlot.transform.position = eventData.position;
         }
         else
@@ -219,6 +216,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, false);
         _dragSlot.SetActive(false);
     }
 }

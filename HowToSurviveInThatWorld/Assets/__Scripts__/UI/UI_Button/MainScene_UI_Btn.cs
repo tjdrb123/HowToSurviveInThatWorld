@@ -17,6 +17,15 @@ public class MainScene_UI_Btn : UI_Base
         BackPack_Button,
         InformationCanvas,
     }
+    enum E_Text
+    {
+        InformItemName,
+        InformDescription,
+    }
+    enum E_Image
+    {
+        InformItemImage
+    }
 
     [SerializeField] private GameObject _inventory;
     [SerializeField] private GameObject _setting;
@@ -26,14 +35,19 @@ public class MainScene_UI_Btn : UI_Base
         if (!base.Initialize()) return false;
         BindButton(typeof(E_Button));
         BindObject(typeof(E_Object));
+        BindText(typeof(E_Text));
+        BindImage(typeof(E_Image));
         GetButton((int)E_Button.Setting_Button).onClick.AddListener(OpenSetting);
         GetButton((int)E_Button.BackPack_Button).onClick.AddListener(OpenInven);
         Manager_Inventory.Instance.MainScene_UI = this;
         return true;
     }
-    public void OpenInformation(ItemDataSo itemDataSo) 
+    public void OpenInformation(ItemDataSo itemDataSo, bool isOpen) 
     {
-        GetObject((int)E_Object.InformationCanvas).SetActive(true);
+        GetObject((int)E_Object.InformationCanvas).SetActive(isOpen);
+        GetText((int)E_Text.InformItemName).text = itemDataSo.Name;
+        GetText((int)E_Text.InformDescription).text = itemDataSo.Description;
+        GetImage((int)E_Image.InformItemImage).sprite = itemDataSo.ItemImage;
     }
     private void OpenSetting()
     {

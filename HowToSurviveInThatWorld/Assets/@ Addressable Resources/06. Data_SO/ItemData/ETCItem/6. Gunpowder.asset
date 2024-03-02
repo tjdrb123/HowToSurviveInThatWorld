@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 6
   Name: "\uD654\uC57D"
-  Description: "\uD654\uC57D"
+  Description: "\uD654\uC57D\uC744 \uC774\uC6A9\uD574\uC11C \uD0C4\uC57D\uC744 \uB9CC\uB4E4
+    \uC218 \uC788\uB2E4."
   PlusValue: 0
   CurrentAmont: 1
   ItemImage: {fileID: -1102319170, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}

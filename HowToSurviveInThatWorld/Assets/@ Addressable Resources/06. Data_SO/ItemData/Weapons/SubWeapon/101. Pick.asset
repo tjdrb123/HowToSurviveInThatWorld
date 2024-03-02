@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 101
   Name: "\uACE1\uAD2D\uC774"
-  Description: "\uB3CC\uC744 \uB354 \uBE68\uB9AC \uCE98 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  Description: "\uB3CC\uC744 \uB354 \uBE68\uB9AC \uCE98 \uC218 \uC788\uB2E4."
   PlusValue: 3
   CurrentAmont: 0
   ItemImage: {fileID: 132728278, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
