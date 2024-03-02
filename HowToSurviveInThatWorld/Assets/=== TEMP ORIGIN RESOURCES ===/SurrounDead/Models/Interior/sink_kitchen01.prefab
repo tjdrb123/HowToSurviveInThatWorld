@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6551832}
   - component: {fileID: 4149622151629901339}
   - component: {fileID: 9055061545410182048}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sink_kitchen01_doorL
   m_TagString: Chest
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130432}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5731787, y: 0.089999996, z: 0.030000037}
+  m_LocalRotation: {x: 0, y: 0.26279065, z: 0, w: 0.96485287}
+  m_LocalPosition: {x: 0.5731773, y: 0.089999974, z: 0.02999888}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  RandomMax: 0
 --- !u!114 &9055061545410182048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +177,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140294}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5731787, y: 0.089999996, z: 0.96999997}
+  m_LocalRotation: {x: 0, y: 0.050131146, z: 0, w: 0.9987427}
+  m_LocalPosition: {x: 0.5731771, y: 0.089999974, z: 0.9700013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
