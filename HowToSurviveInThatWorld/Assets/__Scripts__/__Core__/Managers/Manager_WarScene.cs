@@ -11,11 +11,15 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
 {
     public Canvas deathPopUp;
     public TextMeshProUGUI lifeTimeText;
+    public TextMeshProUGUI killCountText;
+    
     [SerializeField] private Image playerHealthBar;
     [SerializeField] private Image playerHungryBar;
     [SerializeField] private GameObject playerHitPanel;
+    
     [HideInInspector] public bool playerDeathCheck;
     [HideInInspector] public float lifeTimer;
+    [HideInInspector] public int killCount;
     [HideInInspector] public Player _player;
     
 
@@ -53,6 +57,7 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
             int seconds = Mathf.FloorToInt(lifeTimer % 60);
             
             lifeTimeText.text = $"Life Time : {hours}H {minutes}M {seconds}S";
+            killCountText.text = $"Kill Count : {killCount}";
             
             DeathPopUpWindow();
             playerDeathCheck = true;

@@ -48,6 +48,9 @@ public class RepeatNode : Decorator
         // Change Layer
         zombieData.gameObject.layer = 8;
         
+        // Kill Count Increase
+        Manager_WarScene.Instance.killCount++;
+        
         // Enemy Current Index Setting
         EnemySpawner.currentZombies--; // 좀비 최대 스폰을 확인하기 위한 Death Count
         
