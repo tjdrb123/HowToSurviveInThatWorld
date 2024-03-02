@@ -19,7 +19,7 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
     
     [HideInInspector] public bool playerDeathCheck;
     [HideInInspector] public float lifeTimer;
-    [HideInInspector] public int killCount = 0;
+    [HideInInspector] public int killCount;
     [HideInInspector] public Player _player;
     
 
@@ -28,6 +28,7 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); // 변경 or 삭제 예정
         
         lifeTimer = 0.0f;
+        killCount = 0;
         playerDeathCheck = true;
         deathPopUp.gameObject.SetActive(false);
 

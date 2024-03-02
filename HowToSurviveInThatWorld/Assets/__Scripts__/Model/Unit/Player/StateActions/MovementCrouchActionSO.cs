@@ -22,7 +22,7 @@ public class MovementCrouchAction : FiniteStateAction
     
     private PlayerController _playerController;
     private Animator _animator;
-
+    private bool _crouchCheck;
     // Property (Origin SO)
     private new MovementCrouchActionSO OriginSO => base.OriginSO as MovementCrouchActionSO;
 
@@ -44,6 +44,7 @@ public class MovementCrouchAction : FiniteStateAction
         {
             _animator.SetBool("IsCrouching", true);
             _playerController.IsRunning = false;
+            _crouchCheck = true;
         }
     }
 
@@ -54,8 +55,18 @@ public class MovementCrouchAction : FiniteStateAction
     }
     
     public override void FiniteStateUpdate() 
-    { 
+    {
         // None
+        if (_playerController.MovementVector.x == 0 && _playerController.MovementVector.z == 0)
+        {
+            Manager_Sound.instance.AudioStop(_playerController.gameObject);
+            _crouchCheck = true;
+        }
+        else if (_crouchCheck)
+        {
+            Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/Walk", true, false);
+            _crouchCheck = false;
+        }
     }
     
     public override void FiniteStateFixedUpdate()

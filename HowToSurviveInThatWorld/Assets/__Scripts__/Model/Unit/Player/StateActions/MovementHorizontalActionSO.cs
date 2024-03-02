@@ -16,13 +16,12 @@ public class MovementHorizontalAction : FiniteStateAction
     #region Fields
 
     private PlayerController _playerController;
-
+    private bool _currentRunCheck;
+    private bool _currentCrouchCheck;
     // Property (Origin SO)
     private new MovementHorizontalActionSO OriginSO => base.OriginSO as MovementHorizontalActionSO;
 
     #endregion
-
-
 
     #region Override
 
@@ -30,10 +29,24 @@ public class MovementHorizontalAction : FiniteStateAction
     {
         _playerController = finiteStateMachine.GetComponent<PlayerController>();
     }
-    
+    public override void FiniteStateEnter()
+    {
+        PlayerMoveStateCheck();
+    }
+    public override void FiniteStateExit()
+    {
+        Manager_Sound.instance.AudioStop(_playerController.gameObject);
+    }
+
     public override void FiniteStateUpdate() 
-    { 
-        // None
+    {
+        // Player Move Sound Check
+        if (_currentRunCheck != _playerController.IsRunning)
+        {
+            Manager_Sound.instance.AudioStop(_playerController.gameObject);
+            PlayerMoveStateCheck();
+        }
+        // Player Move Detected Enemy
         if (OriginSO.MovementSpeed > 2.0f)
         {
             Manager_UnitEvent.Instance.OnMoveSoundEnemy(); // 이동 소리 이벤트
@@ -50,6 +63,17 @@ public class MovementHorizontalAction : FiniteStateAction
         _playerController.MovementVector.x = _playerController.MovementInput.x * OriginSO.MovementSpeed;
         _playerController.MovementVector.z = _playerController.MovementInput.z * OriginSO.MovementSpeed;
     }
-
+    private void PlayerMoveStateCheck()
+    {
+        if (_playerController.IsRunning)
+        {
+            Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/Run", true, false);
+        }
+        else
+        {
+            Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/Walk", true, false);
+        }
+        _currentRunCheck = _playerController.IsRunning;
+    }
     #endregion
 }
