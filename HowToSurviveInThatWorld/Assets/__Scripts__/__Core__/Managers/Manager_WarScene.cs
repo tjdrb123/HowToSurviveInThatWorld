@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
@@ -12,9 +13,10 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
     public TextMeshProUGUI lifeTimeText;
     [SerializeField] private Image playerHealthBar;
     [SerializeField] private Image playerHungryBar;
+    [SerializeField] private GameObject playerHitPanel;
     [HideInInspector] public bool playerDeathCheck;
     [HideInInspector] public float lifeTimer;
-    public Player _player;
+    [HideInInspector] public Player _player;
     
 
     public void Start()
@@ -60,8 +62,9 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
     public void HealthProgressBar(GameObject playerObject)
     {
         Player player = playerObject.GetComponent<Player>();
-        
         playerHealthBar.fillAmount = player.Health / player.MaxHealth;
+        StopCoroutine(PlayerHitPanel());
+        StartCoroutine(PlayerHitPanel());
     }
 
     public void HungryProgressBar()
@@ -78,5 +81,12 @@ public class Manager_WarScene : Singleton<Manager_WarScene>
             HungryProgressBar();
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    IEnumerator PlayerHitPanel()
+    {
+        playerHitPanel.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        playerHitPanel.SetActive(false);
     }
 }
