@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 671942942352462014}
   - component: {fileID: 6679635886091268432}
   m_Layer: 5
-  m_Name: ItemName
+  m_Name: InformItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 3586752677603054678}
   - component: {fileID: 709109778680378389}
   m_Layer: 5
-  m_Name: Description
+  m_Name: InformDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 5268596977290966192}
   - component: {fileID: 5905908650670368294}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: InformItemImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3067,7 +3067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6057698757810138531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3822,6 +3822,10 @@ PrefabInstance:
     - target: {fileID: 5623769436773652592, guid: 6a10906bff24d3b4f9e42d252011d079, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.5595703
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623769436773652592, guid: 6a10906bff24d3b4f9e42d252011d079, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 844
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
