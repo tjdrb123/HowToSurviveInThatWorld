@@ -6,13 +6,16 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] zombiePrefab;
-    public Transform[] spawnPoints;
-    public int maxZombies = 30;
-    public float spawnInterval = 5f;
+    [SerializeField] private GameObject[] zombiePrefab;
+    private Transform[] spawnPoints;
+    [SerializeField] private int maxZombies = 30;
+    [SerializeField] private float spawnInterval = 5f;
 
     public static int currentZombies = 0;
-
+    private void Awake()
+    {
+        spawnPoints = GetComponentsInChildren<Transform>();
+    }
     private void Start()
     {
         InvokeRepeating("SpawnZombie", 0f, spawnInterval);

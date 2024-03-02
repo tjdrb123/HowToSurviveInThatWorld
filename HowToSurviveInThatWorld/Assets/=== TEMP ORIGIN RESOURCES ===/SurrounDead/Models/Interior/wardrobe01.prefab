@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6590172}
   - component: {fileID: 5548975874632680724}
   - component: {fileID: 2816303804812782162}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: wardrobe01_doorL
   m_TagString: Chest
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  RandomMax: 3
 --- !u!114 &2816303804812782162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionTime: 10
+  _interactionTime: 3
   Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!1 &143590
 GameObject:

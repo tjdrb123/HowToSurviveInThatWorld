@@ -206,7 +206,6 @@ public class Manager_Inventory : MonoBehaviour
     public int GetSubWeaponTypeIndex()
     {
         WeaponItem weaponItem = EquipMentSlotDatas[5] as WeaponItem;
-        Debug.Log((int)weaponItem.WeaponType);
         if (weaponItem == null)
             return -1;
         return (int)weaponItem.WeaponType;

@@ -30,7 +30,7 @@ public class MovementInteractAction : FiniteStateAction
     #region Fields
     private PlayerController _playerController;
     private Animator _animator;
-
+    private IInteractableObject interactableObject;
     // Property (Origin SO)
     private new MovementInteractActionSO OriginSO => base.OriginSO as MovementInteractActionSO;
 
@@ -50,18 +50,18 @@ public class MovementInteractAction : FiniteStateAction
     {
         if (_playerController._hitColliders[0] != null) 
         {
-            var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
+            interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
             interactableObject.Interact(_playerController, _animator);
         }
     }
 
     public override void FiniteStateExit()
     {
-        if (_playerController._hitColliders[0] != null) 
+        if (_playerController._hitColliders.Length != 0 && _playerController._hitColliders[0] != null) 
         {
-            var interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
-            interactableObject.StopInteract(_playerController, _animator);
+            interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
         }
+        interactableObject.StopInteract(_playerController, _animator);
     }
 
     public override void FiniteStateUpdate()

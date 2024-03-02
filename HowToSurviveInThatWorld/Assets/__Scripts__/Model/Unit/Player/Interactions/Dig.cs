@@ -14,6 +14,7 @@ public class Dig : MonoBehaviour, IInteractableObject
         animator.SetBool("IsInteracting", true);
         Manager_Inventory.Instance.WeaponSwap(-1);
         Manager_Inventory.Instance.WeaponSwap(Manager_Inventory.Instance.GetSubWeaponTypeIndex() - 1);
+        Debug.Log("작동");
     }
 
     public void StopInteract(PlayerController playerController, Animator animator)
