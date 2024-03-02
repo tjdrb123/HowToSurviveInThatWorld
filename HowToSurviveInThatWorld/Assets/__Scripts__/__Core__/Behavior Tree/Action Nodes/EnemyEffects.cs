@@ -16,7 +16,7 @@ public class EnemyEffects : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
     
     // 좀비 피격 파티클 소환

@@ -86,6 +86,7 @@ public class UI_Inventory : UI_Popup
     }
     private void BtnClose()
     {
+        Manager_Inventory.Instance.BtnSounds(0);
         for (int i = 0; i < 15; i++)
         {
             Manager_Inventory.Instance.BaseSlotDatas[i] = GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().BaseSlot[i].ItemData;
@@ -111,6 +112,7 @@ public class UI_Inventory : UI_Popup
     }
     private void RemoveItem()
     {
+        Manager_Inventory.Instance.BtnSounds(0);
         if (_selectSlot != null && _selectSlot.ItemData != null)
         {
             _selectSlot.SlotClear();
@@ -121,6 +123,7 @@ public class UI_Inventory : UI_Popup
     }
     private void UseItem()
     {
+        Manager_Inventory.Instance.BtnSounds(0);
         if (_selectSlot != null && _selectSlot.ItemData != null)
         {
             _selectSlot.UseItem();

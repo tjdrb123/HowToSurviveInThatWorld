@@ -194,8 +194,10 @@ public class Manager_Inventory : MonoBehaviour
             Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/ButtonSound");
         else if (SoundNum == 1)
             Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/EquipSound");
-        else
+        else if (SoundNum == 2)
             Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/CloseSound");
+        else
+            Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/UI/InventoryClose");
     }
     public void WeaponSwap(int weaponIndex)
     {
