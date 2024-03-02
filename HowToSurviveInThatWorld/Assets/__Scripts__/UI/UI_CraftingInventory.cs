@@ -43,6 +43,7 @@ public class UI_CraftingInventory : UI_Popup
     }
     private void BtnClose()
     {
+        Manager_Inventory.Instance.BtnSounds(0);
         for (int i = 0; i < 15; i++)
         {
             Manager_Inventory.Instance.BaseSlotDatas[i] = GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().BaseSlot[i].ItemData;

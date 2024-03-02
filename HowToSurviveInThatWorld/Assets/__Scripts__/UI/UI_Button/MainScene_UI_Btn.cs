@@ -59,7 +59,7 @@ public class MainScene_UI_Btn : UI_Base
     }
     private void OpenInven()
     {
-        Manager_Inventory.Instance.BtnSounds(1);
+        Manager_Inventory.Instance.BtnSounds(2);
         Instantiate(_inventory);
     }
 }

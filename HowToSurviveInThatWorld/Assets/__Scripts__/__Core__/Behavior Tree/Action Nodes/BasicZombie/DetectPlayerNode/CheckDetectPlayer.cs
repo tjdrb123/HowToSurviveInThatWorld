@@ -59,7 +59,7 @@ public class CheckDetectPlayer : LeafAction
             if (_overlapColliders != null & _overlapColliders.Length> 0)
             {
                 DetectDistanceCheck();
-            
+                
                 return E_NodeState.Success;
             }
         }
