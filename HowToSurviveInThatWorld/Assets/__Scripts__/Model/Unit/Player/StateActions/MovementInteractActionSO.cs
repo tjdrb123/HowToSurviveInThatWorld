@@ -58,10 +58,9 @@ public class MovementInteractAction : FiniteStateAction
     public override void FiniteStateExit()
     {
         if (_playerController._hitColliders.Length != 0 && _playerController._hitColliders[0] != null) 
-        {
             interactableObject = _playerController._hitColliders[0].GetComponent<IInteractableObject>();
-        }
-        interactableObject.StopInteract(_playerController, _animator);
+        if (interactableObject != null)
+            interactableObject.StopInteract(_playerController, _animator);
     }
 
     public override void FiniteStateUpdate()

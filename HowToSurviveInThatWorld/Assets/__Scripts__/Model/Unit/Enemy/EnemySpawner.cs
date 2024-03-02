@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int maxZombies = 30;
     [SerializeField] private float spawnInterval = 5f;
 
-    public static int currentZombies = 0;
+    public static int currentZombies;
     private void Awake()
     {
         spawnPoints = GetComponentsInChildren<Transform>();
@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("SpawnZombie", 0f, spawnInterval);
+        currentZombies = 0;
     }
 
     private void SpawnZombie()

@@ -23,13 +23,14 @@ public class Manager_Sound : MonoBehaviour
     public static Manager_Sound instance;
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
         instance = this;
-        BGMVolume = 0.4f;
+        BGMVolume = 0.6f;
         SFXVolume = 0.4f;
     }
     public void AudioVolume(float audioVolume, int Choice) //설정창에서 사용가능하도록
