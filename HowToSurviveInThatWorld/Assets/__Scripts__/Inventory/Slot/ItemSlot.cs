@@ -94,7 +94,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             UseItem item = ItemData as UseItem;
             if (item.UseType == E_UseItemType.Hunger)
             {
-                Debug.Log("배고픔 증가");
+                Manager_Inventory.Instance.Player.TakeHungry(item.PlusValue);
             }
             else if (item.UseType == E_UseItemType.Hp)
             {
@@ -138,6 +138,11 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_inventory != null) _inventory.SelectSlot(this);
+        if (eventData.button == PointerEventData.InputButton.Right) //오른쪽 클릭이면 해당 오브젝트의 아이템을 사용
+        {
+            Debug.Log("작동");
+            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData);
+        }
         if (_itemImage.sprite != null && _dragSlot != null && _isLock)
         {
             _dragSlot.SetActive(true);
@@ -163,6 +168,8 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
         {
             _dragSlot.transform.position = eventData.position;
         }
+        else
+            return;
     }
     public void OnDrop(PointerEventData eventData) //아이템의 스왑이 이뤄지는 공간 
     {

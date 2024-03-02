@@ -14,7 +14,8 @@ public class MainScene_UI_Btn : UI_Base
     enum E_Object
     {
         Setting_Button,
-        BackPack_Button
+        BackPack_Button,
+        InformationCanvas,
     }
 
     [SerializeField] private GameObject _inventory;
@@ -27,7 +28,12 @@ public class MainScene_UI_Btn : UI_Base
         BindObject(typeof(E_Object));
         GetButton((int)E_Button.Setting_Button).onClick.AddListener(OpenSetting);
         GetButton((int)E_Button.BackPack_Button).onClick.AddListener(OpenInven);
+        Manager_Inventory.Instance.MainScene_UI = this;
         return true;
+    }
+    public void OpenInformation(ItemDataSo itemDataSo) 
+    {
+        GetObject((int)E_Object.InformationCanvas).SetActive(true);
     }
     private void OpenSetting()
     {
