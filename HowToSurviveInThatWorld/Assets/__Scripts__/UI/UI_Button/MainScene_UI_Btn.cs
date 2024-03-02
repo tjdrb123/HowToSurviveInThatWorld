@@ -45,10 +45,6 @@ public class MainScene_UI_Btn : UI_Base
         GetButton((int)E_Button.BackPack_Button).onClick.AddListener(OpenInven);
         return true;
     }
-    private void Start()
-    {
-        Manager_Inventory.Instance.MainScene_UI = this;
-    }
     public void OpenInformation(ItemDataSo itemDataSo, bool isOpen) 
     {
         GetObject((int)E_Object.InformationCanvas).SetActive(isOpen);
