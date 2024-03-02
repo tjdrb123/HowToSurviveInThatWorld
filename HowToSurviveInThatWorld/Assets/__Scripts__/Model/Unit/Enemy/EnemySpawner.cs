@@ -29,8 +29,28 @@ public class EnemySpawner : MonoBehaviour
 
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        Instantiate(zombiePrefab[Random.Range(0, zombiePrefab.Length)], spawnPoint.position, spawnPoint.rotation);
+        int index = GetZombieIndexBasedOnProbability();
+
+        Instantiate(zombiePrefab[index], spawnPoint.position, spawnPoint.rotation);
 
         currentZombies++;
+    }
+
+    private int GetZombieIndexBasedOnProbability()
+    {
+        float randomValue = Random.value; // 0.0 ~ 1.0 사이의 랜덤한 값
+
+        if (randomValue < 0.3f) // 30%의 확률로 가장 약한 좀비(0번째 인덱스 좀비)를 리턴합니다.
+            return 0;
+        else if (randomValue < 0.525f) // 22.5%의 확률로 1번째 인덱스 좀비를 리턴합니다.
+            return 1;
+        else if (randomValue < 0.75f) // 22.5%의 확률로 2번째 인덱스 좀비를 리턴합니다.
+            return 2;
+        else if (randomValue < 0.90f) // 15%의 확률로 그 다음 좀비를 리턴합니다.
+            return 3;
+        else if (randomValue < 0.97f) // 7%의 확률로 그 다음 좀비를 리턴합니다.
+            return 4;
+        else // 3%의 확률로 가장 강한 좀비를 리턴합니다. (100% - 96% = 4%)
+            return 5;
     }
 }
