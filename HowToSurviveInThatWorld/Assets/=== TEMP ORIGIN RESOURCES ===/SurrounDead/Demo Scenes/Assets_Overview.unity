@@ -6003,9 +6003,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1848819106}
     m_Modifications:
-    - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
-      propertyPath: m_RootOrder
-      value: 34
+    - target: {fileID: 176194, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
+      propertyPath: m_Name
+      value: Veh_Van02
       objectReference: {fileID: 0}
     - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6034,6 +6034,18 @@ PrefabInstance:
     - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0000000054661267
+      objectReference: {fileID: 0}
+    - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 405430, guid: ee0e92fc0847a634991e85f10befcac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24051,9 +24063,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1848819106}
     m_Modifications:
-    - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
-      propertyPath: m_RootOrder
-      value: 31
+    - target: {fileID: 171782, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
+      propertyPath: m_Name
+      value: Veh_Van01
       objectReference: {fileID: 0}
     - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24082,6 +24094,18 @@ PrefabInstance:
     - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0000000054661267
+      objectReference: {fileID: 0}
+    - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 408242, guid: dcdf9e59e379e0645b6c12f07fffa86f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46066,9 +46090,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1848819106}
     m_Modifications:
-    - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
-      propertyPath: m_RootOrder
-      value: 37
+    - target: {fileID: 153472, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
+      propertyPath: m_Name
+      value: Veh_Van03
       objectReference: {fileID: 0}
     - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46097,6 +46121,18 @@ PrefabInstance:
     - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0000000054661267
+      objectReference: {fileID: 0}
+    - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478984, guid: 5a5ce2ca20e0a9e41a118423487319ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

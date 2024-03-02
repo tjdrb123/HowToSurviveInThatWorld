@@ -225,6 +225,8 @@ GameObject:
   - component: {fileID: 3361392}
   - component: {fileID: 2358018}
   - component: {fileID: 6594024}
+  - component: {fileID: 2839165197731265370}
+  - component: {fileID: 5807615479690311136}
   m_Layer: 0
   m_Name: cabinet01_doorL
   m_TagString: Untagged
@@ -318,3 +320,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.029146373, y: 0.7399999, z: 0.4700002}
   m_Center: {x: 0.014573157, y: 0.36999992, z: 0.2350001}
+--- !u!114 &2839165197731265370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: 1440fea060a0f914794ce09ecea4a515, type: 2}
+  - {fileID: 11400000, guid: 24aca4c79dc08c64f8a42153302cdfd4, type: 2}
+  - {fileID: 11400000, guid: b1c878ed3cfb10946a7f360ec8abd122, type: 2}
+  RandomMax: 3
+--- !u!114 &5807615479690311136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionTime: 3
+  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}

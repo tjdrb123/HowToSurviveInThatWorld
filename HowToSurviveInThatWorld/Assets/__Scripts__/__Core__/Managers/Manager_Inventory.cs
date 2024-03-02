@@ -202,16 +202,9 @@ public class Manager_Inventory : MonoBehaviour
         if (weaponIndex > -1)
             Manager_Inventory.Instance.WeaponPosition.transform.GetChild(weaponIndex).gameObject.SetActive(true);
     }
-    public int GetWeaponTypeIndex()
+    public int GetWeaponTypeIndex(int index)
     {
-        WeaponItem weaponItem = EquipMentSlotDatas[6] as WeaponItem;
-        if (weaponItem == null)
-            return -1;
-        return (int)weaponItem.WeaponType;
-    }
-    public int GetSubWeaponTypeIndex()
-    {
-        WeaponItem weaponItem = EquipMentSlotDatas[5] as WeaponItem;
+        WeaponItem weaponItem = EquipMentSlotDatas[index - 20] as WeaponItem;
         if (weaponItem == null)
             return -1;
         return (int)weaponItem.WeaponType;

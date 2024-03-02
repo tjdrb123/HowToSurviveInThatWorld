@@ -2205,8 +2205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6aa81cd38a13ad14b80a407085606148, type: 2}
+  - {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

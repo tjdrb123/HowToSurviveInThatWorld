@@ -51,7 +51,6 @@ public class MovementStopAction : FiniteStateAction
     
     public override void FiniteStateUpdate() 
     {
-        // None
         WeaponItem weaponItem = null;
         if (Manager_Inventory.Instance.EquipMentSlotDatas[6] != null)
             weaponItem = Manager_Inventory.Instance.EquipMentSlotDatas[6] as WeaponItem;
