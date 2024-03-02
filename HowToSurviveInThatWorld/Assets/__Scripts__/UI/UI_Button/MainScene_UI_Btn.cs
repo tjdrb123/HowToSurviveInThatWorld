@@ -30,6 +30,10 @@ public class MainScene_UI_Btn : UI_Base
     [SerializeField] private GameObject _inventory;
     [SerializeField] private GameObject _setting;
 
+    private void Start()
+    {
+        Manager_Inventory.Instance.MainScene_UI = this;
+    }
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;

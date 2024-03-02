@@ -98,7 +98,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             }
             else if (item.UseType == E_UseItemType.Hp)
             {
-                Debug.Log("체력 증가");
+                Manager_Inventory.Instance.Player.RecoverHealth(item.PlusValue);
             }
             SlotSetting();
             if (ItemData.CurrentAmont <= 0) // 수량이 0 이하라면 아이템을 인벤토리에서 제거합니다.
