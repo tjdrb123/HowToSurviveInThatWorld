@@ -90,10 +90,10 @@ public class BasicZombieData
             {
                 (component as MonoBehaviour).enabled = false;
             }
-            //else if (component is Collider)
-            //{
-                //(component as Collider).enabled = false;
-            //}
+            else if (component is Collider)
+            {
+                (component as Collider).isTrigger = true;
+            }
             else if (component is NavMeshAgent)
             {
                 (component as NavMeshAgent).enabled = false;
@@ -101,6 +101,7 @@ public class BasicZombieData
         }
     }
 
+    // 삭제 예정
     public void DeathLootingComponents(GameObject gameObject)
     {
         Component[] components = gameObject.GetComponents<Component>();
@@ -249,7 +250,7 @@ public class BasicZombieData
     {
         if (gameObject == this.gameObject)
         {
-            if (index <= 10)
+            if (index <= 3)
             {
                 animator.SetBool(ATTACK_ANIM_BOOL_NAME, false);
                 hitCheck = true;

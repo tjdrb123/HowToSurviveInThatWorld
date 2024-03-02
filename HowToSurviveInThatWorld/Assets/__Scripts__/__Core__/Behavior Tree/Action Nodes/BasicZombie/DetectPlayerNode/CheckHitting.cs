@@ -21,6 +21,10 @@ public class CheckHitting : LeafAction
 
     protected override E_NodeState OnUpdate()
     {
+        // 피격 진행중 다시 맞으면 다시 재진행
+        if (zombieData.hitCheck)
+            return E_NodeState.Failure;
+            
         if (zombieData.IsAnimationRunning("Hit", ref _hitTime))
         {
             zombieData.NavMeshAgentHitSetting();
