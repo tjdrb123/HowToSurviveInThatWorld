@@ -1513,16 +1513,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b52e4fc310457094d8e63ffc1f1a12ce, type: 2}
   - {fileID: 11400000, guid: 9d26c6f289fd2d743a8f335b3a1890dc, type: 2}
   - {fileID: 11400000, guid: a053eb8c182310a42b7557c073313de9, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   RandomMax: 4
 --- !u!114 &3253812798139608310
 MonoBehaviour:

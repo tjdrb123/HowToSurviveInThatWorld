@@ -12,14 +12,20 @@ public class Manager_Inventory : MonoBehaviour
     public Inventory BackPackInventory { get; set; }
     public Inventory EquipInventory { get; set; }
     public Inventory BaseInventory { get; set; }
-    public static Manager_Inventory Instance;
-    [SerializeField] private GameObject _weaponPosition;
-    public GameObject WeaponPosition { get => _weaponPosition; }
 
+    public static Manager_Inventory Instance;
+    
+    private Player _player;
+    [SerializeField] private GameObject _weaponPosition;
+    [SerializeField] private MainScene_UI_Btn _mainScene_UI;
+    public Player Player { get => _player; }
+    public GameObject WeaponPosition { get => _weaponPosition; }
+    public MainScene_UI_Btn MainScene_UI { get => _mainScene_UI; set { _mainScene_UI = value; } }
     private void Awake()
     {
         DataSetting();
         Instance = this;
+        _player = GetComponent<Player>();
     }
     private void DataSetting()
     {

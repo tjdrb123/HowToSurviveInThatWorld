@@ -122,19 +122,6 @@ MonoBehaviour:
   _items:
   - {fileID: 11400000, guid: f3d490bab2807034c90a111e273f9257, type: 2}
   - {fileID: 11400000, guid: b23d85f49e72dad40ab78ed6dab3a406, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   RandomMax: 2
 --- !u!114 &2503514923276050829
 MonoBehaviour:

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 53
   Name: "\uC775\uD78C\uACE0\uAE30"
-  Description: "\uC775\uD78C\uACE0\uAE30 (\uC2A4\uD14C\uBBF8\uB108 +120)"
+  Description: "\uC775\uD78C\uACE0\uAE30\uB97C \uBA39\uC73C\uBA74 \uD5C8\uAE30\uB97C
+    (+120) \uCC44\uC6B8 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   PlusValue: 120
   CurrentAmont: 1
   ItemImage: {fileID: -681820905, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
@@ -26,5 +27,5 @@ MonoBehaviour:
     itemValue: 1
   - item: {fileID: 11400000, guid: 6aa81cd38a13ad14b80a407085606148, type: 2}
     itemValue: 1
-  MaxStack: 30
+  MaxStack: 20
   UseType: 1

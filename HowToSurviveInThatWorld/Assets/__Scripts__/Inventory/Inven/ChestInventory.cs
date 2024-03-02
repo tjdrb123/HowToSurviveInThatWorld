@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
 public class ChestInventory : MonoBehaviour
 {
-    [SerializeField] private ItemDataSo[] _items = new ItemDataSo[15];
+    [SerializeField] private ItemDataSo[] _items;
     [SerializeField] private int RandomMax = 2;
     private bool isFrist = true;
     public void ChestData()
@@ -14,9 +16,10 @@ public class ChestInventory : MonoBehaviour
         {
             isFrist = false;
             ItemDataSo[] item = new ItemDataSo[15];
+            int count = 0;
             for (int i = 0; i < _items.Length; i++)
             {
-                int randomItem = Random.Range(0, RandomMax);
+                int randomItem = UnityEngine.Random.Range(0, RandomMax);
 
                 if (randomItem == 0)
                 {
@@ -24,21 +27,25 @@ public class ChestInventory : MonoBehaviour
                     {
                         if (_items[i].BaseType != E_BaseType.WeaponItem && _items[i].BaseType != E_BaseType.SubWeaponItem)
                         {
-                            int randomIndex = Random.Range(1, 5);
+                            int randomIndex = UnityEngine.Random.Range(1, 5);
                             var newItem = _items[i].BaseType == E_BaseType.UseItem ? new UseItem(_items[i] as UseItem) : new EtcItem(_items[i] as EtcItem);
                             newItem.CurrentAmont = randomIndex;
-                            item[i] = newItem;
+                            item[count] = newItem;
                         }
                         else
                         {
                             var newItem = new WeaponItem(_items[i] as WeaponItem);
-                            item[i] = newItem;
+                            item[count] = newItem;
                         }
+                        count++;
                     }
                 }
-                else
-                    item[i] = new ItemDataSo();
             }
+            for (int j = item.Length;  j < 15; j++)
+            {
+                item[count] = new ItemDataSo();
+            }
+
             Manager_Inventory.Instance.ChestItemDatas = item;
         }
     }

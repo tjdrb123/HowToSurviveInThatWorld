@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 54
   Name: "\uC804\uD22C\uC2DD\uB7C9"
-  Description: "\uC804\uD22C\uC2DD\uB7C9 (\uCCB4\uB825 +150)"
+  Description: "\uC804\uD22C\uC2DD\uB7C9\uC740 \uB9DB\uC774 \uC5C6\uC9C0\uB9CC \uD5C8\uAE30\uB97C
+    \uD06C\uAC8C \uC0C1\uC2B9\uC2DC\uD0B5\uB2C8\uB2E4. \uD5C8\uAE30 (180)"
   PlusValue: 150
   CurrentAmont: 1
   ItemImage: {fileID: 21300000, guid: f93f411b3961920459fb222b055311ce, type: 3}

@@ -94,7 +94,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             UseItem item = ItemData as UseItem;
             if (item.UseType == E_UseItemType.Hunger)
             {
-                Debug.Log("배고픔 증가");
+                Manager_Inventory.Instance.Player.TakeHungry(item.PlusValue);
             }
             else if (item.UseType == E_UseItemType.Hp)
             {
@@ -143,6 +143,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             _dragSlot.SetActive(true);
             _dragSlot.transform.position = transform.position;
             _dragSlotComponent.SetSlot(_itemImage, _quantityText, this);
+            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, true);
         }
         else if (!_isLock && this.GetComponentInParent<CraftingInventory>() != null)
         {
@@ -161,8 +162,11 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     {
         if (_dragSlotComponent.slot != null && _dragSlotComponent.slot.ItemData.KeyNumber != 0 && _isLock)
         {
+            Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, false);
             _dragSlot.transform.position = eventData.position;
         }
+        else
+            return;
     }
     public void OnDrop(PointerEventData eventData) //아이템의 스왑이 이뤄지는 공간 
     {
@@ -212,6 +216,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        Manager_Inventory.Instance.MainScene_UI.OpenInformation(ItemData, false);
         _dragSlot.SetActive(false);
     }
 }

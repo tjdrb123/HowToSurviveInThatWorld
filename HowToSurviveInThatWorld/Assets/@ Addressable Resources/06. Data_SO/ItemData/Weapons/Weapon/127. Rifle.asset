@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 127
   Name: Rifle
-  Description: "\uAE30\uAD00\uB2E8\uCD1D\uC73C\uB85C \uC880\uBE44\uB97C \uBC15\uBA78\uD560
-    \uC218 \uC788\uB2E4."
+  Description: "\uAE30\uAD00\uB2E8\uCD1D\uC744 \uC774\uC6A9\uD574 \uC880\uBE44\uB97C
+    \uC27D\uAC8C \uC8FD\uC77C \uC218 \uC788\uB2E4."
   PlusValue: 6
   CurrentAmont: 0
   ItemImage: {fileID: 21300000, guid: d1baf1eee08b3fb4b9412d89e81fad38, type: 3}

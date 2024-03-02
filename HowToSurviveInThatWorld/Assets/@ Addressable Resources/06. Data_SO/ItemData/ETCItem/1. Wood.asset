@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyNumber: 1
   Name: "\uB098\uBB34 "
-  Description: "\uB098\uBB34"
-  PlusValue: 3
+  Description: "\uB098\uBB34\uC640 \uC131\uB0E5\uC744 \uC774\uC6A9\uD558\uC5EC \uACE0\uAE30\uB97C
+    \uC775\uD600\uC11C \uBA39\uC744 \uC218 \uC788\uB2E4. \uB610\uD55C \uB098\uBB34\uB294
+    \uC5EC\uB7EC \uB3C4\uAD6C\uB97C \uB9CC\uB4DC\uB294\uB370 \uC0AC\uC6A9\uB41C\uB2E4."
+  PlusValue: 5
   CurrentAmont: 1
   ItemImage: {fileID: -1205052147, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
   BaseType: 0
