@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6551832}
   - component: {fileID: 4149622151629901339}
   - component: {fileID: 9055061545410182048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sink_kitchen01_doorL
   m_TagString: Chest
   m_Icon: {fileID: 0}
@@ -123,18 +123,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6550d2bed358928428f372c296b992fb, type: 2}
   - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
   - {fileID: 11400000, guid: cf7c96717d89f494c9a812e943d849f3, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   RandomMax: 2
 --- !u!114 &9055061545410182048
 MonoBehaviour:
