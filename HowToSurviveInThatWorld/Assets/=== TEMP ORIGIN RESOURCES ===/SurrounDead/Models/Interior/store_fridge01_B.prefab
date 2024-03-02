@@ -136,6 +136,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  RandomMax: 2
 --- !u!114 &6210079653021716023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionTime: 10
+  _interactionTime: 3
   Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!1 &136240
 GameObject:

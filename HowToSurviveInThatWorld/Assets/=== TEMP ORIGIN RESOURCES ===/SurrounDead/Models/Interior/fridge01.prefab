@@ -135,7 +135,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  RandomMax: 0
+  RandomMax: 2
 --- !u!114 &2503514923276050829
 MonoBehaviour:
   m_ObjectHideFlags: 0
