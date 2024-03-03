@@ -6,7 +6,7 @@ public class DoTracking : LeafAction
 {
     protected override void OnStart()
     {
-        Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie", false, false);
+        
     }
 
     protected override void OnStop()

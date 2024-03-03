@@ -32,14 +32,7 @@ public class CheckDetectPlayer : LeafAction
             if (overlapColliders != null & overlapColliders.Length > 0)
             {
                 zombieData.detectedPlayer = overlapColliders[0].transform;
-                return E_NodeState.Success;
-            }
-            
-            // Detect Distance Check
-            if (_overlapColliders != null & _overlapColliders.Length> 0)
-            {
-                DetectDistanceCheck();
-            
+                RandomSound(); // 리팩토링 예정
                 return E_NodeState.Success;
             }
         }
@@ -52,32 +45,26 @@ public class CheckDetectPlayer : LeafAction
             if (overlapColliders != null & overlapColliders.Length > 0)
             {
                 zombieData.detectedPlayer = overlapColliders[0].transform;
-                return E_NodeState.Success;
-            }
-            
-            // Detect Distance Check
-            if (_overlapColliders != null & _overlapColliders.Length> 0)
-            {
-                DetectDistanceCheck();
-                
+                RandomSound(); // 리팩토링 예정
                 return E_NodeState.Success;
             }
         }
-        else
+
+        if (_overlapColliders != null & _overlapColliders.Length> 0)
         {
-            if (_overlapColliders != null & _overlapColliders.Length> 0)
-            {
-                DetectDistanceCheck();
-            
-                return E_NodeState.Success;
-            }
+            DetectDistanceCheck();
+
+            return E_NodeState.Success;
         }
+        
 
         InspectorViewData(); // 삭제 예정
         zombieData.moveSoundCheck = false;
         zombieData.attackSoundCheck = false;
         zombieData.detectedPlayer = null;
         zombieData.detectDistance = 10f;
+
+        zombieData.zombieSoundCheck = true;
         
         return E_NodeState.Failure;
     }
@@ -96,16 +83,48 @@ public class CheckDetectPlayer : LeafAction
         {
             float distanceToTarget = Vector3.Distance(undefinedPlayer.position ,zombieData.transform.position);
 
-            if (!Physics.Raycast(zombieData.transform.position, directionToPlayer, distanceToTarget, zombieData.ENEMY_LAYER_MASK))
+            if (!Physics.Raycast(zombieData.transform.position, directionToPlayer, distanceToTarget, zombieData.OBSTACLE_LAYER_MASK))
             {
                 // 순찰 노드 최초확인 bool값 초기화.
                 zombieData.patrolRandomPosCheck = true;
                 zombieData.idleWaitCheck = true;
                     
                 zombieData.detectedPlayer = undefinedPlayer;
+                
+                RandomSound(); // 리팩토링 예정
             }
         }
 
         InspectorViewData(); // 삭제 예정
+    }
+
+    // 리팩토링 예정
+    private void RandomSound()
+    {
+        if (zombieData.zombieSoundCheck)
+        {
+            int randomIndex = Random.Range(0, 5);
+
+            switch (randomIndex)
+            {
+                case 0:
+                    Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie0", false, false);
+                    break;
+                case 1:
+                    Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie1", false, false);
+                    break;
+                case 2:
+                    Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie2", false, false);
+                    break;
+                case 3:
+                    Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie3", false, false);
+                    break;
+                case 4:
+                    Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/Zombie4", false, false);
+                    break;
+            }
+            
+            zombieData.zombieSoundCheck = false;
+        }
     }
 }

@@ -12,12 +12,14 @@ public class Looting : MonoBehaviour, IInteractableObject
     public void Interact(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StartCrt(E_CoroutineKey.ChargeFillAmount, ChargeFillAmount(ChargingImg, _interactionTime, playerController));
+        Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/Player/IsInteracting", false, false);
         animator.SetInteger("InteractingType", 1);
         animator.SetBool("IsInteracting", true);
     }
     public  void StopInteract(PlayerController playerController, Animator animator)
     {
         CoroutineManager.Instance.StopCrt(E_CoroutineKey.ChargeFillAmount);
+        Manager_Sound.instance.AudioStop(gameObject);
         ChargingImg.fillAmount = 0;
         animator.SetBool("IsInteracting", false);
     }
