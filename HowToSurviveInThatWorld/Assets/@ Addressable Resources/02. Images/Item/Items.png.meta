@@ -4328,7 +4328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_199
+      name: RawMeat
       rect:
         serializedVersion: 2
         x: 32
@@ -4370,7 +4370,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_201
+      name: Mea
       rect:
         serializedVersion: 2
         x: 96
@@ -6239,10 +6239,8 @@ TextureImporter:
       Items_195: -2130600108
       Items_197: -256532010
       Items_198: 146324614
-      Items_199: -1181062782
       Items_2: 22957920
       Items_20: 1209409641
-      Items_201: -681820905
       Items_202: -1543437719
       Items_203: 996804311
       Items_204: 1807849872
@@ -6389,10 +6387,12 @@ TextureImporter:
       Items_98: 1335211751
       Items_99: 1608368469
       Leather: 958663101
+      Mea: -681820905
       Meat: 132728278
       Pants: -1964363477
       Pants_black: -537491423
       Pick: -321175893
+      RawMeat: -1181062782
       Ring: -1215097146
       Rock: 918272746
       Shoes: -518444282
