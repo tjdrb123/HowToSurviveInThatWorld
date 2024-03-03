@@ -43,6 +43,7 @@ public class CheckAttacking : LeafAction
                     (zombieData.detectedPlayer.position - zombieData.transform.position).normalized;
                 if (Vector3.Dot(zombieData.transform.forward, directionToPlayer) >= zombieData.enemyDot)
                 {
+                    Manager_Sound.instance.AudioPlay(zombieData.detectedPlayer.gameObject, "Sounds/SFX/Zombie/MaleZombieHitSound", false, false);
                     zombieData.enemy.ApplyDamage(this, zombieData.detectedPlayer.gameObject);
                     Manager_WarScene.Instance.HealthProgressBar(); // 체력 UI 갱신
 
