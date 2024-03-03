@@ -17,6 +17,16 @@ public class UI_Base : MonoBehaviour
         Initialize();
     }
 
+    protected virtual void Update()
+    {
+        OnUpdate();
+    }
+
+    protected virtual void OnUpdate()
+    {
+        
+    }
+
     //초기화를 했는지 안했는지 체크하는 함수입니다.
     //여기서 Protected가 아닌 public으로 하는 이유는 초기화를 다른 클래스에서도 하기 위함입니다.
     public virtual bool Initialize()

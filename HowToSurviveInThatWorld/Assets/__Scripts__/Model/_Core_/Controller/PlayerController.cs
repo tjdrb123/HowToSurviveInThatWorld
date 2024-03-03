@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public bool IsRunning;
     [NonSerialized] public bool IsCrouching;
     [NonSerialized] public bool IsInteracting;
+    [NonSerialized] public static bool DistanceCheck;
 
     [NonSerialized] public Vector3 MovementInput;
     [NonSerialized] public Vector3 MovementVector;
@@ -141,7 +142,10 @@ public class PlayerController : MonoBehaviour
         {
             _interactBtnImg.color = Color.black;
             IsInteracting = false;
+
+            DistanceCheck = false;
         }
+        
     }
 
     private void Interact()
@@ -150,6 +154,7 @@ public class PlayerController : MonoBehaviour
         {
             _hitColliders = _hitColliders.OrderBy(colider => Vector3.Distance(_transform.position, colider.transform.position)).ToArray();
             IsInteracting = Manager_Inventory.Instance.InventoryMaxCheck();
+            DistanceCheck = true;
             if (_hitColliders[0].GetComponent<Looting>())
                 _hitColliders[0].GetComponent<Looting>().ChargingImg = _chargingImg;
             Vector3 directionToLookAt = _hitColliders[0].transform.position - _transform.position;
