@@ -18,6 +18,7 @@ public class NewItemSlot : MonoBehaviour, IPointerDownHandler
         Manager_Inventory manager_Inventory = Manager_Inventory.Instance;
         ItemSlot[] baseInvenItems = manager_Inventory.BaseInventory.BaseSlot;
         ItemSlot[] BPInvenItems = manager_Inventory.BackPackInventory.BaseSlot;
+        if (_slot.ItemData.KeyNumber == 0) return;
         for (int i = 0; i < _slot.ItemData.CraftingItems.Length; i++)
         {
             if (_slot.ItemData.CraftingItems[i].itemValue > manager_Inventory.ItemCheck(_slot.ItemData.CraftingItems[i].item))

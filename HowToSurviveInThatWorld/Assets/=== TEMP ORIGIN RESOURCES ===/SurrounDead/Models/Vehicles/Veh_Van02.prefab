@@ -988,7 +988,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24aca4c79dc08c64f8a42153302cdfd4, type: 2}
   - {fileID: 11400000, guid: 1440fea060a0f914794ce09ecea4a515, type: 2}
   - {fileID: 11400000, guid: 1929e1061e9fb4c408e87cc272c6f1fe, type: 2}
-  RandomMax: 4
+  RandomMax: 5
 --- !u!114 &4252118866394316322
 MonoBehaviour:
   m_ObjectHideFlags: 0

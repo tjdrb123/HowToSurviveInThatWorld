@@ -790,7 +790,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a86730b7c9f308e4499e4a96aa45ad6f, type: 2}
   - {fileID: 11400000, guid: 3eae9834eaf7c0d408b004c2d9719aeb, type: 2}
   - {fileID: 11400000, guid: 24aca4c79dc08c64f8a42153302cdfd4, type: 2}
-  RandomMax: 3
+  RandomMax: 5
 --- !u!1 &150610
 GameObject:
   m_ObjectHideFlags: 0

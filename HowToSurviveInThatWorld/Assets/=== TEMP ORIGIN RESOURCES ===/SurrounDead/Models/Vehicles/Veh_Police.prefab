@@ -1508,12 +1508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: 32056f56300c7f842bca409c2f41e64e, type: 2}
-  - {fileID: 11400000, guid: 091039f7ec1a0e54c994175662048d50, type: 2}
-  - {fileID: 11400000, guid: b52e4fc310457094d8e63ffc1f1a12ce, type: 2}
-  - {fileID: 11400000, guid: 9d26c6f289fd2d743a8f335b3a1890dc, type: 2}
   - {fileID: 11400000, guid: a053eb8c182310a42b7557c073313de9, type: 2}
-  RandomMax: 4
+  - {fileID: 11400000, guid: 9d26c6f289fd2d743a8f335b3a1890dc, type: 2}
+  RandomMax: 5
 --- !u!114 &3253812798139608310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionTime: 5
+  _interactionTime: 10
   Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
 --- !u!65 &5147151085128480962
 BoxCollider:
