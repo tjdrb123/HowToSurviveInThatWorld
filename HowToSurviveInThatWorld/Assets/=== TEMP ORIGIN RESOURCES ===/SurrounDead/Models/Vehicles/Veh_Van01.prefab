@@ -1388,9 +1388,12 @@ GameObject:
   - component: {fileID: 3301172}
   - component: {fileID: 2382448}
   - component: {fileID: 6488692}
-  m_Layer: 0
+  - component: {fileID: 637675093810894959}
+  - component: {fileID: 776970277249765941}
+  - component: {fileID: 272689542614977671}
+  m_Layer: 8
   m_Name: door_rearR
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1483,6 +1486,58 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300018, guid: 1510481f68b7d584ebcc2c1b548f9c92, type: 3}
+--- !u!114 &637675093810894959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76715c799d59b34e866bc08b810f3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionTime: 5
+  Prefabs: {fileID: 5070397974674816784, guid: 056299c40690ce143b74497b064f767d, type: 3}
+--- !u!114 &776970277249765941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916909e6cf1530844b3447356997dc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: 24aca4c79dc08c64f8a42153302cdfd4, type: 2}
+  - {fileID: 11400000, guid: 1440fea060a0f914794ce09ecea4a515, type: 2}
+  - {fileID: 11400000, guid: 3eae9834eaf7c0d408b004c2d9719aeb, type: 2}
+  RandomMax: 5
+--- !u!65 &272689542614977671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175226}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: -1.61, y: 1.3301265, z: 0.19908102}
+  m_Center: {x: -0.62, y: 0.00017300248, z: 0.09953857}
 --- !u!1 &179316
 GameObject:
   m_ObjectHideFlags: 0

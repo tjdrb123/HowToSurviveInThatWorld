@@ -17,7 +17,7 @@ MonoBehaviour:
   Description: "\uC4F8\uB9CC\uD55C \uAD8C\uCD1D\uC774\uB2E4."
   PlusValue: 4
   CurrentAmont: 0
-  ItemImage: {fileID: 21300000, guid: 5658a10f10036bf438aa3453f2ec2d59, type: 3}
+  ItemImage: {fileID: 21300000, guid: 28d94917a9128a24087cf476f2ca2352, type: 3}
   BaseType: 26
   CraftingItems: []
   WeaponType: 2
