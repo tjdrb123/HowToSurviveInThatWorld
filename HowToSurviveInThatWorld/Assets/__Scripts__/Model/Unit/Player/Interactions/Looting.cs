@@ -18,9 +18,9 @@ public class Looting : MonoBehaviour, IInteractableObject
     }
     public  void StopInteract(PlayerController playerController, Animator animator)
     {
-        CoroutineManager.Instance.StopCrt(E_CoroutineKey.ChargeFillAmount);
-        Manager_Sound.instance.AudioStop(gameObject);
         ChargingImg.fillAmount = 0;
+        Manager_Sound.instance.AudioStop(gameObject);
+        CoroutineManager.Instance.StopCrt(E_CoroutineKey.ChargeFillAmount);
         animator.SetBool("IsInteracting", false);
     }
 

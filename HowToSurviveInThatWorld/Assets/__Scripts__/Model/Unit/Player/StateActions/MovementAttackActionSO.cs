@@ -128,7 +128,7 @@ public class MovementAttackAction : FiniteStateAction
             case 2:
                 _weaponDistance = 10f;
                 _weaponAimTime = 0.05f;
-                _playerController.player.weaponTypeDamage = -20;
+                _playerController.player.weaponTypeDamage = 10;
                 Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/pistol", false, false);
                 break;
             case 3:
