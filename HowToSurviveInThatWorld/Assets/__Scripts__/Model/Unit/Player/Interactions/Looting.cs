@@ -35,9 +35,12 @@ public class Looting : MonoBehaviour, IInteractableObject
         }
         playerController.IsInteracting = false;
         Instantiate(Prefabs);
-        _chestData = GetComponent<ChestInventory>();
-        _chestData.ChestData();
-        _chestInventory =  GameObject.Find("ChestCanvas(Clone)").GetComponent<UI_ChestInventory>();
-        _chestInventory.Object = gameObject;
+        if (!gameObject.CompareTag("Produce"))
+        {
+            _chestData = GetComponent<ChestInventory>();
+            _chestData.ChestData();
+            _chestInventory = GameObject.Find("ChestCanvas(Clone)").GetComponent<UI_ChestInventory>();
+            _chestInventory.Object = gameObject;
+        }
     }
 }
