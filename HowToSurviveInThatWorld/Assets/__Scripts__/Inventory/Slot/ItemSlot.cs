@@ -95,6 +95,7 @@ public class ItemSlot : UI_Base, IPointerDownHandler, IPointerUpHandler, IDragHa
             if (item.UseType == E_UseItemType.Hunger)
             {
                 Manager_Inventory.Instance.Player.TakeHungry(item.PlusValue);
+                Manager_Sound.instance.AudioPlay(gameObject, "Sounds/SFX/Player/eat", false, false);
             }
             else if (item.UseType == E_UseItemType.Hp)
             {

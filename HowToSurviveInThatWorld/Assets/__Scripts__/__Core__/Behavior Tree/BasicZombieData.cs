@@ -37,6 +37,7 @@ public class BasicZombieData
     [Header("LayerMask")] 
     public readonly LayerMask PLAYER_LAYER_MASK = 1 << 6;
     public readonly LayerMask ENEMY_LAYER_MASK = 1 << 7;
+    public readonly LayerMask OBSTACLE_LAYER_MASK = 1 << 9;
 
     [Header("NavMeshAgent")]
     public float agentSpeed = 0.1f;
@@ -52,6 +53,8 @@ public class BasicZombieData
     public bool attackSoundCheck;
     public bool moveSoundCheck;
     public EnemyEffects effects;
+
+    public bool zombieSoundCheck = true;
 
     #region LifeSetting
 
