@@ -36,5 +36,5 @@ public class PlayerData
         MoveSpeed = new MoveSpeed(playerDataDto.moveSpeed.value);
         Level = new Level(playerDataDto.level.value);
         UserName = new UserName(playerDataDto.userName.value);
-    }
+    }//
 }
