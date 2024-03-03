@@ -117,21 +117,25 @@ public class MovementAttackAction : FiniteStateAction
                 _weaponDistance = 1.5f;
                 _weaponAimTime = 0.35f;
                 _playerController.player.weaponTypeDamage = 40;
+                Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/punch", false, false);
                 break;
             case 1:
                 _weaponDistance = 2f;
                 _weaponAimTime = 0.35f;
                 _playerController.player.weaponTypeDamage = 10;
+                Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/NearAttack", false, false);
                 break;
             case 2:
                 _weaponDistance = 10f;
                 _weaponAimTime = 0.05f;
                 _playerController.player.weaponTypeDamage = -20;
+                Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/pistol", false, false);
                 break;
             case 3:
                 _weaponDistance = 15f;
                 _weaponAimTime = 0.05f;
                 _playerController.player.weaponTypeDamage = -40;
+                Manager_Sound.instance.AudioPlay(_playerController.gameObject, "Sounds/SFX/Player/rifle", false, false);
                 break;
         }
     }
