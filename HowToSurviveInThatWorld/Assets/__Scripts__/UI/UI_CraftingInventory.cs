@@ -18,6 +18,16 @@ public class UI_CraftingInventory : UI_Popup
     {
         DataReset();
     }
+    
+    protected override void OnUpdate()
+    {
+        if (!PlayerController.DistanceCheck)
+        {
+            BtnClose();
+            gameObject.SetActive(false);
+        }
+    }
+    
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;

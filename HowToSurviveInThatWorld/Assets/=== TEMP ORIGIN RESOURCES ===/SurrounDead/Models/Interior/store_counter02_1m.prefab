@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8493400428863294168}
   m_Layer: 0
   m_Name: store_counter02_1m
-  m_TagString: Untagged
+  m_TagString: Produce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

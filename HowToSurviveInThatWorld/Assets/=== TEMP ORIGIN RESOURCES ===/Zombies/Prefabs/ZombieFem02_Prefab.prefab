@@ -2185,22 +2185,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: b23d85f49e72dad40ab78ed6dab3a406, type: 2}
+  - {fileID: 11400000, guid: 85d7b001c52bcf640aa2557855d46d88, type: 2}
+  - {fileID: 11400000, guid: a3c6a02ca365f2440b0dbc225eaaf2a8, type: 2}
+  - {fileID: 11400000, guid: 6315e47079e2c8e45815d13273ded659, type: 2}
+  - {fileID: 11400000, guid: cf7c96717d89f494c9a812e943d849f3, type: 2}
+  - {fileID: 11400000, guid: fca778d965217aa48bcc2a34ac235154, type: 2}
   - {fileID: 11400000, guid: b9d3e11dcab803541abd6b9af25eb0e4, type: 2}
   - {fileID: 11400000, guid: 6aa81cd38a13ad14b80a407085606148, type: 2}
-  - {fileID: 11400000, guid: cf7c96717d89f494c9a812e943d849f3, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  RandomMax: 2
+  RandomMax: 5
 --- !u!1 &1965755943235740
 GameObject:
   m_ObjectHideFlags: 0
