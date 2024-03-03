@@ -22,7 +22,6 @@ public class UI_Inventory : UI_Popup
         RemoveBtn,
     }
     private ItemSlot _selectSlot;
-    private FiniteStateMachine _finiteStateMachine;
     public override bool Initialize()
     {
         if (!base.Initialize()) return false;
@@ -37,12 +36,11 @@ public class UI_Inventory : UI_Popup
     }
     private void Start()
     {
-        _finiteStateMachine = GameObject.Find("RootPlayer").GetComponent<FiniteStateMachine>();
-        _finiteStateMachine.enabled = false;
         DataReset();
         GameObject inventory = GameObject.Find("InventoryCanvas");
         Destroy(inventory);
     }
+    
     public void DataReset()
     {
         GetObject((int)E_Object.BaseInven).GetComponent<Inventory>().SlotDataSet(Manager_Inventory.Instance.BaseSlotDatas);
@@ -56,7 +54,7 @@ public class UI_Inventory : UI_Popup
         Manager_Inventory.Instance.BackPackInventory = GetObject((int)E_Object.BackPack).GetComponent<Inventory>();
         Manager_Inventory.Instance.EquipInventory = GetObject((int)E_Object.Equipments).GetComponent<Inventory>();
     }
-    public void SelectSlot(ItemSlot itemSlot) //¼±ÅÃ¹öÆ°°ú ¹ö¸®±â ¹öÆ°ÀÇ ¾ËÆÄ°ªÀ» Á¶ÀýÇØÁÝ´Ï´Ù.
+    public void SelectSlot(ItemSlot itemSlot) //ï¿½ï¿½ï¿½Ã¹ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´Ï´ï¿½.
     {
         if (itemSlot != null && itemSlot.ItemData.KeyNumber != 0)
         {
@@ -78,7 +76,7 @@ public class UI_Inventory : UI_Popup
             SetAlpha(GetObject((int)E_Object.RemoveBtn).GetComponent<Image>());
         }
     }
-    private void SetAlpha(Image image, bool isbool = false) //ÀÎº¥Åä¸®ÀÇ ¾ÆÀÌÅÛÀÌ ¾øÀ¸¸é ÀÌ¹ÌÁöÀÇ Color°ªÀ» º¯°æÇÔ
+    private void SetAlpha(Image image, bool isbool = false) //ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ Colorï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         Color colAlpha = image.color;
         colAlpha.a = isbool ? 1f : 0.4f;
@@ -173,6 +171,5 @@ public class UI_Inventory : UI_Popup
     {
         WeaponEquip();
         ArmorEquip(Manager_Inventory.Instance.ArmorObjects);
-        _finiteStateMachine.enabled = true;
     }
 }
