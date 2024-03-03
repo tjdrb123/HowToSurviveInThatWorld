@@ -53,7 +53,11 @@ public class RepeatNode : Decorator
         
         // Enemy Current Index Setting
         EnemySpawner.currentZombies--; // 좀비 최대 스폰을 확인하기 위한 Death Count
+        
+        // Death Sound
         Manager_Sound.instance.AudioStop(zombieData.gameObject);
+        Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/ZombieDead", false, false);
+        
         return E_NodeState.Failure;
     }
 
