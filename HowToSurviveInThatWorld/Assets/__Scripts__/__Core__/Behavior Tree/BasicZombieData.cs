@@ -12,9 +12,9 @@ public class BasicZombieData
     public NavMeshAgent agent;
     
     [Header("Distance")] 
-    public float detectDistance = 10f;
+    public float detectDistance = 8f;
     public float attackSoundDistance = 0f;
-    public float moveSoundDistance = 5f;
+    public float moveSoundDistance = 3f;
     public float attackDistance = 1.5f;
     
     [Header("PatrolPosition")]
@@ -290,13 +290,13 @@ public class BasicZombieData
         {
             case 0:
             case 1:
-                attackSoundDistance = 2f;
+                attackSoundDistance = 3f;
                 break;
             case 2:
-                attackSoundDistance = 12f;
+                attackSoundDistance = 10f;
                 break;
             case 3:
-                attackSoundDistance = 18f;
+                attackSoundDistance = 15f;
                 break;
         }
         
