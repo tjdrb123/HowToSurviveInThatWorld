@@ -42,6 +42,7 @@ public class Inventory : MonoBehaviour
             {
                 if (_baseSlot[i].ItemData.KeyNumber != 0 &&  _baseSlot[i].ItemImage.name == item.ItemImage.name && _baseSlot[i].ItemData.CurrentAmont != currentItem.MaxStack)
                 {
+                    Debug.Log(_baseSlot[i].ItemImage.name + " : " + item.ItemImage.name);
                     int stack = _baseSlot[i].MaxStackCheck(item);
                     if (stack != 0) //Item의 수량이 0이 아니면 아이템 추가하기
                     {
@@ -66,7 +67,7 @@ public class Inventory : MonoBehaviour
                 var seconditem = _secondSlot.ItemData.BaseType == E_BaseType.UseItem ? _secondSlot.ItemData as UseItem : _secondSlot.ItemData as EtcItem;
                 var firstitem = _firstSlot.ItemData.BaseType == E_BaseType.UseItem ? _firstSlot.ItemData as UseItem : _firstSlot.ItemData as EtcItem;
 
-                if (seconditem != null && _firstSlot.ItemData.name == _secondSlot.ItemData.name && _firstSlot.ItemData.CurrentAmont != seconditem.MaxStack)
+                if (seconditem != null && firstslot.ItemData.Name == secondSlot.ItemData.Name && _firstSlot.ItemData.CurrentAmont != seconditem.MaxStack)
                 {
                     int stack = _secondSlot.MaxStackCheck(firstitem); //옮길위치에 슬롯의 Data에게 값을 전달하여 숫자를 증가시킴
                     if (stack == 0)
