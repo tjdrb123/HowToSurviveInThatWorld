@@ -20,7 +20,7 @@ MonoBehaviour:
   PlusValue: 200
   CurrentAmont: 1
   ItemImage: {fileID: -1331575581, guid: 9bd493f0de123024f83190c95a8fe130, type: 3}
-  BaseType: 0
+  BaseType: 27
   CraftingItems: []
   MaxStack: 5
   UseType: 0
