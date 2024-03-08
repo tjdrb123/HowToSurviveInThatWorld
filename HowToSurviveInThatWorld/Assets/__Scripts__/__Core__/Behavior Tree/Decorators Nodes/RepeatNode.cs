@@ -41,10 +41,6 @@ public class RepeatNode : Decorator
         zombieData.animator.ResetTrigger("IsHit");
         zombieData.animator.SetTrigger(IsDeath);
         
-        // Components OnDisable 
-        zombieData.DeadComponents(zombieData.gameObject);
-        //zombieData.DeathLootingComponents(zombieData.gameObject); // Looting Component OnEnable
-        
         // Change Layer
         zombieData.gameObject.layer = 8;
         
@@ -57,6 +53,10 @@ public class RepeatNode : Decorator
         // Death Sound
         Manager_Sound.instance.AudioStop(zombieData.gameObject);
         Manager_Sound.instance.AudioPlay(zombieData.gameObject, "Sounds/SFX/Zombie/ZombieDead", false, false);
+        
+        // Components OnDisable 
+        zombieData.DeadComponents(zombieData.gameObject);
+        //zombieData.DeathLootingComponents(zombieData.gameObject); // Looting Component OnEnable
         
         return E_NodeState.Failure;
     }

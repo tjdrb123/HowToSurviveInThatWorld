@@ -26,30 +26,14 @@ public class CheckDetectPlayer : LeafAction
         if (zombieData.attackSoundCheck)
         {
             // Attack Sound Distance Check
-            var overlapColliders = Physics.OverlapSphere(zombieData.transform.position, zombieData.attackSoundDistance
-                , zombieData.PLAYER_LAYER_MASK);
-
-            if (overlapColliders != null & overlapColliders.Length > 0)
-            {
-                zombieData.detectedPlayer = overlapColliders[0].transform;
-                RandomSound(); // 리팩토링 예정
-                return E_NodeState.Success;
-            }
+            DetectPlayerCheck();
         }
         else if (zombieData.moveSoundCheck)
         {
             // Move Sound Distance Check
-            var overlapColliders = Physics.OverlapSphere(zombieData.transform.position, zombieData.moveSoundDistance
-                , zombieData.PLAYER_LAYER_MASK);
-
-            if (overlapColliders != null & overlapColliders.Length > 0)
-            {
-                zombieData.detectedPlayer = overlapColliders[0].transform;
-                RandomSound(); // 리팩토링 예정
-                return E_NodeState.Success;
-            }
+            DetectPlayerCheck();
         }
-
+        
         if (_overlapColliders != null & _overlapColliders.Length> 0)
         {
             DetectDistanceCheck();
@@ -72,6 +56,21 @@ public class CheckDetectPlayer : LeafAction
     private void InspectorViewData()
     {
         dataContext.moveToTarget = zombieData.detectedPlayer;
+    }
+
+    private E_NodeState DetectPlayerCheck()
+    {
+        var overlapColliders = Physics.OverlapSphere(zombieData.transform.position, zombieData.moveSoundDistance
+            , zombieData.PLAYER_LAYER_MASK);
+
+        if (overlapColliders != null & overlapColliders.Length > 0)
+        {
+            zombieData.detectedPlayer = overlapColliders[0].transform;
+            RandomSound(); // 리팩토링 예정
+            return E_NodeState.Success;
+        }
+
+        return E_NodeState.Running;
     }
 
     private void DetectDistanceCheck()
