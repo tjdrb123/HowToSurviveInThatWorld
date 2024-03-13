@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7281245370658222472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be0eca263df6f644aad5c8f804da5a9, type: 3}
+  m_Name: Hungry
+  m_EditorClassIdentifier: 
+  _BaseValue: 1000
+  _Capacity: -1
+  _Type: 9
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ececee1fab4694db93beba3a0d6431, type: 3}
+  m_Name: PlayerStatTable
+  m_EditorClassIdentifier: 
+  Stats:
+  - {fileID: 6760742270653004117}
+  Attributes:
+  - {fileID: 7059232610617897157}
+  - {fileID: -7281245370658222472}
+  Primary: []
+--- !u!114 &6760742270653004117
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be0eca263df6f644aad5c8f804da5a9, type: 3}
+  m_Name: AttackDamage
+  m_EditorClassIdentifier: 
+  _BaseValue: 60
+  _Capacity: -1
+  _Type: 5
+--- !u!114 &7059232610617897157
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be0eca263df6f644aad5c8f804da5a9, type: 3}
+  m_Name: Health
+  m_EditorClassIdentifier: 
+  _BaseValue: 1000
+  _Capacity: -1
+  _Type: 1

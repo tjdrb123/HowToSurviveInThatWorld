@@ -1,0 +1,31 @@
+{
+  "hp": {
+    "curValue": 100.0,
+    "maxValue": 100.0
+  },
+  "exp": {
+    "curValue": 0.0,
+    "maxValue": 100.0
+  },
+  "hunger": {
+    "value": 100.0
+  },
+  "thirst": {
+    "value": 100.0
+  },
+  "damage": {
+    "value": 50.0
+  },
+  "defense": {
+    "value": 10.0
+  },
+  "moveSpeed": {
+    "value": 5.0
+  },
+  "level": {
+    "value": 1.0
+  },
+  "userName": {
+    "value": "gamehappy"
+  }
+}

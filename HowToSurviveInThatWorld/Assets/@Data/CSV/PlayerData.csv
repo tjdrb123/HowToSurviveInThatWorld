@@ -1,0 +1,12 @@
+Key,SubKey,Value
+hp,curValue,100
+hp,maxValue,100
+exp,curValue,0
+exp,maxValue,100
+hunger,value,100
+thirst,value,100
+damage,value,10
+defense,value,10
+moveSpeed,value,5
+level,value,1
+userName,value,temp
