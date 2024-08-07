@@ -3,7 +3,7 @@ TEAM - Happy Games
 
 - 에셋 저작권 문제로 인해 이 프로젝트의 리소스는 삭제되었습니다.<br/>
 - The resources for this project have been deleted due to copyright issues with the assets.
-
+<br><br>
 - **프로젝트 명 :** 그 세상에서 살아남는 법 : How to survive in that world
 - **장르 :** 생존 / 아포칼립스
 - **2D/3D :** 3D (쿼터뷰)
